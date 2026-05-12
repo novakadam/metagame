@@ -1,0 +1,61 @@
+:root {
+
+  /* ── HÁTTÉRSZÍNEK ─────────────────────────── */
+  --color-bg:          #40022C;  /* fő oldal háttér */
+  --color-bg-card:     #720A2B;  /* kártya, panel háttér */
+  --color-bg-muted:    #5A0E3A;  /* közbülső réteg, hover */
+  --color-bg-sidebar:  #2A0020;  /* bal/jobb nav háttér */
+  --color-bg-popover:  #022139;  /* dropdown, tooltip */
+
+  /* ── SZÖVEGSZÍNEK ─────────────────────────── */
+  --color-text:        #F4F0DD;  /* elsődleges szöveg */
+  --color-text-muted:  #D8CBAF;  /* másodlagos szöveg */
+  --color-text-card:   #FFF3D7;  /* kártya szöveg */
+
+  /* ── AKCENTSZÍNEK ─────────────────────────── */
+  --color-gold:        #B38A24;  /* arany – gombok, keretek */
+  --color-gold-ring:   #DAA415;  /* arany hover, fókusz */
+  --color-red:         #8B0000;  /* sötétpiros sávok */
+  --color-destructive: #FF4400;  /* hibák, törlés */
+  --color-secondary:   #022139;  /* sötétkék akcentus */
+
+  /* ── KERETEK ──────────────────────────────── */
+  --color-border:       #B38A24;  /* arany keret */
+  --color-border-muted: #8A4515;  /* barna keret, input */
+
+  /* ── TIPOGRÁFIA ───────────────────────────── */
+  --font-display:    'Playfair Display', Georgia, serif;
+  --font-body:       'Manrope', system-ui, sans-serif;
+  --font-size-sm:    14px;
+  --font-size-base:  16px;
+  --font-size-lg:    18px;
+  --font-size-xl:    20px;
+  --font-size-2xl:   24px;
+  --font-size-3xl:   30px;
+  --font-size-4xl:   36px;
+
+  /* ── BORDER RADIUS ────────────────────────── */
+  --radius-xs:   2px;
+  --radius-sm:   6px;
+  --radius-md:   0px;
+  --radius-pill: 9999px;
+
+  /* ── SPACING ──────────────────────────────── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+
+  /* ── TRANSITION ───────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* ── Z-INDEX ──────────────────────────────── */
+  --z-frame:   100;
+  --z-nav:     200;
+  --z-overlay: 300;
+  --z-modal:   400;
+  --z-toast:   500;
+}

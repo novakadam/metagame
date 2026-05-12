@@ -1,0 +1,401 @@
+/*
+ * frame.css – Metagame keret widget
+ *
+ * Z-index rétegek:
+ *   0  – SVG keret elemek (leghátsó réteg)
+ *   1  – topbar, nav, content, footer
+ *   --z-nav (200)     – dropdown / overlay nav
+ *   --z-overlay (300) – modal backdrop
+ *   --z-modal (400)   – modal
+ *   --z-toast (500)   – értesítések
+ *
+ * SVG corner méretek (viewBox alapján, 1:1 px):
+ *   TL 529×174 | TR 334×110 | BL 201×119 | BR 190×119
+ *
+ * Keret offszetek (Illustrator):
+ *   Bal: 13px | Jobb: 12px | Felső: 24px | Alsó: 43px
+ *
+ * Számított kapcsolódási pontok:
+ *   top-line:    left: 542 (13+529)  | right: 346 (12+334)
+ *   left-line:   top: 198 (24+174)   | bottom: 162 (43+119)
+ *   right-top:   top: 134 (24+110)   | height: 330
+ *   right-btm:   top: 464 (134+330)  | bottom: 162 (43+119)
+ *   bottom-line: left: 258 (57+201)  | right: 202 (12+190)
+ */
+
+/* ── GYÖKÉR ─────────────────────────────────────────────────────── */
+
+.mg-frame {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-bg);
+  font-family: var(--font-body);
+}
+
+/* ── KERET SVG RÉTEG (z-index: 0 – leghátsó) ────────────────────── */
+
+.mg-frame-corner,
+.mg-frame-line {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+/* Sarokdíszek: fix méret, nem nyúlnak */
+
+.mg-frame-corner--tl { top: 24px;    left: 13px;  width: 529px; height: 174px; }
+.mg-frame-corner--tr { top: 25px;    right: 12px; width: 334px; height: 110px; }
+.mg-frame-corner--bl { bottom: 43px; left: 57px;  width: 201px; height: 119px; }
+.mg-frame-corner--br { bottom: 43px; right: 12px; width: 190px; height: 119px; }
+
+/* Vonalak: div pozicionálja, img belül tölti ki */
+
+.mg-frame-line img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.mg-frame-line--top          { top: 38px;    left: 542px;  right: 346px;  height: 41px; }
+.mg-frame-line--left         { left: 57px;   width: 8px;   top: 198px;    bottom: 162px; }
+.mg-frame-line--right-top    { right: 12px;  width: 20px;  top: 134px;    height: 330px; }
+.mg-frame-line--right-bottom { right: 12px;  width: 8px;   top: 464px;    bottom: 162px; }
+.mg-frame-line--bottom       { bottom: 43px; left: 258px;  right: 202px;  height: 8px; }
+
+/* ── TOP BAR ────────────────────────────────────────────────────── */
+
+.mg-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 197px;
+  background: transparent;
+  z-index: 1;
+}
+
+/* Logo: 315px széles, 24px balról, 30px fentről */
+.mg-logo {
+  position: absolute;
+  left: 24px;
+  top: 30px;
+  width: 315px;
+  height: auto;
+}
+
+/* Toggle + search: 50px a lap tetejétől, horizontálisan centrált */
+.mg-topbar-row {
+  position: absolute;
+  top: 55px;
+  left: 350px;   /* logo területe után */
+  right: 65px;   /* jobb nav előtt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 72px;
+}
+
+/* ── TOGGLE (Shop / Közösség) ────────────────────────────────────── */
+
+.mg-toggle {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.mg-toggle__btn {
+  padding: 6px var(--space-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-gold);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition-fast);
+}
+
+.mg-toggle__btn:first-child { border-radius: var(--radius-xs) 0 0 var(--radius-xs); }
+.mg-toggle__btn:last-child  { border-left: none; border-radius: 0 var(--radius-xs) var(--radius-xs) 0; }
+
+.mg-toggle__btn--active,
+.mg-toggle__btn:hover {
+  background: var(--color-bg-card);
+  color: var(--color-text);
+}
+
+/* ── KERESŐMEZŐ ──────────────────────────────────────────────────── */
+
+.mg-search {
+  flex: 0 1 720px;   /* max 720px, kisebb képernyőn szűkül */
+  display: flex;
+  align-items: center;
+  background: var(--color-text);   /* vajszín háttér */
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+
+.mg-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 8px var(--space-md);
+  color: var(--color-bg);            /* sötét szöveg */
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+}
+
+.mg-search input::placeholder {
+  color: var(--color-bg);
+  opacity: 0.45;
+}
+
+.mg-search__btn {
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--color-border-muted);
+  color: var(--color-bg);
+  padding: 8px var(--space-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: opacity var(--transition-fast);
+}
+
+.mg-search__btn:hover { opacity: 0.6; }
+
+/* ── BAL NAV ────────────────────────────────────────────────────── */
+
+.mg-nav-left {
+  position: absolute;
+  top: 197px;
+  left: 0;
+  bottom: 37px;
+  width: 255px;
+  background: transparent;
+  z-index: 1;
+  overflow-y: auto;
+  padding: var(--space-md) 0;
+}
+
+.mg-nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0 var(--space-md);
+}
+
+.mg-nav-section--hidden { display: none; }
+
+.mg-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg);
+  border: 1px solid var(--color-gold);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: background var(--transition-fast);
+}
+
+.mg-nav-item:hover,
+.mg-nav-item--active {
+  background: var(--color-bg-card);
+  color: var(--color-text);
+}
+
+.mg-nav-item__icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mg-nav-item__label {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.03em;
+}
+
+/* ── UTILITY: GRADIENT GOMB ─────────────────────────────────────── */
+/* Újrafelhasználható class – jobb nav felső 4 ikon + bárhol máshol */
+
+.mg-btn-gradient {
+  background: linear-gradient(to right, var(--color-bg) 0%, var(--color-bg-card) 100%);
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 0 0 2px var(--color-bg);
+}
+
+.mg-btn-gradient:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+/* ── JOBB NAV ───────────────────────────────────────────────────── */
+
+.mg-nav-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 37px;
+  width: 55px;
+  background: transparent;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Pozicionálás: Profil top 16px, két csoport 60px szünettel, csoporton belül 12px */
+.mg-nav-right__btn:nth-child(1) { margin-top: 16px; }   /* Profil */
+.mg-nav-right__btn:nth-child(2) { margin-top: 60px; }   /* Kedvencek – 60px szünet */
+.mg-nav-right__btn:nth-child(3) { margin-top: 12px; }   /* Kosár */
+.mg-nav-right__btn:nth-child(4) { margin-top: 12px; }   /* Értesítések */
+.mg-nav-right__btn:nth-child(5) { margin-top: 60px; }   /* Helyszín – 60px szünet */
+.mg-nav-right__btn:nth-child(6) { margin-top: 12px; }   /* Telefon */
+
+/* Alap: csak layout – a vizuális stílus az inner div-en van */
+.mg-nav-right__btn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner wrapper: ez hordozza a kör alakot, keretét és háttérét */
+.mg-nav-right__btn-inner {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 0 0 2px var(--color-bg);
+  background: var(--color-bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  transition: background var(--transition-fast);
+}
+
+.mg-nav-right__btn-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(to right, var(--color-bg) 0%, var(--color-bg-card) 100%);
+  transition: opacity var(--transition-fast);
+}
+
+.mg-nav-right__btn:hover .mg-nav-right__btn-inner {
+  background: var(--color-gold);
+}
+
+.mg-nav-right__btn:hover .mg-nav-right__btn-inner::before {
+  opacity: 0;
+}
+
+/* SVG ikonok az inner div felett */
+.mg-nav-right__btn svg {
+  position: relative;
+  z-index: 3;
+}
+
+/* Alsó 2 ikon (helyszín, telefon): 36×36px */
+.mg-nav-right__btn:nth-child(n+5) .mg-nav-right__btn-inner {
+  width: 36px;
+  height: 36px;
+}
+
+/* Kosár: fehér ikon */
+.mg-nav-right__btn--cart .mg-nav-right__btn-inner {
+  color: #fff;
+}
+
+/* BACKEND: cart.count badge – kör alakon kívülre kerül */
+.mg-cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  background: var(--color-destructive);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+/* ── TARTALOM ───────────────────────────────────────────────────── */
+
+.mg-content {
+  position: absolute;
+  top: 197px;
+  left: 255px;
+  right: 55px;
+  bottom: 37px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────────── */
+
+.mg-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 37px;
+  background: transparent;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 62px 0 108px;
+  font-size: var(--font-size-sm);
+}
+
+.mg-footer__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  color: var(--color-gold);
+}
+
+.mg-footer__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.mg-footer__right a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mg-footer__right a:hover { color: var(--color-text); }
