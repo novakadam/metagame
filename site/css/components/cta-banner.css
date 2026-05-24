@@ -1,0 +1,116 @@
+/*
+ * cta-banner.css – CTA Banner (feliratkozás / hírlevél)
+ *
+ * Arany háttércsík, bal oldalon dekoratív D20 ikon,
+ * középen szöveg, jobbra sötétkék gomb.
+ */
+
+/* ── BANNER ──────────────────────────────────────────────────── */
+
+.mg-cta-banner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 45px;
+}
+
+.mg-cta-banner__strip {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+/* ── CONTAINER ───────────────────────────────────────────────── */
+
+.mg-cta-banner__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 48px;
+}
+
+/* ── DEKORATÍV D20 IKON ──────────────────────────────────────── */
+
+.mg-cta-banner__deco {
+  position: relative;
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mg-cta-banner__circle {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #6B55A4;
+}
+
+.mg-cta-banner__diamond {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--color-bg-card);
+  border: 1.5px solid var(--color-gold);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.mg-cta-banner__dice {
+  position: relative;
+  width: 64px;
+  height: 84px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* ── TARTALOM ────────────────────────────────────────────────── */
+
+.mg-cta-banner__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.mg-cta-banner__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-4xl);
+  line-height: 40px;
+  color: #fff;
+  margin: 0;
+}
+
+.mg-cta-banner__desc {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-xl);
+  line-height: 28px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ── AKCIÓ ───────────────────────────────────────────────────── */
+
+.mg-cta-banner__action {
+  flex-shrink: 0;
+}
+
+/* ── GOMB VARIÁNS: DARK (sötétkék háttér) ────────────────────── */
+
+.mg-btn--dark {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.mg-btn--dark:hover {
+  background: #033158;
+  color: #fff;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metagame – Sikeres rendelés</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/checkout.css">
+</head>
+<body>
+
+<div class="mg-checkout">
+
+  <!-- ── KERET ────────────────────────────────────────────── -->
+  <div class="mg-frame-corner mg-checkout__corner--tl"><img src="../assets/frame/frame-corner-tl.svg" alt=""></div>
+  <div class="mg-frame-corner mg-checkout__corner--tr"><img src="../assets/frame/frame-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-line mg-checkout__line--top"><img src="../assets/frame/frame-line-top.svg" alt=""></div>
+  <div class="mg-frame-corner mg-checkout__corner--bl"><img src="../assets/frame/frame-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-corner mg-checkout__corner--br"><img src="../assets/frame/frame-corner-br.svg" alt=""></div>
+  <div class="mg-frame-line mg-checkout__line--bottom"><img src="../assets/frame/frame-line-bottom.svg" alt=""></div>
+
+  <!-- ── LOGO ────────────────────────────────────────────── -->
+  <a href="index.html">
+    <img class="mg-checkout__logo" src="../assets/frame/logo.svg" alt="Metagame">
+  </a>
+
+  <!-- ── VISSZA LINK ─────────────────────────────────────── -->
+  <div class="mg-checkout__infobar">
+    <a href="index.html" class="mg-checkout__back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Vissza a főoldalra
+    </a>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- ── TARTALOM ────────────────────────────────────────── -->
+  <div class="mg-success">
+
+    <!-- Siker ikon + cím -->
+    <div class="mg-success__hero">
+      <div class="mg-success__icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h1 class="mg-success__title">Sikeres rendelés</h1>
+      <p class="mg-success__subtitle">Köszönjük, a rendelésedet rögzítettük.</p>
+    </div>
+
+    <!-- Rendelés adatok -->
+    <div class="mg-success__card">
+      <div class="mg-success__detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <div>
+          <!-- BACKEND: order.number -->
+          <p class="mg-success__detail-label">Rendelésszám</p>
+          <p class="mg-success__detail-value">#MG-2026-10482</p>
+        </div>
+      </div>
+      <div class="mg-success__detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <div>
+          <!-- BACKEND: customer.email -->
+          <p class="mg-success__detail-label">Visszaigazolás elküldve</p>
+          <p class="mg-success__detail-value">kovacs.janos@email.com</p>
+        </div>
+      </div>
+      <div class="mg-success__detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+        <div>
+          <!-- BACKEND: order.paymentMethod -->
+          <p class="mg-success__detail-label">Fizetési mód</p>
+          <p class="mg-success__detail-value">Bankkártya</p>
+        </div>
+      </div>
+      <div class="mg-success__detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <!-- BACKEND: order.deliveryMethod -->
+          <p class="mg-success__detail-label">Átvétel módja</p>
+          <p class="mg-success__detail-value">Személyes átvétel – Metagame Bolt</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Átvételi információ -->
+    <div class="mg-success__pickup">
+      <h2 class="mg-success__section-title">Átvételi információ</h2>
+      <div class="mg-success__detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <!-- BACKEND: pickup.location -->
+          <p class="mg-success__detail-value">Metagame Bolt</p>
+          <p class="mg-success__detail-label">1132 Budapest, Kádár utca 10.</p>
+        </div>
+      </div>
+      <div class="mg-success__detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div>
+          <p class="mg-success__detail-label">Nyitvatartás</p>
+          <p class="mg-success__detail-value">H–SZ 10–18</p>
+        </div>
+      </div>
+      <p class="mg-success__pickup-note">Értesítünk, amint a rendelésed átvehető.</p>
+    </div>
+
+    <!-- Rendelés összegzése -->
+    <div class="mg-success__card">
+      <h2 class="mg-success__section-title" style="margin-bottom: 20px;">Rendelés összegzése</h2>
+
+      <!-- BACKEND: order.items -->
+      <div class="mg-success__items">
+        <div class="mg-success__item">
+          <div class="mg-success__item-img">
+            <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Riftbound Deck">
+          </div>
+          <div class="mg-success__item-info">
+            <span class="mg-success__item-name">Riftbound Deck</span>
+            <span class="mg-success__item-sub">Origins Champion Deck</span>
+            <span class="mg-success__item-qty">Mennyiség: 1</span>
+          </div>
+          <span class="mg-success__item-price">12 358 Ft</span>
+        </div>
+
+        <div class="mg-success__item">
+          <div class="mg-success__item-img">
+            <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Riftbound Booster">
+          </div>
+          <div class="mg-success__item-info">
+            <span class="mg-success__item-name">Riftbound Booster</span>
+            <span class="mg-success__item-sub">Origins Booster Display (24 pack)</span>
+            <span class="mg-success__item-qty">Mennyiség: 2</span>
+          </div>
+          <span class="mg-success__item-price">25 600 Ft</span>
+        </div>
+
+        <div class="mg-success__item">
+          <div class="mg-success__item-img">
+            <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Magic Play Display">
+          </div>
+          <div class="mg-success__item-info">
+            <span class="mg-success__item-name">Magic Play Display</span>
+            <span class="mg-success__item-sub">Play Boosters Display</span>
+            <span class="mg-success__item-qty">Mennyiség: 1</span>
+          </div>
+          <span class="mg-success__item-price">24 900 Ft</span>
+        </div>
+      </div>
+
+      <!-- Összesítő -->
+      <div class="mg-success__totals">
+        <div class="mg-success__totals-row">
+          <span>Részösszeg</span><span>62 858 Ft</span>
+        </div>
+        <div class="mg-success__totals-row">
+          <span>Szállítás</span><span class="mg-success__totals-free">Ingyenes</span>
+        </div>
+        <div class="mg-success__totals-divider"></div>
+        <div class="mg-success__totals-final">
+          <span>Végösszeg</span>
+          <span class="mg-success__totals-amount">62 858 Ft</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA gombok -->
+    <div class="mg-success__actions">
+      <a href="#" class="mg-btn mg-btn--glow">Rendelés részletei</a>
+      <a href="index.html" class="mg-btn mg-btn--outline">Vissza a vásárláshoz</a>
+      <a href="#" class="mg-success__browse-link">Új megjelenések böngészése</a>
+    </div>
+
+    <!-- Infó szöveg -->
+    <div class="mg-success__footer-note">
+      <p>A rendelésed státuszát e-mailben is elküldtük.</p>
+      <p>Kérdés esetén keresd ügyfélszolgálatunkat.</p>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ──────────────────────────────────────────── -->
+  <footer class="mg-checkout__footer">
+    <span>© metagame 2026</span>
+    <div class="mg-checkout__footer-links">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatvédelem</a>
+      <a href="#">Információ</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1206 @@
+/*
+ * checkout.css – Metagame checkout oldal
+ *
+ * Sötétebb színvilág a főoldalhoz képest.
+ * Felülírja a tokens.css változóit a .mg-checkout scope-on belül.
+ */
+
+/* ── RESET ──────────────────────────────────────────────── */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CHECKOUT SZÍN FELÜLÍRÁSOK ──────────────────────────── */
+
+.mg-checkout {
+  --color-bg:          #140610;
+  --color-bg-card:     #2a101c;
+  --color-bg-muted:    #1c0810;
+  --color-bg-elevated: #381828;
+  --color-gold:        #d4a520;
+  --color-gold-ring:   #f0c030;
+  --color-text:        #f5f0e6;
+  --color-text-muted:  #b0a090;
+  --color-text-card:   #f8f4eb;
+  --color-border:      #4a2025;
+  --color-border-gold: #a07820;
+  --color-success:     #22c55e;
+  --color-warning:     #f59e0b;
+}
+
+/* ── GYÖKÉR ─────────────────────────────────────────────── */
+
+.mg-checkout {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+/* ── KERET (egyszerűsített – csak felső + alsó) ─────────── */
+
+.mg-checkout .mg-frame-corner,
+.mg-checkout .mg-frame-line {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mg-checkout .mg-frame-corner img,
+.mg-checkout .mg-frame-line img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  opacity: 0.35;
+}
+
+.mg-checkout__corner--tl { top: 24px;    left: 13px;  width: 529px; height: 174px; }
+.mg-checkout__corner--tr { top: 25px;    right: 12px; width: 334px; height: 110px; }
+.mg-checkout__corner--bl { bottom: 20px; left: 57px;  width: 201px; height: 119px; }
+.mg-checkout__corner--br { bottom: 20px; right: 12px; width: 190px; height: 119px; }
+
+.mg-checkout__line--top    { top: 37.5px;  left: 541px; right: 346px; height: 41px; }
+.mg-checkout__line--bottom { bottom: 20px; left: 258px; right: 202px; height: 8px; }
+
+/* ── LOGO ───────────────────────────────────────────────── */
+
+.mg-checkout__logo {
+  position: absolute;
+  top: 30px;
+  left: 24px;
+  width: 200px;
+  height: auto;
+  z-index: 1;
+}
+
+/* ── INFO BÁR ───────────────────────────────────────────── */
+
+.mg-checkout__infobar {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mg-checkout__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mg-checkout__back:hover {
+  color: var(--color-gold);
+}
+
+.mg-checkout__timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-warning);
+}
+
+.mg-checkout__secure {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.mg-checkout__secure svg {
+  color: var(--color-success);
+}
+
+/* ── FŐ TARTALOM (kétoszlopos) ──────────────────────────── */
+
+.mg-checkout__main {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 40px 48px;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── BAL OSZLOP (formok) ────────────────────────────────── */
+
+.mg-checkout__forms {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── SZEKCIÓK (kártya stílusú) ──────────────────────────── */
+
+.mg-checkout__section {
+  background: var(--color-bg-card);
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mg-checkout__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.mg-checkout__section-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mg-checkout__section-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-sm);
+  color: var(--color-success);
+}
+
+/* ── SZEKCIÓN BELÜLI FORM SPACING ───────────────────────── */
+
+.mg-checkout__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── BEJELENTKEZÉS LINK ─────────────────────────────────── */
+
+.mg-checkout__auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.mg-checkout__login-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-gold);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.mg-checkout__login-link:hover {
+  opacity: 0.7;
+}
+
+
+/* ── LOGIN MODAL ────────────────────────────────────────── */
+
+.mg-login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: var(--z-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.mg-login-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mg-login-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  z-index: var(--z-modal);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.mg-login-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.mg-login-modal__card {
+  width: 420px;
+  background: var(--color-bg-card);
+  padding: 40px 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.mg-login-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--transition-fast);
+}
+
+.mg-login-modal__close:hover {
+  color: var(--color-text);
+}
+
+.mg-login-modal__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.mg-login-modal__google {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  color: #333;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: box-shadow var(--transition-fast);
+}
+
+.mg-login-modal__google:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mg-login-modal__social-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.mg-login-modal__social-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-bg-muted);
+  border: none;
+  color: var(--color-gold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast);
+}
+
+.mg-login-modal__social-icon:hover {
+  background: var(--color-bg-elevated);
+}
+
+.mg-login-modal__divider {
+  position: relative;
+  margin: 28px 0;
+  text-align: center;
+}
+
+.mg-login-modal__divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-border);
+  opacity: 0.3;
+}
+
+.mg-login-modal__divider span {
+  position: relative;
+  padding: 0 16px;
+  background: var(--color-bg-card);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.mg-login-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mg-login-modal__forgot {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-align: center;
+  padding: 4px;
+  transition: color var(--transition-fast);
+}
+
+.mg-login-modal__forgot:hover {
+  color: var(--color-gold);
+}
+
+/* ── CÉGES MEZŐK (feltételes megjelenés) ────────────────── */
+
+.mg-checkout__company-fields {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 8px;
+}
+
+.mg-checkout__company-fields.is-visible {
+  display: flex;
+}
+
+/* ── FIÓK JELSZÓ MEZŐK ──────────────────────────────────── */
+
+.mg-checkout__account-fields {
+  display: none;
+  padding-top: 8px;
+}
+
+.mg-checkout__account-fields.is-visible {
+  display: block;
+}
+
+/* ── ÁTVÉTELI / FIZETÉSI OPCIÓK ─────────────────────────── */
+
+.mg-checkout__options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mg-checkout__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: var(--color-bg-muted);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+.mg-checkout__option:hover {
+  background: var(--color-bg-elevated);
+}
+
+.mg-checkout__option.is-selected {
+  background: linear-gradient(135deg, rgba(212, 165, 32, 0.12) 0%, rgba(212, 165, 32, 0.06) 100%);
+  box-shadow: inset 0 0 0 1px rgba(212, 165, 32, 0.4), inset 0 0 30px rgba(212, 165, 32, 0.08);
+}
+
+.mg-checkout__option.is-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mg-checkout__option-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.mg-checkout__option-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mg-checkout__option-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+}
+
+.mg-checkout__option.is-selected .mg-checkout__option-icon {
+  color: var(--color-gold);
+}
+
+.mg-checkout__option-label {
+  font-weight: 500;
+  font-size: var(--font-size-base);
+}
+
+.mg-checkout__option-extra {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-left: 4px;
+}
+
+.mg-checkout__option-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.mg-checkout__option-hours {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.mg-checkout__option-avail {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.mg-checkout__option-avail--ok {
+  color: var(--color-success);
+}
+
+.mg-checkout__option-avail--no {
+  color: var(--color-destructive);
+}
+
+.mg-checkout__option-price {
+  flex-shrink: 0;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.mg-checkout__option-price--free {
+  color: var(--color-success);
+}
+
+/* ── SZÁLLÍTÁSI CÍM MEZŐK ──────────────────────────────── */
+
+.mg-checkout__address {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.mg-checkout__address.is-visible {
+  display: flex;
+}
+
+.mg-checkout__address-title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── GYORS FIZETÉS (Apple Pay / Google Pay) ─────────────── */
+
+.mg-checkout__express {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.mg-checkout__express-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.mg-checkout__express-row {
+  display: flex;
+  gap: 12px;
+}
+
+.mg-checkout__express-btn {
+  flex: 1;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  transition: opacity var(--transition-fast);
+}
+
+.mg-checkout__express-btn:hover {
+  opacity: 0.85;
+}
+
+.mg-checkout__express-btn--apple {
+  background: #000;
+  color: #fff;
+}
+
+.mg-checkout__express-btn--google {
+  background: #fff;
+  color: #333;
+}
+
+/* ── TRUST BADGES ───────────────────────────────────────── */
+
+.mg-checkout__trust {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.mg-checkout__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(14, 4, 8, 0.6);
+}
+
+.mg-checkout__trust-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 165, 32, 0.1);
+}
+
+.mg-checkout__trust-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gold);
+}
+
+.mg-checkout__trust-title {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.mg-checkout__trust-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ── JOBB OSZLOP (összesítő) ───────────────────────────── */
+
+.mg-checkout__sidebar {
+  position: sticky;
+  top: 32px;
+}
+
+/* ── RENDELÉS ÖSSZESÍTŐ ─────────────────────────────────── */
+
+.mg-checkout__summary {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-gold);
+  box-shadow:
+    0 0 0 1px rgba(160, 120, 32, 0.4),
+    0 12px 40px rgba(0, 0, 0, 0.7),
+    0 0 100px rgba(212, 165, 32, 0.1);
+  overflow: hidden;
+}
+
+.mg-checkout__summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: rgba(56, 24, 40, 0.5);
+}
+
+.mg-checkout__summary-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mg-checkout__summary-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ── TERMÉK LISTA ───────────────────────────────────────── */
+
+.mg-checkout__items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px;
+  max-height: 360px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.mg-checkout__items::-webkit-scrollbar { display: none; }
+
+.mg-checkout__item {
+  display: flex;
+  gap: 16px;
+}
+
+.mg-checkout__item-img {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background: radial-gradient(circle, var(--color-bg-elevated) 0%, rgba(114, 10, 43, 0.25) 100%);
+}
+
+.mg-checkout__item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mg-checkout__item-stock {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  padding: 2px 6px;
+  background: var(--color-warning);
+  color: #000;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.mg-checkout__item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+.mg-checkout__item-name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mg-checkout__item-sub {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mg-checkout__item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── MENNYISÉG LÉPTETŐ ──────────────────────────────────── */
+
+.mg-checkout__qty {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.mg-checkout__qty-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-muted);
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background var(--transition-fast);
+}
+
+.mg-checkout__qty-btn:hover {
+  background: var(--color-bg-elevated);
+}
+
+.mg-checkout__qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mg-checkout__qty-val {
+  width: 32px;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.mg-checkout__item-price {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── ÖSSZESÍTŐ SZÁMOK ───────────────────────────────────── */
+
+.mg-checkout__totals {
+  padding: 24px;
+  background: var(--color-bg-muted);
+}
+
+.mg-checkout__totals-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.mg-checkout__totals-row + .mg-checkout__totals-row {
+  margin-top: 12px;
+}
+
+.mg-checkout__totals-row span:last-child {
+  color: var(--color-text);
+}
+
+.mg-checkout__totals-free {
+  color: var(--color-success) !important;
+}
+
+.mg-checkout__totals-divider {
+  height: 1px;
+  background: var(--color-border);
+  opacity: 0.3;
+  margin: 16px 0;
+}
+
+.mg-checkout__totals-final {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mg-checkout__totals-final-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.mg-checkout__totals-final-amount {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* ── CTA + FOLYTATÁS ────────────────────────────────────── */
+
+.mg-checkout__cta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 24px 24px;
+  background: var(--color-bg-muted);
+}
+
+.mg-checkout__cta .mg-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.mg-checkout__continue {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 8px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mg-checkout__continue:hover {
+  color: var(--color-text);
+}
+
+/* ── CHECKOUT FOOTER ────────────────────────────────────── */
+
+.mg-checkout__footer {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 24px 40px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.mg-checkout__footer-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.mg-checkout__footer-links a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mg-checkout__footer-links a:hover {
+  color: var(--color-text);
+}
+
+/* ── FIGYELMEZTETÉS BANNER ──────────────────────────────── */
+
+.mg-checkout__warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(220, 38, 38, 0.1);
+  margin-top: 16px;
+}
+
+.mg-checkout__warning svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-destructive);
+  margin-top: 1px;
+}
+
+.mg-checkout__warning p {
+  font-size: 12px;
+  color: var(--color-destructive);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SUCCESS OLDAL
+   ═══════════════════════════════════════════════════════════ */
+
+.mg-success {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 40px 48px;
+}
+
+/* ── SIKER HERO ─────────────────────────────────────────── */
+
+.mg-success__hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.mg-success__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: var(--color-success);
+  margin-bottom: 24px;
+}
+
+.mg-success__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.mg-success__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ── KÁRTYÁK ────────────────────────────────────────────── */
+
+.mg-success__card {
+  background: var(--color-bg-card);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.mg-success__section-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── RENDELÉS RÉSZLETEK ─────────────────────────────────── */
+
+.mg-success__detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.mg-success__detail + .mg-success__detail {
+  margin-top: 16px;
+}
+
+.mg-success__detail svg {
+  flex-shrink: 0;
+  color: var(--color-gold);
+  margin-top: 2px;
+}
+
+.mg-success__detail-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.mg-success__detail-value {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── ÁTVÉTELI INFO ──────────────────────────────────────── */
+
+.mg-success__pickup {
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(160, 120, 32, 0.3);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.mg-success__pickup .mg-success__section-title {
+  margin-bottom: 20px;
+}
+
+.mg-success__pickup-note {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(74, 32, 37, 0.5);
+}
+
+/* ── TERMÉKEK (success) ─────────────────────────────────── */
+
+.mg-success__items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mg-success__item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.mg-success__item-img {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background: radial-gradient(circle, var(--color-bg-elevated) 0%, rgba(114, 10, 43, 0.25) 100%);
+}
+
+.mg-success__item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mg-success__item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mg-success__item-name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.mg-success__item-sub {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.mg-success__item-qty {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.mg-success__item-price {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── ÖSSZESÍTŐ (success) ────────────────────────────────── */
+
+.mg-success__totals {
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
+
+.mg-success__totals-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.mg-success__totals-row + .mg-success__totals-row {
+  margin-top: 8px;
+}
+
+.mg-success__totals-row span:last-child {
+  color: var(--color-text);
+}
+
+.mg-success__totals-free {
+  color: var(--color-success) !important;
+}
+
+.mg-success__totals-divider {
+  height: 1px;
+  background: var(--color-border);
+  opacity: 0.3;
+  margin: 12px 0;
+}
+
+.mg-success__totals-final {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mg-success__totals-final span:first-child {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.mg-success__totals-amount {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── CTA GOMBOK ─────────────────────────────────────────── */
+
+.mg-success__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.mg-success__actions .mg-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.mg-success__browse-link {
+  display: block;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 8px;
+  transition: color var(--transition-fast);
+}
+
+.mg-success__browse-link:hover {
+  color: var(--color-gold);
+}
+
+/* ── LÁBLÉC MEGJEGYZÉS ──────────────────────────────────── */
+
+.mg-success__footer-note {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(74, 32, 37, 0.5);
+}
+
+.mg-success__footer-note p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0 0 8px;
+}

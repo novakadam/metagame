@@ -1,0 +1,224 @@
+/* ── MEGA MENU ──────────────────────────────────────────────────── */
+
+.mg-megamenu {
+  position: absolute;
+  top: 140px;
+  left: 255px;
+  bottom: 50px;
+  z-index: var(--z-nav);
+  display: flex;
+  background: var(--color-bg);
+  border: 1px solid var(--color-gold);
+  padding: 24px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.35), 2px 0 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-16px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.mg-megamenu::-webkit-scrollbar { display: none; }
+
+.mg-megamenu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  pointer-events: auto;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0s;
+}
+
+/* ── LEFT: BRAND LIST ──────────────────────────────────────────── */
+
+.mg-megamenu__brands {
+  width: 328px;
+  min-width: 328px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-card);
+}
+
+.mg-megamenu__brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 14px;
+  border-bottom: 1px solid var(--color-gold);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+
+.mg-megamenu__brand:hover,
+.mg-megamenu__brand.is-active {
+  background: var(--color-bg-muted);
+}
+
+.mg-megamenu__brand-logo {
+  width: 60px;
+  height: 30px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.mg-megamenu__brand-name {
+  flex: 1;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.mg-megamenu__brand.is-active .mg-megamenu__brand-name {
+  font-weight: 600;
+}
+
+.mg-megamenu__brand-arrow {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-text);
+}
+
+
+/* ── RIGHT: SUBCATEGORIES + POPULAR ────────────────────────────── */
+
+.mg-megamenu__right {
+  display: flex;
+  width: 540px;
+  min-width: 328px;
+  box-shadow: -3px 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.mg-megamenu__subcats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 24px 36px;
+  background: var(--color-bg);
+}
+
+.mg-megamenu__subcats-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mg-megamenu__subcats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mg-megamenu__subcats-list a {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mg-megamenu__subcats-list a:hover {
+  color: var(--color-gold);
+}
+
+/* ── POPULAR PRODUCTS ──────────────────────────────────────────── */
+
+.mg-megamenu__popular {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 24px 16px;
+}
+
+.mg-megamenu__popular-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mg-megamenu__product-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--color-gold);
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+
+.mg-megamenu__product-card:hover {
+  background: var(--color-bg-muted);
+}
+
+.mg-megamenu__product-img {
+  width: 80px;
+  height: 80px;
+  background: var(--color-bg-muted);
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.mg-megamenu__product-img img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.mg-megamenu__product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mg-megamenu__product-name {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text);
+}
+
+.mg-megamenu__product-price {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  line-height: 28px;
+  color: var(--color-text);
+}
+
+/* ── "TOVÁBBIAK" LINK ──────────────────────────────────────────── */
+
+.mg-megamenu__brand--more .mg-megamenu__brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-muted);
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+}
+
+.mg-megamenu__brand--more .mg-megamenu__brand-logo svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-text);
+}

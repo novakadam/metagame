@@ -1,0 +1,295 @@
+/*
+ * hero.css – Hero szekció (Home első blokkja)
+ *
+ * Méretek (Figma):
+ *   Bal oldal:  ~560px (heading + tabs + carousel)
+ *   Carousel:   max 460px (2 kártya + 3. maszk alatt)
+ *   Kártya:     max 216px széles, álló formátum
+ *   Jobb oldal: ~592px (ajánló kártya középen, topology háttér)
+ *   Gap:        ~76px a két oszlop közt
+ *   Padding:    72px top/bottom, 80px left/right
+ */
+
+/* ── SZEKCIÓ (same pattern as systems / chronicles) ───────────── */
+
+.mg-hero {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 45px;
+  overflow: hidden;
+}
+
+/* ── FRAME (same pattern as .mg-section-frame) ───────────────── */
+
+.mg-hero__frame {
+  position: relative;
+  padding: 48px 80px;
+}
+
+/* Felső és alsó vízszintes vonal */
+.mg-hero__frame::before,
+.mg-hero__frame::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-gold);
+  pointer-events: none;
+}
+
+.mg-hero__frame::before { top: 0; }
+.mg-hero__frame::after  { bottom: 0; }
+
+/* ── CONTAINER ────────────────────────────────────────────────── */
+
+.mg-hero__container {
+  display: flex;
+  gap: 76px;
+}
+
+/* ── BAL OSZLOP (~560px) ──────────────────────────────────────── */
+
+.mg-hero__left {
+  flex: 0 1 560px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-left: 32px;
+}
+
+/* Heading */
+
+.mg-hero__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mg-hero__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.mg-hero__subtitle {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.mg-hero__desc {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 480px;
+}
+
+/* ── TABOK ────────────────────────────────────────────────────── */
+
+.mg-hero__tabs {
+  display: flex;
+  border-bottom: 1.5px solid var(--color-gold);
+}
+
+.mg-hero__tab {
+  position: relative;
+  background: transparent;
+  border: 1.5px solid transparent;
+  border-bottom: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  margin-bottom: -1.5px;
+}
+
+.mg-hero__tab:hover {
+  color: var(--color-text);
+}
+
+.mg-hero__tab--active {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  background: var(--color-bg);
+}
+
+/* ── KÁRTYÁK CAROUSEL (max 460px) ─────────────────────────────── */
+
+.mg-hero__carousel {
+  position: relative;
+  max-width: 460px;
+}
+
+/* Bal-jobb fade – szélső kártya eltűnik */
+.mg-hero__carousel::before,
+.mg-hero__carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mg-hero__carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.mg-hero__carousel--has-prev::before {
+  opacity: 1;
+}
+
+.mg-hero__carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg), transparent);
+}
+
+.mg-hero__cards-wrap {
+  overflow: hidden;
+}
+
+.mg-hero__cards {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Kis kártya – álló formátum */
+
+.mg-hero-card {
+  flex: 0 0 200px;
+  max-width: 216px;
+  border: 1.5px solid rgba(179, 138, 36, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  background: var(--color-bg-card);
+}
+
+.mg-hero-card:hover,
+.mg-hero-card--active {
+  border-color: var(--color-gold);
+}
+
+.mg-hero-card__image {
+  width: 100%;
+  height: 155px;
+  background: var(--color-bg-muted);
+  overflow: hidden;
+}
+
+.mg-hero-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mg-hero-card--product .mg-hero-card__image img {
+  object-fit: contain;
+}
+
+.mg-hero-card__body {
+  padding: 10px 12px;
+}
+
+.mg-hero-card__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mg-hero-card__meta {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-gold);
+  margin: 0;
+}
+
+/* Carousel nav gombok */
+
+.mg-hero__prev { left: -44px; z-index: 3; }
+.mg-hero__next { right: -44px; z-index: 3; }
+
+/* ── LINK ─────────────────────────────────────────────────────── */
+
+.mg-hero__link {
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;
+  transition: opacity var(--transition-fast);
+}
+
+.mg-hero__link:hover {
+  opacity: 0.7;
+  color: var(--color-gold);
+}
+
+/* ── JOBB OSZLOP (~690px) ─────────────────────────────────────── */
+
+.mg-hero__right {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mg-hero__topology {
+  position: absolute;
+  inset: -40px;
+  width: calc(100% + 80px);
+  height: calc(100% + 80px);
+  object-fit: contain;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mg-hero__ajanlo-wrap {
+  position: relative;
+  z-index: 1;
+  width: 280px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mg-hero__ajanlo-wrap--exiting {
+  opacity: 0;
+  transform: translateY(12px);
+}
+

@@ -1,0 +1,368 @@
+/*
+ * search-overlay.css – Megakereső dropdown
+ *
+ * A topbar .mg-search input alól nyílik le.
+ * Szélesség: tartalmi terület (left: 255px, right: 55px).
+ */
+
+/* ── HÁTTÉR (klikk-elkapó) ──────────────────────────────── */
+
+.mg-search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mg-search-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── DROPDOWN PANEL ─────────────────────────────────────── */
+/* A panel teteje a topbar-row elemek magasságában indul,    */
+/* de alattuk (z-index: 3 < topbar: 5). A felső border       */
+/* átfut mögöttük, a tartalom padding-top-pal lejjebb indul. */
+
+.mg-search-panel {
+  position: absolute;
+  top: 74px;
+  left: 255px;
+  right: 55px;
+  max-width: 1440px;
+  z-index: 3;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-gold);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  max-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.mg-search-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0s;
+}
+
+/* ── TÖRZS ──────────────────────────────────────────────── */
+
+.mg-search-panel__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 44px 40px 24px;
+  scrollbar-width: none;
+}
+
+.mg-search-panel__body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── ÜRES ÁLLAPOT: NÉPSZERŰ KERESÉSEK ───────────────────── */
+
+.mg-search-panel__empty {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mg-search-panel__section-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  margin: 0;
+}
+
+/* Keresési tag chipek */
+
+.mg-search-panel__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mg-search-panel__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--color-bg-muted);
+  border: 1px solid rgba(179, 138, 36, 0.25);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mg-search-panel__tag:hover {
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  border-color: var(--color-gold);
+}
+
+.mg-search-panel__tag svg {
+  color: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* Ajánlott termékek grid */
+
+.mg-search-panel__featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.mg-search-panel__featured-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: var(--color-bg-muted);
+  border: 1px solid rgba(179, 138, 36, 0.2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mg-search-panel__featured-card:hover {
+  background: var(--color-bg-card);
+  border-color: var(--color-gold);
+}
+
+.mg-search-panel__featured-img {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mg-search-panel__featured-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.mg-search-panel__featured-name {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-card);
+  line-height: 18px;
+}
+
+.mg-search-panel__featured-price {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-gold);
+}
+
+/* ── TALÁLATOK ──────────────────────────────────────────── */
+
+.mg-search-panel__results {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mg-search-panel__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mg-search-panel__group-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold);
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(179, 138, 36, 0.15);
+}
+
+.mg-search-panel__items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Egyedi találat sor */
+
+.mg-search-panel__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 10px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+
+.mg-search-panel__item:hover,
+.mg-search-panel__item.is-focused {
+  background: var(--color-bg-muted);
+}
+
+.mg-search-panel__item-img {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+
+.mg-search-panel__item-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.mg-search-panel__item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.mg-search-panel__item-name {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mg-search-panel__item-sub {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 16px;
+}
+
+.mg-search-panel__item-price {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-card);
+  white-space: nowrap;
+}
+
+.mg-search-panel__item-stock {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(179, 138, 36, 0.15);
+  color: var(--color-gold);
+}
+
+.mg-search-panel__item-stock--out {
+  background: rgba(139, 0, 0, 0.2);
+  color: var(--color-destructive);
+}
+
+/* Keresés highlight */
+
+.mg-search-panel__item-name mark {
+  background: none;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+/* ── NINCS TALÁLAT ──────────────────────────────────────── */
+
+.mg-search-panel__no-results {
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.mg-search-panel__no-results-icon {
+  color: var(--color-text-muted);
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+.mg-search-panel__no-results-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin: 0 0 6px;
+}
+
+.mg-search-panel__no-results-text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ── FOOTER: ÖSSZES TALÁLAT ─────────────────────────────── */
+
+.mg-search-panel__footer {
+  flex-shrink: 0;
+  padding: 12px 24px;
+  border-top: 1px solid rgba(179, 138, 36, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mg-search-panel__result-count {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.mg-search-panel__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-gold);
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.mg-search-panel__view-all:hover {
+  color: var(--color-gold-ring);
+}

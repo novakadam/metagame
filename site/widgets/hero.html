@@ -1,0 +1,52 @@
+<!-- ── HERO SZEKCIÓ ────────────────────────────────────────────── -->
+<section class="mg-hero">
+  <div class="mg-hero__frame">
+
+    <!-- Keret függőleges vonalak – közepén elhalványulnak -->
+    <div class="mg-section-line-left"></div>
+    <div class="mg-section-line-right"></div>
+
+    <div class="mg-hero__container">
+
+      <!-- BAL OLDAL: Heading + Tabs + Cards -->
+      <div class="mg-hero__left">
+        <div class="mg-hero__heading">
+          <h1 class="mg-hero__title">Lépj be a játék világába"</h1>
+          <p class="mg-hero__subtitle">„Kártyák, társasok, versenyek — egy helyen"</p>
+          <p class="mg-hero__desc">„Fedezd fel az újdonságokat, előrendeléseket és a következő eseményeket."</p>
+        </div>
+
+        <div class="mg-hero__tabs">
+          <button class="mg-hero__tab mg-hero__tab--active" data-tab="ujdonsagok">Újdonságok</button>
+          <button class="mg-hero__tab" data-tab="elorendelesek">Előrendelések</button>
+          <button class="mg-hero__tab" data-tab="versenyek">Versenyek</button>
+        </div>
+
+        <div class="mg-hero__carousel">
+          <div class="mg-hero__cards-wrap">
+            <div class="mg-hero__cards">
+              <!-- JS tölti dinamikusan -->
+            </div>
+          </div>
+          <button class="mg-carousel-btn mg-hero__prev" aria-label="Előző">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="mg-carousel-btn mg-hero__next" aria-label="Következő">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <a class="mg-hero__link" href="#"><span class="mg-hero__link-text">Összes újdonság</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- JOBB OLDAL: Ajánló kártya + topology háttér -->
+      <div class="mg-hero__right">
+        <img class="mg-hero__topology" src="../assets/images/usp/topology.svg" alt="">
+        <div class="mg-hero__ajanlo-wrap">
+          <!-- JS tölti: .mg-ajanlo -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

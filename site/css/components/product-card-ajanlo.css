@@ -1,0 +1,198 @@
+/*
+ * product-card-ajanlo.css – Ajánló kártya (kiemelt termék / esemény)
+ *
+ * Felépítés (3 zóna):
+ *   1. Kép – radial gradient overlay
+ *   2. Kék blokk – kategória badge + cím (--color-secondary)
+ *   3. Piros blokk – ár + sorok + gomb (--color-bg-card)
+ *
+ * Badge-ek: "Új" oktogon (bal felső), szív (jobb felső)
+ * Gomb: félig lelóg a kártyáról
+ */
+
+/* ── KÁRTYA ALAP ──────────────────────────────────────────────── */
+
+.mg-ajanlo {
+  position: relative;
+  width: 100%;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 8px;
+  overflow: visible;
+}
+
+/* Belső keret: 2px háttérszínű sáv a gold border után */
+.mg-ajanlo__inner {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid var(--color-bg);
+}
+
+/* ── KÉP ZÓNA ────────────────────────────────────────────────── */
+
+.mg-ajanlo__image {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  background: var(--color-bg-muted);
+}
+
+.mg-ajanlo__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mg-ajanlo--product .mg-ajanlo__image img {
+  object-fit: contain;
+}
+
+.mg-ajanlo__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center top, transparent 20%, var(--color-secondary) 100%);
+  pointer-events: none;
+}
+
+/* ── "ÚJ" BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css .mg-badge-new adja) */
+
+.mg-ajanlo .mg-badge-new {
+  top: -22px;
+  left: -22px;
+}
+
+/* ── KEDVENC BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css .mg-badge-fav adja) */
+
+.mg-ajanlo .mg-badge-fav {
+  top: -18px;
+  right: -18px;
+}
+
+/* ── KÉK ZÓNA (kategória + cím) ──────────────────────────────── */
+
+.mg-ajanlo__info {
+  background: var(--color-secondary);
+  padding: 4px 18px 14px;
+  text-align: center;
+  position: relative;
+}
+
+/* Kategória badge – háromszög végek, középen metszi a kép/kék határt */
+.mg-ajanlo__badge {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  padding: 4px 18px;
+  background: var(--color-gold);
+  color: var(--color-bg);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: -14px;
+  margin-bottom: 10px;
+  clip-path: polygon(
+    6px 0%, calc(100% - 6px) 0%,
+    100% 50%,
+    calc(100% - 6px) 100%, 6px 100%,
+    0% 50%
+  );
+}
+
+.mg-ajanlo__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mg-ajanlo__subtitle {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 5px 0 0;
+}
+
+/* ── PIROS ZÓNA (ár + sorok + gomb) ──────────────────────────── */
+
+.mg-ajanlo__details {
+  background: var(--color-bg-card);
+  padding: 14px 18px 28px;
+}
+
+.mg-ajanlo__highlight {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  padding: 0 0 10px;
+}
+
+.mg-ajanlo__rows {
+  padding: 0;
+}
+
+.mg-ajanlo__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-top: 1px solid rgba(179, 138, 36, 0.2);
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+.mg-ajanlo__row-icon {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}
+
+.mg-ajanlo__row-label {
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+}
+
+.mg-ajanlo__row-value {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ── AKCIÓ GOMB (félig lelóg a kártyáról, glow hatás) ─────────── */
+
+.mg-ajanlo__action {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 2;
+}
+
+/* ── REUSABLE: KATEGÓRIA BADGE ────────────────────────────────── */
+
+.mg-category-badge {
+  display: inline-block;
+  position: relative;
+  padding: 3px 16px;
+  background: var(--color-gold);
+  color: var(--color-bg);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  clip-path: polygon(
+    6px 0%, calc(100% - 6px) 0%,
+    100% 50%,
+    calc(100% - 6px) 100%, 6px 100%,
+    0% 50%
+  );
+}

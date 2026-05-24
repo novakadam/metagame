@@ -1,0 +1,265 @@
+/*
+ * systems.css – Világok (Systems) karusszel szekció
+ *
+ * Struktúra:
+ *   .mg-section-systems        – szekció wrapper (max 1440px, középre)
+ *     .mg-section-frame        – arany keretes belső (pseudo-elem vonalak)
+ *       .mg-section-header     – "VILÁGOK" címke (abszolút, keret tetején)
+ *       .mg-section-title      – fő cím
+ *       .mg-section-subtitle   – alcím
+ *       .mg-systems-carousel   – karusszel terület
+ *         .mg-brand-cards      – kártya sor (flex)
+ *           .mg-brand-card     – egy brand kártya
+ *         .mg-carousel-next    – navigációs gomb
+ */
+
+/* ── SZEKCIÓ WRAPPER ───────────────────────────────────────────── */
+
+.mg-section-systems {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 45px 24px;
+  overflow: hidden;
+}
+
+/* ── SECTION FRAME ─────────────────────────────────────────────── */
+
+.mg-section-frame {
+  position: relative;
+  padding: 60px 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Felső és alsó vízszintes vonal */
+
+.mg-section-frame::before,
+.mg-section-frame::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-gold);
+  pointer-events: none;
+}
+
+.mg-section-frame::before { top: 0; }
+.mg-section-frame::after  { bottom: 0; }
+
+/* Bal és jobb függőleges vonal – közepén elhalványul */
+
+.mg-section-line-left,
+.mg-section-line-right {
+  position: absolute;
+  top: 1.5px;
+  width: 1.5px;
+  height: calc(100% - 3px);
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    var(--color-gold) 0%,
+    var(--color-gold) 10%,
+    transparent 30%,
+    transparent 70%,
+    var(--color-gold) 90%,
+    var(--color-gold) 100%);
+}
+
+.mg-section-line-left  { left: 0; }
+.mg-section-line-right { right: 0; }
+
+/* ── SECTION HEADER ("VILÁGOK" – lecsapott sarok) ─────────────── */
+
+.mg-section-header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.mg-section-header__label {
+  position: relative;
+  background: var(--color-bg);
+  padding: 8px 20px;
+  font-family: 'Playfair Display SC', var(--font-display);
+  font-weight: 700;
+  font-size: var(--font-size-4xl);
+  letter-spacing: 2.88px;
+  text-transform: uppercase;
+  color: #fafafa;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Lecsapott sarok – ugyanaz a minta mint .mg-cut-frame */
+.mg-section-header__label::before,
+.mg-section-header__label::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.mg-section-header__label::before {
+  inset: 0;
+  background: var(--color-gold);
+  clip-path: polygon(
+    10px 0, calc(100% - 10px) 0,
+    100% 10px, 100% calc(100% - 10px),
+    calc(100% - 10px) 100%, 10px 100%,
+    0 calc(100% - 10px), 0 10px
+  );
+  z-index: 0;
+}
+
+.mg-section-header__label::after {
+  inset: 1.5px;
+  background: var(--color-bg);
+  clip-path: polygon(
+    9px 0, calc(100% - 9px) 0,
+    100% 9px, 100% calc(100% - 9px),
+    calc(100% - 9px) 100%, 9px 100%,
+    0 calc(100% - 9px), 0 9px
+  );
+  z-index: 1;
+}
+
+.mg-section-header__label-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── CÍM & ALCÍM ──────────────────────────────────────────────── */
+
+.mg-section-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-4xl);
+  line-height: 40px;
+  color: var(--color-text);
+  text-align: center;
+  max-width: 560px;
+  margin: 0;
+}
+
+.mg-section-subtitle {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  line-height: 16px;
+  color: var(--color-gold);
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0;
+}
+
+/* ── KARUSSZEL ─────────────────────────────────────────────────── */
+
+.mg-systems-carousel {
+  position: relative;
+  width: 100%;
+  padding: 12px 40px 6px;
+}
+
+/* Bal-jobb fade maszkkal */
+.mg-systems-carousel::before,
+.mg-systems-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mg-systems-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg), transparent);
+}
+
+.mg-systems-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg), transparent);
+}
+
+.mg-brand-cards-wrap {
+  overflow: hidden;
+}
+
+.mg-brand-cards {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+/* ── BRAND KÁRTYA ──────────────────────────────────────────────── */
+
+.mg-brand-card {
+  flex: 0 0 calc((100% - 5 * 12px) / 6);
+  padding: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.mg-brand-card--active {
+  border-color: var(--color-gold);
+}
+
+.mg-brand-card:hover:not(.mg-brand-card--active) {
+  border-color: var(--color-border-muted);
+}
+
+.mg-brand-card__logo {
+  width: 100%;
+  height: 96px;
+  background: var(--color-bg-muted);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BACKEND: brand.logo WebP kép ide */
+.mg-brand-card__logo img {
+  max-width: 90px;
+  max-height: 46px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* ── NAVIGÁCIÓS GOMBOK ──────────────────────────────────────────── */
+
+.mg-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-gold);
+  background: linear-gradient(84deg, var(--color-bg) 25%, var(--color-bg-card) 95%);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition-fast), opacity var(--transition-fast);
+}
+
+.mg-carousel-btn:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.mg-carousel-btn[hidden] { display: none; }
+
+.mg-carousel-prev { left: -20px; z-index: 3; }
+.mg-carousel-next { right: -20px; z-index: 3; }

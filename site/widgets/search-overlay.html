@@ -1,0 +1,109 @@
+<!-- ── KERESŐ OVERLAY ──────────────────────────────────────────── -->
+
+<div class="mg-search-overlay"></div>
+
+<div class="mg-search-panel">
+
+  <!-- Törzs: tartalom váltás query alapján -->
+  <div class="mg-search-panel__body">
+
+    <!-- Üres állapot: nincs keresőszó -->
+    <div class="mg-search-panel__empty">
+
+      <div>
+        <h3 class="mg-search-panel__section-title">Népszerű keresések</h3>
+        <!-- BACKEND: search.popular_queries -->
+        <div class="mg-search-panel__tags">
+          <button class="mg-search-panel__tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Riftbound Booster
+          </button>
+          <button class="mg-search-panel__tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Pokémon ETB
+          </button>
+          <button class="mg-search-panel__tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Magic Play Display
+          </button>
+          <button class="mg-search-panel__tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Deck box
+          </button>
+          <button class="mg-search-panel__tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Yu-Gi-Oh!
+          </button>
+          <button class="mg-search-panel__tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Sleeve
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="mg-search-panel__section-title">Ajánlott termékek</h3>
+        <!-- BACKEND: search.featured_products -->
+        <div class="mg-search-panel__featured">
+          <a href="product.html" class="mg-search-panel__featured-card">
+            <div class="mg-search-panel__featured-img">
+              <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Riftbound Booster Display">
+            </div>
+            <span class="mg-search-panel__featured-name">Riftbound: LoL TCG Booster Display</span>
+            <span class="mg-search-panel__featured-price">12 800 Ft</span>
+          </a>
+          <a href="product.html" class="mg-search-panel__featured-card">
+            <div class="mg-search-panel__featured-img">
+              <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Riftbound Deck">
+            </div>
+            <span class="mg-search-panel__featured-name">Riftbound Champion Deck</span>
+            <span class="mg-search-panel__featured-price">12 358 Ft</span>
+          </a>
+          <a href="product.html" class="mg-search-panel__featured-card">
+            <div class="mg-search-panel__featured-img">
+              <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Magic Play Display">
+            </div>
+            <span class="mg-search-panel__featured-name">Magic: The Gathering Play Display</span>
+            <span class="mg-search-panel__featured-price">24 900 Ft</span>
+          </a>
+          <a href="product.html" class="mg-search-panel__featured-card">
+            <div class="mg-search-panel__featured-img">
+              <img src="../assets/images/content - placeholder/product/magic-play-display.png" alt="Magic Booster Box">
+            </div>
+            <span class="mg-search-panel__featured-name">Magic Foundations Collector Display</span>
+            <span class="mg-search-panel__featured-price">48 990 Ft</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Találatok: gépelés közben jelenik meg -->
+    <div class="mg-search-panel__results" style="display:none;"></div>
+
+    <!-- Nincs találat -->
+    <div class="mg-search-panel__no-results" style="display:none;">
+      <div class="mg-search-panel__no-results-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35" stroke-linecap="round"/>
+          <path d="M8 11h6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="mg-search-panel__no-results-title">Nincs találat</p>
+      <p class="mg-search-panel__no-results-text">Próbálj más kulcsszavakkal keresni, vagy böngéssz a kategóriák között.</p>
+    </div>
+
+  </div>
+
+  <!-- Lábléc: találat szám + összes megtekintése -->
+  <div class="mg-search-panel__footer" style="display:none;">
+    <span class="mg-search-panel__result-count"></span>
+    <!-- BACKEND: search.results_url -->
+    <a href="products.html" class="mg-search-panel__view-all">
+      Összes találat
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>

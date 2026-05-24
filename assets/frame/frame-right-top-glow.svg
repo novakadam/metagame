@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 39.98 348.8" preserveAspectRatio="none">
+  <defs>
+    <style>
+      .st0 { filter: url(#outer-glow-1); }
+      .st1, .st2, .st3, .st4, .st5, .st6 { fill: none; stroke: #f4e6c9; }
+      .st1, .st3, .st6 { stroke-linecap: round; }
+      .st1, .st4 { stroke-width: 2px; }
+      .st2, .st3 { stroke-linejoin: round; }
+    </style>
+    <filter id="outer-glow-1" x="-10" y="-10" width="39.98" height="348.8" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="2"/>
+      <feFlood flood-color="#b29414" flood-opacity="1"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="keret" class="st0">
+    <line class="st3" x1="19.03" y1="213.08" x2="19.37" y2="165.26"/>
+    <polyline class="st2" points="19.37 165.26 .53 153.16 .5 0"/>
+    <polyline class="st3" points="19.37 165.26 .53 153.16 .5 2.69"/>
+    <line class="st3" x1="19.03" y1="213.08" x2="17.3" y2="214.25"/>
+    <path class="st6" d="M8.53,218.96l-8.03,5.09v97.6h18.97s0,.19,0,4.18"/>
+    <line class="st4" x1="13.13" y1="0" x2="13.13" y2="151.64"/>
+    <line class="st1" x1="13.11" y1="166.29" x2="13.11" y2="314.58"/>
+    <line class="st1" x1="13.13" y1="7.14" x2="13.13" y2="156.79"/>
+    <path class="st5" d="M8.53,218.96l-8.03,5.09v97.6h18.97s0,3.17,0,7.16"/>
+    <line class="st4" x1="13.11" y1="326.17" x2="13.11" y2="328.8"/>
+    <line class="st1" x1="13.11" y1="326.17" x2="13.11" y2="327.49"/>
+  </g>
+</svg>

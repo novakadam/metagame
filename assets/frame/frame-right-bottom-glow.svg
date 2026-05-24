@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 25.7 457.9">
+  <!-- Generator: Adobe Illustrator 30.4.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 226)  -->
+  <defs>
+    <style>
+      .st0 {
+        filter: url(#outer-glow-1);
+      }
+
+      .st1 {
+        stroke-width: 2px;
+      }
+
+      .st1, .st2 {
+        fill: none;
+        stroke: #f4e6c9;
+      }
+    </style>
+    <filter id="outer-glow-1" x="2.9" y="-6.1" width="20" height="470" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="2"/>
+      <feFlood flood-color="#b29414" flood-opacity="1"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="keret" class="st0">
+    <line class="st2" x1="16.3" y1="0" x2="16.3" y2="457.9"/>
+    <line class="st1" x1="9.9" y1="0" x2="9.9" y2="457.9"/>
+  </g>
+</svg>

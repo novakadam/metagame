@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 219.61 137.59">
+  <defs>
+    <style>
+      .st0 { filter: url(#outer-glow-1); }
+      .cls-1,.cls-2,.cls-3,.cls-4,.cls-5,.cls-6,.cls-7 { fill: none; stroke: #f4e6c9; }
+      .cls-1,.cls-3,.cls-4 { stroke-width: 2px; }
+      .cls-1,.cls-3,.cls-5,.cls-7 { stroke-linecap: round; }
+      .cls-2,.cls-3,.cls-4,.cls-5 { stroke-linejoin: round; }
+    </style>
+    <filter id="outer-glow-1" x="-10" y="-10" width="219.61" height="137.59" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="2"/>
+      <feFlood flood-color="#b29414" flood-opacity="1"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="keret" class="st0">
+    <line class="cls-6" x1=".5" y1="13.52" x2=".5" y2="0"/>
+    <line class="cls-7" x1=".5" y1="13.52" x2=".5" y2="3.66"/>
+    <line class="cls-3" x1="56.25" y1="110.54" x2="196.77" y2="110.54"/>
+    <polyline class="cls-1" points="42.07 96.17 6.93 59.83 6.93 26.76"/>
+    <line class="cls-1" x1="56.25" y1="110.54" x2="52.14" y2="106.37"/>
+    <polyline class="cls-5" points=".5 13.68 16.21 23.56 16.24 58.54"/>
+    <line class="cls-5" x1="16.24" y1="79.28" x2="16.24" y2="101.61"/>
+    <line class="cls-5" x1="16.59" y1="101.61" x2="127.26" y2="101.61"/>
+    <polyline class="cls-5" points="159.41 114.91 160.76 117.06 197.91 117.09"/>
+    <polyline class="cls-5" points="127.26 101.65 152.04 101.65 155.1 106.61"/>
+    <line class="cls-4" x1="6.93" y1=".03" x2="6.93" y2="11.08"/>
+    <line class="cls-3" x1="6.93" y1="4.43" x2="6.93" y2="12.29"/>
+    <line class="cls-4" x1="63.01" y1="110.54" x2="199.61" y2="110.54"/>
+    <line class="cls-2" x1="160.76" y1="117.06" x2="199.61" y2="117.09"/>
+  </g>
+</svg>

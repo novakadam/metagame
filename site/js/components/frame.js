@@ -13,20 +13,36 @@ $(function () {
 
   // ── SHOP / KÖZÖSSÉG TOGGLE ──────────────────────────────────────
 
+  function updateToggleSlider($toggle) {
+    var $active = $toggle.find('.mg-toggle__btn--active');
+    var $slider = $toggle.find('.mg-toggle__slider');
+    var inset = 4;
+    $slider.css({
+      left: $active.position().left + inset,
+      width: $active.outerWidth() - inset * 2
+    });
+  }
+
+  // Kezdeti slider pozíció
+  $('.mg-toggle').each(function () { updateToggleSlider($(this)); });
+
   $('.mg-toggle__btn').on('click', function () {
     var $btn    = $(this);
-    var target  = $btn.data('target'); // "shop" vagy "community"
+    var target  = $btn.data('target');
+    var $toggle = $btn.closest('.mg-toggle');
 
-    // Gomb active osztály csere
-    $('.mg-toggle__btn').removeClass('mg-toggle__btn--active');
+    $toggle.attr('data-active', target);
+
+    $toggle.find('.mg-toggle__btn').removeClass('mg-toggle__btn--active');
     $btn.addClass('mg-toggle__btn--active');
 
-    // Nav szekciók váltása: a data-nav attribútum egyezik a data-target-tel
+    updateToggleSlider($toggle);
+
+    // Nav szekciók váltása
     $('.mg-nav-section').addClass('mg-nav-section--hidden');
     $('.mg-nav-section[data-nav="' + target + '"]').removeClass('mg-nav-section--hidden');
 
-    // BACKEND: ha szükséges, itt lehet URL-t frissíteni vagy JSP-oldalt betölteni
-    // pl.: window.location.hash = target;
+    // BACKEND: navigáció tartalma itt töltődik (AJAX / JSP)
   });
 
   // ── AKTÍV NAV ELEM ─────────────────────────────────────────────

@@ -1,7 +1,7 @@
 # Metagame Webshop – Prodspec
 
 > Projekt szintű döntések és scope. Ritkán változik.
-> Utoljára frissítve: 2026-05-12
+> Utoljára frissítve: 2026-05-20
 
 ---
 
@@ -18,7 +18,7 @@ kártya- és playmat-ihletett elemekkel.
 | Név | Szerep |
 |---|---|
 | Ádám | UX/UI designer – Claude Code-dal generál statikus HTML/CSS komponenseket |
-| Laci | Backend/frontend fejlesztő – JSP integrációt végzi, widget-szinten veszi át a kódot |
+| Laci | Backend/frontend fejlesztő – Thymeleaf integrációt végzi, widget-szinten veszi át a kódot |
 | Andras | Ikonok, user story-k, projekt menedzsment |
 | Csaba | Analitika, design doksi |
 
@@ -28,13 +28,13 @@ kártya- és playmat-ihletett elemekkel.
 
 | Réteg | Technológia | Megjegyzés |
 |---|---|---|
-| Backend / template | Java + JSP | Szerveroldali rendering, marad |
+| Backend / template | Java + Thymeleaf | Szerveroldali rendering, marad |
 | Layout framework | Bootstrap 5 | Megbízhatóság miatt marad |
 | JS / interakció | jQuery | Komplex frameworkök helyett |
-| API kommunikáció | JSON API | Termékkeresés, szűrés, katalógus |
-| CSS | Custom CSS/SCSS | Keret és komponensek |
+| API kommunikáció | REST API | Termékkeresés, szűrés, katalógus |
+| CSS | Custom CSS | Keret és komponensek |
 | Képformátum | WebP | PNG helyett, teljesítmény miatt |
-| Task tracking | GitLab Issue Tracker | Kommunikáció és időlogolás |
+| Task tracking | GitHub Issue Tracker | Kommunikáció és időlogolás |
 
 **Nincs React, Angular, Vue – nem generálunk ilyet.**
 
@@ -51,10 +51,39 @@ widgets/widget-neve/
 └── script.js       ← saját jQuery logika
 ```
 
+**JavaScript szabály – kritikus:** csak class és data attribútum selectorok,
+ID selectorok tilosak – az ID-k dinamikusan generálódnak a Thymeleaf template-ben.
+- Helyes: `$('.mg-nav-item')` vagy `$('[data-target="shop"]')`
+- Helytelen: `$('#nav-item-1')`
+
 Data-heavy részek (keresés, szűrés, katalógus):
-- JSON API-n keresztül kommunikálnak
+- REST API-n keresztül kommunikálnak
 - jQuery végzi a renderelést
 - Kliens-oldali cache a kategória struktúrának és szűrési opcióknak
+
+---
+
+## Fájlstruktúra
+
+```
+metagame/
+├── docs/               ← projekt dokumentáció
+│   ├── CLAUDE.md
+│   ├── prodspec.md
+│   ├── design-system.md
+│   ├── roadmap.md
+│   └── screenshots/    ← vizuális referencia képek
+├── assets/             ← exportált design asetek
+│   ├── frame/          ← SVG keret elemek
+│   └── images/         ← WebP képek, logó
+└── site/               ← generált kód
+    ├── index.html
+    ├── css/
+    │   ├── tokens.css
+    │   └── components/
+    └── js/
+        └── components/
+```
 
 ---
 
@@ -63,8 +92,8 @@ Data-heavy részek (keresés, szűrés, katalógus):
 | Oldal | Státusz | Megjegyzés |
 |---|---|---|
 | Design tokenek + alap CSS | ✅ Kész | tokens.css |
-| Keret komponens | 🔄 Folyamatban | Desktop, minden oldalon azonos |
-| Home landing page | Elkészítendő | 8 szekció, lásd roadmap |
+| Keret komponens | ✅ Kész | Desktop, frame.css + frame.js |
+| Home landing page | 🔄 Folyamatban | 8 szekció, widget-ről widget-re |
 | Termék lista oldal | Elkészítendő | Filter panel + kosár drawer |
 | Termék részlet oldal | Elkészítendő | Upsell sáv jobbra |
 | Cikk/blog oldal | Elkészítendő | Scroll-spy TOC, kapcsolódó termékek |
@@ -125,6 +154,24 @@ Intelligens megakereső felület – a tartalom fölé úszik be.
 
 ---
 
+## Fejlesztési munkamódszer
+
+- Kicsiből nagyba, statikusból dinamikus felé
+- Párhuzamos fejlesztés: Ádám statikus komponenseket készít, Laci backend refaktorálást végez
+- Sprint ciklusok: kéthetes sprintek
+- Státusz meetingek: heti szerdánként 11:00–12:00
+
+---
+
+## Milestone-ok
+
+1. **Foundation** – keretrendszer, design tokenek, alapkomponensek ✅
+2. **Landing Page** – első teljes oldal implementációja (folyamatban)
+3. **Webshop** – terméklistázás, kategóriák, szűrés
+4. **Vásárlási folyamat** – kosár, checkout, fizetés
+
+---
+
 ## Nyitott kérdések
 
 | Téma | Státusz |
@@ -134,10 +181,3 @@ Intelligens megakereső felület – a tartalom fölé úszik be.
 | Analitika | Looker Studio vs PostHog – Csaba értékeli |
 | Terminológia | "Krónikák" vs "Hírek" stb. – workshop kell |
 | Többnyelvűség | Angol verzió következő nagy fázis |
-
----
-
-## Mérföldkövek
-
-- **1. mérföldkő:** landing page + vásárlási folyamat
-- **2. mérföldkő:** angol fordítás

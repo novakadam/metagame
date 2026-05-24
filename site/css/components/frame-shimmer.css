@@ -1,0 +1,165 @@
+/*
+ * frame-shimmer.css – Körbejáró glow shimmer az egész kereten
+ *
+ * JS szükséges: frame-shimmer.js számítja ki az időzítést
+ * az elemek mérete alapján → állandó sebesség minden felbontáson.
+ *
+ * Óramutató sorrend:
+ *   corner-tl → line-top → corner-tr → right-top → right-bottom
+ *   → corner-br → line-bottom → corner-bl → line-left → szünet
+ */
+
+/* ── KÖZÖS ::after ──────────────────────────────────────── */
+
+.mg-frame-corner--tl::after,
+.mg-frame-corner--tr::after,
+.mg-frame-corner--bl::after,
+.mg-frame-corner--br::after,
+.mg-frame-line--top::after,
+.mg-frame-line--right-top::after,
+.mg-frame-line--right-bottom::after,
+.mg-frame-line--bottom::after,
+.mg-frame-line--left::after {
+  content: '';
+  position: absolute;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+
+/* ── VÍZSZINTES MASZK (180px széles fénycsóva) ─────────── */
+
+.mg-frame-corner--tl::after,
+.mg-frame-corner--tr::after,
+.mg-frame-corner--bl::after,
+.mg-frame-line--top::after,
+.mg-frame-line--bottom::after {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+  -webkit-mask-size: 180px 100%;
+          mask-size: 180px 100%;
+}
+
+/* ── FÜGGŐLEGES MASZK (180px magas fénycsóva) ──────────── */
+
+.mg-frame-corner--br::after,
+.mg-frame-line--right-top::after,
+.mg-frame-line--right-bottom::after,
+.mg-frame-line--left::after {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+  -webkit-mask-size: 100% 180px;
+          mask-size: 100% 180px;
+}
+
+/* ── INSET + BACKGROUND-IMAGE ───────────────────────────── */
+
+.mg-frame-corner--tl::after {
+  inset: -10px;
+  background-image: url('../../../assets/frame/frame-corner-tl-glow.svg');
+}
+.mg-frame-corner--tr::after {
+  inset: -10px;
+  background-image: url('../../../assets/frame/frame-corner-tr-glow.svg');
+}
+.mg-frame-corner--bl::after {
+  inset: -10px;
+  background-image: url('../../../assets/frame/frame-corner-bl-glow.svg');
+}
+.mg-frame-corner--br::after {
+  inset: -10px;
+  background-image: url('../../../assets/frame/frame-corner-br-glow.svg');
+}
+.mg-frame-line--top::after {
+  inset: -10px;
+  background-image: url('../../../assets/frame/frame-line-top-glow.svg');
+}
+.mg-frame-line--right-top::after {
+  inset: -8px -10px;
+  background-image: url('../../../assets/frame/frame-right-top-glow.svg');
+}
+.mg-frame-line--right-bottom::after {
+  inset: -8px -10px;
+  background-image: url('../../../assets/frame/frame-right-bottom-glow.svg');
+}
+.mg-frame-line--bottom::after {
+  inset: -10px;
+  background-image: url('../../../assets/frame/frame-line-bottom-glow.svg');
+}
+.mg-frame-line--left::after {
+  inset: -8px -10px;
+  background-image: url('../../../assets/frame/frame-line-left-glow.svg');
+}
+
+/* ── AKTÍV ANIMÁCIÓ (.mg-shimmer-run – JS vezérelt) ────── */
+
+.mg-shimmer-run .mg-frame-corner--tl::after,
+.mg-shimmer-run .mg-frame-line--top::after,
+.mg-shimmer-run .mg-frame-corner--tr::after {
+  animation: mg-sh-h-ltr var(--sh-dur, 1s) linear var(--sh-delay, 0s) 1 both;
+}
+
+.mg-shimmer-run .mg-frame-line--right-top::after,
+.mg-shimmer-run .mg-frame-line--right-bottom::after,
+.mg-shimmer-run .mg-frame-corner--br::after {
+  animation: mg-sh-v-ttb var(--sh-dur, 1s) linear var(--sh-delay, 0s) 1 both;
+}
+
+.mg-shimmer-run .mg-frame-line--bottom::after,
+.mg-shimmer-run .mg-frame-corner--bl::after {
+  animation: mg-sh-h-rtl var(--sh-dur, 1s) linear var(--sh-delay, 0s) 1 both;
+}
+
+.mg-shimmer-run .mg-frame-line--left::after {
+  animation: mg-sh-v-btt var(--sh-dur, 1s) linear var(--sh-delay, 0s) 1 both;
+}
+
+/* ── KEYFRAMES (pixelalapú → felbontásfüggetlen) ────────── */
+
+@keyframes mg-sh-h-ltr {
+  from {
+    -webkit-mask-position: -180px 0; mask-position: -180px 0;
+    opacity: 1;
+  }
+  to {
+    -webkit-mask-position: calc(100% + 180px) 0; mask-position: calc(100% + 180px) 0;
+    opacity: 1;
+  }
+}
+
+@keyframes mg-sh-h-rtl {
+  from {
+    -webkit-mask-position: calc(100% + 180px) 0; mask-position: calc(100% + 180px) 0;
+    opacity: 1;
+  }
+  to {
+    -webkit-mask-position: -180px 0; mask-position: -180px 0;
+    opacity: 1;
+  }
+}
+
+@keyframes mg-sh-v-ttb {
+  from {
+    -webkit-mask-position: 0 -180px; mask-position: 0 -180px;
+    opacity: 1;
+  }
+  to {
+    -webkit-mask-position: 0 calc(100% + 180px); mask-position: 0 calc(100% + 180px);
+    opacity: 1;
+  }
+}
+
+@keyframes mg-sh-v-btt {
+  from {
+    -webkit-mask-position: 0 calc(100% + 180px); mask-position: 0 calc(100% + 180px);
+    opacity: 1;
+  }
+  to {
+    -webkit-mask-position: 0 -180px; mask-position: 0 -180px;
+    opacity: 1;
+  }
+}

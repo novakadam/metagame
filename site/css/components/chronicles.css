@@ -1,0 +1,298 @@
+/* ── SZEKCIÓ WRAPPER ───────────────────────────────────────── */
+
+.mg-chronicles {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 45px 24px;
+  overflow: hidden;
+}
+
+/* ── FRAME FELÜLÍRÁS (gradiens háttér, több padding) ───────── */
+
+.mg-chronicles__frame {
+  padding: 60px 0;
+}
+
+/* ── BELSŐ TARTALOM ────────────────────────────────────────── */
+
+.mg-chronicles__inner {
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-muted) 25%);
+  max-width: 1088px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+/* ── HEADING ───────────────────────────────────────────────── */
+
+.mg-chronicles__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  text-align: center;
+}
+
+.mg-chronicles__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-4xl);
+  line-height: 40px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mg-chronicles__desc {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-xl);
+  line-height: 28px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ── BLOG TERÜLET (kétoszlopos) ────────────────────────────── */
+
+.mg-chronicles__blog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ── KIEMELT CIKK KÁRTYA (bal oldal) ──────────────────────── */
+
+.mg-chronicle-card--featured {
+  flex: 1 1 300px;
+  max-width: 440px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  overflow: hidden;
+}
+
+.mg-chronicle-card__image {
+  height: 300px;
+  overflow: hidden;
+  padding: 0 var(--space-lg);
+}
+
+.mg-chronicle-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.mg-chronicle-card__image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-muted);
+  border-radius: 10px;
+  border: 1px dashed var(--color-border-muted);
+  opacity: 0.4;
+}
+
+.mg-chronicle-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 var(--space-lg);
+}
+
+.mg-chronicle-card__date {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text-muted);
+}
+
+.mg-chronicle-card__date strong {
+  font-weight: 700;
+}
+
+.mg-chronicle-card__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-3xl);
+  line-height: 36px;
+  color: var(--color-text-card);
+  margin: 0;
+}
+
+.mg-chronicle-card__excerpt {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ── CIKK LISTA (jobb oldal) ──────────────────────────────── */
+
+.mg-chronicles__list {
+  flex: 1 1 300px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.mg-chronicle-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  align-items: center;
+  width: 100%;
+}
+
+.mg-chronicle-item__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mg-chronicle-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mg-chronicle-item__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-xl);
+  line-height: 28px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mg-chronicle-item__thumb {
+  width: 169px;
+  height: 150px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mg-chronicle-item__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── ELVÁLASZTÓ ────────────────────────────────────────────── */
+
+.mg-chronicles__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+/* ── BADGE-EK ──────────────────────────────────────────────── */
+
+.mg-chronicle-card__badges {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.mg-badge {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mg-badge--filled {
+  background: linear-gradient(90deg,
+    rgba(212, 12, 26, 0.1),
+    rgba(212, 12, 26, 0.1)),
+    var(--color-bg-card);
+  color: var(--color-gold);
+}
+
+.mg-badge--outline {
+  border: 1px solid var(--color-gold);
+  color: var(--color-text);
+}
+
+.mg-badge--gold {
+  background: var(--color-gold);
+  color: white;
+}
+
+/* ── KIEMELT CIKK "TOVÁBB OLVASÁS" GOMB (kereten átlóg) ──── */
+
+.mg-chronicle-card--featured {
+  position: relative;
+  padding-bottom: calc(var(--space-lg) + 18px);
+  overflow: visible;
+}
+
+.mg-chronicle-card__cta {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 5;
+}
+
+/* ── KATTINTHATÓ SOROK ───────────────────────────────────── */
+
+a.mg-chronicle-item {
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-xs);
+  padding: 12px;
+  margin: -12px;
+  transition: background var(--transition-fast);
+}
+
+a.mg-chronicle-item:hover {
+  background: rgba(2, 33, 57, 0.5);
+}
+
+/* "Olvasás →" link – hoverre jelenik meg */
+
+.mg-chronicle-item__read {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-gold);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+a.mg-chronicle-item:hover .mg-chronicle-item__read {
+  opacity: 1;
+  transform: translateX(0);
+}
+

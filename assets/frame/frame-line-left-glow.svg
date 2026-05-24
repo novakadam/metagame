@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 27.93 743" preserveAspectRatio="none">
+  <defs>
+    <style>
+      .st0 { filter: url(#outer-glow-1); }
+      .st1, .st2 { fill: none; stroke: #f4e6c9; stroke-linejoin: round; }
+      .st2 { stroke-width: 2px; }
+    </style>
+    <filter id="outer-glow-1" x="-10" y="-10" width="27.93" height="743" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="2"/>
+      <feFlood flood-color="#b29414" flood-opacity="1"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="keret" class="st0">
+    <line class="st2" x1="6.93" y1="0" x2="6.92" y2="723"/>
+    <line class="st1" x1=".5" y1="0" x2=".5" y2="723"/>
+  </g>
+</svg>

@@ -1,0 +1,257 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* LAYER 1: Page background - deep saturated burgundy (dark, rich red) */
+  --background: #140610;
+  --foreground: #f5f0e6;
+  
+  /* LAYER 2: Cards - clearly lighter, visible separation */
+  --card: #2a101c;
+  --card-foreground: #f8f4eb;
+  
+  /* LAYER 3: Elevated/highlighted surfaces (order summary) */
+  --card-elevated: #381828;
+  
+  /* Popover */
+  --popover: #2a101c;
+  --popover-foreground: #f5f0e6;
+  
+  /* Rich gold for primary - vibrant */
+  --primary: #d4a520;
+  --primary-foreground: #0a0305;
+  
+  /* Secondary - between background and card */
+  --secondary: #1c0810;
+  --secondary-foreground: #f5f0e6;
+  
+  /* Muted for subtle elements */
+  --muted: #1c0810;
+  --muted-foreground: #b0a090;
+  
+  /* Accent - elevated tone */
+  --accent: #381828;
+  --accent-foreground: #f5f0e6;
+  
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  
+  /* Gold-tinted borders - visible contrast */
+  --border: #4a2025;
+  --border-gold: #a07820;
+  
+  --input: #1c0810;
+  --ring: #d4a520;
+  
+  --chart-1: #d4a520;
+  --chart-2: #381828;
+  --chart-3: #6b4ba3;
+  --chart-4: #2FA7A0;
+  --chart-5: #8A4515;
+  
+  /* Very small radius for premium minimal feel */
+  --radius: 0.125rem;
+  
+  /* Sidebar */
+  --sidebar: #0e0408;
+  --sidebar-foreground: #f8f4eb;
+  --sidebar-primary: #d4a520;
+  --sidebar-primary-foreground: #0a0305;
+  --sidebar-accent: #d4a520;
+  --sidebar-accent-foreground: #0a0305;
+  --sidebar-border: #4a2025;
+  --sidebar-ring: #d4a520;
+  
+  /* Custom Metagame colors - 3-layer burgundy system */
+  --gold: #d4a520;
+  --gold-bright: #f0c030;
+  --gold-dim: #8a6515;
+  --burgundy-deep: #0e0408;
+  --burgundy: #140610;
+  --burgundy-light: #2a101c;
+  --burgundy-lighter: #381828;
+  --cream: #f5f0e6;
+  --cream-dim: #d5cfc0;
+  --success: #22c55e;
+  --warning: #f59e0b;
+}
+
+.dark {
+  --background: #140610;
+  --foreground: #f5f0e6;
+  --card: #2a101c;
+  --card-foreground: #f8f4eb;
+  --card-elevated: #381828;
+  --popover: #2a101c;
+  --popover-foreground: #f5f0e6;
+  --primary: #d4a520;
+  --primary-foreground: #0a0305;
+  --secondary: #1c0810;
+  --secondary-foreground: #f5f0e6;
+  --muted: #1c0810;
+  --muted-foreground: #b0a090;
+  --accent: #381828;
+  --accent-foreground: #f5f0e6;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #4a2025;
+  --border-gold: #a07820;
+  --input: #1c0810;
+  --ring: #d4a520;
+  --sidebar: #0e0408;
+  --sidebar-foreground: #f8f4eb;
+  --sidebar-primary: #d4a520;
+  --sidebar-primary-foreground: #0a0305;
+  --sidebar-accent: #d4a520;
+  --sidebar-accent-foreground: #0a0305;
+  --sidebar-border: #4a2025;
+  --sidebar-ring: #d4a520;
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), 'Manrope', system-ui, sans-serif;
+  --font-serif: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-elevated: var(--card-elevated);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-gold: var(--border-gold);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-dim: var(--gold-dim);
+  --color-burgundy-deep: var(--burgundy-deep);
+  --color-burgundy: var(--burgundy);
+  --color-burgundy-light: var(--burgundy-light);
+  --color-burgundy-lighter: var(--burgundy-lighter);
+  --color-cream: var(--cream);
+  --color-cream-dim: var(--cream-dim);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--burgundy-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Primary CTA glow - stronger and more prominent */
+.btn-glow {
+  box-shadow: 
+    0 0 0 1px rgba(218, 165, 32, 0.5),
+    0 4px 24px rgba(218, 165, 32, 0.35),
+    0 8px 40px rgba(218, 165, 32, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 
+    0 0 0 1px rgba(218, 165, 32, 0.7),
+    0 4px 32px rgba(218, 165, 32, 0.5),
+    0 12px 60px rgba(218, 165, 32, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Card with gold border highlight - only for order summary (LAYER 3) */
+.card-gold {
+  background: var(--card-elevated);
+  border: 1px solid var(--border-gold);
+  box-shadow: 
+    0 0 0 1px rgba(160, 120, 32, 0.4),
+    0 12px 40px rgba(0, 0, 0, 0.7),
+    0 0 100px rgba(212, 165, 32, 0.1);
+}
+
+/* Subtle depth shadow for sections */
+.section-depth {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Selected option glow */
+.option-selected {
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.12) 0%, rgba(218, 165, 32, 0.06) 100%);
+  box-shadow: 
+    inset 0 0 0 1px rgba(218, 165, 32, 0.4),
+    inset 0 0 30px rgba(218, 165, 32, 0.08);
+}
+
+/* Price styling */
+.price-large {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* Subtle vignette */
+.vignette::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(21, 5, 16, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* Input focus state */
+input:focus, textarea:focus {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 1px rgba(218, 165, 32, 0.3);
+}

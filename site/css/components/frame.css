@@ -49,6 +49,12 @@
 .mg-frame-corner--bl { bottom: 43px; left: 57px;  width: 201px; height: 119px; }
 .mg-frame-corner--br { bottom: 43px; right: 12px; width: 190px; height: 119px; }
 
+.mg-frame-corner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* Vonalak: div pozicionálja, img belül tölti ki */
 
 .mg-frame-line img {
@@ -58,7 +64,7 @@
   object-fit: fill;
 }
 
-.mg-frame-line--top          { top: 38px;    left: 542px;  right: 346px;  height: 41px; }
+.mg-frame-line--top          { top: 37.5px;  left: 541px;  right: 346px;  height: 41px; }
 .mg-frame-line--left         { left: 57px;   width: 8px;   top: 198px;    bottom: 162px; }
 .mg-frame-line--right-top    { right: 12px;  width: 20px;  top: 134px;    height: 330px; }
 .mg-frame-line--right-bottom { right: 12px;  width: 8px;   top: 464px;    bottom: 162px; }
@@ -73,7 +79,7 @@
   right: 0;
   height: 197px;
   background: transparent;
-  z-index: 1;
+  z-index: 5;
 }
 
 /* Logo: 315px széles, 24px balról, 30px fentről */
@@ -85,68 +91,119 @@
   height: auto;
 }
 
-/* Toggle + search: 50px a lap tetejétől, horizontálisan centrált */
+/* Toggle + search: 50px a lap tetejétől, centrált 1080px blokk */
 .mg-topbar-row {
   position: absolute;
   top: 55px;
-  left: 350px;   /* logo területe után */
-  right: 65px;   /* jobb nav előtt */
+  left: calc(50% + 50px);
+  transform: translateX(-50%);
+  width: 1010px;
+  max-width: calc(100% - 415px);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 72px;
+  gap: 40px;
 }
 
-/* ── TOGGLE (Shop / Közösség) ────────────────────────────────────── */
+/* ── LEVÁGOTT SARKÚ KERET (globális utility) ─────────────────────── */
+
+.mg-cut-frame {
+  position: relative;
+}
+
+.mg-cut-frame::before,
+.mg-cut-frame::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.mg-cut-frame::before {
+  inset: 0;
+  background: var(--color-gold);
+  clip-path: polygon(
+    10px 0, calc(100% - 10px) 0,
+    100% 10px, 100% calc(100% - 10px),
+    calc(100% - 10px) 100%, 10px 100%,
+    0 calc(100% - 10px), 0 10px
+  );
+  z-index: 0;
+}
+
+.mg-cut-frame::after {
+  inset: 1.5px;
+  background: var(--cut-fill, var(--color-bg));
+  clip-path: polygon(
+    9px 0, calc(100% - 9px) 0,
+    100% 9px, 100% calc(100% - 9px),
+    calc(100% - 9px) 100%, 9px 100%,
+    0 calc(100% - 9px), 0 9px
+  );
+  z-index: 1;
+}
+
+/* ── TOGGLE (Shop / Eseménynaptár) ───────────────────────────────── */
 
 .mg-toggle {
   display: flex;
   flex-shrink: 0;
 }
 
+.mg-toggle__slider {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background-color: var(--color-bg-card);
+  clip-path: polygon(
+    8px 0, calc(100% - 8px) 0,
+    100% 8px, 100% calc(100% - 8px),
+    calc(100% - 8px) 100%, 8px 100%,
+    0 calc(100% - 8px), 0 8px
+  );
+  transition: left var(--transition-base), width var(--transition-base);
+  pointer-events: none;
+  z-index: 2;
+}
+
 .mg-toggle__btn {
-  padding: 6px var(--space-lg);
-  background: var(--color-bg);
-  border: 1px solid var(--color-gold);
-  color: var(--color-text);
-  font-family: var(--font-body);
+  position: relative;
+  z-index: 3;
+  background: transparent;
+  border: none;
+  color: var(--color-gold);
+  font-family: var(--font-display);
   font-size: var(--font-size-sm);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
-  transition: background var(--transition-fast);
+  padding: 8px 28px;
 }
 
-.mg-toggle__btn:first-child { border-radius: var(--radius-xs) 0 0 var(--radius-xs); }
-.mg-toggle__btn:last-child  { border-left: none; border-radius: 0 var(--radius-xs) var(--radius-xs) 0; }
-
-.mg-toggle__btn--active,
-.mg-toggle__btn:hover {
-  background: var(--color-bg-card);
+.mg-toggle__btn--active {
   color: var(--color-text);
 }
 
 /* ── KERESŐMEZŐ ──────────────────────────────────────────────────── */
 
 .mg-search {
-  flex: 0 1 720px;   /* max 720px, kisebb képernyőn szűkül */
+  --cut-fill: var(--color-text);
+  flex: 1 1 0;
   display: flex;
   align-items: center;
-  background: var(--color-text);   /* vajszín háttér */
-  border: 1px solid var(--color-border-muted);
-  border-radius: var(--radius-xs);
-  overflow: hidden;
+  background: transparent;
+  border: none;
 }
 
 .mg-search input {
+  position: relative;
+  z-index: 2;
   flex: 1;
   background: transparent;
   border: none;
   outline: none;
   padding: 8px var(--space-md);
-  color: var(--color-bg);            /* sötét szöveg */
+  color: var(--color-bg);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
 }
@@ -157,9 +214,10 @@
 }
 
 .mg-search__btn {
+  position: relative;
+  z-index: 2;
   background: transparent;
   border: none;
-  border-left: 1px solid var(--color-border-muted);
   color: var(--color-bg);
   padding: 8px var(--space-md);
   cursor: pointer;
@@ -187,7 +245,7 @@
 .mg-nav-section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   padding: 0 var(--space-md);
 }
 
@@ -197,36 +255,36 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--color-bg);
-  border: 1px solid var(--color-gold);
+  padding: 6px var(--space-md);
+  padding-left: 48px;
+  background: transparent;
+  border: none;
   color: var(--color-text);
   text-decoration: none;
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  transition: background var(--transition-fast);
+  font-size: 15px;
+  font-weight: 600;
+  transition: --cut-fill var(--transition-fast);
 }
 
 .mg-nav-item:hover,
 .mg-nav-item--active {
-  background: var(--color-bg-card);
+  --cut-fill: var(--color-bg-card);
   color: var(--color-text);
 }
 
 .mg-nav-item__icon {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 }
 
 .mg-nav-item__label {
+  position: relative;
+  z-index: 2;
   flex: 1;
   font-family: var(--font-display);
-  font-size: var(--font-size-sm);
-  letter-spacing: 0.03em;
+  font-size: 17px;
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
 }
 
 /* ── UTILITY: GRADIENT GOMB ─────────────────────────────────────── */
@@ -331,35 +389,80 @@
   color: #fff;
 }
 
-/* BACKEND: cart.count badge – kör alakon kívülre kerül */
-.mg-cart-badge {
+/* Badge – arany kör szám a jobb felső sarokban (kosár, értesítések) */
+.mg-nav-badge {
   position: absolute;
-  top: -6px;
-  right: -6px;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 3px;
-  background: var(--color-destructive);
-  color: #fff;
-  font-size: 10px;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: var(--color-gold);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 11px;
   font-weight: 700;
   border-radius: var(--radius-pill);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 4;
+}
+
+.mg-nav-badge.is-visible {
+  display: flex;
+  animation: mg-badge-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes mg-badge-pop {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(1); }
 }
 
 /* ── TARTALOM ───────────────────────────────────────────────────── */
 
 .mg-content {
   position: absolute;
-  top: 197px;
+  top: 140px;
   left: 255px;
   right: 55px;
-  bottom: 37px;
+  bottom: 50px;
   overflow-y: auto;
+  scrollbar-width: none;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mg-content > *:first-child {
+  margin-top: 40px;
+}
+
+.mg-content > * {
+  margin-bottom: 48px;
+}
+
+.mg-content::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, var(--color-bg) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+  margin-bottom: -32px;
+}
+
+.mg-content::-webkit-scrollbar {
+  display: none;
+}
+
+.mg-content > .mg-widget--empty {
+  display: none;
 }
 
 /* ── FOOTER ─────────────────────────────────────────────────────── */
@@ -382,7 +485,29 @@
 .mg-footer__left {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
+}
+
+.mg-footer__brand {
+  color: var(--color-gold);
+}
+
+.mg-footer__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mg-footer__pin {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.mg-footer__address {
+  color: var(--color-text);
+}
+
+.mg-footer__hours {
   color: var(--color-gold);
 }
 
@@ -393,9 +518,16 @@
 }
 
 .mg-footer__right a {
-  color: var(--color-text-muted);
+  color: var(--color-text);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: text-decoration var(--transition-fast);
 }
 
-.mg-footer__right a:hover { color: var(--color-text); }
+.mg-footer__right a:hover {
+  text-decoration: underline;
+}
+
+.mg-footer__right a svg {
+  vertical-align: -1px;
+  margin-left: 2px;
+}

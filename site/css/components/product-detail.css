@@ -1,0 +1,743 @@
+/*
+ * product-detail.css – Termék részletező oldal
+ *
+ * Felépítés (3 rész):
+ *   1. Bal: Képgaléria + Accordion (flex: 0 0 auto, ~491px)
+ *   2. Közép: Termékinfó panel (flex: 1, arany keret)
+ *   3. Jobb: Kapcsolódó termékek sidebar (360px, related-products.css)
+ */
+
+/* ── RESET (Bootstrap paragraph margin) ──────────────────── */
+
+.mg-product__content p {
+  margin: 0;
+}
+
+/* ── FŐ LAYOUT ───────────────────────────────────────────── */
+
+.mg-product {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100%;
+}
+
+/* ── BREADCRUMB ──────────────────────────────────────────── */
+
+.mg-product__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--color-gold);
+  width: 100%;
+}
+
+.mg-product__breadcrumb a {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mg-product__breadcrumb a:hover {
+  color: var(--color-text);
+}
+
+.mg-product__breadcrumb span {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-text);
+}
+
+.mg-product__breadcrumb svg {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+/* ── BAL OSZLOP: GALÉRIA + ACCORDION ─────────────────────── */
+
+.mg-product__left {
+  width: 491px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Galéria */
+
+.mg-product__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.mg-product__gallery-main {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+  background: radial-gradient(circle, var(--color-bg) 0%, var(--color-bg-card) 100%);
+}
+
+.mg-product__gallery-main img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.mg-product__gallery-thumbs {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+.mg-product__gallery-thumb {
+  flex: 1;
+  height: 104px;
+  border: 1px solid var(--color-gold);
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast);
+  background: radial-gradient(circle, var(--color-bg) 0%, var(--color-bg-muted) 100%);
+}
+
+.mg-product__gallery-thumb.is-active {
+  border-width: 2px;
+  border-color: var(--color-gold-ring);
+}
+
+.mg-product__gallery-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Accordion */
+
+.mg-product__accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mg-product__accordion-item {
+  border-bottom: 1px solid var(--color-gold);
+}
+
+.mg-product__accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.mg-product__accordion-title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-text);
+}
+
+.mg-product__accordion-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.mg-product__accordion-item.is-open .mg-product__accordion-icon {
+  transform: rotate(180deg);
+}
+
+.mg-product__accordion-body {
+  display: none;
+  padding-bottom: 16px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.mg-product__accordion-item.is-open .mg-product__accordion-body {
+  display: block;
+}
+
+/* ── JOBB OSZLOP: TERMÉKINFÓ PANEL ───────────────────────── */
+
+.mg-product__info {
+  flex: 1;
+  min-width: 328px;
+  border: 1px solid var(--color-gold);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 36px;
+  padding-bottom: 24px;
+  background: var(--color-bg-card);
+}
+
+/* TCG badge */
+
+.mg-product__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.mg-product__badge-text {
+  background: var(--color-gold);
+  border-top: 1px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+  height: 24px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  color: var(--color-bg);
+  white-space: nowrap;
+}
+
+.mg-product__badge-end {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.mg-product__badge-end svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Heading szekció */
+
+.mg-product__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+  padding: 24px 24px;
+  background: var(--color-bg-card);
+  border-bottom: 1.5px solid var(--color-bg);
+}
+
+.mg-product__brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 26px;
+  letter-spacing: 0.01em;
+  color: var(--color-text-card);
+  margin: 0;
+  font-feature-settings: 'salt' 1;
+}
+
+.mg-product__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-3xl);
+  line-height: 36px;
+  color: var(--color-text);
+  margin: 0 !important;
+}
+
+.mg-product__subtitle {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-text-card);
+  margin: 0;
+}
+
+/* Ár szekció */
+
+.mg-product__price-section {
+  background: var(--color-secondary);
+  border-bottom: 1.5px solid var(--color-bg);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mg-product__price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mg-product__price {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-2xl);
+  line-height: 32px;
+  color: var(--color-text);
+}
+
+.mg-product__price-old {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.mg-product__price-discount {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, rgba(224, 52, 52, 0.1), rgba(224, 52, 52, 0.1)), var(--color-bg-card);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-destructive);
+}
+
+/* Készlet sor */
+
+.mg-product__stock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border: 1px solid var(--color-gold);
+  padding: 0 16px;
+}
+
+.mg-product__stock-item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+.mg-product__stock-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: var(--color-text-muted);
+}
+
+.mg-product__stock-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text-muted);
+}
+
+.mg-product__stock-count {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+}
+
+.mg-product__stock-count--ok {
+  color: #16a34a;
+}
+
+.mg-product__stock-count--out {
+  color: var(--color-destructive);
+}
+
+/* Változatok szekció */
+
+.mg-product__variants {
+  background: var(--color-bg-muted);
+  border-bottom: 1.5px solid var(--color-gold);
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.mg-product__variants-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  line-height: 28px;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.mg-product__variants-list {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mg-product__variant-thumb {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--color-gold);
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast);
+}
+
+.mg-product__variant-thumb.is-active {
+  border-width: 1.5px;
+  border-color: var(--color-gold-ring);
+}
+
+.mg-product__variant-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Number input: hide spinners */
+
+.mg-product__qty-input::-webkit-outer-spin-button,
+.mg-product__qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mg-product__qty-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Kosár + mennyiség sor */
+
+.mg-product__cart-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* Mennyiség számláló */
+
+.mg-product__qty {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-muted);
+  border-radius: 8px;
+}
+
+.mg-product__qty-btn {
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(212, 12, 26, 0.1);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background var(--transition-fast);
+}
+
+.mg-product__qty-btn:hover {
+  background: rgba(212, 12, 26, 0.2);
+}
+
+.mg-product__qty-input {
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  background: var(--color-bg);
+  border: none;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-text);
+}
+
+.mg-product__qty-input:focus {
+  outline: none;
+}
+
+/* Kosárba gomb – mg-btn--filled */
+
+.mg-product__add-to-cart {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Kedvenc gomb */
+
+.mg-product__wishlist-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--color-border-muted);
+  border-radius: 8px;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mg-product__wishlist-btn:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* Leírás */
+
+.mg-product__description {
+  padding: 0 24px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text-muted);
+}
+
+/* ── ALSÓ RÉSZ: ÁTVÉTEL + BENEFITS ───────────────────────── */
+
+.mg-product__bottom {
+  display: flex;
+  gap: 16px;
+  padding: 0 24px;
+}
+
+/* Átvétel módja */
+
+.mg-product__delivery {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mg-product__delivery-title,
+.mg-product__benefits-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  line-height: 28px;
+  color: var(--color-text);
+}
+
+/* Radio opciók */
+
+.mg-product__radio-option {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.mg-product__radio-option--disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.mg-product__radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast);
+}
+
+.mg-product__radio.is-selected {
+  border-color: var(--color-gold);
+}
+
+.mg-product__radio.is-selected::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-gold);
+}
+
+.mg-product__radio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.mg-product__radio-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text);
+}
+
+.mg-product__radio-label span {
+  color: var(--color-gold);
+}
+
+.mg-product__radio-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+.mg-product__radio-sub a {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* Benefits */
+
+.mg-product__benefits {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mg-product__benefit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mg-product__benefit-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.mg-product__benefit-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  color: var(--color-text-muted);
+}
+
+.mg-product__more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-gold);
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.mg-product__more-link:hover {
+  text-decoration: underline;
+}
+
+/* ── JOBB SIDEBAR ────────────────────────────────────────── */
+
+.mg-product__sidebar {
+  width: 320px;
+  flex-shrink: 0;
+  padding: 0 8px 24px 16px;
+  margin-top: 3px;
+}
+
+/* ── INFO BELSŐ GAP ──────────────────────────────────────── */
+
+.mg-product__info-body {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background: var(--color-bg-card);
+  padding-bottom: 24px;
+}
+
+.mg-product__info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── LAYOUT: fő sor (main + sidebar) ─────────────────────── */
+
+.mg-product__layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  padding: 0 32px;
+}
+
+.mg-product__main {
+  max-width: 1440px;
+  width: 100%;
+  justify-self: center;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mg-product__body {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+}
