@@ -122,7 +122,34 @@
 
 .mg-testimonials__cards-wrap {
   overflow: hidden;
+  position: relative;
 }
+
+.mg-testimonials__cards-wrap::before,
+.mg-testimonials__cards-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mg-testimonials__cards-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg) 0%, transparent 100%);
+}
+
+.mg-testimonials__cards-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg) 0%, transparent 100%);
+}
+
+.mg-testimonials__cards-wrap.has-fade-left::before { opacity: 1; }
+.mg-testimonials__cards-wrap.has-fade-right::after { opacity: 1; }
 
 .mg-testimonials__cards {
   display: flex;

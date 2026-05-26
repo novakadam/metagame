@@ -310,7 +310,7 @@
   bottom: 37px;
   width: 55px;
   background: transparent;
-  z-index: 1;
+  z-index: 6;
   display: flex;
   flex-direction: column;
   align-items: center;

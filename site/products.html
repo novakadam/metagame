@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="css/components/frame-shimmer.css">
   <link rel="stylesheet" href="css/components/mega-menu.css">
   <link rel="stylesheet" href="css/components/drawer.css">
+  <link rel="stylesheet" href="css/components/search-overlay.css">
   <link rel="stylesheet" href="css/components/footer.css">
   <link rel="stylesheet" href="css/components/filter-panel.css">
   <link rel="stylesheet" href="css/components/product-card.css">
@@ -592,6 +593,9 @@
     </div>
   </footer>
 
+  <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
+  <div class="mg-widget-search-overlay"></div>
+
   <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
   <div class="mg-drawer-overlay"></div>
   <div class="mg-drawer">
@@ -623,6 +627,8 @@
 <script src="js/components/drawer.js"></script>
 <!-- Footer panel -->
 <script src="js/components/footer.js"></script>
+<!-- Search overlay -->
+<script src="js/components/search-overlay.js"></script>
 <!-- Product list komponensek -->
 <script src="js/components/filter-panel.js"></script>
 <script src="js/components/product-list.js"></script>
@@ -634,6 +640,9 @@ $(function () {
   mgInitFooter();
   mgInitFilterPanel();
   mgInitProductList();
+  $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
+    mgInitSearchOverlay();
+  });
 });
 </script>
 

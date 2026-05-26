@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="css/components/product-detail.css">
   <link rel="stylesheet" href="css/components/related-products.css">
   <link rel="stylesheet" href="css/components/drawer.css">
+  <link rel="stylesheet" href="css/components/search-overlay.css">
   <link rel="stylesheet" href="css/components/mega-menu.css">
   <link rel="stylesheet" href="css/components/footer.css">
 </head>
@@ -493,6 +494,9 @@
     </div>
   </footer>
 
+  <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
+  <div class="mg-widget-search-overlay"></div>
+
   <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
   <div class="mg-drawer-overlay"></div>
   <div class="mg-drawer">
@@ -594,12 +598,16 @@
 <script src="js/components/mega-menu.js"></script>
 <script src="js/components/drawer.js"></script>
 <script src="js/components/footer.js"></script>
+<script src="js/components/search-overlay.js"></script>
 <script>
 $(function () {
   mgInitProductDetail();
   mgInitMegaMenu();
   mgInitDrawer();
   mgInitFooter();
+  $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
+    mgInitSearchOverlay();
+  });
 });
 </script>
 

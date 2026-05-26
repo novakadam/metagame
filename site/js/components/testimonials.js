@@ -93,9 +93,13 @@ function mgInitTestimonials() {
     updateButtons();
   }
 
+  var $wrap = $section.find('.mg-testimonials__cards-wrap');
+
   function updateButtons() {
     $prev.prop('disabled', page <= 0);
     $next.prop('disabled', page >= maxPage());
+    $wrap.toggleClass('has-fade-left', page > 0);
+    $wrap.toggleClass('has-fade-right', page < maxPage());
   }
 
   $prev.on('click', function () {
