@@ -635,3 +635,204 @@
   vertical-align: -1px;
   margin-left: 2px;
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   MOBIL KERET
+   ══════════════════════════════════════════════════════════════════ */
+
+.mg-frame-m,
+.mg-frame-m-bar,
+.mg-mobile-hamburger,
+.mg-mobile-bar-icons { display: none; }
+
+@media (max-width: 768px) {
+
+  /* ── Desktop elemek elrejtése ── */
+  .mg-frame-corner,
+  .mg-frame-line,
+  .mg-nav-left,
+  .mg-nav-right,
+  .mg-footer { display: none !important; }
+
+  /* ── Mobil keret megjelenítése ── */
+  .mg-frame-m { display: block; }
+  .mg-frame-m-bar { display: flex; }
+  .mg-mobile-hamburger { display: flex; }
+  .mg-mobile-bar-icons { display: flex; }
+
+  /* ── Közös keret stílus ── */
+  .mg-frame-m {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .mg-frame-m img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Sarkok (fix méret, vonalak FÖLÖTT) ── */
+  [class*="mg-frame-m-corner"] { z-index: 1; }
+
+  .mg-frame-m-corner--tl { top: 0; left: 0; width: 111px; height: 189px; }
+  .mg-frame-m-corner--tr { top: 0; right: 0; width: 110px; height: 189px; }
+  .mg-frame-m-corner--bl { bottom: 47px; left: 0; width: 112px; height: 73px; }
+  .mg-frame-m-corner--br { bottom: 47px; right: 0; width: 110px; height: 73px; }
+
+  /* ── Vonalak (sarkok ALÁ nyúlnak az átfedésért) ── */
+  .mg-frame-m-line--top {
+    top: 0; left: 106px; right: 105px; height: 17px;
+  }
+
+  .mg-frame-m-line--left {
+    top: 184px; left: 0; bottom: 115px; width: 18px;
+  }
+
+  .mg-frame-m-line--right {
+    top: 184px; right: 0; bottom: 115px; width: 15px;
+  }
+
+  .mg-frame-m-line--bottom {
+    bottom: 47px; left: 107px; right: 105px; height: 13px;
+  }
+
+  /* ── Alsó menüsáv keret (fix, viewport alján) ── */
+  .mg-frame-m-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 47px;
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  .mg-frame-m-bar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mg-frame-m-bar__left {
+    width: 112px;
+    height: 47px;
+    flex-shrink: 0;
+  }
+
+  .mg-frame-m-bar__center {
+    flex: 1;
+    height: 47px;
+  }
+  .mg-frame-m-bar__center img { object-fit: fill; }
+
+  .mg-frame-m-bar__right {
+    width: 110px;
+    height: 47px;
+    flex-shrink: 0;
+  }
+
+  /* ── Hamburger gomb (jobb felső sarok) ── */
+  .mg-mobile-hamburger {
+    position: fixed;
+    top: 10px;
+    right: 4px;
+    z-index: 10;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  .mg-mobile-hamburger svg { display: block; }
+
+  /* ── Alsó bar ikonok (a keret SVG fölött, körökben) ── */
+  .mg-mobile-bar-icons {
+    position: fixed;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    height: 47px;
+    z-index: 101;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    pointer-events: auto;
+  }
+
+  .mg-mobile-bar-icons__btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .mg-mobile-bar-icons__btn-inner {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--color-gold);
+    box-shadow: 0 0 0 2px var(--color-bg);
+    background: var(--color-bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    color: var(--color-text);
+  }
+
+  .mg-mobile-bar-icons__btn-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(to right, var(--color-bg) 0%, var(--color-bg-card) 100%);
+  }
+
+  .mg-mobile-bar-icons__btn-inner svg {
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+
+  /* Középső gomb (kosár) nagyobb */
+  .mg-mobile-bar-icons__btn--center .mg-mobile-bar-icons__btn-inner {
+    width: 52px;
+    height: 52px;
+    margin-top: -12px;
+  }
+
+  /* ── Topbar igazítás ── */
+  .mg-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: 2;
+  }
+
+  .mg-topbar-row {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: none;
+    padding: 40px 50px 0 80px;
+  }
+
+  /* ── Tartalom igazítás ── */
+  .mg-content {
+    position: static;
+    margin: 0;
+    padding: 110px 20px 130px 20px;
+    overflow-y: auto;
+    min-height: 100vh;
+  }
+
+  .mg-content::before { display: none; }
+
+}

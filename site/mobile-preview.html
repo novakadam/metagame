@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metagame – Mobil keret preview</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Playfair+Display+SC:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components/frame.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-bg); min-height: 100vh; overflow: hidden; }
+
+    /* Mindig mobil nézet */
+    .mg-frame-corner,
+    .mg-frame-line,
+    .mg-nav-left,
+    .mg-nav-right,
+    .mg-footer { display: none !important; }
+
+    .mg-frame-m { display: block !important; position: fixed; z-index: 0; pointer-events: none; }
+    .mg-frame-m img { display: block; width: 100%; height: 100%; }
+    .mg-frame-m-bar { display: flex !important; }
+
+    /* Sarkok (vonalak FÖLÖTT) */
+    [class*="mg-frame-m-corner"] { z-index: 1; }
+    .mg-frame-m-corner--tl { top: 0; left: 0; width: 111px; height: 189px; }
+    .mg-frame-m-corner--tr { top: 0; right: 0; width: 110px; height: 189px; }
+    .mg-frame-m-corner--bl { bottom: 47px; left: 0; width: 112px; height: 73px; }
+    .mg-frame-m-corner--br { bottom: 47px; right: 0; width: 110px; height: 73px; }
+
+    /* Vonalak (sarkok alá nyúlnak) */
+    .mg-frame-m-line--top { top: 0; left: 106px; right: 105px; height: 17px; }
+    .mg-frame-m-line--left { top: 184px; left: 0; bottom: 115px; width: 18px; }
+    .mg-frame-m-line--right { top: 184px; right: 0; bottom: 115px; width: 15px; }
+    .mg-frame-m-line--bottom { bottom: 47px; left: 107px; right: 105px; height: 13px; }
+
+    /* Alsó menüsáv keret */
+    .mg-frame-m-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      height: 47px; z-index: 100; pointer-events: none;
+    }
+    .mg-frame-m-bar img { display: block; width: 100%; height: 100%; }
+    .mg-frame-m-bar__left { width: 112px; height: 47px; flex-shrink: 0; }
+    .mg-frame-m-bar__center { flex: 1; height: 47px; }
+    .mg-frame-m-bar__right { width: 110px; height: 47px; flex-shrink: 0; }
+
+    /* Hamburger */
+    .mg-mobile-hamburger {
+      display: flex !important;
+      position: fixed; top: 10px; right: 4px; z-index: 10;
+      background: none; border: none; color: var(--color-text);
+      cursor: pointer; padding: 8px;
+      align-items: center; justify-content: center;
+    }
+    .mg-mobile-hamburger svg { display: block; }
+
+    /* Alsó bar ikonok */
+    .mg-mobile-bar-icons {
+      display: flex !important;
+      position: fixed; bottom: 6px; left: 0; right: 0;
+      height: 47px; z-index: 101;
+      align-items: center; justify-content: space-around;
+      padding: 0 20px; pointer-events: auto;
+    }
+    .mg-mobile-bar-icons__btn { background: none; border: none; cursor: pointer; padding: 0; }
+
+    .mg-mobile-bar-icons__btn-inner {
+      position: relative;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--color-gold);
+      box-shadow: 0 0 0 2px var(--color-bg);
+      background: var(--color-bg-card);
+      display: flex; align-items: center; justify-content: center;
+      overflow: visible; color: var(--color-text);
+    }
+    .mg-mobile-bar-icons__btn-inner::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(to right, var(--color-bg) 0%, var(--color-bg-card) 100%);
+    }
+    .mg-mobile-bar-icons__btn-inner svg { position: relative; z-index: 1; display: block; }
+
+    .mg-mobile-bar-icons__btn--center .mg-mobile-bar-icons__btn-inner {
+      width: 52px; height: 52px; margin-top: -12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="mg-frame">
+
+  <!-- Mobil keret -->
+  <div class="mg-frame-m mg-frame-m-corner--tl"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--right"><img src="../assets/frame/mobile/frame-m-line-right.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--bl"><img src="../assets/frame/mobile/frame-m-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--bottom"><img src="../assets/frame/mobile/frame-m-line-bottom.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--br"><img src="../assets/frame/mobile/frame-m-corner-br.svg" alt=""></div>
+
+  <!-- Alsó menüsáv keret -->
+  <div class="mg-frame-m-bar">
+    <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
+    <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
+    <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- Hamburger menü gomb -->
+  <button class="mg-mobile-hamburger" aria-label="Menü">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- Alsó bar ikonok -->
+  <div class="mg-mobile-bar-icons">
+    <button class="mg-mobile-bar-icons__btn" aria-label="Elérhetőségek">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn mg-mobile-bar-icons__btn--center" aria-label="Kosár">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="16" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn" aria-label="Profil">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+</div>
+
+</body>
+</html>
