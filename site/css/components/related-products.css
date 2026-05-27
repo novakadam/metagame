@@ -154,7 +154,7 @@
 
 /* ══ MOBIL ════════════════════════════════════════════════════════ */
 
-@media (max-width: 1024px) {
+@media (max-width: 1400px) {
   .mg-related__card {
     flex-direction: row;
     gap: 16px;
