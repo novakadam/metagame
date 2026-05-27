@@ -63,8 +63,8 @@
 /* ── BAL OSZLOP: GALÉRIA + ACCORDION ─────────────────────── */
 
 .mg-product__left {
-  width: 491px;
-  flex-shrink: 0;
+  flex: 1 1 0;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -188,8 +188,8 @@
 /* ── JOBB OSZLOP: TERMÉKINFÓ PANEL ───────────────────────── */
 
 .mg-product__info {
-  flex: 1;
-  min-width: 328px;
+  flex: 1 1 0;
+  min-width: 280px;
   border: 1px solid var(--color-gold);
   display: flex;
   flex-direction: column;
@@ -659,6 +659,20 @@
   gap: 24px;
   align-items: flex-start;
   padding-bottom: 24px;
+}
+
+/* ══ KÖZBÜLSŐ: sidebar leugrik ═══════════════════════════════════ */
+
+@media (max-width: 1400px) {
+  .mg-product__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mg-product__sidebar {
+    width: 100%;
+    padding: 24px 32px 0;
+    margin-top: 0;
+  }
 }
 
 /* ══ TABLET ═══════════════════════════════════════════════════════ */

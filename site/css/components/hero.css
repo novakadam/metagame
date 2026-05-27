@@ -323,11 +323,6 @@
 /* ══ MOBIL ══════════════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
-  .mg-ticker {
-    position: relative;
-    z-index: 1;
-  }
-
   .mg-hero__logo-header {
     display: block;
     position: absolute;

@@ -103,7 +103,7 @@
 
 .mg-category-chips {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 8px;
   padding: 0 0 24px;
 }
@@ -480,6 +480,31 @@
   display: none;
 }
 
+/* ══ KÖZBÜLSŐ (toolbar kétsoros) ══════════════════════════════════ */
+
+@media (max-width: 1400px) {
+  .mg-product-toolbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mg-product-toolbar__left {
+    width: 100%;
+  }
+
+  .mg-product-toolbar__right {
+    width: 100%;
+  }
+
+  .mg-product-toolbar__sort {
+    flex: 1;
+  }
+
+  .mg-product-toolbar__sort-select {
+    flex: 1;
+  }
+}
+
 /* ══ TABLET ═══════════════════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
@@ -508,16 +533,26 @@
     font-size: 34px;
   }
 
-  .mg-category-chips {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .mg-product-toolbar__filter-btn {
     display: inline-flex;
   }
 
   .mg-product-toolbar {
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mg-product-toolbar__right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mg-product-toolbar__left {
+    width: 100%;
+  }
+
+  .mg-product-toolbar__chips {
+    flex-basis: 100%;
   }
 
   .mg-product-toolbar__quick-filters {
@@ -582,10 +617,6 @@
   .mg-product-header__desc {
     font-size: 13px;
     line-height: 20px;
-  }
-
-  .mg-category-chips {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .mg-product-toolbar {

@@ -44,7 +44,7 @@
 
 /* Sarokdíszek: fix méret, nem nyúlnak */
 
-.mg-frame-corner--tl { top: 24px;    left: 13px;  width: 529px; height: 174px; }
+.mg-frame-corner--tl { top: 24px;    left: 13px;  width: 529px; height: 174px; overflow: hidden; }
 .mg-frame-corner--tr { top: 25px;    right: 12px; width: 334px; height: 110px; }
 .mg-frame-corner--bl { bottom: 43px; left: 57px;  width: 201px; height: 119px; }
 .mg-frame-corner--br { bottom: 43px; right: 12px; width: 190px; height: 119px; }
@@ -53,6 +53,10 @@
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.mg-frame-corner__img--tablet {
+  display: none;
 }
 
 /* Vonalak: div pozicionálja, img belül tölti ki */
@@ -569,6 +573,20 @@
   margin-bottom: -32px;
 }
 
+.mg-content::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  flex-shrink: 0;
+  background: linear-gradient(to top, var(--color-bg) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+  margin-top: -32px;
+}
+
 .mg-content::-webkit-scrollbar {
   display: none;
 }
@@ -656,24 +674,17 @@
 
 /* ── Hirdető sáv / fényújság (ticker) ── */
 
-/* Desktopon: tartalom tetején, sticky */
+/* Desktopon: fejléc alatt, content szélességben */
 .mg-ticker {
-  position: sticky;
-  top: 0;
+  position: absolute;
+  top: 110px;
+  left: 255px;
+  right: 55px;
   height: 30px;
   overflow: hidden;
-  z-index: 3;
-  margin-bottom: 10px;
+  z-index: 6;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-}
-
-.mg-content > .mg-ticker:first-child {
-  margin-top: 40px;
-}
-
-.mg-content > .mg-ticker + * {
-  margin-top: 0;
 }
 
 .mg-ticker__track {
@@ -761,16 +772,18 @@
     left: 70px;
   }
 
-  /* ── Keret: bal oldal igazítás ── */
+  /* ── Keret: TL sarok tablet SVG-re vált ── */
   .mg-frame-corner--tl {
-    width: 120px;
-    overflow: hidden;
+    width: 161px;
+    height: 174px;
   }
 
-  .mg-frame-corner--tl img {
-    width: 529px;
-    height: 174px;
-    max-width: none;
+  .mg-frame-corner--tl .mg-frame-corner__img--desktop {
+    display: none;
+  }
+
+  .mg-frame-corner--tl .mg-frame-corner__img--tablet {
+    display: block;
   }
 
   .mg-frame-line--left {
@@ -790,7 +803,7 @@
   }
 
   .mg-frame-line--top {
-    left: 133px;
+    left: 161px;
   }
 
   .mg-frame-line--bottom {
@@ -801,6 +814,10 @@
   .mg-topbar-row {
     left: calc(50% + 20px);
     max-width: calc(100% - 140px);
+  }
+
+  .mg-ticker {
+    left: 70px;
   }
 
   /* ── Footer ── */
@@ -830,6 +847,18 @@
   .mg-nav-left,
   .mg-nav-right,
   .mg-footer { display: none !important; }
+
+  /* ── Ticker: mobilra váltás ── */
+  .mg-ticker {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    right: 0;
+    height: 28px;
+    z-index: 10;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  }
 
   /* ── Mobil keret megjelenítése ── */
   .mg-frame-m { display: block; }
@@ -1034,18 +1063,6 @@
     align-items: center;
   }
 
-  /* ── Hirdető sáv / fényújság ── */
-  .mg-ticker {
-    position: fixed;
-    top: 44px;
-    left: 0;
-    right: 0;
-    height: 28px;
-    z-index: 10;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-  }
-
   /* ── Keret a tartalom FÖLÖTT ── */
   .mg-frame-m {
     z-index: 10;
@@ -1091,20 +1108,6 @@
   .mg-content > [class*="mg-widget"] {
     margin-left: -32px;
     margin-right: -32px;
-  }
-
-  .mg-content > .mg-ticker {
-    margin-left: -32px;
-    margin-right: -32px;
-  }
-
-  .mg-content > .mg-ticker:first-child {
-    position: static;
-    margin: -4px -32px 4px;
-    height: 24px;
-    overflow: hidden;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .mg-content > *:first-child { margin-top: 0; }

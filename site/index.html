@@ -46,7 +46,7 @@
 
   <!-- ── KERET SVG elemek ────────────────────────────────────────── -->
   <!-- Sarokdíszek: div konténer (::after glow-hoz), img belül -->
-  <div class="mg-frame-corner mg-frame-corner--tl"><img src="../assets/frame/frame-corner-tl.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--tl"><img class="mg-frame-corner__img--desktop" src="../assets/frame/frame-corner-tl.svg" alt=""><img class="mg-frame-corner__img--tablet" src="../assets/frame/mobile/frame-corner-tl-tablet.svg" alt=""></div>
   <div class="mg-frame-corner mg-frame-corner--tr"><img src="../assets/frame/frame-corner-tr.svg" alt=""></div>
   <div class="mg-frame-corner mg-frame-corner--bl"><img src="../assets/frame/frame-corner-bl.svg" alt=""></div>
   <div class="mg-frame-corner mg-frame-corner--br"><img src="../assets/frame/frame-corner-br.svg" alt=""></div>
@@ -146,6 +146,28 @@
       </div>
     </div>
   </header>
+
+  <!-- HIRDETŐ SÁV (fényújság / ticker) — topbar-on kívül, hogy mobilon is elérhető legyen -->
+  <div class="mg-ticker">
+    <div class="mg-ticker__track">
+      <span class="mg-ticker__item">Következő verseny: Pokémon Liga Kupa — Június 7. szombat 14:00</span>
+      <span class="mg-ticker__sep">&#9670;</span>
+      <span class="mg-ticker__item">Ünnepi nyitvatartás: Pünkösd hétfőn zárva tartunk</span>
+      <span class="mg-ticker__sep">&#9670;</span>
+      <span class="mg-ticker__item">-15% minden Magic: The Gathering terméken június 15-ig!</span>
+      <span class="mg-ticker__sep">&#9670;</span>
+      <span class="mg-ticker__item">Új Riftbound kiegészítő megjelent — Korlátozott készlet!</span>
+      <span class="mg-ticker__sep">&#9670;</span>
+      <span class="mg-ticker__item">Következő verseny: Pokémon Liga Kupa — Június 7. szombat 14:00</span>
+      <span class="mg-ticker__sep">&#9670;</span>
+      <span class="mg-ticker__item">Ünnepi nyitvatartás: Pünkösd hétfőn zárva tartunk</span>
+      <span class="mg-ticker__sep">&#9670;</span>
+      <span class="mg-ticker__item">-15% minden Magic: The Gathering terméken június 15-ig!</span>
+      <span class="mg-ticker__sep">&#9670;</span>
+      <span class="mg-ticker__item">Új Riftbound kiegészítő megjelent — Korlátozott készlet!</span>
+      <span class="mg-ticker__sep">&#9670;</span>
+    </div>
+  </div>
 
   <!-- ── BAL NAV ────────────────────────────────────────────────── -->
   <nav class="mg-nav-left" id="mg-nav-left">
@@ -306,27 +328,6 @@
 
   <!-- ── TARTALOM ────────────────────────────────────────────────── -->
   <main class="mg-content">
-    <!-- HIRDETŐ SÁV (fényújság / ticker) -->
-    <div class="mg-ticker">
-      <div class="mg-ticker__track">
-        <span class="mg-ticker__item">Következő verseny: Pokémon Liga Kupa — Június 7. szombat 14:00</span>
-        <span class="mg-ticker__sep">&#9670;</span>
-        <span class="mg-ticker__item">Ünnepi nyitvatartás: Pünkösd hétfőn zárva tartunk</span>
-        <span class="mg-ticker__sep">&#9670;</span>
-        <span class="mg-ticker__item">-15% minden Magic: The Gathering terméken június 15-ig!</span>
-        <span class="mg-ticker__sep">&#9670;</span>
-        <span class="mg-ticker__item">Új Riftbound kiegészítő megjelent — Korlátozott készlet!</span>
-        <span class="mg-ticker__sep">&#9670;</span>
-        <span class="mg-ticker__item">Következő verseny: Pokémon Liga Kupa — Június 7. szombat 14:00</span>
-        <span class="mg-ticker__sep">&#9670;</span>
-        <span class="mg-ticker__item">Ünnepi nyitvatartás: Pünkösd hétfőn zárva tartunk</span>
-        <span class="mg-ticker__sep">&#9670;</span>
-        <span class="mg-ticker__item">-15% minden Magic: The Gathering terméken június 15-ig!</span>
-        <span class="mg-ticker__sep">&#9670;</span>
-        <span class="mg-ticker__item">Új Riftbound kiegészítő megjelent — Korlátozott készlet!</span>
-        <span class="mg-ticker__sep">&#9670;</span>
-      </div>
-    </div>
     <!-- WIDGETS KERÜLNEK IDE -->
     <div class="mg-widget-hero"></div>
     <div class="mg-widget-systems"></div>
