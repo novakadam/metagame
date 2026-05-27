@@ -10,6 +10,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  background: #140610;
 }
 
 /* ── CHECKOUT SZÍN FELÜLÍRÁSOK ──────────────────────────── */
@@ -1203,4 +1204,237 @@ html, body {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   margin: 0 0 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBIL RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Keret elrejtése ── */
+  .mg-checkout .mg-frame-corner,
+  .mg-checkout .mg-frame-line {
+    display: none;
+  }
+
+  /* ── Logo ── */
+  .mg-checkout__logo {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 140px;
+    display: block;
+    margin: 20px auto 0;
+  }
+
+  /* ── Info bár ── */
+  .mg-checkout__infobar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px 0;
+    align-items: center;
+  }
+
+  .mg-checkout__timer {
+    order: -1;
+    font-size: 12px;
+  }
+
+  .mg-checkout__back {
+    font-size: 12px;
+  }
+
+  .mg-checkout__secure {
+    display: none;
+  }
+
+  /* ── Fő tartalom: egyoszlopos, összesítő felülre ── */
+  .mg-checkout__main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0 32px;
+    max-width: none;
+  }
+
+  .mg-checkout__sidebar {
+    order: -1;
+  }
+
+  .mg-checkout__forms {
+    order: 1;
+    padding: 0 16px;
+  }
+
+  /* ── Szekciók ── */
+  .mg-checkout__section {
+    padding: 20px 16px;
+  }
+
+  .mg-checkout__section-title {
+    font-size: var(--font-size-base);
+  }
+
+  /* ── Form sorok: egymás alá ── */
+  .mg-form-row--2,
+  .mg-form-row--1-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Opciók (átvétel, fizetés) ── */
+  .mg-checkout__option {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .mg-checkout__option-label {
+    font-size: var(--font-size-sm);
+  }
+
+  .mg-checkout__option-desc {
+    font-size: 12px;
+  }
+
+  /* ── Gyors fizetés ── */
+  .mg-checkout__express-row {
+    flex-direction: column;
+  }
+
+  .mg-checkout__express-btn {
+    height: 44px;
+  }
+
+  /* ── Trust badges ── */
+  .mg-checkout__trust {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .mg-checkout__trust-item {
+    padding: 12px;
+  }
+
+  /* ── Összesítő sidebar → teljes szélességű, kis margóval ── */
+  .mg-checkout__sidebar {
+    position: static;
+    width: calc(100vw - 32px);
+    margin-left: calc(-50vw + 50% + 16px);
+  }
+
+  .mg-checkout__summary {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+  }
+
+  .mg-checkout__summary-header {
+    padding: 16px;
+  }
+
+  .mg-checkout__items {
+    padding: 16px;
+    max-height: none;
+  }
+
+  .mg-checkout__item-img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .mg-checkout__item-price {
+    font-size: var(--font-size-base);
+  }
+
+  .mg-checkout__totals {
+    padding: 16px;
+  }
+
+  .mg-checkout__totals-final-amount {
+    font-size: var(--font-size-2xl);
+  }
+
+  .mg-checkout__cta {
+    padding: 12px 16px 20px;
+  }
+
+  /* ── Login modal ── */
+  .mg-login-modal__card {
+    width: calc(100vw - 32px);
+    max-width: 400px;
+    padding: 28px 20px;
+  }
+
+  /* ── Footer ── */
+  .mg-checkout__footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 20px 16px 24px;
+    margin-top: 24px;
+  }
+
+  .mg-checkout__footer-links {
+    gap: 20px;
+  }
+
+  /* ═══ SUCCESS OLDAL MOBIL ═══ */
+
+  .mg-success {
+    padding: 0 16px 32px;
+  }
+
+  .mg-success__icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .mg-success__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .mg-success__card {
+    padding: 16px;
+  }
+
+  .mg-success__section-title {
+    font-size: var(--font-size-base);
+  }
+
+  .mg-success__detail {
+    gap: 10px;
+  }
+
+  .mg-success__detail svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mg-success__detail-value {
+    font-size: var(--font-size-sm);
+  }
+
+  .mg-success__pickup {
+    padding: 16px;
+  }
+
+  .mg-success__item-img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .mg-success__item-name {
+    font-size: 13px;
+  }
+
+  .mg-success__item-price {
+    font-size: 13px;
+  }
+
+  .mg-success__totals-amount {
+    font-size: var(--font-size-lg);
+  }
+
+  .mg-success__actions .mg-btn {
+    font-size: var(--font-size-sm);
+    padding: 12px;
+  }
 }
