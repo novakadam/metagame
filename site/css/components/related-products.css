@@ -151,3 +151,58 @@
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+/* ══ MOBIL ════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .mg-related__card {
+    flex-direction: row;
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .mg-related__card-image {
+    width: 120px;
+    flex-shrink: 0;
+    border-radius: var(--radius-xs);
+    align-self: stretch;
+    height: auto;
+  }
+
+  .mg-related__card-info {
+    padding: 0;
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .mg-related__card-name {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .mg-related__card-price {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mg-related__card-image {
+    width: 100px;
+  }
+
+  .mg-related__card-name {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .mg-related__card-price {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .mg-related__upsell-item {
+    padding: 12px;
+  }
+}

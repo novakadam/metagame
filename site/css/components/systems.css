@@ -263,3 +263,85 @@
 
 .mg-carousel-prev { left: -20px; z-index: 3; }
 .mg-carousel-next { right: -20px; z-index: 3; }
+
+/* ══ MOBIL ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Közös section-frame (systems, chronicles, about) ── */
+
+  .mg-section-frame {
+    padding: 40px 0;
+  }
+
+  .mg-section-line-left,
+  .mg-section-line-right {
+    display: none;
+  }
+
+  .mg-section-frame::after {
+    display: none;
+  }
+
+  .mg-section-header__label {
+    font-size: var(--font-size-2xl);
+    padding: 6px 14px;
+  }
+
+  .mg-section-title {
+    font-size: var(--font-size-2xl);
+    line-height: 1.2;
+    padding: 0 16px;
+  }
+
+  .mg-section-subtitle {
+    padding: 0 16px;
+  }
+
+  /* ── Systems szekció ── */
+
+  .mg-section-systems {
+    padding: 24px 0 12px;
+    margin: 0;
+    max-width: none;
+  }
+
+  .mg-section-frame {
+    padding: 40px 0;
+  }
+
+  .mg-systems-carousel {
+    padding: 12px 0 6px;
+  }
+
+  .mg-systems-carousel {
+    padding: 12px 24px 6px;
+  }
+
+  .mg-systems-carousel::before,
+  .mg-systems-carousel::after {
+    width: 64px;
+  }
+
+  .mg-brand-cards-wrap {
+    overflow: hidden;
+    padding: 8px 0;
+  }
+
+  .mg-brand-card {
+    flex: 0 0 120px;
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .mg-brand-card--active {
+    border-color: var(--color-gold);
+    transform: scale(1.08);
+  }
+
+  .mg-brand-card__logo {
+    height: 72px;
+  }
+
+  .mg-carousel-prev { left: 12px; }
+  .mg-carousel-next { right: 12px; }
+}

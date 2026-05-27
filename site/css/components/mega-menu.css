@@ -205,6 +205,35 @@
   color: var(--color-text);
 }
 
+/* ══ TABLET ═════════════════════════════════════════════════════════ */
+
+@media (max-width: 1400px) {
+  .mg-megamenu {
+    left: 70px;
+    right: 55px;
+    padding: 16px;
+  }
+
+  .mg-megamenu__brands {
+    width: 260px;
+    min-width: 260px;
+  }
+
+  .mg-megamenu__right {
+    width: auto;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .mg-megamenu__popular {
+    display: none;
+  }
+
+  .mg-megamenu__subcats {
+    padding: 16px 24px;
+  }
+}
+
 /* ── "TOVÁBBIAK" LINK ──────────────────────────────────────────── */
 
 .mg-megamenu__brand--more .mg-megamenu__brand-logo {

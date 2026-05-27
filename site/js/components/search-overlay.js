@@ -215,3 +215,140 @@ function mgInitSearchOverlay() {
     }
   });
 }
+
+/* ══════════════════════════════════════════════════════════════
+   Mobil kereső overlay – teljes képernyős
+   ══════════════════════════════════════════════════════════════ */
+
+var mgMobileSearchTags = [
+  'Pokémon', 'Magic', 'Booster', 'Riftbound', 'Yu-Gi-Oh!',
+  'Társasjáték', 'Sleeve', 'Warhammer'
+];
+
+var mgMobileSearchFeatured = [
+  { name: 'Riftbound Booster Display', price: '12 800 Ft', img: '../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png' },
+  { name: 'Magic Play Display', price: '24 900 Ft', img: '../assets/images/content - placeholder/product/magic-play-display-transparent.png' },
+  { name: 'Riftbound Champion Deck', price: '12 358 Ft', img: '../assets/images/content - placeholder/product/riftbound-deck-transparent.png' },
+  { name: 'Pokémon ETB', price: '14 990 Ft', img: '../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png' }
+];
+
+function mgInitMobileSearch() {
+  var $overlay = $('.mg-mobile-search-overlay');
+  var $trigger = $('.mg-mobile-search');
+  if (!$overlay.length || !$trigger.length) return;
+
+  function closeSvg() {
+    return '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>';
+  }
+
+  function searchSvg() {
+    return '<svg width="20" height="20" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+  }
+
+  function buildEmpty() {
+    var html = '<div class="mg-mobile-search-overlay__section-title">Népszerű keresések</div>';
+    html += '<div class="mg-mobile-search-overlay__tags">';
+    mgMobileSearchTags.forEach(function(tag) {
+      html += '<span class="mg-mobile-search-overlay__tag">' + tag + '</span>';
+    });
+    html += '</div>';
+
+    html += '<div class="mg-mobile-search-overlay__section-title">Ajánlott termékek</div>';
+    html += '<div class="mg-mobile-search-overlay__featured">';
+    mgMobileSearchFeatured.forEach(function(p) {
+      html += '<a class="mg-mobile-search-overlay__featured-card" href="product.html">';
+      html += '<img src="' + p.img + '" alt="' + p.name + '">';
+      html += '<span class="mg-mobile-search-overlay__featured-name">' + p.name + '</span>';
+      html += '<span class="mg-mobile-search-overlay__featured-price">' + p.price + '</span>';
+      html += '</a>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  function buildResults(items, query) {
+    var data = mgGroupByCategory(items);
+    var html = '<div class="mg-mobile-search-overlay__results">';
+    data.order.forEach(function(cat) {
+      html += '<div>';
+      html += '<h3 class="mg-mobile-search-overlay__group-title">' + cat + '</h3>';
+      data.groups[cat].forEach(function(p) {
+        html += '<a class="mg-mobile-search-overlay__item" href="product.html">';
+        html += '<div class="mg-mobile-search-overlay__item-img"><img src="' + p.img + '" alt="' + p.name + '"></div>';
+        html += '<div class="mg-mobile-search-overlay__item-info">';
+        html += '<span class="mg-mobile-search-overlay__item-name">' + mgHighlight(p.name, query) + '</span>';
+        html += '<span class="mg-mobile-search-overlay__item-sub">' + p.sub + '</span>';
+        html += '</div>';
+        html += '<span class="mg-mobile-search-overlay__item-price">' + mgFormatSearchPrice(p.price) + '</span>';
+        html += '</a>';
+      });
+      html += '</div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  function openSearch() {
+    var html = '<div class="mg-mobile-search-overlay__header">';
+    html += '<span style="color:var(--color-text-muted);display:flex;align-items:center">' + searchSvg() + '</span>';
+    html += '<input class="mg-mobile-search-overlay__input" type="text" placeholder="Keresés..." autofocus>';
+    html += '<button class="mg-mobile-search-overlay__close">' + closeSvg() + '</button>';
+    html += '</div>';
+    html += '<div class="mg-mobile-search-overlay__body">' + buildEmpty() + '</div>';
+
+    $overlay.html(html);
+
+    requestAnimationFrame(function() {
+      $overlay.addClass('is-open');
+      $('body').addClass('mg-mobile-search-open');
+      $overlay.find('.mg-mobile-search-overlay__input').focus();
+    });
+
+    $overlay.find('.mg-mobile-search-overlay__close').on('click', closeSearch);
+
+    $overlay.find('.mg-mobile-search-overlay__input').on('input', function() {
+      var val = $(this).val().trim();
+      var $body = $overlay.find('.mg-mobile-search-overlay__body');
+      if (val.length < 2) {
+        $body.html(buildEmpty());
+        bindTags();
+        return;
+      }
+      var items = mgSearchFilter(val);
+      if (items.length) {
+        $body.html(buildResults(items, val));
+      } else {
+        $body.html('<div class="mg-mobile-search-overlay__no-results">Nincs találat: „' + val + '"</div>');
+      }
+    });
+
+    bindTags();
+  }
+
+  function bindTags() {
+    $overlay.find('.mg-mobile-search-overlay__tag').on('click', function() {
+      var text = $(this).text().trim();
+      var $input = $overlay.find('.mg-mobile-search-overlay__input');
+      $input.val(text).trigger('input').focus();
+    });
+  }
+
+  function closeSearch() {
+    $overlay.removeClass('is-open');
+    $('body').removeClass('mg-mobile-search-open');
+  }
+
+  $trigger.on('click touchend', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (window.innerWidth <= 768) {
+      openSearch();
+    }
+  });
+
+  $(document).on('keydown', function(e) {
+    if (e.key === 'Escape' && $overlay.hasClass('is-open')) {
+      closeSearch();
+    }
+  });
+}

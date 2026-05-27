@@ -399,3 +399,60 @@
 .mg-footer__info-trigger.is-open svg {
   transform: rotate(180deg);
 }
+
+/* ══ MOBIL ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .mg-footer-panel__features {
+    flex-direction: column;
+  }
+
+  .mg-footer-panel__feature {
+    border-right: none;
+  }
+
+  .mg-footer-panel__links {
+    padding: 20px 20px 14px;
+    gap: 24px;
+  }
+
+  .mg-footer-panel__link-col {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 140px;
+  }
+
+  .mg-footer-panel__contact {
+    flex-direction: column;
+    padding: 14px 20px 12px;
+  }
+
+  .mg-footer-panel__store {
+    flex: none;
+    width: 100%;
+  }
+
+  .mg-footer-panel__store-name {
+    font-size: var(--font-size-xl);
+  }
+
+  .mg-footer-panel__newsletter {
+    flex: none;
+    width: 100%;
+  }
+
+  .mg-footer-panel__newsletter-title {
+    font-size: var(--font-size-xl);
+    line-height: 28px;
+  }
+
+  .mg-footer-panel__newsletter-desc {
+    font-size: var(--font-size-base);
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .mg-footer-panel__bottom {
+    padding: 16px 20px;
+    font-size: var(--font-size-sm);
+  }
+}
