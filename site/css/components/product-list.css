@@ -472,3 +472,242 @@
   line-height: 20px;
   color: var(--color-text-muted);
 }
+
+/* ── SZŰRŐ GOMB + KATEGÓRIA TOVÁBBIAK (desktop rejtett) ──── */
+
+.mg-product-toolbar__filter-btn,
+.mg-category-chips__more {
+  display: none;
+}
+
+/* ══ TABLET ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+
+  .mg-content--product {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .mg-product-layout {
+    flex-direction: column;
+  }
+
+  .mg-product-content {
+    overflow: visible;
+    padding: 0;
+  }
+
+  .mg-product-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mg-product-header__title {
+    max-width: 100%;
+    font-size: 34px;
+  }
+
+  .mg-category-chips {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mg-product-toolbar__filter-btn {
+    display: inline-flex;
+  }
+
+  .mg-product-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .mg-product-toolbar__quick-filters {
+    display: none;
+  }
+
+  .mg-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 24px;
+  }
+
+  /* ── Kategória chipek: "Továbbiak" gomb ── */
+
+  .mg-category-chips__more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    grid-column: 1 / -1;
+    padding: 8px;
+    background: none;
+    border: 1px solid var(--color-gold);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-gold);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+  }
+
+  .mg-category-chips__more:hover {
+    background: var(--color-secondary);
+  }
+}
+
+/* ══ MOBIL ════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  .mg-product-content {
+    padding: 0 16px;
+    margin-top: 12px;
+  }
+
+  .mg-product-breadcrumb {
+    padding: 4px 0;
+    justify-content: center;
+  }
+
+  .mg-product-header {
+    gap: 12px;
+    padding-bottom: 16px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .mg-product-header__title {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+
+  .mg-product-header__desc {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .mg-category-chips {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mg-product-toolbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .mg-product-toolbar__left {
+    gap: 8px;
+  }
+
+  .mg-product-toolbar__right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mg-product-toolbar__sort-label {
+    display: none;
+  }
+
+  .mg-product-grid {
+    grid-template-columns: 1fr;
+    gap: 40px 0;
+  }
+
+  /* ── Mobil lista nézet ── */
+
+  .mg-product-grid--list {
+    gap: 28px;
+  }
+
+  .mg-product-grid--list .mg-product-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 2px 12px;
+    padding: 12px;
+    padding-bottom: 20px;
+    align-items: start;
+    overflow: visible;
+  }
+
+  .mg-product-grid--list .mg-badge-new,
+  .mg-product-grid--list .mg-badge-fav {
+    display: none !important;
+  }
+
+  .mg-product-grid--list .mg-product-card__image {
+    grid-column: 1;
+    grid-row: 1 / 5;
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    border-radius: 4px;
+  }
+
+  .mg-product-grid--list .mg-product-card__info,
+  .mg-product-grid--list .mg-product-card__content {
+    display: contents;
+  }
+
+  .mg-product-grid--list .mg-product-card__category {
+    position: absolute;
+    left: 12px;
+    top: 94px;
+    transform: none;
+    margin: 0;
+    z-index: 1;
+  }
+
+  .mg-product-grid--list .mg-product-card__category-text {
+    font-size: 10px;
+    padding: 0 4px;
+    height: 16px;
+  }
+
+  .mg-product-grid--list .mg-product-card__category-arrow {
+    width: 8px;
+    height: 16px;
+  }
+
+  .mg-product-grid--list .mg-product-card__title {
+    grid-column: 2;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 0;
+  }
+
+  .mg-product-grid--list .mg-product-card__subtitle {
+    grid-column: 2;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .mg-product-grid--list .mg-product-card__price {
+    grid-column: 2;
+    font-size: 15px;
+    padding: 4px 0 0;
+    border: none;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .mg-product-grid--list .mg-product-card__rows {
+    display: none;
+  }
+
+  .mg-product-grid--list .mg-product-card__cta {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 1;
+  }
+
+  .mg-product-grid--list .mg-product-card__cta .mg-btn {
+    font-size: 12px;
+    padding: 6px 24px;
+    white-space: nowrap;
+  }
+
+  .mg-product-loadmore {
+    padding: 8px 0 40px;
+  }
+}

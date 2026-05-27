@@ -33,6 +33,9 @@ $(function () {
   });
 
   mgInitMegaMenu();
+  mgInitMobileMenu();
+  mgInitMobileSearch();
+  mgInitMobileDrawer();
   mgInitDrawer();
   mgInitFooter();
 

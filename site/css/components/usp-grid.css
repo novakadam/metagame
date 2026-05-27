@@ -165,3 +165,85 @@
   margin: 0;
   width: 100%;
 }
+
+/* ══ TABLET ═════════════════════════════════════════════════════════ */
+
+@media (max-width: 1200px) {
+  .mg-usp-grid__row {
+    gap: 16px;
+  }
+
+  .mg-usp-card {
+    min-width: 280px;
+    max-width: calc(50% - 8px);
+  }
+}
+
+/* ══ MOBIL ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .mg-usp-grid {
+    padding: 32px 40px;
+    gap: 24px;
+  }
+
+  .mg-usp-grid__title {
+    font-size: var(--font-size-2xl);
+    line-height: 1.2;
+  }
+
+  .mg-usp-grid__container {
+    gap: 32px;
+  }
+
+  .mg-usp-grid__row {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .mg-usp-card {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 20px;
+    gap: 12px;
+  }
+
+  .mg-usp-card__icon {
+    padding: 0;
+    height: auto;
+  }
+
+  .mg-usp-card__icon-shape {
+    width: 54px;
+    height: 54px;
+  }
+
+  .mg-usp-card__hex {
+    width: 63px;
+    height: 54px;
+  }
+
+  .mg-usp-card__svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mg-usp-card__body {
+    padding: 0;
+    align-items: center;
+  }
+
+  .mg-usp-card__title {
+    font-size: var(--font-size-lg);
+    line-height: 1.3;
+  }
+
+  .mg-usp-card__desc {
+    font-size: var(--font-size-sm);
+    line-height: 20px;
+  }
+}

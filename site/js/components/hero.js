@@ -2,6 +2,7 @@
  * hero.js – Hero szekció
  *
  * Tab-váltás, bal oldali carousel, jobb oldali ajánló szinkron.
+ * Mobil: végtelen kör-carousel, középen kiemelt kártya.
  *
  * BACKEND: heroData placeholderből dinamikus adat lesz.
  */
@@ -54,35 +55,26 @@ function mgInitHero() {
   var tab  = 'ujdonsagok';
   var idx  = 0;
   var page = 0;
-  var VIS  = 2;
+  var isMobile = window.innerWidth <= 768;
+  var VIS  = isMobile ? 1 : 2;
   var GAP  = 16;
 
   function items() { return heroData[tab] || []; }
 
-  function cardW() {
-    var $c = $strip.find('.mg-hero-card');
-    return $c.length ? $c.first().outerWidth() : 170;
+  /* ── Kártya HTML builder ────────────────────────────────────── */
+
+  function cardHtml(it, dataIdx) {
+    return '<div class="mg-hero-card mg-hero-card--' + it.type + '" data-i="' + dataIdx + '">' +
+      '<div class="mg-hero-card__image">' +
+        '<img src="' + it.image + '" alt="' + it.title + '">' +
+      '</div>' +
+      '<div class="mg-hero-card__body">' +
+        '<p class="mg-hero-card__title">' + it.title + '</p>' +
+        '<p class="mg-hero-card__meta">' + it.meta + '</p>' +
+      '</div></div>';
   }
 
-  /* ── Renderelés ──────────────────────────────────────────────── */
-
-  function renderCards() {
-    var list = items();
-    var h = '';
-    for (var i = 0; i < list.length; i++) {
-      var it = list[i];
-      h += '<div class="mg-hero-card mg-hero-card--' + it.type + (i === idx ? ' mg-hero-card--active' : '') + '" data-i="' + i + '">' +
-        '<div class="mg-hero-card__image">' +
-          '<img src="' + it.image + '" alt="' + it.title + '">' +
-        '</div>' +
-        '<div class="mg-hero-card__body">' +
-          '<p class="mg-hero-card__title">' + it.title + '</p>' +
-          '<p class="mg-hero-card__meta">' + it.meta + '</p>' +
-        '</div></div>';
-    }
-    $strip.html(h);
-    scroll();
-  }
+  /* ── Ajánló renderelés ──────────────────────────────────────── */
 
   function renderAjanlo() {
     var it = items()[idx];
@@ -135,89 +127,262 @@ function mgInitHero() {
   /* ── Carousel vezérlés ───────────────────────────────────────── */
 
   var $carousel = $hero.find('.mg-hero__carousel');
+  var $wrap     = $hero.find('.mg-hero__cards-wrap');
+  var AUTO_MS   = 5000;
+  var autoTimer;
 
-  function scroll() {
-    var w = cardW();
-    var off = page * (w + GAP);
-    $strip.stop().animate({ 'margin-left': -off }, 300, 'swing');
-    $prev.attr('hidden', idx <= 0 ? '' : null);
-    $next.attr('hidden', idx >= items().length - 1 ? '' : null);
-    $carousel.toggleClass('mg-hero__carousel--has-prev', page > 0);
-  }
+  if (isMobile) {
 
-  function setIdx(i, animate) {
-    idx = i;
-    $strip.find('.mg-hero-card').removeClass('mg-hero-card--active')
-      .filter('[data-i="' + i + '"]').addClass('mg-hero-card--active');
+    /* ═══ MOBIL: végtelen kör-carousel ═══ */
 
-    if (animate) {
-      $ajanlo.addClass('mg-hero__ajanlo-wrap--exiting');
-      setTimeout(function () {
+    var visIdx = 0;
+    var animating = false;
+    var total = 0;
+
+    function cardW() {
+      var $c = $strip.find('.mg-hero-card');
+      return $c.length ? $c.first().outerWidth() : 200;
+    }
+
+    function positionAt(vi, animate) {
+      var w = cardW();
+      var wrapW = $wrap.width();
+      var center = (wrapW - w) / 2;
+      var off = vi * (w + GAP) - center;
+      var $allCards = $strip.find('.mg-hero-card');
+
+      $allCards.removeClass('mg-hero-card--active');
+      $allCards.eq(vi).addClass('mg-hero-card--active');
+
+      if (animate) {
+        animating = true;
+        $strip.stop().animate({ 'margin-left': -off }, 300, 'swing', function () {
+          animating = false;
+          wrapAround();
+        });
+      } else {
+        $strip.css('margin-left', -off);
+      }
+    }
+
+    function wrapAround() {
+      if (visIdx >= total * 2) {
+        visIdx = visIdx - total;
+        positionAt(visIdx, false);
+      } else if (visIdx < total) {
+        visIdx = visIdx + total;
+        positionAt(visIdx, false);
+      }
+    }
+
+    function realIdx() {
+      return ((visIdx % total) + total) % total;
+    }
+
+    function goTo(newVis, animate) {
+      visIdx = newVis;
+      var ri = realIdx();
+      if (ri !== idx) {
+        idx = ri;
+        $ajanlo.addClass('mg-hero__ajanlo-wrap--exiting');
+        setTimeout(function () {
+          renderAjanlo();
+          $ajanlo.removeClass('mg-hero__ajanlo-wrap--exiting');
+        }, 300);
+      }
+      positionAt(visIdx, animate !== false);
+    }
+
+    function renderCards() {
+      var list = items();
+      total = list.length;
+      if (!total) { $strip.empty(); return; }
+
+      var h = '';
+      for (var i = 0; i < list.length; i++) {
+        h += cardHtml(list[i], i);
+      }
+      // [clone-set][real-set][clone-set] — háromszor ugyanaz a sorrend
+      $strip.html(h + h + h);
+
+      visIdx = total + idx;
+      positionAt(visIdx, false);
+    }
+
+    $prev.removeAttr('hidden');
+    $next.removeAttr('hidden');
+
+    $next.on('click', function () {
+      if (animating) return;
+      goTo(visIdx + 1); resetAuto();
+    });
+
+    $prev.on('click', function () {
+      if (animating) return;
+      goTo(visIdx - 1); resetAuto();
+    });
+
+    $strip.on('click', '.mg-hero-card', function () {
+      if (animating) return;
+      var i = $(this).index();
+      if (i !== visIdx) { goTo(i); resetAuto(); }
+    });
+
+    /* Touch swipe */
+    var touchX0, touchY0, touchML, swiping;
+
+    $carousel.on('touchstart', function (e) {
+      var t = e.originalEvent.touches[0];
+      touchX0 = t.clientX;
+      touchY0 = t.clientY;
+      touchML = parseFloat($strip.css('margin-left')) || 0;
+      swiping = null;
+      $strip.stop();
+    });
+
+    $carousel[0].addEventListener('touchmove', function (e) {
+      var t = e.touches[0];
+      var dx = t.clientX - touchX0;
+      var dy = t.clientY - touchY0;
+      if (swiping === null) swiping = Math.abs(dx) > Math.abs(dy);
+      if (swiping) {
+        e.preventDefault();
+        $strip.css('margin-left', touchML + dx);
+      }
+    }, { passive: false });
+
+    $carousel.on('touchend', function (e) {
+      if (!swiping) return;
+      var dx = e.originalEvent.changedTouches[0].clientX - touchX0;
+      if (dx < -40) {
+        goTo(visIdx + 1);
+      } else if (dx > 40) {
+        goTo(visIdx - 1);
+      } else {
+        positionAt(visIdx, true);
+      }
+      resetAuto();
+    });
+
+    function autoStep() {
+      if (animating) return;
+      goTo(visIdx + 1);
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(autoStep, AUTO_MS);
+    }
+
+    function switchTab(t) {
+      tab = t;
+      idx = 0;
+      $tabs.removeClass('mg-hero__tab--active')
+        .filter('[data-tab="' + t + '"]').addClass('mg-hero__tab--active');
+      $linkTxt.text(linkLabels[t]);
+      renderCards();
+      renderAjanlo();
+      resetAuto();
+    }
+
+    $tabs.on('click', function () { switchTab($(this).data('tab')); });
+
+    renderCards();
+    renderAjanlo();
+    resetAuto();
+
+  } else {
+
+    /* ═══ DESKTOP: eredeti lapozás ═══ */
+
+    function cardW() {
+      var $c = $strip.find('.mg-hero-card');
+      return $c.length ? $c.first().outerWidth() : 170;
+    }
+
+    function renderCards() {
+      var list = items();
+      var h = '';
+      for (var i = 0; i < list.length; i++) {
+        h += cardHtml(list[i], i);
+      }
+      $strip.html(h);
+      scroll();
+    }
+
+    function scroll() {
+      var w = cardW();
+      var off = page * (w + GAP);
+      $strip.stop().animate({ 'margin-left': -off }, 300, 'swing');
+      $prev.attr('hidden', idx <= 0 ? '' : null);
+      $next.attr('hidden', idx >= items().length - 1 ? '' : null);
+      $carousel.toggleClass('mg-hero__carousel--has-prev', page > 0);
+    }
+
+    function setIdx(i, animate) {
+      idx = i;
+      $strip.find('.mg-hero-card').removeClass('mg-hero-card--active')
+        .filter('[data-i="' + i + '"]').addClass('mg-hero-card--active');
+
+      if (animate) {
+        $ajanlo.addClass('mg-hero__ajanlo-wrap--exiting');
+        setTimeout(function () {
+          renderAjanlo();
+          $ajanlo.removeClass('mg-hero__ajanlo-wrap--exiting');
+        }, 300);
+      } else {
         renderAjanlo();
-        $ajanlo.removeClass('mg-hero__ajanlo-wrap--exiting');
-      }, 300);
-    } else {
+      }
+
+      if (idx >= page + VIS) { page = idx - VIS + 1; scroll(); }
+      if (idx < page)        { page = idx; scroll(); }
+    }
+
+    function switchTab(t) {
+      tab  = t;
+      idx  = 0;
+      page = 0;
+      $tabs.removeClass('mg-hero__tab--active')
+        .filter('[data-tab="' + t + '"]').addClass('mg-hero__tab--active');
+      $linkTxt.text(linkLabels[t]);
+      renderCards();
       renderAjanlo();
     }
 
-    if (idx >= page + VIS) { page = idx - VIS + 1; scroll(); }
-    if (idx < page)        { page = idx; scroll(); }
-  }
+    function autoStep() {
+      var next = (idx + 1) % items().length;
+      if (next < page) { page = next; scroll(); }
+      if (next >= page + VIS) { page = next - VIS + 1; scroll(); }
+      setIdx(next, true);
+    }
 
-  function switchTab(t) {
-    tab  = t;
-    idx  = 0;
-    page = 0;
-    $tabs.removeClass('mg-hero__tab--active')
-      .filter('[data-tab="' + t + '"]').addClass('mg-hero__tab--active');
-    $linkTxt.text(linkLabels[t]);
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(autoStep, AUTO_MS);
+    }
+
+    $tabs.on('click', function () {
+      switchTab($(this).data('tab'));
+      resetAuto();
+    });
+
+    $strip.on('click', '.mg-hero-card', function () {
+      setIdx(+$(this).data('i'), true);
+      resetAuto();
+    });
+
+    $next.on('click', function () {
+      if (idx < items().length - 1) setIdx(idx + 1, true);
+      resetAuto();
+    });
+
+    $prev.on('click', function () {
+      if (idx > 0) setIdx(idx - 1, true);
+      resetAuto();
+    });
+
     renderCards();
     renderAjanlo();
-  }
-
-  /* ── Események ───────────────────────────────────────────────── */
-
-  function resetAuto() {
-    clearInterval(autoTimer);
     autoTimer = setInterval(autoStep, AUTO_MS);
   }
-
-  $tabs.on('click', function () {
-    switchTab($(this).data('tab'));
-    resetAuto();
-  });
-
-  $strip.on('click', '.mg-hero-card', function () {
-    setIdx(+$(this).data('i'), true);
-    resetAuto();
-  });
-
-  $next.on('click', function () {
-    if (idx < items().length - 1) setIdx(idx + 1, true);
-    resetAuto();
-  });
-
-  $prev.on('click', function () {
-    if (idx > 0) setIdx(idx - 1, true);
-    resetAuto();
-  });
-
-  /* ── Auto-play (5 mp-ként léptet, animált váltás) ───────────── */
-
-  var AUTO_MS = 5000;
-  var autoTimer;
-
-  function autoStep() {
-    var next = (idx + 1) % items().length;
-    if (next < page) { page = next; scroll(); }
-    if (next >= page + VIS) { page = next - VIS + 1; scroll(); }
-    setIdx(next, true);
-  }
-
-  autoTimer = setInterval(autoStep, AUTO_MS);
-
-  /* ── Indítás ─────────────────────────────────────────────────── */
-
-  renderCards();
-  renderAjanlo();
 }
