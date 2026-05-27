@@ -183,8 +183,14 @@
 
 @media (max-width: 768px) {
   .mg-usp-grid {
-    padding: 32px 40px;
+    padding: 32px 16px;
     gap: 24px;
+  }
+
+  .mg-usp-grid__topology {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
   }
 
   .mg-usp-grid__title {
@@ -193,17 +199,18 @@
   }
 
   .mg-usp-grid__container {
-    gap: 32px;
+    gap: 16px;
   }
 
   .mg-usp-grid__row {
     flex-direction: column;
-    gap: 32px;
+    gap: 16px;
   }
 
   .mg-usp-card {
     width: 100%;
     min-width: 0;
+    max-width: none;
     height: auto;
     flex-direction: column;
     align-items: center;
