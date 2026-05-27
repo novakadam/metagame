@@ -154,12 +154,6 @@
 .mg-hero__carousel::before {
   left: 0;
   background: linear-gradient(to right, var(--color-bg), transparent);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.mg-hero__carousel--has-prev::before {
-  opacity: 1;
 }
 
 .mg-hero__carousel::after {
@@ -291,5 +285,144 @@
 .mg-hero__ajanlo-wrap--exiting {
   opacity: 0;
   transform: translateY(12px);
+}
+
+/* ── LOGÓ HEADER (csak mobil) ─────────────────────────────────────── */
+
+.mg-hero__logo-header {
+  display: none;
+}
+
+/* ══ TABLET ═════════════════════════════════════════════════════════ */
+
+@media (max-width: 1200px) {
+  .mg-hero__frame {
+    padding: 36px 40px;
+  }
+
+  .mg-hero__container {
+    gap: 32px;
+  }
+
+  .mg-hero__left {
+    flex: 0 1 420px;
+    min-width: 320px;
+    padding-left: 0;
+  }
+
+  .mg-hero__title {
+    font-size: 34px;
+    white-space: normal;
+  }
+
+  .mg-hero__ajanlo-wrap {
+    width: 240px;
+  }
+}
+
+/* ══ MOBIL ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .mg-ticker {
+    position: relative;
+    z-index: 1;
+  }
+
+  .mg-hero__logo-header {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: var(--color-bg);
+    padding: 6px 20px;
+  }
+
+  .mg-hero__logo-img {
+    display: block;
+    height: 63px;
+    width: auto;
+  }
+
+  .mg-hero {
+    padding: 0;
+    margin: 32px 0 0;
+    max-width: none;
+    position: relative;
+    z-index: 4;
+    overflow: visible;
+  }
+
+  .mg-hero__frame {
+    padding: 48px 24px 32px;
+  }
+
+  .mg-hero__frame::after {
+    display: none;
+  }
+
+  .mg-hero__container {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mg-hero__left {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mg-hero__title {
+    font-size: 32px;
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .mg-hero__subtitle {
+    order: -1;
+  }
+
+  .mg-hero__desc {
+    font-size: 15px;
+    max-width: none;
+  }
+
+  .mg-hero__tab {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  .mg-hero__carousel {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .mg-hero__carousel::before,
+  .mg-hero__carousel::after {
+    width: 40px;
+  }
+
+  .mg-hero-card {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+
+  .mg-hero-card__image {
+    height: 220px;
+  }
+
+  .mg-hero__prev { left: 16px; }
+  .mg-hero__next { right: 16px; }
+
+  .mg-hero__right {
+    display: none;
+  }
+
+  .mg-hero__link {
+    align-self: center;
+  }
 }
 

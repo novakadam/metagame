@@ -229,3 +229,50 @@
 .mg-contact__info-btn {
   width: 100%;
 }
+
+/* ══ MOBIL ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .mg-contact {
+    padding: 32px 24px 24px;
+  }
+
+  .mg-contact__container {
+    gap: 24px;
+    padding: 0;
+  }
+
+  .mg-contact__title {
+    font-size: var(--font-size-2xl);
+    line-height: 1.2;
+  }
+
+  .mg-contact__desc {
+    font-size: var(--font-size-base);
+    line-height: 24px;
+  }
+
+  .mg-contact__card {
+    flex-direction: column;
+  }
+
+  .mg-contact__form {
+    min-width: 0;
+  }
+
+  .mg-contact__map-wrap {
+    min-width: 0;
+  }
+
+  .mg-contact__map {
+    min-height: 250px;
+  }
+
+  .mg-contact__cards {
+    flex-direction: column;
+  }
+
+  .mg-contact__info-card {
+    min-width: 0;
+  }
+}

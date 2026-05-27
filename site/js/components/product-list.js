@@ -98,6 +98,40 @@ function mgInitProductList() {
     window.location.href = 'product.html';
   });
 
+  // ── KATEGÓRIA CHIPEK PROGRESSZÍV MEGJELENÍTÉS ─────────────
+  var chipExpands = 0;
+  var $chipContainer = $('.mg-category-chips');
+  var $allChips = $chipContainer.find('.mg-category-chip');
+  var $chipMore = $chipContainer.find('.mg-category-chips__more');
+
+  function getChipStep() {
+    if (window.matchMedia('(max-width: 768px)').matches) return 4;
+    if (window.matchMedia('(max-width: 1024px)').matches) return 6;
+    return 0;
+  }
+
+  function updateChipVisibility() {
+    var step = getChipStep();
+    if (step > 0 && $allChips.length > step) {
+      var visible = step * (1 + chipExpands);
+      $allChips.each(function (i) {
+        $(this).toggle(i < visible);
+      });
+      $chipMore.toggle(visible < $allChips.length);
+    } else {
+      $allChips.show();
+      $chipMore.hide();
+    }
+  }
+
+  $chipMore.on('click', function () {
+    chipExpands++;
+    updateChipVisibility();
+  });
+
+  updateChipVisibility();
+  $(window).on('resize', updateChipVisibility);
+
   // ── DEMO: KÁRTYÁK GENERÁLÁSA ──────────────────────────────
   mgRenderDemoCards(6);
 }

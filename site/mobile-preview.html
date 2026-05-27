@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/components/frame.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -91,6 +92,11 @@
     .mg-mobile-bar-icons__btn--center .mg-mobile-bar-icons__btn-inner {
       width: 52px; height: 52px; margin-top: -12px;
     }
+
+    /* Mobile menu override: mindig mutasd */
+    .mg-mobile-menu {
+      display: block !important;
+    }
   </style>
 </head>
 <body>
@@ -151,7 +157,20 @@
     </button>
   </div>
 
+  <!-- Mobil menü -->
+  <div class="mg-mobile-menu"></div>
+
 </div>
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!-- Mega menu data (a mobil menü is használja) -->
+<script src="js/components/mega-menu.js"></script>
+<!-- Mobile menu -->
+<script src="js/components/mobile-menu.js"></script>
+<script>
+  $(function() { mgInitMobileMenu(); });
+</script>
 
 </body>
 </html>

@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="css/components/mega-menu.css">
   <link rel="stylesheet" href="css/components/footer.css">
   <link rel="stylesheet" href="css/components/search-overlay.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css">
 
   <!-- Leaflet (OpenStreetMap térkép) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -57,7 +58,7 @@
   <div class="mg-frame-line mg-frame-line--bottom"><img src="../assets/frame/frame-line-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
 
   <!-- ── MOBIL KERET ─────────────────────────────────────────────── -->
-  <div class="mg-frame-m mg-frame-m-corner--tl"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt=""></div>
+  <a class="mg-frame-m mg-frame-m-corner--tl" href="index.html"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt="Metagame"></a>
   <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg" alt=""></div>
   <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
   <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
@@ -69,6 +70,17 @@
     <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
     <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
     <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- ── MOBIL: Keresőmező ── -->
+  <div class="mg-mobile-search mg-cut-frame">
+    <input type="text" placeholder="Keresés..." readonly>
+    <button class="mg-mobile-search__btn" aria-label="Keresés">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
   </div>
 
   <!-- ── MOBIL: Hamburger gomb ── -->
@@ -110,7 +122,10 @@
 
   <!-- ── TOP BAR ────────────────────────────────────────────────── -->
   <header class="mg-topbar">
-    <img class="mg-logo" src="../assets/images/logo.svg" alt="Metagame">
+    <a href="index.html">
+      <img class="mg-logo mg-logo--full" src="../assets/images/logo.svg" alt="Metagame">
+      <img class="mg-logo mg-logo--compact" src="../assets/frame/mobile/mg-logo-closed.svg" alt="Metagame">
+    </a>
 
     <!-- Toggle + keresősor: 50px-re a lap tetejétől -->
     <div class="mg-topbar-row">
@@ -287,6 +302,27 @@
 
   <!-- ── TARTALOM ────────────────────────────────────────────────── -->
   <main class="mg-content">
+    <!-- HIRDETŐ SÁV (fényújság / ticker) -->
+    <div class="mg-ticker">
+      <div class="mg-ticker__track">
+        <span class="mg-ticker__item">Következő verseny: Pokémon Liga Kupa — Június 7. szombat 14:00</span>
+        <span class="mg-ticker__sep">&#9670;</span>
+        <span class="mg-ticker__item">Ünnepi nyitvatartás: Pünkösd hétfőn zárva tartunk</span>
+        <span class="mg-ticker__sep">&#9670;</span>
+        <span class="mg-ticker__item">-15% minden Magic: The Gathering terméken június 15-ig!</span>
+        <span class="mg-ticker__sep">&#9670;</span>
+        <span class="mg-ticker__item">Új Riftbound kiegészítő megjelent — Korlátozott készlet!</span>
+        <span class="mg-ticker__sep">&#9670;</span>
+        <span class="mg-ticker__item">Következő verseny: Pokémon Liga Kupa — Június 7. szombat 14:00</span>
+        <span class="mg-ticker__sep">&#9670;</span>
+        <span class="mg-ticker__item">Ünnepi nyitvatartás: Pünkösd hétfőn zárva tartunk</span>
+        <span class="mg-ticker__sep">&#9670;</span>
+        <span class="mg-ticker__item">-15% minden Magic: The Gathering terméken június 15-ig!</span>
+        <span class="mg-ticker__sep">&#9670;</span>
+        <span class="mg-ticker__item">Új Riftbound kiegészítő megjelent — Korlátozott készlet!</span>
+        <span class="mg-ticker__sep">&#9670;</span>
+      </div>
+    </div>
     <!-- WIDGETS KERÜLNEK IDE -->
     <div class="mg-widget-hero"></div>
     <div class="mg-widget-systems"></div>
@@ -322,6 +358,15 @@
       <a class="mg-footer__info-trigger" href="#">Információ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
     </div>
   </footer>
+
+  <!-- ── MOBIL MENÜ ──────────────────────────────────────────── -->
+  <div class="mg-mobile-menu"></div>
+
+  <!-- ── MOBIL KERESŐ OVERLAY ──────────────────────────────── -->
+  <div class="mg-mobile-search-overlay"></div>
+
+  <!-- ── MOBIL DRAWER OVERLAY (kosár, profil, kapcsolat) ──── -->
+  <div class="mg-mobile-drawer"></div>
 
   <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
   <div class="mg-widget-search-overlay"></div>
@@ -517,6 +562,8 @@
 <script src="js/components/drawer.js"></script>
 <!-- Footer panel -->
 <script src="js/components/footer.js"></script>
+<!-- Mobile menu -->
+<script src="js/components/mobile-menu.js"></script>
 <!-- Search overlay -->
 <script src="js/components/search-overlay.js"></script>
 <!-- Widget betöltés -->

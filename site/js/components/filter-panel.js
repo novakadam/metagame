@@ -53,6 +53,41 @@ function mgInitFilterPanel() {
   });
 }
 
+function mgInitFilterOverlay() {
+  var $panel = $('.mg-filter-panel');
+  if (!$panel.length) return;
+
+  function openFilter() {
+    $panel.addClass('is-open');
+    $('body').addClass('mg-filter-open');
+  }
+
+  function closeFilter() {
+    $panel.removeClass('is-open');
+    $('body').removeClass('mg-filter-open');
+  }
+
+  $(document).on('click', '.mg-product-toolbar__filter-btn', function (e) {
+    e.preventDefault();
+    openFilter();
+  });
+
+  $(document).on('click', '.mg-filter-panel__close', function () {
+    closeFilter();
+  });
+
+  $(document).on('click', '.mg-filter-panel__apply-btn', function () {
+    closeFilter();
+    mgSyncFilterChips();
+  });
+
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && $panel.hasClass('is-open')) {
+      closeFilter();
+    }
+  });
+}
+
 /**
  * Szinkronizálja a toolbar szűrő chipeket a panel aktuális állapotával.
  * BACKEND: ez a logika majd szerver oldalon fut, itt csak UI demo.

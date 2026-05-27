@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="css/components/search-overlay.css">
   <link rel="stylesheet" href="css/components/mega-menu.css">
   <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css">
 </head>
 <body>
 
@@ -42,9 +43,75 @@
   <div class="mg-frame-line mg-frame-line--right-bottom"><img src="../assets/frame/frame-right-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
   <div class="mg-frame-line mg-frame-line--bottom"><img src="../assets/frame/frame-line-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
 
+  <!-- ── MOBIL KERET ─────────────────────────────────────────────── -->
+  <a class="mg-frame-m mg-frame-m-corner--tl" href="index.html"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt="Metagame"></a>
+  <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--right"><img src="../assets/frame/mobile/frame-m-line-right.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--bl"><img src="../assets/frame/mobile/frame-m-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--bottom"><img src="../assets/frame/mobile/frame-m-line-bottom.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--br"><img src="../assets/frame/mobile/frame-m-corner-br.svg" alt=""></div>
+  <div class="mg-frame-m-bar">
+    <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
+    <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
+    <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- ── MOBIL: Keresőmező ── -->
+  <div class="mg-mobile-search mg-cut-frame">
+    <input type="text" placeholder="Keresés..." readonly>
+    <button class="mg-mobile-search__btn" aria-label="Keresés">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── MOBIL: Hamburger gomb ── -->
+  <button class="mg-mobile-hamburger" aria-label="Menü">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ── MOBIL: Alsó bar ikonok ── -->
+  <div class="mg-mobile-bar-icons">
+    <button class="mg-mobile-bar-icons__btn" aria-label="Elérhetőségek">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn mg-mobile-bar-icons__btn--center" aria-label="Kosár">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="16" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn" aria-label="Profil">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
   <!-- ── TOP BAR ────────────────────────────────────────────────── -->
   <header class="mg-topbar">
-    <a href="index.html"><img class="mg-logo" src="../assets/images/logo.svg" alt="Metagame"></a>
+    <a href="index.html">
+      <img class="mg-logo mg-logo--full" src="../assets/images/logo.svg" alt="Metagame">
+      <img class="mg-logo mg-logo--compact" src="../assets/frame/mobile/mg-logo-closed.svg" alt="Metagame">
+    </a>
 
     <div class="mg-topbar-row">
       <div class="mg-toggle mg-cut-frame" data-active="shop">
@@ -147,6 +214,10 @@
 
       <!-- BAL: Tartalomjegyzék (sticky) -->
       <aside class="mg-article__toc">
+        <button class="mg-article__toc-toggle">
+          <span>Tartalomjegyzék</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
         <p class="mg-article__toc-title">Tartalomjegyzék</p>
 
         <nav class="mg-article__toc-nav">
@@ -411,6 +482,15 @@
     </div>
   </footer>
 
+  <!-- ── MOBIL MENÜ ──────────────────────────────────────────── -->
+  <div class="mg-mobile-menu"></div>
+
+  <!-- ── MOBIL KERESŐ OVERLAY ──────────────────────────────── -->
+  <div class="mg-mobile-search-overlay"></div>
+
+  <!-- ── MOBIL DRAWER OVERLAY (kosár, profil, kapcsolat) ──── -->
+  <div class="mg-mobile-drawer"></div>
+
   <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
   <div class="mg-widget-search-overlay"></div>
 
@@ -508,14 +588,23 @@
 <script src="js/components/drawer.js"></script>
 <script src="js/components/footer.js"></script>
 <script src="js/components/search-overlay.js"></script>
+<script src="js/components/mobile-menu.js"></script>
 <!-- Cikk TOC aktív állapot -->
 <script>
 $(function () {
   mgInitMegaMenu();
+  mgInitMobileMenu();
+  mgInitMobileSearch();
+  mgInitMobileDrawer();
   mgInitDrawer();
   mgInitFooter();
   $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
     mgInitSearchOverlay();
+  });
+
+  // TOC accordion toggle (tablet/mobil)
+  $('.mg-article__toc-toggle').on('click', function () {
+    $(this).closest('.mg-article__toc').toggleClass('is-open');
   });
 
   var $toc = $('.mg-article__toc-link');

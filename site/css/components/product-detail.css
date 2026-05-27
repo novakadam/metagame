@@ -741,3 +741,228 @@
   align-items: flex-start;
   padding-bottom: 24px;
 }
+
+/* ══ TABLET ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+
+  .mg-product__layout {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .mg-product__main {
+    gap: 0;
+  }
+
+  .mg-product__breadcrumb {
+    padding: 8px 12px;
+    border-bottom: none;
+    justify-content: center;
+  }
+
+  .mg-product__body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-bottom: 0;
+  }
+
+  /* display: contents lánc — minden gyerek a body közvetlen flex-iteme lesz */
+  .mg-product__left,
+  .mg-product__info,
+  .mg-product__info-body,
+  .mg-product__info-content {
+    display: contents;
+  }
+
+  /* Badge: centered, félig rálóg a heading-re */
+  .mg-product__badge {
+    position: relative;
+    transform: none;
+    justify-content: center;
+    order: 1;
+    margin: 16px 0 -12px;
+    z-index: 2;
+    top: auto;
+    left: auto;
+  }
+
+  .mg-product__heading {
+    order: 2;
+    border-bottom: none;
+    padding-top: 24px;
+  }
+
+  .mg-product__gallery {
+    order: 3;
+    gap: 16px;
+    margin-top: 0;
+  }
+
+  .mg-product__gallery-main {
+    border-left: none;
+    border-right: none;
+  }
+
+  .mg-product__gallery-thumbs {
+    gap: 12px;
+  }
+
+  .mg-product__gallery-thumb {
+    height: 72px;
+  }
+
+  .mg-product__price-section {
+    order: 4;
+    margin-top: 20px;
+  }
+
+  .mg-product__cart-row {
+    order: 5;
+    padding: 16px 24px;
+  }
+
+  .mg-product__description {
+    order: 6;
+  }
+
+  .mg-product__variants {
+    order: 7;
+    margin-top: 16px;
+  }
+
+  .mg-product__accordion {
+    order: 8;
+    padding: 0;
+    margin-top: 24px;
+  }
+
+  .mg-product__bottom {
+    order: 9;
+    flex-direction: column;
+    margin-top: 16px;
+  }
+
+  .mg-product__sidebar {
+    width: 100%;
+    padding: 24px 0 0;
+    margin-top: 0;
+  }
+}
+
+/* ══ MOBIL ════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  .mg-product__breadcrumb {
+    font-size: 12px;
+    gap: 6px;
+    padding: 4px 0;
+  }
+
+  .mg-product__breadcrumb a,
+  .mg-product__breadcrumb span {
+    font-size: 12px;
+  }
+
+  .mg-product__heading {
+    padding: 16px;
+  }
+
+  .mg-product__brand {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .mg-product__title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .mg-product__gallery-main {
+    padding: 16px;
+  }
+
+  .mg-product__gallery-thumbs {
+    gap: 8px;
+  }
+
+  .mg-product__gallery-thumb {
+    height: 56px;
+    padding: 4px;
+  }
+
+  .mg-product__price-section {
+    padding: 16px;
+  }
+
+  .mg-product__stock {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 12px;
+  }
+
+  .mg-product__stock-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border-muted);
+  }
+
+  .mg-product__stock-item:last-child {
+    border-bottom: none;
+  }
+
+  .mg-product__cart-row {
+    padding: 12px 16px;
+  }
+
+  .mg-product__description {
+    padding: 0 16px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .mg-product__variants {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .mg-product__variants-label {
+    font-size: 15px;
+    width: 100%;
+  }
+
+  .mg-product__variants-list {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .mg-product__variant-thumb {
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+  }
+
+  .mg-product__bottom {
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .mg-product__delivery-title,
+  .mg-product__benefits-title {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .mg-product__accordion {
+    margin-top: 16px;
+  }
+
+  .mg-product__accordion-header {
+    padding: 12px 0;
+  }
+
+  .mg-product__sidebar {
+    padding: 16px 0 0;
+  }
+}
