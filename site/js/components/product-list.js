@@ -167,7 +167,7 @@ function mgCreateDemoCard() {
   var idx = Math.floor(Math.random() * images.length);
 
   return $(
-    '<div class="mg-product-card mg-product-card--new mg-product-card--has-category">' +
+    '<div class="card mg-product-card mg-product-card--new mg-product-card--has-category">' +
 
       '<div class="mg-badge-new">' +
         '<span class="mg-badge-new__text">új</span>' +

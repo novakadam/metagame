@@ -58,10 +58,9 @@
 
 /* ── FŐ KÁRTYA (form + térkép) ──────────────────────────────── */
 
+/* .mg-contact__card: Bootstrap .card + override (layout.css) */
+
 .mg-contact__card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-gold);
-  border-radius: 4px;
   padding: 24px 0;
 }
 
@@ -116,13 +115,10 @@
 
 /* .mg-contact__cards: Bootstrap row g-3/g-md-4 kezeli a layout-ot */
 
+/* .mg-contact__info-card: Bootstrap .card + override */
+
 .mg-contact__info-card {
-  display: flex;
-  flex-direction: column;
   gap: 24px;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-gold);
-  border-radius: 4px;
   padding: 24px 0;
   height: 100%;
 }

@@ -23,3 +23,17 @@
     max-width: none;
   }
 }
+
+/* ── CARD OVERRIDE ──────────────────────────────────────── */
+/* Bootstrap .card Metagame stílussal: arany keret, sötét háttér.
+   Padding: 0 — a belső elemek kezelik (card-body nem kell). */
+
+.card {
+  --bs-card-bg: var(--color-bg-card);
+  --bs-card-border-color: var(--color-gold);
+  --bs-card-border-width: 1px;
+  --bs-card-border-radius: 4px;
+  --bs-card-spacer-y: 0;
+  --bs-card-spacer-x: 0;
+  --bs-card-color: var(--color-text-card);
+}

@@ -12,12 +12,10 @@
 
 /* ── KÁRTYA ALAP ─────────────────────────────────────────── */
 
+/* .mg-product-card: Bootstrap .card + override (layout.css) */
+
 .mg-product-card {
   position: relative;
-  border: 1px solid var(--color-gold);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
   padding: 0 0 24px;
   transition: box-shadow var(--transition-base);
   overflow: visible;

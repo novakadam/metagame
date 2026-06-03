@@ -24,9 +24,10 @@
 
 /* ── FŐ TERMÉKKÁRTYA ─────────────────────────────────────── */
 
+/* .mg-related__card: Bootstrap .card + override (layout.css) */
+
 .mg-related__card {
-  border: 1px solid var(--color-gold);
-  border-radius: var(--radius-sm);
+  --bs-card-border-radius: var(--radius-sm);
   overflow: hidden;
   gap: 24px;
   padding-bottom: 24px;

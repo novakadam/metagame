@@ -82,16 +82,17 @@
 
 /* ── FEATURE KÁRTYA ────────────────────────────────────────── */
 
+/* .mg-usp-card: Bootstrap .card + egyedi gradient háttér */
+
 .mg-usp-card {
+  --bs-card-bg: transparent;
   flex: 1 0 0;
   min-width: 280px;
   min-height: 154px;
-  display: flex;
   flex-wrap: wrap;
   gap: 8px;
   align-items: flex-start;
   justify-content: center;
-  border: 1px solid var(--color-gold);
   background: linear-gradient(to bottom, var(--color-bg), rgba(64, 2, 44, 0.48));
 }
 

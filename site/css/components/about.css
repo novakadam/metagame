@@ -69,9 +69,9 @@
 
 /* ── KÖZÖS KÁRTYA STÍLUS ─────────────────────────────────────── */
 
+/* .mg-about-card: Bootstrap .card + override (layout.css) */
+
 .mg-about-card {
-  border: 1px solid var(--color-gold);
-  border-radius: 4px;
   padding: 24px 0;
   min-width: 328px;
 }
@@ -179,14 +179,13 @@
   gap: 16px;
 }
 
+/* .mg-about-stat: Bootstrap .card + override */
+
 .mg-about-stat {
   flex: 0 0 calc(50% - 8px);
   max-width: 120px;
   min-width: 120px;
-  border: 1px solid var(--color-gold);
   padding: 16px;
-  display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 
