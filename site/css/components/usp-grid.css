@@ -189,10 +189,12 @@
   .mg-usp-card {
     min-width: 0;
     max-width: none;
+    flex: 1 1 100%;
   }
 
   .mg-usp-card__body {
     min-width: 0;
+    overflow: hidden;
   }
 
   .mg-usp-grid__topology {
