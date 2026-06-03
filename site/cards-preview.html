@@ -110,6 +110,96 @@
   </div>
 </div>
 
+<!-- ── MÉRETEK ────────────────────────────── -->
+<h2>Méretek: card-sm + card-lg</h2>
+<p class="note">Kompaktabb vagy nagyobb padding/font — <code>class="card card-sm"</code></p>
+
+<div class="preview-row">
+  <div class="card card-sm" style="width: 260px;">
+    <div class="card-body">
+      <h5 class="card-title">Small kártya</h5>
+      <p class="card-text">Kompakt méret, kisebb padding és szöveg. Stat box-ok, upsell elemek.</p>
+      <a href="#" class="btn btn-outline-secondary btn-sm">Részletek</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 320px;">
+    <div class="card-body">
+      <h5 class="card-title">Alap kártya</h5>
+      <p class="card-text">Standard méret — 24px padding, lg title, base text.</p>
+      <a href="#" class="btn btn-secondary">Akció</a>
+    </div>
+  </div>
+
+  <div class="card card-lg" style="width: 400px;">
+    <div class="card-body">
+      <h5 class="card-title">Large kártya</h5>
+      <p class="card-text">Kiemelt, nagyobb padding és szöveg. Landing szekciók, hero kártyák.</p>
+      <a href="#" class="btn btn-primary">Fő CTA</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── KATTINTHATÓ KÁRTYA ────────────────── -->
+<h2>Kattintható kártya (link)</h2>
+<p class="note">Az egész kártya egy link — <code>&lt;a class="card"&gt;</code>. Hover: fényesebb keret + shadow.</p>
+
+<div class="preview-row">
+  <a href="#" class="card" style="width: 280px; text-decoration: none;">
+    <div class="card-body">
+      <h5 class="card-title">Kattints rám</h5>
+      <p class="card-text">Ez az egész kártya egy link. Hoverelj rá — arany keret fényesedik, shadow jelenik meg.</p>
+    </div>
+  </a>
+
+  <a href="#" class="card card-sm" style="width: 220px; text-decoration: none;">
+    <div class="card-body">
+      <h5 class="card-title">Kis link kártya</h5>
+      <p class="card-text">Kompakt és kattintható.</p>
+    </div>
+  </a>
+</div>
+
+<!-- ── IKON KÁRTYA ───────────────────────── -->
+<h2>Ikon kártya</h2>
+<p class="note">Kör ikon a szöveg mellett — <code>class="card-icon"</code> a card-body-n belül</p>
+
+<div class="preview-row">
+  <div class="card" style="width: 320px;">
+    <div class="card-body">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <h5 class="card-title">Bolt</h5>
+      <p class="card-text">1132 Budapest, Kádár utca 10.</p>
+      <p class="card-text">H–SZ 10:00–18:00</p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 320px;">
+    <div class="card-body">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 5a2 2 0 0 1 2-2z"/></svg>
+      </div>
+      <h5 class="card-title">Telefon</h5>
+      <p class="card-text">+36 1 123 4567</p>
+    </div>
+    <div class="card-footer">
+      <a href="#" class="btn btn-light" style="width:100%;justify-content:center;">Hívás</a>
+    </div>
+  </div>
+
+  <div class="card card-sm" style="width: 260px;">
+    <div class="card-body">
+      <div class="card-icon" style="width:36px; height:36px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px; height:16px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h5 class="card-title">Nyitvatartás</h5>
+      <p class="card-text">H–SZ 10–18</p>
+    </div>
+  </div>
+</div>
+
 <!-- ── VÍZSZINTES CARD ────────────────────── -->
 <h2>Vízszintes card (flex-row)</h2>
 <p class="note">Kép balra, tartalom jobbra — <code>class="card flex-row"</code></p>

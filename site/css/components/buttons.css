@@ -126,6 +126,24 @@
   --bs-btn-active-color: #fff;
 }
 
+/* ── LINK (szöveges link stílus) ─────────────────────────── */
+
+.btn-link {
+  --bs-btn-color: var(--color-gold);
+  --bs-btn-hover-color: var(--color-gold-ring);
+  --bs-btn-active-color: var(--color-gold-ring);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: transparent;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
 /* ── ICON (kör alakú, csak ikon — egyedi) ────────────────── */
 
 .mg-btn--icon {
