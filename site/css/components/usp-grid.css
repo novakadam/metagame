@@ -186,6 +186,15 @@
     gap: 24px;
   }
 
+  .mg-usp-card {
+    min-width: 0;
+    max-width: none;
+  }
+
+  .mg-usp-card__body {
+    min-width: 0;
+  }
+
   .mg-usp-grid__topology {
     width: auto;
     height: 100%;
