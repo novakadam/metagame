@@ -96,9 +96,16 @@
 /* ── LIGHT (visszafogott — halk akció) ───────────────────── */
 
 .btn-light {
+  --bs-btn-bg: transparent;
   --bs-btn-color: var(--color-gold);
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: var(--color-bg-card);
   --bs-btn-hover-color: var(--color-gold);
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: var(--color-bg-card);
   --bs-btn-active-color: var(--color-gold);
+  --bs-btn-active-border-color: transparent;
 
   background: linear-gradient(90deg, rgba(212, 12, 26, 0.1), rgba(212, 12, 26, 0.1)), var(--color-bg-card);
 }
