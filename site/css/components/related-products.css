@@ -188,6 +188,7 @@
 @media (max-width: 768px) {
   .mg-related__card-image {
     width: 100px;
+    padding: 8px;
   }
 
   .mg-related__card-name {
