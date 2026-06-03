@@ -118,7 +118,7 @@ function mgInitHero() {
           '</div>' +
         '</div>' +
         '<div class="mg-ajanlo__action">' +
-          '<a class="mg-btn mg-btn--glow" href="#">' + it.action + '</a>' +
+          '<a class="btn mg-btn mg-btn--glow" href="#">' + it.action + '</a>' +
         '</div>' +
       '</div>'
     );

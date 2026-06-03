@@ -38,7 +38,7 @@ var mgDrawerContents = {
             '<label>Jelszó</label>' +
             '<input type="password" placeholder="••••••••">' +
           '</div>' +
-          '<button class="mg-btn mg-btn--filled mg-drawer-profile__login-btn" type="button" id="mg-drawer-login-btn">Bejelentkezés</button>' +
+          '<button class="btn mg-btn mg-btn--filled mg-drawer-profile__login-btn" type="button" id="mg-drawer-login-btn">Bejelentkezés</button>' +
           '<p class="mg-drawer-profile__register">Még nincs fiókod? <a href="#">Regisztráció</a></p>' +
         '</form>' +
 
@@ -102,7 +102,7 @@ var mgDrawerContents = {
           '</a>' +
         '</nav>' +
 
-        '<a class="mg-btn mg-btn--filled mg-drawer-profile__admin-btn" href="#">' +
+        '<a class="btn mg-btn mg-btn--filled mg-drawer-profile__admin-btn" href="#">' +
           '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V18a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>' +
           'Belépés az adminba' +
         '</a>' +
@@ -111,7 +111,7 @@ var mgDrawerContents = {
     },
     footer: function () {
       return '<div class="mg-drawer-profile__logout">' +
-        '<button class="mg-btn mg-btn--outline mg-drawer-profile__logout-btn" id="mg-drawer-logout-btn" style="width:100%;justify-content:center;">' +
+        '<button class="btn mg-btn mg-btn--outline mg-drawer-profile__logout-btn" id="mg-drawer-logout-btn" style="width:100%;justify-content:center;">' +
           '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M7 2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><path d="M14 15l5-5-5-5"/><path d="M19 10H7"/></svg>' +
           'Kijelentkezés' +
         '</button>' +
@@ -163,7 +163,7 @@ var mgDrawerContents = {
             '<span class="mg-drawer-location__status-dot"></span>' +
             '<span>Jelenleg nyitva</span>' +
           '</div>' +
-          '<a class="mg-btn mg-btn--outline mg-drawer-location__map-btn" href="https://maps.google.com/?q=1132+Budapest+K%C3%A1d%C3%A1r+utca+10" target="_blank">' +
+          '<a class="btn mg-btn mg-btn--outline mg-drawer-location__map-btn" href="https://maps.google.com/?q=1132+Budapest+K%C3%A1d%C3%A1r+utca+10" target="_blank">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M18 2L2 9l7 2 2 7z"/></svg>' +
             'Útvonaltervezés' +
           '</a>' +
@@ -188,7 +188,7 @@ var mgDrawerContents = {
             '<span class="mg-drawer-location__status-dot"></span>' +
             '<span>Jelenleg zárva</span>' +
           '</div>' +
-          '<a class="mg-btn mg-btn--outline mg-drawer-location__map-btn" href="https://maps.google.com/?q=1132+Budapest+Kresz+G%C3%A9za+utca+36" target="_blank">' +
+          '<a class="btn mg-btn mg-btn--outline mg-drawer-location__map-btn" href="https://maps.google.com/?q=1132+Budapest+Kresz+G%C3%A9za+utca+36" target="_blank">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M18 2L2 9l7 2 2 7z"/></svg>' +
             'Útvonaltervezés' +
           '</a>' +
@@ -250,7 +250,7 @@ var mgDrawerContents = {
             '<label>Üzenet</label>' +
             '<textarea rows="4" placeholder="Írd ide az üzeneted..."></textarea>' +
           '</div>' +
-          '<button class="mg-btn mg-btn--filled" type="submit" style="width:100%;justify-content:center;">' +
+          '<button class="btn mg-btn mg-btn--filled" type="submit" style="width:100%;justify-content:center;">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M18 2L2 9l7 2 2 7z"/></svg>' +
             'Üzenet küldése' +
           '</button>' +
@@ -320,8 +320,8 @@ function mgBuildCartFooter() {
     '<span class="mg-drawer-cart__total-amount">22 800 Ft</span>' +
   '</div>' +
   '<div class="mg-drawer-cart__actions">' +
-    '<a href="checkout.html" class="mg-btn mg-btn--filled" style="width:100%;justify-content:center;">Tovább a pénztárhoz</a>' +
-    '<a href="#" class="mg-btn mg-btn--outline" style="width:100%;justify-content:center;">Vásárlás folytatása</a>' +
+    '<a href="checkout.html" class="btn mg-btn mg-btn--filled" style="width:100%;justify-content:center;">Tovább a pénztárhoz</a>' +
+    '<a href="#" class="btn mg-btn mg-btn--outline" style="width:100%;justify-content:center;">Vásárlás folytatása</a>' +
   '</div>';
 }
 
@@ -343,8 +343,8 @@ function mgBuildFavBody() {
       '<div class="mg-drawer-cart__price-row">' +
         '<span class="mg-drawer-cart__price">' + item.price + '</span>' +
         '<div class="mg-drawer-fav__actions">' +
-          '<a href="product.html" class="mg-btn mg-btn--filled mg-btn--sm">Megnézem</a>' +
-          '<button class="mg-btn mg-btn--icon mg-drawer-fav__remove" aria-label="Eltávolítás">' +
+          '<a href="product.html" class="btn mg-btn mg-btn--filled mg-btn--sm">Megnézem</a>' +
+          '<button class="btn mg-btn mg-btn--icon mg-drawer-fav__remove" aria-label="Eltávolítás">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M4 6h12M8 6V4h4v2M6 6v10a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6"/></svg>' +
           '</button>' +
         '</div>' +
@@ -357,7 +357,7 @@ function mgBuildFavBody() {
 
 function mgBuildFavFooter() {
   return '<div class="mg-drawer-cart__actions">' +
-    '<a href="products.html" class="mg-btn mg-btn--outline" style="width:100%;justify-content:center;">Böngéssz tovább</a>' +
+    '<a href="products.html" class="btn mg-btn mg-btn--outline" style="width:100%;justify-content:center;">Böngéssz tovább</a>' +
   '</div>';
 }
 

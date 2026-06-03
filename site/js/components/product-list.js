@@ -213,7 +213,7 @@ function mgCreateDemoCard() {
       '</div>' +
 
       '<div class="mg-product-card__cta">' +
-        '<a class="mg-btn mg-btn--glow" href="#">Kosárba</a>' +
+        '<a class="btn mg-btn mg-btn--glow" href="#">Kosárba</a>' +
       '</div>' +
 
     '</div>'

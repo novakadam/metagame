@@ -1,7 +1,10 @@
 /*
  * buttons.css – Metagame gomb rendszer
  *
- * Alap class: .mg-btn
+ * Bootstrap .btn alapra épül — a --bs-btn-* CSS változókon
+ * keresztül adjuk meg a Metagame design tokeneket.
+ * HTML: <a class="btn mg-btn mg-btn--filled" href="#">Gomb</a>
+ *
  * Variánsok:
  *   --filled    Arany háttér, fehér szöveg (elsődleges CTA)
  *   --outline   Átlátszó háttér, arany keret (másodlagos akció)
@@ -15,72 +18,83 @@
  *   (alap)      Normál méret, 14–16px font
  */
 
-/* ── ALAP ────────────────────────────────────────────────── */
+/* ── ALAP (Bootstrap btn override) ───────────────────────── */
 
 .mg-btn {
+  --bs-btn-padding-x: var(--space-lg);
+  --bs-btn-padding-y: 10px;
+  --bs-btn-font-family: var(--font-body);
+  --bs-btn-font-size: var(--font-size-base);
+  --bs-btn-font-weight: 500;
+  --bs-btn-line-height: 20px;
+  --bs-btn-border-radius: var(--radius-xs);
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-focus-shadow-rgb: 179, 138, 36;
+  --bs-btn-disabled-opacity: 0.45;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-sizing: border-box;
   height: 40px;
-  padding: 10px var(--space-lg);
-  border: none;
-  border-radius: var(--radius-xs);
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--font-size-base);
-  line-height: 20px;
-  text-decoration: none;
   white-space: nowrap;
-  cursor: pointer;
   transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 /* ── FILLED (elsődleges CTA) ─────────────────────────────── */
 
 .mg-btn--filled {
-  background: var(--color-gold);
-  border: 1px solid var(--color-text-card);
-  color: white;
-}
-
-.mg-btn--filled:hover {
-  background: var(--color-gold-ring);
-  color: white;
+  --bs-btn-bg: var(--color-gold);
+  --bs-btn-color: white;
+  --bs-btn-border-width: 1px;
+  --bs-btn-border-color: var(--color-text-card);
+  --bs-btn-hover-bg: var(--color-gold-ring);
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-border-color: var(--color-text-card);
+  --bs-btn-active-bg: var(--color-gold-ring);
+  --bs-btn-active-color: white;
+  --bs-btn-active-border-color: var(--color-text-card);
 }
 
 /* ── OUTLINE (másodlagos akció) ──────────────────────────── */
 
 .mg-btn--outline {
-  background: var(--color-bg);
-  border: 1.5px solid var(--color-gold);
-  color: var(--color-gold);
-}
-
-.mg-btn--outline:hover {
-  background: var(--color-gold);
-  color: var(--color-bg);
+  --bs-btn-bg: var(--color-bg);
+  --bs-btn-color: var(--color-gold);
+  --bs-btn-border-width: 1.5px;
+  --bs-btn-border-color: var(--color-gold);
+  --bs-btn-hover-bg: var(--color-gold);
+  --bs-btn-hover-color: var(--color-bg);
+  --bs-btn-hover-border-color: var(--color-gold);
+  --bs-btn-active-bg: var(--color-gold);
+  --bs-btn-active-color: var(--color-bg);
+  --bs-btn-active-border-color: var(--color-gold);
 }
 
 /* ── GLOW (kiemelt akció – ajánló kártya) ────────────────── */
 
 .mg-btn--glow {
-  padding: 10px 32px;
-  border: 2px solid var(--color-bg);
-  border-radius: 4px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: var(--font-size-sm);
+  --bs-btn-padding-x: 32px;
+  --bs-btn-border-width: 2px;
+  --bs-btn-border-color: var(--color-bg);
+  --bs-btn-border-radius: 4px;
+  --bs-btn-font-family: var(--font-display);
+  --bs-btn-font-weight: 700;
+  --bs-btn-font-size: var(--font-size-sm);
+  --bs-btn-color: var(--color-bg);
+  --bs-btn-hover-color: var(--color-bg);
+  --bs-btn-hover-border-color: var(--color-bg);
+  --bs-btn-active-color: var(--color-bg);
+  --bs-btn-active-border-color: var(--color-bg);
+
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-bg);
   background: linear-gradient(to bottom, #D4A829 0%, var(--color-gold) 100%);
   box-shadow: 0 0 12px rgba(179, 138, 36, 0.3);
 }
 
 .mg-btn--glow:hover {
-  color: var(--color-bg);
   background: linear-gradient(to bottom, #E0B830 0%, #D4A829 100%);
   box-shadow:
     0 0 20px rgba(179, 138, 36, 0.5),
@@ -90,59 +104,65 @@
 /* ── SOFT (visszafogott) ─────────────────────────────────── */
 
 .mg-btn--soft {
+  --bs-btn-color: var(--color-gold);
+  --bs-btn-hover-color: var(--color-gold);
+  --bs-btn-active-color: var(--color-gold);
+
   background: linear-gradient(90deg, rgba(212, 12, 26, 0.1), rgba(212, 12, 26, 0.1)), var(--color-bg-card);
-  color: var(--color-gold);
 }
 
 .mg-btn--soft:hover {
   background: var(--color-bg-card);
-  color: var(--color-gold);
 }
 
 /* ── DARK (sötétkék – kontrasztos felületeken) ──────────── */
 
 .mg-btn--dark {
-  background: var(--color-secondary);
-  color: #fff;
-}
-
-.mg-btn--dark:hover {
-  background: #033158;
-  color: #fff;
+  --bs-btn-bg: var(--color-secondary);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: #033158;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: #033158;
+  --bs-btn-active-color: #fff;
 }
 
 /* ── ICON (kör alakú, csak ikon) ─────────────────────────── */
 
 .mg-btn--icon {
+  --bs-btn-border-width: 1.5px;
+  --bs-btn-border-color: var(--color-gold);
+  --bs-btn-border-radius: 50%;
+  --bs-btn-bg: transparent;
+  --bs-btn-color: var(--color-gold);
+  --bs-btn-hover-bg: var(--color-gold);
+  --bs-btn-hover-color: var(--color-bg);
+  --bs-btn-hover-border-color: var(--color-gold);
+  --bs-btn-active-bg: var(--color-gold);
+  --bs-btn-active-color: var(--color-bg);
+  --bs-btn-active-border-color: var(--color-gold);
+
   width: 32px;
   height: 32px;
   padding: 0;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-gold);
-  background: transparent;
-  color: var(--color-gold);
-}
-
-.mg-btn--icon:hover {
-  background: var(--color-gold);
-  color: var(--color-bg);
 }
 
 /* ── MÉRET: SM ───────────────────────────────────────────── */
 
 .mg-btn--sm {
+  --bs-btn-padding-x: var(--space-lg);
+  --bs-btn-padding-y: 8px;
+  --bs-btn-font-size: var(--font-size-sm);
   height: 36px;
-  padding: 8px var(--space-lg);
-  font-size: var(--font-size-sm);
 }
 
 /* ── MÉRET: LG ───────────────────────────────────────────── */
 
 .mg-btn--lg {
+  --bs-btn-padding-x: 32px;
+  --bs-btn-font-size: var(--font-size-base);
+  --bs-btn-font-weight: 600;
   height: 44px;
-  padding: 10px 32px;
-  font-size: var(--font-size-base);
-  font-weight: 600;
 }
 
 /* ═══════════════════════════════════════════════════════════
