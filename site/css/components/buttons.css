@@ -68,14 +68,14 @@
 .btn-secondary {
   --bs-btn-bg: var(--color-gold);
   --bs-btn-color: white;
-  --bs-btn-border-width: 1px;
-  --bs-btn-border-color: var(--color-text-card);
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
   --bs-btn-hover-bg: var(--color-gold-ring);
   --bs-btn-hover-color: white;
-  --bs-btn-hover-border-color: var(--color-text-card);
+  --bs-btn-hover-border-color: transparent;
   --bs-btn-active-bg: var(--color-gold-ring);
   --bs-btn-active-color: white;
-  --bs-btn-active-border-color: var(--color-text-card);
+  --bs-btn-active-border-color: transparent;
 }
 
 /* ── OUTLINE-SECONDARY (arany keret — másodlagos) ────────── */

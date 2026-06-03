@@ -33,7 +33,41 @@
   --bs-card-border-color: var(--color-gold);
   --bs-card-border-width: 1px;
   --bs-card-border-radius: 4px;
-  --bs-card-spacer-y: 0;
-  --bs-card-spacer-x: 0;
+  --bs-card-spacer-y: 24px;
+  --bs-card-spacer-x: 24px;
   --bs-card-color: var(--color-text-card);
+  --bs-card-cap-bg: rgba(56, 24, 40, 0.5);
+  --bs-card-cap-padding-y: 16px;
+  --bs-card-cap-padding-x: 24px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-card);
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+}
+
+.card-header {
+  border-bottom-color: var(--color-gold);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.card-footer {
+  border-top-color: var(--color-gold);
+  background: var(--color-bg-muted);
+  color: var(--color-text);
+}
+
+.card-img-top {
+  border-radius: 0;
 }
