@@ -415,3 +415,61 @@ Egyik sem showstopper — mind egyszerűen feloldható, és vizuálisan azonnal 
 **Ami maradt custom / kihagyva:**
 - Mobile menu — háromszintű sliding animáció (translateX szintről szintre) egyedi, Offcanvas nem tudja
 - Drawer tartalom csere logika (cart/favorites/profile) — ez a `openDrawer()` belső része, marad
+
+### 2026-06-03 — Bootstrap Card komponens — 7 widget
+
+Bootstrap `.card` class + globális `--bs-card-*` variable override (`layout.css`).
+Érintett: about, contact, product-card, related-products, chronicles, usp-grid.
+Egyedi háttérnél lokális override: `--bs-card-bg: transparent` (product-card), gradient (usp-grid).
+
+### 2026-06-03 — Button rendszer Bootstrap btn alapra
+
+Az `mg-btn` mostantól Bootstrap `.btn`-re épül `--bs-btn-*` CSS változókon keresztül.
+41 helyen hozzáadva a `btn` class (HTML + JS renderelt gombok).
+Kapjuk ingyen: `:focus-visible` arany focus ring, `disabled` state, `:active` state.
+
+### 2026-06-03 — mg-section wrapper: 8 widget kiváltva
+
+chronicles, hero, systems, testimonials → `mg-section` class (layout.css).
+Összesen 8 widget használja: about, cta-banner, contact, chronicles, hero, systems, testimonials, contact.
+Article és product-detail eltérő struktúra (frame layout) — azok maradnak.
+
+---
+
+## Végső állapot — 2026-06-03
+
+### Ami Bootstrap-re lett migrálva:
+
+| Terület | Megoldás | Hol |
+|---------|----------|-----|
+| **Form inputok** | `form-control` + `mg-form-input` | checkout, contact, filter-panel |
+| **Form labelek** | `form-label` + `mg-form-label` | checkout, contact |
+| **Form grid** | `row` + `col-md-*` | checkout, contact |
+| **Checkbox/radio** | `form-check-input` + custom megjelenés | checkout |
+| **Gombok** | `btn` + `mg-btn` + `--bs-btn-*` változók | mindenhol (41 hely) |
+| **Kártyák** | `card` + `--bs-card-*` változók | 7 widget |
+| **Section wrapper** | `mg-section` shared class | 8 widget |
+| **Fő layout grid** | `row` + `col-lg-*` | checkout, contact |
+| **Login modal** | Bootstrap Modal | checkout |
+| **Drawer** | Bootstrap Offcanvas end | minden oldal |
+| **Footer panel** | Bootstrap Offcanvas bottom | minden oldal |
+| **Filter panel** | Bootstrap Offcanvas-lg | products |
+| **Related card flex** | `flex-row flex-xxl-column` | product, article |
+
+### Ami custom maradt (indokoltan):
+
+| Terület | Ok |
+|---------|-----|
+| Carousel-ök (hero, testimonials, systems) | Egyedi multi-card/infinite loop/tab logika |
+| Mobile menu | Háromszintű sliding animáció |
+| Mega-menu | Custom pozicionálás + hover brand-váltás |
+| Product grid | `auto-fill minmax(300px, 1fr)` rugalmasabb mint col-ok |
+| Frame rendszer | 100% dekoratív SVG, nincs Bootstrap megfelelő |
+| Article/product-detail layout | Frame-be ágyazott CSS grid, eltérő struktúra |
+
+### Nettó eredmény:
+
+- ~600 sor CSS/JS törölve
+- 0 vizuális regresszió (minden widget azonos kinézetű)
+- Laci Bootstrap class-okkal tud új formot, gombot, kártyát, gridet építeni
+- Meeting feedback: „a flex meg a formok meg a gridlayeringet — ne kelljen újra dizájnolnom, a bootstrapös dolgok működjenek" ✅
