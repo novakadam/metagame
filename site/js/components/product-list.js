@@ -83,13 +83,13 @@ function mgInitProductList() {
   });
 
   // ── GYORS SZŰRŐ GOMBOK ───────────────────────────────────
-  $('.mg-product-toolbar__quick-filters .mg-btn').on('click', function () {
-    $('.mg-product-toolbar__quick-filters .mg-btn')
-      .removeClass('mg-btn--filled')
-      .addClass('mg-btn--soft');
+  $('.mg-product-toolbar__quick-filters .btn').on('click', function () {
+    $('.mg-product-toolbar__quick-filters .btn')
+      .removeClass('btn-secondary')
+      .addClass('btn-light');
     $(this)
-      .removeClass('mg-btn--soft')
-      .addClass('mg-btn--filled');
+      .removeClass('btn-light')
+      .addClass('btn-secondary');
   });
 
   // ── KÁRTYA KATTINTÁS → TERMÉK OLDAL ───────────────────────
@@ -213,7 +213,7 @@ function mgCreateDemoCard() {
       '</div>' +
 
       '<div class="mg-product-card__cta">' +
-        '<a class="btn mg-btn mg-btn--glow" href="#">Kosárba</a>' +
+        '<a class="btn btn-primary" href="#">Kosárba</a>' +
       '</div>' +
 
     '</div>'
