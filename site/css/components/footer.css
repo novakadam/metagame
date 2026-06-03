@@ -1,34 +1,8 @@
-/* ── FOOTER PANEL (slide-up) ────────────────────────────────────── */
-
-.mg-footer-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: var(--z-overlay);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-base);
-}
-
-.mg-footer-overlay.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
+/* ── FOOTER PANEL (Bootstrap Offcanvas bottom) ─────────────────── */
 
 .mg-footer-panel {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-modal);
   background: var(--color-bg);
   border-top: 1.5px solid var(--color-gold);
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.mg-footer-panel.is-open {
-  transform: translateY(0);
 }
 
 .mg-footer-panel__scroll {

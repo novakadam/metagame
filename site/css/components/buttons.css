@@ -7,6 +7,7 @@
  *   --outline   Átlátszó háttér, arany keret (másodlagos akció)
  *   --glow      Arany gradient, box-shadow fény (kiemelt akció, ajánló)
  *   --soft      Halvány háttér, arany szöveg (visszafogott, pl. navigáció)
+ *   --dark      Sötétkék háttér, fehér szöveg (CTA banner, kontrasztos felületen)
  *   --icon      Kör alakú, csak ikon (kosárba +, kedvenc, stb.)
  *
  * Méret módosítók:
@@ -96,6 +97,18 @@
 .mg-btn--soft:hover {
   background: var(--color-bg-card);
   color: var(--color-gold);
+}
+
+/* ── DARK (sötétkék – kontrasztos felületeken) ──────────── */
+
+.mg-btn--dark {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.mg-btn--dark:hover {
+  background: #033158;
+  color: #fff;
 }
 
 /* ── ICON (kör alakú, csak ikon) ─────────────────────────── */

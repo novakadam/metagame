@@ -366,7 +366,8 @@ function mgBuildFavFooter() {
 var mgIsLoggedIn = false;
 
 function mgInitDrawer() {
-  var $overlay = $('.mg-drawer-overlay');
+  var drawerEl = document.querySelector('.mg-drawer');
+  var bsOffcanvas = new bootstrap.Offcanvas(drawerEl);
   var $drawer  = $('.mg-drawer');
   var $title   = $drawer.find('.mg-drawer__title');
   var $sub     = $drawer.find('.mg-drawer__subtitle');
@@ -413,17 +414,13 @@ function mgInitDrawer() {
       }
     }
 
-    $overlay.addClass('is-open');
-    $drawer.addClass('is-open');
-    $('body').css('overflow', 'hidden');
+    bsOffcanvas.show();
 
     bindDrawerEvents(type);
   }
 
   function closeDrawer() {
-    $overlay.removeClass('is-open');
-    $drawer.removeClass('is-open');
-    $('body').css('overflow', '');
+    bsOffcanvas.hide();
     currentDrawer = null;
   }
 
@@ -459,12 +456,7 @@ function mgInitDrawer() {
     setTimeout(function () { openDrawer(hashType); }, 300);
   }
 
-  $overlay.on('click', closeDrawer);
-  $drawer.on('click', '.mg-drawer__close', closeDrawer);
-
-  $(document).on('keydown', function (e) {
-    if (e.key === 'Escape' && $drawer.hasClass('is-open')) {
-      closeDrawer();
-    }
+  drawerEl.addEventListener('hidden.bs.offcanvas', function () {
+    currentDrawer = null;
   });
 }

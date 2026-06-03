@@ -1,5 +1,5 @@
 <!-- ── CONTACT ───────────────────────────────────────────────── -->
-<section class="mg-contact">
+<section class="mg-section mg-contact">
   <div class="mg-contact__container">
 
     <!-- Heading -->
@@ -9,22 +9,22 @@
     </div>
 
     <!-- Fő kártya: Form + Térkép -->
-    <div class="mg-contact__card">
+    <div class="mg-contact__card row g-0">
 
       <!-- Form -->
-      <div class="mg-contact__form">
+      <div class="mg-contact__form col-md-6">
         <div class="mg-contact__fields">
-          <div class="mg-contact__field">
-            <label class="mg-contact__label" for="contact-name">Név</label>
-            <input class="mg-contact__input" type="text" id="contact-name" placeholder="">
+          <div class="mg-form-group">
+            <label class="form-label mg-form-label" for="contact-name">Név</label>
+            <input class="form-control mg-form-input" type="text" id="contact-name">
           </div>
-          <div class="mg-contact__field">
-            <label class="mg-contact__label" for="contact-email">E-mail</label>
-            <input class="mg-contact__input" type="email" id="contact-email" placeholder="">
+          <div class="mg-form-group">
+            <label class="form-label mg-form-label" for="contact-email">E-mail</label>
+            <input class="form-control mg-form-input" type="email" id="contact-email">
           </div>
-          <div class="mg-contact__field">
-            <label class="mg-contact__label" for="contact-message">Üzenet</label>
-            <textarea class="mg-contact__textarea" id="contact-message" rows="5"></textarea>
+          <div class="mg-form-group">
+            <label class="form-label mg-form-label" for="contact-message">Üzenet</label>
+            <textarea class="form-control mg-form-input mg-contact__textarea" id="contact-message" rows="5"></textarea>
           </div>
         </div>
         <div class="mg-contact__action">
@@ -33,17 +33,17 @@
       </div>
 
       <!-- Térkép -->
-      <div class="mg-contact__map-wrap">
+      <div class="mg-contact__map-wrap col-md-6">
         <div class="mg-contact__map" id="mg-contact-map"></div>
       </div>
 
     </div>
 
     <!-- Info kártyák -->
-    <div class="mg-contact__cards">
+    <div class="mg-contact__cards row g-3 g-md-4">
 
       <!-- Bolt -->
-      <div class="mg-contact__info-card">
+      <div class="col-md-4"><div class="mg-contact__info-card">
         <div class="mg-contact__info-icon">
           <div class="mg-contact__icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -60,10 +60,10 @@
         <div class="mg-contact__info-action">
           <a class="mg-btn mg-btn--soft mg-contact__info-btn" href="https://maps.google.com/?q=Budapest+K%C3%A1d%C3%A1r+utca+10" target="_blank" rel="noopener">Megtekintés a térképen</a>
         </div>
-      </div>
+      </div></div>
 
       <!-- Klub -->
-      <div class="mg-contact__info-card">
+      <div class="col-md-4"><div class="mg-contact__info-card">
         <div class="mg-contact__info-icon">
           <div class="mg-contact__icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -80,10 +80,10 @@
         <div class="mg-contact__info-action">
           <a class="mg-btn mg-btn--soft mg-contact__info-btn" href="https://maps.google.com/?q=Budapest+Kresz+G%C3%A9za+utca+36" target="_blank" rel="noopener">Megtekintés a térképen</a>
         </div>
-      </div>
+      </div></div>
 
       <!-- Telefon -->
-      <div class="mg-contact__info-card">
+      <div class="col-md-4"><div class="mg-contact__info-card">
         <div class="mg-contact__info-icon">
           <div class="mg-contact__icon-box">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -99,7 +99,7 @@
         <div class="mg-contact__info-action">
           <a class="mg-btn mg-btn--soft mg-contact__info-btn" href="tel:+3611234567">Hívás</a>
         </div>
-      </div>
+      </div></div>
 
     </div>
 

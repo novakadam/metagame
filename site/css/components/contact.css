@@ -9,11 +9,11 @@
 
 /* ── SZEKCIÓ ────────────────────────────────────────────────── */
 
+/* .mg-contact használja a közös .mg-section wrapper-t (layout.css) */
+
 .mg-contact {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 60px 45px 24px;
+  padding-top: 60px;
+  padding-bottom: 24px;
 }
 
 /* ── CONTAINER ──────────────────────────────────────────────── */
@@ -59,21 +59,15 @@
 /* ── FŐ KÁRTYA (form + térkép) ──────────────────────────────── */
 
 .mg-contact__card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
   background: var(--color-bg-card);
   border: 1px solid var(--color-gold);
   border-radius: 4px;
   padding: 24px 0;
-  width: 100%;
 }
 
 /* ── FORM ───────────────────────────────────────────────────── */
 
 .mg-contact__form {
-  flex: 1 0 0;
-  min-width: 328px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -87,40 +81,7 @@
   padding: 0 24px;
 }
 
-.mg-contact__field {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.mg-contact__label {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--font-size-sm);
-  line-height: 20px;
-  color: var(--color-text-card);
-  padding: 4px;
-}
-
-.mg-contact__input,
-.mg-contact__textarea {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border-muted);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  line-height: 24px;
-  padding: 6px 12px;
-  width: 100%;
-  box-sizing: border-box;
-  outline: none;
-  transition: border-color var(--transition-fast);
-}
-
-.mg-contact__input:focus,
-.mg-contact__textarea:focus {
-  border-color: var(--color-gold);
-}
+/* Form inputok: forms.css mg-form-input / mg-form-label class-okból jönnek */
 
 .mg-contact__textarea {
   resize: vertical;
@@ -139,8 +100,6 @@
 /* ── TÉRKÉP ─────────────────────────────────────────────────── */
 
 .mg-contact__map-wrap {
-  flex: 1 0 0;
-  min-width: 328px;
   padding: 0 24px;
 }
 
@@ -155,16 +114,9 @@
 
 /* ── INFO KÁRTYÁK (3 oszlop) ────────────────────────────────── */
 
-.mg-contact__cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  width: 100%;
-}
+/* .mg-contact__cards: Bootstrap row g-3/g-md-4 kezeli a layout-ot */
 
 .mg-contact__info-card {
-  flex: 1 0 0;
-  min-width: 286px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -172,6 +124,7 @@
   border: 1px solid var(--color-gold);
   border-radius: 4px;
   padding: 24px 0;
+  height: 100%;
 }
 
 /* ── IKON ───────────────────────────────────────────────────── */
@@ -234,7 +187,8 @@
 
 @media (max-width: 768px) {
   .mg-contact {
-    padding: 32px 24px 24px;
+    padding-top: 32px;
+    padding-bottom: 24px;
   }
 
   .mg-contact__container {
@@ -252,27 +206,7 @@
     line-height: 24px;
   }
 
-  .mg-contact__card {
-    flex-direction: column;
-  }
-
-  .mg-contact__form {
-    min-width: 0;
-  }
-
-  .mg-contact__map-wrap {
-    min-width: 0;
-  }
-
   .mg-contact__map {
     min-height: 250px;
-  }
-
-  .mg-contact__cards {
-    flex-direction: column;
-  }
-
-  .mg-contact__info-card {
-    min-width: 0;
   }
 }

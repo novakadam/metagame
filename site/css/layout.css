@@ -1,0 +1,25 @@
+/*
+ * layout.css – Metagame közös layout osztályok
+ *
+ * Ismétlődő container/section minták egy helyen.
+ * Minden oldal betölti a tokens.css után, Bootstrap után.
+ */
+
+/* ── SECTION WRAPPER ────────────────────────────────────── */
+/* 9+ widget használja: hero, about, cta-banner, chronicles,
+   testimonials, systems, contact, article, product-detail */
+
+.mg-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 45px;
+}
+
+@media (max-width: 768px) {
+  .mg-section {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+  }
+}

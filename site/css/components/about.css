@@ -9,11 +9,11 @@
 
 /* ── SZEKCIÓ WRAPPER ─────────────────────────────────────────── */
 
+/* .mg-about használja a közös .mg-section wrapper-t (layout.css) */
+
 .mg-about {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 60px 45px 24px;
+  padding-top: 60px;
+  padding-bottom: 24px;
   overflow: hidden;
 }
 
@@ -233,9 +233,8 @@
 
 @media (max-width: 768px) {
   .mg-about {
-    padding: 24px 0 12px;
-    margin: 0;
-    max-width: none;
+    padding-top: 24px;
+    padding-bottom: 12px;
   }
 
   .mg-about__frame {

@@ -73,7 +73,7 @@
   margin: 0;
 }
 
-/* ── INPUT MEZŐK ─────────────────────────────────────────── */
+/* ── INPUT MEZŐK (forms.css mg-form-input + Bootstrap form-control-sm) ── */
 
 .mg-filter-panel__inputs {
   display: flex;
@@ -83,25 +83,6 @@
 .mg-filter-panel__input {
   flex: 1;
   min-width: 0;
-  height: 36px;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border-muted);
-  padding: 4px 12px;
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--color-text);
-  outline: none;
-  transition: border-color var(--transition-fast);
-}
-
-.mg-filter-panel__input::placeholder {
-  color: var(--color-text-muted);
-}
-
-.mg-filter-panel__input:focus {
-  border-color: var(--color-gold);
 }
 
 /* ── ÁR CHIPEK (pill alakú gyorsszűrők) ──────────────────── */
@@ -369,7 +350,7 @@
   padding-bottom: 24px;
 }
 
-/* ── MOBIL OVERLAY ELEMEK (desktop rejtett) ──────────────── */
+/* ── MOBIL OVERLAY (Bootstrap Offcanvas-lg kezeli) ────────── */
 
 .mg-filter-panel__close {
   display: none;
@@ -388,37 +369,13 @@
   display: none;
 }
 
-/* ── Body scroll lock ── */
-body.mg-filter-open {
-  overflow: hidden;
-}
-
-/* ══ TABLET + MOBIL: OVERLAY MÓD ═══════════════════════════ */
-
-@media (max-width: 1024px) {
-
-  .mg-filter-panel {
-    display: none;
-  }
-
-  .mg-filter-panel.is-open {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 550;
-    width: 100%;
-    max-height: 100vh;
+@media (max-width: 991.98px) {
+  .mg-filter-panel.offcanvas-lg {
     background: var(--color-bg);
-    flex-direction: column;
-    overflow-y: auto;
-    scrollbar-width: none;
   }
 
-  .mg-filter-panel.is-open::-webkit-scrollbar {
-    display: none;
+  .mg-filter-panel__close {
+    display: flex;
   }
 
   .mg-filter-panel__header {
@@ -426,16 +383,6 @@ body.mg-filter-open {
     align-items: center;
     justify-content: space-between;
     padding: 16px 20px;
-    background: var(--color-bg-card);
-    border-bottom: 1px solid var(--color-gold);
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    font-size: 18px;
-  }
-
-  .mg-filter-panel.is-open .mg-filter-panel__close {
-    display: flex;
   }
 
   .mg-filter-panel__section {
@@ -446,7 +393,7 @@ body.mg-filter-open {
     padding-bottom: 16px;
   }
 
-  .mg-filter-panel.is-open .mg-filter-panel__apply {
+  .mg-filter-panel__apply {
     display: block;
     position: sticky;
     bottom: 0;

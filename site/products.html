@@ -16,9 +16,11 @@
 
   <!-- Design tokenek -->
   <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
 
   <!-- Globális komponensek -->
   <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/forms.css">
 
   <!-- Komponensek -->
   <link rel="stylesheet" href="css/components/frame.css">
@@ -239,11 +241,11 @@
     <div class="mg-product-layout">
 
       <!-- ── FILTER SIDEBAR ─────────────────────────────────────── -->
-      <aside class="mg-filter-panel">
+      <aside class="mg-filter-panel offcanvas-lg offcanvas-start" tabindex="-1">
 
-        <div class="mg-filter-panel__header">
+        <div class="mg-filter-panel__header offcanvas-header">
           <span>Találatok szűrése</span>
-          <button class="mg-filter-panel__close" aria-label="Bezárás">
+          <button class="mg-filter-panel__close" data-bs-dismiss="offcanvas" data-bs-target=".mg-filter-panel" aria-label="Bezárás">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
           </button>
         </div>
@@ -251,8 +253,8 @@
         <!-- Ár szűrő -->
         <div class="mg-filter-panel__section">
           <div class="mg-filter-panel__inputs">
-            <input class="mg-filter-panel__input" type="number" placeholder="Min">
-            <input class="mg-filter-panel__input" type="number" placeholder="Max">
+            <input class="form-control form-control-sm mg-form-input mg-filter-panel__input" type="number" placeholder="Min">
+            <input class="form-control form-control-sm mg-form-input mg-filter-panel__input" type="number" placeholder="Max">
           </div>
 
           <div class="mg-filter-panel__chips">
@@ -568,7 +570,7 @@
         <!-- Toolbar: szűrő chipek + rendezés + nézet váltás -->
         <div class="mg-product-toolbar">
           <div class="mg-product-toolbar__left">
-            <button class="mg-product-toolbar__filter-btn mg-btn mg-btn--outline mg-btn--sm">
+            <button class="mg-product-toolbar__filter-btn mg-btn mg-btn--outline mg-btn--sm" data-bs-toggle="offcanvas" data-bs-target=".mg-filter-panel">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 21V14"/><path d="M4 10V3"/><path d="M12 21V12"/><path d="M12 8V3"/><path d="M20 21V16"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg>
               Szűrők
             </button>

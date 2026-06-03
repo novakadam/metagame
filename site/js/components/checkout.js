@@ -139,24 +139,12 @@ function mgInitCheckout() {
     }
   });
 
-  /* Login modal */
-  var $loginOverlay = $('.mg-login-overlay');
-  var $loginModal = $('.mg-login-modal');
+  /* Login modal (Bootstrap Modal) */
+  var loginModalEl = document.querySelector('.mg-login-modal');
+  var loginModal = new bootstrap.Modal(loginModalEl);
 
   $('.mg-checkout__login-link').on('click', function () {
-    $loginOverlay.addClass('is-open');
-    $loginModal.addClass('is-open');
-  });
-
-  function closeLogin() {
-    $loginOverlay.removeClass('is-open');
-    $loginModal.removeClass('is-open');
-  }
-
-  $loginOverlay.on('click', closeLogin);
-  $loginModal.find('.mg-login-modal__close').on('click', closeLogin);
-  $(document).on('keydown', function (e) {
-    if (e.key === 'Escape' && $loginModal.hasClass('is-open')) closeLogin();
+    loginModal.show();
   });
 
   /* Időzítő (kosár foglalás) */

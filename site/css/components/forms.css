@@ -1,8 +1,8 @@
 /*
  * forms.css – Metagame form rendszer
  *
- * Globális input, select, textarea, checkbox, radio stílusok.
- * Minden form elem az mg- prefixet használja.
+ * Bootstrap 5 form komponensek vizuális felülírása a Metagame design tokenekkel.
+ * Strukturális layout (grid, spacing) → Bootstrap utility class-ok a HTML-ben.
  */
 
 /* ── CSOPORT ────────────────────────────────────────────── */
@@ -13,7 +13,7 @@
   gap: 6px;
 }
 
-/* ── LABEL ──────────────────────────────────────────────── */
+/* ── LABEL (Bootstrap form-label felülírás) ─────────────── */
 
 .mg-form-label {
   font-family: var(--font-body);
@@ -22,6 +22,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-text-muted);
+  margin-bottom: 0;
 }
 
 .mg-form-required {
@@ -29,7 +30,7 @@
   margin-left: 2px;
 }
 
-/* ── INPUT / SELECT / TEXTAREA ──────────────────────────── */
+/* ── INPUT / SELECT / TEXTAREA (Bootstrap form-control felülírás) ── */
 
 .mg-form-input,
 .mg-form-select,
@@ -43,8 +44,6 @@
   font-size: var(--font-size-base);
   color: var(--color-text);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .mg-form-input::placeholder,
@@ -57,6 +56,7 @@
 .mg-form-select:focus,
 .mg-form-textarea:focus {
   outline: none;
+  background: var(--color-bg-muted);
   border-color: var(--color-gold);
   box-shadow: 0 0 0 1px rgba(179, 138, 36, 0.3);
 }
@@ -91,29 +91,21 @@
   color: var(--color-destructive);
 }
 
-/* ── GRID SOROK ─────────────────────────────────────────── */
-
-.mg-form-row {
-  display: grid;
-  gap: var(--space-md);
-}
-
-.mg-form-row--2 { grid-template-columns: 1fr 1fr; }
-.mg-form-row--1-2 { grid-template-columns: 1fr 2fr; }
-
-/* ── CHECKBOX ───────────────────────────────────────────── */
+/* ── CHECKBOX (custom megjelenés) ──────────────────────── */
 
 .mg-form-check {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   cursor: pointer;
+  padding-left: 0;
 }
 
 .mg-form-check__input {
   width: 18px;
   height: 18px;
-  margin-top: 2px;
+  margin: 2px 0 0;
+  float: none;
   flex-shrink: 0;
   appearance: none;
   -webkit-appearance: none;
@@ -161,7 +153,7 @@
   margin-top: 2px;
 }
 
-/* ── RADIO ──────────────────────────────────────────────── */
+/* ── RADIO (custom megjelenés) ─────────────────────────── */
 
 .mg-form-radio {
   width: 20px;
