@@ -12,7 +12,7 @@
 .mg-filter-panel {
   width: 270px;
   flex-shrink: 0;
-  background: var(--color-bg-muted);
+  background: var(--color-bg-muted) !important;
   overflow-y: auto;
   scrollbar-width: none;
   display: flex;

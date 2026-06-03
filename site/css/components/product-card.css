@@ -15,6 +15,7 @@
 /* .mg-product-card: Bootstrap .card + override (layout.css) */
 
 .mg-product-card {
+  --bs-card-bg: transparent;
   position: relative;
   padding: 0 0 24px;
   transition: box-shadow var(--transition-base);
