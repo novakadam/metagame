@@ -8,11 +8,11 @@
 
 /* ── SZEKCIÓ WRAPPER ─────────────────────────────────────────── */
 
+/* .mg-testimonials: mg-section wrapper (layout.css) */
+
 .mg-testimonials {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 60px 45px 24px;
+  padding-top: 60px;
+  padding-bottom: 24px;
   overflow: hidden;
 }
 

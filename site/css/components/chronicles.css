@@ -1,10 +1,10 @@
 /* ── SZEKCIÓ WRAPPER ───────────────────────────────────────── */
 
+/* .mg-chronicles: mg-section wrapper (layout.css) */
+
 .mg-chronicles {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 60px 45px 24px;
+  padding-top: 60px;
+  padding-bottom: 24px;
   overflow: hidden;
 }
 
@@ -298,9 +298,8 @@ a.mg-chronicle-item:hover .mg-chronicle-item__read {
 
 @media (max-width: 768px) {
   .mg-chronicles {
-    padding: 24px 0 12px;
-    margin: 0;
-    max-width: none;
+    padding-top: 24px;
+    padding-bottom: 12px;
   }
 
   .mg-chronicles__frame {
