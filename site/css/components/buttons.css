@@ -170,8 +170,12 @@
   --bs-btn-padding-x: 12px;
   --bs-btn-padding-y: 4px;
   --bs-btn-font-size: 13px;
+  --bs-btn-font-family: var(--font-body);
+  --bs-btn-font-weight: 500;
   height: 30px;
   gap: 4px;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 /* ── MÉRET: LG ───────────────────────────────────────────── */
