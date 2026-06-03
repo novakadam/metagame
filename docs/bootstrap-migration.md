@@ -446,8 +446,8 @@ Article és product-detail eltérő struktúra (frame layout) — azok maradnak.
 | **Form labelek** | `form-label` + `mg-form-label` | checkout, contact |
 | **Form grid** | `row` + `col-md-*` | checkout, contact |
 | **Checkbox/radio** | `form-check-input` + custom megjelenés | checkout |
-| **Gombok** | `btn` + `mg-btn` + `--bs-btn-*` változók | mindenhol (41 hely) |
-| **Kártyák** | `card` + `--bs-card-*` változók | 7 widget |
+| **Gombok** | Bootstrap standard: `btn-primary`, `btn-secondary`, `btn-outline-secondary`, `btn-light`, `btn-dark` | mindenhol (41 hely) |
+| **Kártyák** | `card` + `card-body`, `card-header`, `card-footer`, `card-title`, `card-text`, `card-img-top` | 9 widget + Laci új kártyáihoz |
 | **Section wrapper** | `mg-section` shared class | 8 widget |
 | **Fő layout grid** | `row` + `col-lg-*` | checkout, contact |
 | **Login modal** | Bootstrap Modal | checkout |
@@ -473,3 +473,32 @@ Article és product-detail eltérő struktúra (frame layout) — azok maradnak.
 - 0 vizuális regresszió (minden widget azonos kinézetű)
 - Laci Bootstrap class-okkal tud új formot, gombot, kártyát, gridet építeni
 - Meeting feedback: „a flex meg a formok meg a gridlayeringet — ne kelljen újra dizájnolnom, a bootstrapös dolgok működjenek" ✅
+
+### Gomb mapping (Bootstrap standard nevek):
+
+| Bootstrap class | Metagame stílus | Használat |
+|---|---|---|
+| `btn-primary` | Arany gradient + glow | Fő CTA: Kosárba, Fizetés, Jelentkezés |
+| `btn-secondary` | Arany filled | Általános akció: Tovább, Küldés, Irány a shop |
+| `btn-outline-secondary` | Arany keret | Másodlagos: Vissza, Tovább olvasás, Szűrők |
+| `btn-light` | Visszafogott | Halk: Contact linkek, gyorsszűrők |
+| `btn-dark` | Sötétkék | Kontrasztos felületen: CTA banner |
+| `mg-btn--icon` | Kör alakú ikon | Egyedi (nincs Bootstrap megfelelő) |
+| `btn-sm` / `btn-lg` | Méret módosítók | Bootstrap standard |
+
+### Card sub-komponensek (Bootstrap standard, Metagame stílussal):
+
+| Bootstrap class | Metagame override |
+|---|---|
+| `card` | Arany keret, sötét háttér, 4px radius |
+| `card-body` | 24px padding |
+| `card-header` | Sötétebb háttér, arany alsó vonal, fehér szöveg |
+| `card-footer` | Muted háttér, arany felső vonal |
+| `card-title` | Display font, 600 weight, card szín |
+| `card-text` | Body font, muted szín |
+| `card-img-top` | Radius: 0 (a card keretéhez simul) |
+
+### Preview oldalak:
+
+- `site/buttons-preview.html` — minden gomb variáns + állapot (normal, disabled, sm, lg, ikon)
+- `site/cards-preview.html` — Bootstrap card elemek + 9 Metagame speciális kártya táblázat
