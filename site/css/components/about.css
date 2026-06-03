@@ -138,7 +138,7 @@
 .mg-about-card--klub {
   flex: 1 0 0;
   min-width: 500px;
-  display: flex;
+  flex-direction: row;
   gap: 24px;
   padding: 24px;
 }
