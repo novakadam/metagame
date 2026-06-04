@@ -288,7 +288,7 @@ function mgBuildCartBody() {
       '<div class="mg-drawer-cart__row">' +
         '<div class="mg-drawer-cart__img">' +
           '<img src="' + item.img + '" alt="' + item.name + '">' +
-          '<span class="mg-drawer-cart__badge">' + item.qty + '</span>' +
+          '<span class="badge rounded-pill text-bg-primary position-absolute">' + item.qty + '</span>' +
         '</div>' +
         '<div class="mg-drawer-cart__name">' +
           '<span class="mg-drawer-cart__name-main">' + item.name + '</span>' +
@@ -297,10 +297,10 @@ function mgBuildCartBody() {
       '</div>' +
       '<div class="mg-drawer-cart__price-row">' +
         '<span class="mg-drawer-cart__price">' + item.price + '</span>' +
-        '<div class="mg-drawer-cart__qty">' +
-          '<button class="mg-drawer-cart__qty-btn" data-action="dec" data-idx="' + i + '">−</button>' +
-          '<span class="mg-drawer-cart__qty-val">' + item.qty + '</span>' +
-          '<button class="mg-drawer-cart__qty-btn" data-action="inc" data-idx="' + i + '">+</button>' +
+        '<div class="input-group input-group-sm qty-stepper">' +
+          '<button class="btn btn-outline-secondary" data-action="dec" data-idx="' + i + '">−</button>' +
+          '<input type="number" class="form-control text-center" value="' + item.qty + '" min="1" readonly>' +
+          '<button class="btn btn-outline-secondary" data-action="inc" data-idx="' + i + '">+</button>' +
         '</div>' +
       '</div>' +
     '</div>';
