@@ -14,8 +14,6 @@
    ═══════════════════════════════════════════════════════════ */
 
 .card {
-  --bs-card-bg: transparent;
-  --bs-card-border-width: 0;
   --bs-card-border-radius: var(--radius-xs);
   --bs-card-color: var(--color-text);
 }
