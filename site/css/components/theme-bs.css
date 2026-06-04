@@ -44,6 +44,47 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ═══════════════════════════════════════════════════════════
+   ACCORDION
+   ═══════════════════════════════════════════════════════════ */
+
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: var(--color-gold);
+  --bs-accordion-color: var(--color-text);
+  --bs-accordion-btn-color: var(--color-text);
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: var(--color-text);
+  --bs-accordion-btn-focus-box-shadow: none;
+}
+
+.accordion-button {
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  padding: 16px 0;
+}
+
+.accordion-button::after {
+  filter: invert(0.7) sepia(1) saturate(3) hue-rotate(10deg);
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: invert(0.7) sepia(1) saturate(3) hue-rotate(10deg);
+}
+
+.accordion-body {
+  padding: 0 0 16px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.accordion-item {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
    CARD
    ═══════════════════════════════════════════════════════════ */
 
