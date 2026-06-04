@@ -167,6 +167,7 @@
   align-items: center;
   gap: 4px;
   height: 36px;
+  color: var(--color-text-muted);
 }
 
 .mg-product-card__row + .mg-product-card__row {
