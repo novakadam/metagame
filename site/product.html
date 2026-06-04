@@ -258,39 +258,40 @@
             </div>
           </div>
 
-          <!-- Accordion -->
-          <div class="mg-product__accordion">
-            <div class="mg-product__accordion-item is-open">
-              <button class="mg-product__accordion-header">
-                <span class="mg-product__accordion-title">Product Details</span>
-                <svg class="mg-product__accordion-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
-              </button>
-              <div class="mg-product__accordion-body">
-                <!-- BACKEND: product.details -->
-                A Riftbound: League of Legends TCG – Set One Unleashed Booster Display 24 darab booster pack-et tartalmaz, amelyekből a League of Legends univerzum ikonikus bajnokait gyűjtheted össze kártyaformában. Minden csomag 12 kártyát tartalmaz, köztük garantáltan legalább 1 ritka vagy magasabb ritkaságú lapot.
+          <!-- BS Accordion -->
+          <div class="accordion" id="product-accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc-details">Product Details</button>
+              </h2>
+              <div id="acc-details" class="accordion-collapse collapse show" data-bs-parent="#product-accordion">
+                <div class="accordion-body">
+                  A Riftbound: League of Legends TCG – Set One Unleashed Booster Display 24 darab booster pack-et tartalmaz, amelyekből a League of Legends univerzum ikonikus bajnokait gyűjtheted össze kártyaformában. Minden csomag 12 kártyát tartalmaz, köztük garantáltan legalább 1 ritka vagy magasabb ritkaságú lapot.
+                </div>
               </div>
             </div>
-            <div class="mg-product__accordion-item">
-              <button class="mg-product__accordion-header">
-                <span class="mg-product__accordion-title">Specifications</span>
-                <svg class="mg-product__accordion-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
-              </button>
-              <div class="mg-product__accordion-body">
-                <!-- BACKEND: product.specs -->
-                <strong>Tartalom:</strong> 24 booster pack (12 kártya/csomag)<br>
-                <strong>Nyelv:</strong> Angol<br>
-                <strong>Kiadó:</strong> Riot Games / Legends of Runeterra<br>
-                <strong>Megjelenés:</strong> 2026. május<br>
-                <strong>Korosztály:</strong> 13+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-specs">Specifications</button>
+              </h2>
+              <div id="acc-specs" class="accordion-collapse collapse" data-bs-parent="#product-accordion">
+                <div class="accordion-body">
+                  <strong>Tartalom:</strong> 24 booster pack (12 kártya/csomag)<br>
+                  <strong>Nyelv:</strong> Angol<br>
+                  <strong>Kiadó:</strong> Riot Games / Legends of Runeterra<br>
+                  <strong>Megjelenés:</strong> 2026. május<br>
+                  <strong>Korosztály:</strong> 13+
+                </div>
               </div>
             </div>
-            <div class="mg-product__accordion-item">
-              <button class="mg-product__accordion-header">
-                <span class="mg-product__accordion-title">Warranty</span>
-                <svg class="mg-product__accordion-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
-              </button>
-              <div class="mg-product__accordion-body">
-                30 napos visszaküldési lehetőség bontatlan termék esetén. A garancia nem vonatkozik kinyitott booster csomagokra.
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-warranty">Warranty</button>
+              </h2>
+              <div id="acc-warranty" class="accordion-collapse collapse" data-bs-parent="#product-accordion">
+                <div class="accordion-body">
+                  30 napos visszaküldési lehetőség bontatlan termék esetén. A garancia nem vonatkozik kinyitott booster csomagokra.
+                </div>
               </div>
             </div>
           </div>
@@ -458,8 +459,8 @@
               </div>
               <div class="card-body d-flex flex-column gap-3">
                 <p class="fw-medium fs-5">Kapcsolódó termék</p>
-                <p class="card-text small">Termék rövid leírása</p>
-                <p class="card-text fs-4 fw-semibold" style="color:var(--color-text-card)">2 500 Ft</p>
+                <p class="small text-muted">Termék rövid leírása</p>
+                <p class="fs-4 fw-semibold text-card">2 500 Ft</p>
                 <a href="#" class="btn btn-outline-secondary">Add to cart</a>
               </div>
             </div>
