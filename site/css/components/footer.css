@@ -1,8 +1,10 @@
 /* ── FOOTER PANEL (Bootstrap Offcanvas bottom) ─────────────────── */
 
-.mg-footer-panel {
+.mg-footer-panel.offcanvas-bottom {
   background: var(--color-bg);
   border-top: 1.5px solid var(--color-gold);
+  height: auto !important;
+  max-height: 90vh !important;
 }
 
 .mg-footer-panel__scroll {
