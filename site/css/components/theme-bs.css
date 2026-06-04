@@ -44,6 +44,45 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ═══════════════════════════════════════════════════════════
+   BREADCRUMB
+   ═══════════════════════════════════════════════════════════ */
+
+.breadcrumb {
+  --bs-breadcrumb-divider-color: var(--color-text-muted);
+  --bs-breadcrumb-item-active-color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumb-item a {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-gold-ring);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGINATION
+   ═══════════════════════════════════════════════════════════ */
+
+.page-link {
+  --bs-pagination-bg: transparent;
+  --bs-pagination-border-color: var(--color-border-muted);
+  --bs-pagination-color: var(--color-text-muted);
+  --bs-pagination-hover-bg: var(--color-bg-muted);
+  --bs-pagination-hover-color: var(--color-gold);
+  --bs-pagination-hover-border-color: var(--color-gold);
+  --bs-pagination-focus-box-shadow: 0 0 0 2px rgba(179, 138, 36, 0.3);
+  --bs-pagination-active-bg: var(--color-gold);
+  --bs-pagination-active-border-color: var(--color-gold);
+  --bs-pagination-active-color: var(--color-bg);
+  --bs-pagination-disabled-bg: transparent;
+  --bs-pagination-disabled-color: var(--color-text-muted);
+  --bs-pagination-disabled-border-color: var(--color-border-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
    ACCORDION
    ═══════════════════════════════════════════════════════════ */
 
