@@ -154,6 +154,11 @@ hr {
 .value { color: var(--color-gold); }
 .value.out { color: var(--color-destructive); }
 
+/* Avatar méretek */
+.avatar-lg { width: 64px; height: 64px; }
+.avatar-md { width: 48px; height: 48px; }
+.icon-box { width: 36px; height: 36px; background: var(--color-bg); border: 1px solid var(--color-border-muted); }
+
 /* Menü ikon és chevron (mobil menu, mega menu) */
 .menu-icon { width: 24px; height: 24px; color: var(--color-gold); flex-shrink: 0; }
 .chevron { width: 20px; height: 20px; color: var(--color-text-muted); }
