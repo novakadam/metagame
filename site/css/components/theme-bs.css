@@ -160,13 +160,20 @@ hr {
 .brand-logo { width: 40px; height: 24px; object-fit: contain; flex-shrink: 0; }
 
 /* Szöveg szín utility-k — BS selectorok átszabva */
-.text-gold { color: var(--color-gold) !important; }
+/* Árak tabular nums-szal (egyforma számszélesség) */
+.text-gold { color: var(--color-gold) !important; font-variant-numeric: tabular-nums; }
 .text-card { color: var(--color-text-card) !important; }
 .text-muted, .text-body-secondary { color: var(--color-text-muted) !important; }
 
 /* Input-group méretezés */
 .input-group.qty-stepper { width: 110px; }
 .input-group.qty-stepper .form-control { max-width: 40px; }
+
+/* Flex min-width fix (text-truncate-hoz kell) */
+.min-w-0 { min-width: 0 !important; }
+
+/* Összesítő blokk háttér */
+.bg-muted-mg { background: var(--color-bg-muted) !important; }
 
 /* Search panel footer */
 .search-footer { padding: 12px 16px; border-top: 1px solid var(--color-border-muted); }

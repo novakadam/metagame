@@ -27,7 +27,7 @@ function mgRenderSummaryItems() {
   var html = '';
   mgCheckoutState.items.forEach(function (it, i) {
     var stockBadge = it.stock <= 5
-      ? '<span class="badge text-bg-warning position-absolute top-0 start-0 m-1" style="font-size:10px;">Még ' + it.stock + ' db</span>'
+      ? '<span class="badge text-bg-warning position-absolute top-0 start-0 m-1 fs-7">Még ' + it.stock + ' db</span>'
       : '';
 
     html += '<li class="list-group-item d-flex gap-3 py-3 px-0">' +
@@ -46,7 +46,7 @@ function mgRenderSummaryItems() {
             '<input type="number" class="form-control text-center" value="' + it.qty + '" min="1" readonly>' +
             '<button class="btn btn-outline-secondary" data-action="inc" data-idx="' + i + '"' + (it.qty >= it.stock ? ' disabled' : '') + '>+</button>' +
           '</div>' +
-          '<span class="fw-semibold text-gold" style="font-variant-numeric:tabular-nums;">' + mgFormatPrice(it.price * it.qty) + '</span>' +
+          '<span class="fw-semibold text-gold">' + mgFormatPrice(it.price * it.qty) + '</span>' +
         '</div>' +
       '</div>' +
     '</li>';
@@ -65,7 +65,7 @@ function mgRenderSummaryTotals() {
     '<hr class="my-3" style="opacity:0.3;">' +
     '<div class="d-flex align-items-center justify-content-between">' +
       '<span class="small text-muted">Végösszeg</span>' +
-      '<span class="fw-bold text-gold" style="font-size:var(--font-size-3xl);font-variant-numeric:tabular-nums;">' + mgFormatPrice(c.total) + '</span>' +
+      '<span class="fs-2 fw-bold text-gold font-monospace">' + mgFormatPrice(c.total) + '</span>' +
     '</div>';
 }
 
