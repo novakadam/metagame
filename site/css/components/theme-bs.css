@@ -126,10 +126,10 @@ hr {
 .chevron { width: 20px; height: 20px; color: var(--color-text-muted); }
 .brand-logo { width: 40px; height: 24px; object-fit: contain; flex-shrink: 0; }
 
-/* Szöveg szín utility-k (tokens-ból) */
+/* Szöveg szín utility-k — BS selectorok átszabva */
 .text-gold { color: var(--color-gold) !important; }
 .text-card { color: var(--color-text-card) !important; }
-.text-muted-mg { color: var(--color-text-muted) !important; }
+.text-muted, .text-body-secondary { color: var(--color-text-muted) !important; }
 
 /* Input-group méretezés */
 .input-group.qty-stepper { width: 110px; }

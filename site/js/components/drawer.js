@@ -292,7 +292,7 @@ function mgBuildCartBody() {
         '</div>' +
         '<div>' +
           '<span class="d-block fw-medium">' + item.name + '</span>' +
-          '<span class="d-block small text-muted-mg">' + item.sub + '</span>' +
+          '<span class="d-block small text-muted">' + item.sub + '</span>' +
         '</div>' +
       '</div>' +
       '<div class="mg-drawer-cart__price-row">' +
@@ -337,7 +337,7 @@ function mgBuildFavBody() {
         '</div>' +
         '<div>' +
           '<span class="d-block fw-medium">' + item.name + '</span>' +
-          '<span class="d-block small text-muted-mg">' + item.sub + '</span>' +
+          '<span class="d-block small text-muted">' + item.sub + '</span>' +
         '</div>' +
       '</div>' +
       '<div class="mg-drawer-cart__price-row">' +

@@ -38,7 +38,7 @@ function mgRenderSummaryItems() {
       '<div class="d-flex flex-column flex-grow-1 justify-content-between py-1" style="min-width:0;">' +
         '<div>' +
           '<div class="fw-medium small text-truncate">' + it.name + '</div>' +
-          '<div class="small text-muted-mg text-truncate">' + it.sub + '</div>' +
+          '<div class="small text-muted text-truncate">' + it.sub + '</div>' +
         '</div>' +
         '<div class="d-flex align-items-center justify-content-between">' +
           '<div class="input-group input-group-sm qty-stepper">' +
@@ -60,11 +60,11 @@ function mgRenderSummaryTotals() {
     ? '<span class="text-success">Ingyenes</span>'
     : '<span>' + mgFormatPrice(c.shipping) + '</span>';
 
-  return '<div class="d-flex justify-content-between small text-muted-mg mb-3"><span>Részösszeg</span><span class="text-card">' + mgFormatPrice(c.subtotal) + '</span></div>' +
-    '<div class="d-flex justify-content-between small text-muted-mg mb-3"><span>Szállítás</span>' + shipText + '</div>' +
+  return '<div class="d-flex justify-content-between small text-muted mb-3"><span>Részösszeg</span><span class="text-card">' + mgFormatPrice(c.subtotal) + '</span></div>' +
+    '<div class="d-flex justify-content-between small text-muted mb-3"><span>Szállítás</span>' + shipText + '</div>' +
     '<hr class="my-3" style="opacity:0.3;">' +
     '<div class="d-flex align-items-center justify-content-between">' +
-      '<span class="small text-muted-mg">Végösszeg</span>' +
+      '<span class="small text-muted">Végösszeg</span>' +
       '<span class="fw-bold text-gold" style="font-size:var(--font-size-3xl);font-variant-numeric:tabular-nums;">' + mgFormatPrice(c.total) + '</span>' +
     '</div>';
 }
