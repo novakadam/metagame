@@ -198,17 +198,18 @@
   gap: 2px;
 }
 
+/* Név */
+.mg-testimonial-card__info p:first-child,
 .mg-testimonial-card__name {
-  font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--font-size-base);
   color: var(--color-text);
   margin: 0;
 }
 
+/* Szerep */
+.mg-testimonial-card__info p:last-child,
 .mg-testimonial-card__role {
-  font-family: var(--font-body);
-  font-weight: 400;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   margin: 0;
@@ -226,11 +227,9 @@
   height: 16px;
 }
 
-/* Idézet */
-
+/* Idézet — utolsó p a kártyán */
+.mg-testimonial-card > p,
 .mg-testimonial-card__quote {
-  font-family: var(--font-body);
-  font-weight: 400;
   font-size: var(--font-size-base);
   line-height: 1.5;
   color: var(--color-text-muted);
