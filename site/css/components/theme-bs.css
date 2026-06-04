@@ -166,8 +166,9 @@ hr {
 .text-muted, .text-body-secondary { color: var(--color-text-muted) !important; }
 
 /* Input-group méretezés */
-.input-group.qty-stepper { width: 110px; }
-.input-group.qty-stepper .form-control { max-width: 40px; }
+.input-group.qty-stepper { width: 110px; height: 28px; }
+.input-group.qty-stepper .btn { padding: 0 8px; font-size: 13px; }
+.input-group.qty-stepper .form-control { max-width: 36px; padding: 0; font-size: 13px; height: 28px; }
 
 /* Flex min-width fix (text-truncate-hoz kell) */
 .min-w-0 { min-width: 0 !important; }
