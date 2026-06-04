@@ -469,6 +469,9 @@
   letter-spacing: 0.5px;
 }
 
+/* BS form-control a drawer kontextusban */
+.mg-drawer-profile .form-control,
+.mg-drawer-contact .form-control,
 .mg-drawer-profile__field input,
 .mg-drawer-contact__field input,
 .mg-drawer-contact__field textarea {
@@ -491,13 +494,19 @@
   min-height: 80px;
 }
 
+.mg-drawer-profile .form-control:focus,
+.mg-drawer-contact .form-control:focus,
 .mg-drawer-profile__field input:focus,
 .mg-drawer-contact__field input:focus,
 .mg-drawer-contact__field textarea:focus {
   outline: none;
   border-color: var(--color-gold);
+  background: var(--color-bg);
+  box-shadow: none;
 }
 
+.mg-drawer-profile .form-control::placeholder,
+.mg-drawer-contact .form-control::placeholder,
 .mg-drawer-profile__field input::placeholder,
 .mg-drawer-contact__field input::placeholder,
 .mg-drawer-contact__field textarea::placeholder {
