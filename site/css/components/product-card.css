@@ -16,6 +16,7 @@
 
 .mg-product-card {
   --bs-card-bg: transparent;
+  width: 260px;
   position: relative;
   padding: 0 0 24px;
   transition: box-shadow var(--transition-base);
