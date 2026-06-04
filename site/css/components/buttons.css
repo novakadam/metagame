@@ -222,10 +222,17 @@
   text-transform: lowercase;
 }
 
-/* ── RIBBON BADGE (BS .badge átszabva ribbon formára) ──── */
-/* Alap = kék (text-bg-secondary), arany = text-bg-primary  */
+/* ── BADGE ALAP (BS .badge theme) ─────────────────────── */
 
 .badge {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+/* ── RIBBON BADGE (kategória sáv — kontextus alapján) ──── */
+/* Ribbon forma csak ott ahol kategória badge: card info, ajánló info */
+
+.badge.badge-ribbon {
   background-color: transparent !important;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpolygon points='12,0 188,0 200,12 188,24 12,24 0,12' fill='%23022139'/%3E%3C/svg%3E");
   background-size: 100% 100%;
@@ -242,8 +249,8 @@
   border-radius: 0;
 }
 
-/* Arany variáns (BS text-bg-primary) */
-.badge.text-bg-primary {
+/* Arany ribbon variáns */
+.badge.badge-ribbon.text-bg-primary {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpolygon points='12,0 188,0 200,12 188,24 12,24 0,12' fill='%23B38A24'/%3E%3C/svg%3E") !important;
   color: var(--color-bg) !important;
   font-size: 11px;

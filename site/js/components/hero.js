@@ -108,7 +108,7 @@ function mgInitHero() {
             '<img src="' + it.image + '" alt="' + it.title + '">' +
           '</div>' +
           '<div class="mg-ajanlo__info">' +
-            '<span class="badge text-bg-primary">' + it.badge + '</span>' +
+            '<span class="badge badge-ribbon text-bg-primary">' + it.badge + '</span>' +
             '<h3 class="mg-ajanlo__title">' + it.title + '</h3>' +
             '<p class="mg-ajanlo__subtitle">' + (it.type === 'event' ? 'Következő esemény' : 'Kiemelt termék') + '</p>' +
           '</div>' +
