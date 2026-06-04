@@ -193,14 +193,14 @@ function mgCreateDemoCard() {
         '<div class="mg-product-card__rows">' +
           '<div class="mg-product-card__row">' +
             '<span class="mg-product-card__row-icon">' +
-              '<svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#4CAF50" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#4CAF50" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+              '<svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</span>' +
             '<span class="mg-product-card__row-label">Üzletben elérhető</span>' +
             '<span class="mg-product-card__row-value">10+</span>' +
           '</div>' +
           '<div class="mg-product-card__row">' +
             '<span class="mg-product-card__row-icon">' +
-              '<svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#FF4400" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="#FF4400" stroke-width="1.2" stroke-linecap="round"/></svg>' +
+              '<svg class="text-danger" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' +
             '</span>' +
             '<span class="mg-product-card__row-label">Klubban nincs</span>' +
             '<span class="mg-product-card__row-value mg-product-card__row-value--out">0db</span>' +
