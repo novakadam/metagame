@@ -165,6 +165,13 @@ hr {
 .brand-logo { width: 40px; height: 24px; object-fit: contain; flex-shrink: 0; }
 
 /* Szöveg szín utility-k — BS selectorok átszabva */
+/* Link szín — BS default kék helyett arany */
+mark { background: rgba(179, 138, 36, 0.3); color: inherit; padding: 0 2px; }
+
+/* Link szín — BS default kék helyett a mi színeink */
+a { color: var(--color-gold); }
+a:hover { color: var(--color-gold-ring); }
+
 /* Árak tabular nums-szal (egyforma számszélesség) */
 .text-gold { color: var(--color-gold) !important; font-variant-numeric: tabular-nums; }
 .text-card { color: var(--color-text-card) !important; }
