@@ -115,6 +115,7 @@
   );
 }
 
+.mg-ajanlo__info h5,
 .mg-ajanlo__title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -122,6 +123,13 @@
   line-height: 1.25;
   color: var(--color-text);
   margin: 0;
+}
+
+.mg-ajanlo__info .small,
+.mg-ajanlo__info p:last-child {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 5px 0 0;
 }
 
 .mg-ajanlo__subtitle {

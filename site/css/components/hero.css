@@ -209,6 +209,7 @@
   padding: 10px 12px;
 }
 
+.mg-hero-card__body p,
 .mg-hero-card__title {
   font-family: var(--font-body);
   font-weight: 600;
@@ -220,8 +221,10 @@
   text-overflow: ellipsis;
 }
 
+.mg-hero-card__body p:last-child,
 .mg-hero-card__meta {
   font-family: var(--font-body);
+  font-weight: 400;
   font-size: 12px;
   color: var(--color-gold);
   margin: 0;
