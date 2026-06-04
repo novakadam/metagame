@@ -84,7 +84,8 @@
   position: relative;
 }
 
-/* Kategória badge – háromszög végek, középen metszi a kép/kék határt */
+/* Kategória badge – középen metszi a kép/kék határt */
+.mg-ajanlo__info .badge,
 .mg-ajanlo__badge {
   display: inline-block;
   position: relative;
