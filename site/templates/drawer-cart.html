@@ -19,10 +19,11 @@
 <div>
   <p class="template-label">Kosár — tételek + összesítő</p>
   <div class="preview-drawer">
-    <div class="mg-drawer-cart__list">
-      <div class="mg-drawer-cart__item">
-        <div class="mg-drawer-cart__row">
-          <div class="mg-drawer-cart__img">
+
+    <ul class="list-group list-group-flush p-3">
+      <li class="list-group-item d-flex flex-column gap-3 py-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="mg-drawer-cart__img position-relative">
             <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Riftbound Booster">
             <span class="badge rounded-pill text-bg-warning position-absolute">1</span>
           </div>
@@ -31,7 +32,7 @@
             <span class="d-block small text-muted">League of Legends TCG</span>
           </div>
         </div>
-        <div class="mg-drawer-cart__price-row">
+        <div class="d-flex align-items-center justify-content-between">
           <span class="fw-semibold fs-5 text-card">2 500 Ft</span>
           <div class="input-group input-group-sm qty-stepper">
             <button class="btn btn-outline-secondary" type="button">−</button>
@@ -39,10 +40,10 @@
             <button class="btn btn-outline-secondary" type="button">+</button>
           </div>
         </div>
-      </div>
-      <div class="mg-drawer-cart__item">
-        <div class="mg-drawer-cart__row">
-          <div class="mg-drawer-cart__img">
+      </li>
+      <li class="list-group-item d-flex flex-column gap-3 py-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="mg-drawer-cart__img position-relative">
             <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Magic Play Display">
             <span class="badge rounded-pill text-bg-warning position-absolute">1</span>
           </div>
@@ -51,7 +52,7 @@
             <span class="d-block small text-muted">Foundations</span>
           </div>
         </div>
-        <div class="mg-drawer-cart__price-row">
+        <div class="d-flex align-items-center justify-content-between">
           <span class="fw-semibold fs-5 text-card">7 500 Ft</span>
           <div class="input-group input-group-sm qty-stepper">
             <button class="btn btn-outline-secondary" type="button">−</button>
@@ -59,31 +60,36 @@
             <button class="btn btn-outline-secondary" type="button">+</button>
           </div>
         </div>
+      </li>
+    </ul>
+
+    <div class="p-4 bg-muted-mg">
+      <div class="d-flex justify-content-between text-muted mb-2"><span>Részösszeg</span><span>10 000 Ft</span></div>
+      <div class="d-flex justify-content-between text-muted mb-3"><span>Szállítási költség</span><span>Ingyenes</span></div>
+      <hr class="opacity-25 my-2">
+      <div class="d-flex align-items-center justify-content-end gap-2 mt-3">
+        <span class="fw-semibold text-card">Teljes összeg</span>
+        <span class="text-muted">HUF</span>
+        <span class="fs-3 fw-semibold text-card">10 000 Ft</span>
       </div>
     </div>
-    <div class="mg-drawer-cart__summary">
-      <div class="mg-drawer-cart__summary-row"><span>Részösszeg</span><span>10 000 Ft</span></div>
-      <div class="mg-drawer-cart__summary-row"><span>Szállítási költség</span><span>Ingyenes</span></div>
-    </div>
-    <div class="mg-drawer-cart__total">
-      <span class="mg-drawer-cart__total-label">Teljes összeg</span>
-      <span class="mg-drawer-cart__total-currency">HUF</span>
-      <span class="mg-drawer-cart__total-amount">10 000 Ft</span>
-    </div>
-    <div class="mg-drawer-cart__actions">
+
+    <div class="d-flex flex-column gap-2 p-4">
       <a href="checkout.html" class="btn btn-secondary w-100 justify-content-center">Tovább a pénztárhoz</a>
       <a href="#" class="btn btn-outline-secondary w-100 justify-content-center">Vásárlás folytatása</a>
     </div>
+
   </div>
 </div>
 
 <div>
   <p class="template-label">Kedvencek</p>
   <div class="preview-drawer">
-    <div class="mg-drawer-cart__list">
-      <div class="mg-drawer-cart__item">
-        <div class="mg-drawer-cart__row">
-          <div class="mg-drawer-cart__img">
+
+    <ul class="list-group list-group-flush p-3">
+      <li class="list-group-item d-flex flex-column gap-3 py-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="mg-drawer-cart__img position-relative">
             <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Riftbound Booster">
           </div>
           <div>
@@ -91,7 +97,7 @@
             <span class="d-block small text-muted">League of Legends TCG</span>
           </div>
         </div>
-        <div class="mg-drawer-cart__price-row">
+        <div class="d-flex align-items-center justify-content-between">
           <span class="fw-semibold fs-5 text-card">2 500 Ft</span>
           <div class="d-flex align-items-center gap-2">
             <a href="product.html" class="btn btn-secondary btn-sm">Megnézem</a>
@@ -100,11 +106,13 @@
             </button>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="mg-drawer-cart__actions">
+      </li>
+    </ul>
+
+    <div class="d-flex flex-column gap-2 p-4">
       <a href="products.html" class="btn btn-outline-secondary w-100 justify-content-center">Böngéssz tovább</a>
     </div>
+
   </div>
 </div>
 
