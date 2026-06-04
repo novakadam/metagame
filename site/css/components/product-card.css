@@ -51,14 +51,22 @@
 
 /* ── BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css adja) ─── */
 
-.mg-product-card .mg-badge-new {
+.mg-product-card .mg-badge-new,
+.mg-product-card .badge-octagon {
   top: -8px;
   left: -8px;
+  z-index: 3;
 }
 
-.mg-product-card .mg-badge-fav {
+.mg-product-card .mg-badge-fav,
+.mg-product-card > .btn.rounded-circle {
   top: -8px;
   right: -8px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
 }
 
 /* ── INFO ZÓNA (kategória badge + cím) ────────────────────── */

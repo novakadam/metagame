@@ -56,18 +56,25 @@
   pointer-events: none;
 }
 
-/* ── "ÚJ" BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css .mg-badge-new adja) */
+/* ── "ÚJ" BADGE POZÍCIONÁLÁS ── */
 
-.mg-ajanlo .mg-badge-new {
+.mg-ajanlo .mg-badge-new,
+.mg-ajanlo .badge-octagon {
   top: -22px;
   left: -22px;
+  z-index: 3;
 }
 
-/* ── KEDVENC BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css .mg-badge-fav adja) */
+/* ── KEDVENC BADGE POZÍCIONÁLÁS ── */
 
-.mg-ajanlo .mg-badge-fav {
+.mg-ajanlo .mg-badge-fav,
+.mg-ajanlo > .btn.rounded-circle {
   top: -18px;
   right: -18px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  padding: 0;
 }
 
 /* ── KÉK ZÓNA (kategória + cím) ──────────────────────────────── */

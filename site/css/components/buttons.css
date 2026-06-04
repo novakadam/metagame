@@ -144,8 +144,16 @@
   text-decoration: underline;
 }
 
-/* ── ICON (kör alakú, csak ikon — egyedi) ────────────────── */
+/* ── ICON (kör alakú, csak ikon) ─────────────────────────── */
 
+.btn.rounded-circle {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Legacy alias */
 .mg-btn--icon {
   --bs-btn-border-width: 1.5px;
   --bs-btn-border-color: var(--color-gold);

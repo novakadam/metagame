@@ -169,8 +169,8 @@ function mgCreateDemoCard() {
   return $(
     '<div class="card mg-product-card mg-product-card--new mg-product-card--has-category">' +
 
-      '<span class="badge badge-octagon position-absolute" style="top:-8px;left:-8px;z-index:3;">új</span>' +
-      '<button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" style="margin:-8px -8px 0 0;z-index:3;width:36px;height:36px;padding:0;" aria-label="Kedvencekhez">' +
+      '<span class="badge badge-octagon position-absolute">új</span>' +
+      '<button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" aria-label="Kedvencekhez">' +
         '<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>' +
       '</button>' +
 
