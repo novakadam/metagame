@@ -2,20 +2,22 @@
  * forms.css – Metagame form rendszer
  *
  * Bootstrap 5 form komponensek vizuális felülírása a Metagame design tokenekkel.
- * Strukturális layout (grid, spacing) → Bootstrap utility class-ok a HTML-ben.
+ * A BS selectorokat szabjuk át theme-szerűen — nincs mg-form-* class.
+ * HTML: <label class="form-label">, <input class="form-control">, stb.
  */
 
-/* ── CSOPORT ────────────────────────────────────────────── */
+/* ── CSOPORT (BS mb-3 helyettesíti, de ha kell custom gap) ── */
 
-.mg-form-group {
+.mb-3,
+.form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-/* ── LABEL (Bootstrap form-label felülírás) ─────────────── */
+/* ── LABEL ──────────────────────────────────────────────── */
 
-.mg-form-label {
+.form-label {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
@@ -25,16 +27,15 @@
   margin-bottom: 0;
 }
 
-.mg-form-required {
-  color: var(--color-destructive);
+.form-label .text-danger {
+  color: var(--color-destructive) !important;
   margin-left: 2px;
 }
 
-/* ── INPUT / SELECT / TEXTAREA (Bootstrap form-control felülírás) ── */
+/* ── INPUT / SELECT / TEXTAREA ─────────────────────────── */
 
-.mg-form-input,
-.mg-form-select,
-.mg-form-textarea {
+.form-control,
+.form-select {
   height: 44px;
   padding: 0 var(--space-md);
   background: var(--color-bg-muted);
@@ -46,22 +47,21 @@
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.mg-form-input::placeholder,
-.mg-form-textarea::placeholder {
+.form-control::placeholder {
   color: var(--color-text-muted);
   opacity: 0.4;
 }
 
-.mg-form-input:focus,
-.mg-form-select:focus,
-.mg-form-textarea:focus {
+.form-control:focus,
+.form-select:focus {
   outline: none;
   background: var(--color-bg-muted);
   border-color: var(--color-gold);
   box-shadow: 0 0 0 1px rgba(179, 138, 36, 0.3);
+  color: var(--color-text);
 }
 
-.mg-form-select {
+.form-select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23D8CBAF' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -69,31 +69,38 @@
   padding-right: 40px;
 }
 
-.mg-form-textarea {
+textarea.form-control {
   height: auto;
   min-height: 80px;
   padding: var(--space-sm) var(--space-md);
   resize: vertical;
 }
 
-/* ── HINT / ERROR ───────────────────────────────────────── */
+/* ── SM VARIÁNS ────────────────────────────────────────── */
 
-.mg-form-hint {
+.form-control-sm {
+  height: 36px;
+  font-size: var(--font-size-sm);
+}
+
+/* ── HINT / ERROR ──────────────────────────────────────── */
+
+.form-text {
   font-family: var(--font-body);
   font-size: 12px;
   color: var(--color-text-muted);
   opacity: 0.7;
 }
 
-.mg-form-error {
+.invalid-feedback {
   font-family: var(--font-body);
   font-size: 12px;
   color: var(--color-destructive);
 }
 
-/* ── CHECKBOX (custom megjelenés) ──────────────────────── */
+/* ── CHECKBOX ──────────────────────────────────────────── */
 
-.mg-form-check {
+.form-check {
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -101,7 +108,7 @@
   padding-left: 0;
 }
 
-.mg-form-check__input {
+.form-check-input {
   width: 18px;
   height: 18px;
   margin: 2px 0 0;
@@ -117,12 +124,12 @@
   transition: border-color var(--transition-fast), background var(--transition-fast);
 }
 
-.mg-form-check__input:checked {
+.form-check-input:checked {
   background: var(--color-gold);
   border-color: var(--color-gold);
 }
 
-.mg-form-check__input:checked::after {
+.form-check-input:checked::after {
   content: '';
   position: absolute;
   left: 5px;
@@ -134,47 +141,29 @@
   transform: rotate(45deg);
 }
 
-.mg-form-check__body {
-  display: flex;
-  flex-direction: column;
-}
-
-.mg-form-check__label {
+.form-check-label {
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   color: var(--color-text);
   cursor: pointer;
 }
 
-.mg-form-check__hint {
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--color-text-muted);
-  margin-top: 2px;
-}
+/* ── RADIO ─────────────────────────────────────────────── */
 
-/* ── RADIO (custom megjelenés) ─────────────────────────── */
-
-.mg-form-radio {
+.form-check-input[type="radio"] {
   width: 20px;
   height: 20px;
-  flex-shrink: 0;
-  appearance: none;
-  -webkit-appearance: none;
   border: 2px solid var(--color-text-muted);
   border-radius: 50%;
   background: transparent;
-  cursor: pointer;
-  position: relative;
-  transition: border-color var(--transition-fast);
 }
 
-.mg-form-radio:checked {
+.form-check-input[type="radio"]:checked {
   border-color: var(--color-gold);
   background: var(--color-gold);
 }
 
-.mg-form-radio:checked::after {
+.form-check-input[type="radio"]:checked::after {
   content: '';
   position: absolute;
   top: 50%;

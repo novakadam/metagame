@@ -73,7 +73,7 @@
   margin: 0;
 }
 
-/* ── INPUT MEZŐK (forms.css mg-form-input + Bootstrap form-control-sm) ── */
+/* ── INPUT MEZŐK (forms.css .form-control + BS form-control-sm) ── */
 
 .mg-filter-panel__inputs {
   display: flex;

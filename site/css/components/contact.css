@@ -82,7 +82,7 @@
   padding: 0 24px;
 }
 
-/* Form inputok: forms.css mg-form-input / mg-form-label class-okból jönnek */
+/* Form inputok: forms.css .form-control / .form-label BS selectorokból jönnek */
 
 .mg-contact__textarea {
   resize: vertical;

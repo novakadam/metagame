@@ -100,8 +100,8 @@ function mgInitCheckout() {
     var method = $(this).data('method');
     mgCheckoutState.delivery = method;
 
-    $(this).siblings().removeClass('is-selected').find('.mg-form-radio').prop('checked', false);
-    $(this).addClass('is-selected').find('.mg-form-radio').prop('checked', true);
+    $(this).siblings().removeClass('is-selected').find('.form-check-input').prop('checked', false);
+    $(this).addClass('is-selected').find('.form-check-input').prop('checked', true);
 
     if (method === 'delivery') {
       $('.mg-checkout__address').addClass('is-visible');
@@ -117,8 +117,8 @@ function mgInitCheckout() {
     var method = $(this).data('method');
     mgCheckoutState.payment = method;
 
-    $(this).siblings('.mg-checkout__option').removeClass('is-selected').find('.mg-form-radio').prop('checked', false);
-    $(this).addClass('is-selected').find('.mg-form-radio').prop('checked', true);
+    $(this).siblings('.mg-checkout__option').removeClass('is-selected').find('.form-check-input').prop('checked', false);
+    $(this).addClass('is-selected').find('.form-check-input').prop('checked', true);
   });
 
   /* Cégként vásárlás checkbox */

@@ -72,45 +72,45 @@
         <div class="mg-checkout__fields">
           <div class="row g-3">
             <div class="col-md-6">
-              <div class="mg-form-group">
-                <label class="form-label mg-form-label">Vezetéknév <span class="mg-form-required">*</span></label>
+              <div class="mb-3">
+                <label class="form-label">Vezetéknév <span class="text-danger">*</span></label>
                 <!-- BACKEND: customer.lastName -->
-                <input class="form-control mg-form-input" type="text" placeholder="Kovács">
+                <input class="form-control" type="text" placeholder="Kovács">
               </div>
             </div>
             <div class="col-md-6">
-              <div class="mg-form-group">
-                <label class="form-label mg-form-label">Keresztnév <span class="mg-form-required">*</span></label>
+              <div class="mb-3">
+                <label class="form-label">Keresztnév <span class="text-danger">*</span></label>
                 <!-- BACKEND: customer.firstName -->
-                <input class="form-control mg-form-input" type="text" placeholder="János">
+                <input class="form-control" type="text" placeholder="János">
               </div>
             </div>
           </div>
 
-          <div class="mg-form-group">
-            <label class="form-label mg-form-label">E-mail cím <span class="mg-form-required">*</span></label>
+          <div class="mb-3">
+            <label class="form-label">E-mail cím <span class="text-danger">*</span></label>
             <!-- BACKEND: customer.email -->
-            <input class="form-control mg-form-input" type="email" placeholder="kovacs.janos@example.com">
+            <input class="form-control" type="email" placeholder="kovacs.janos@example.com">
             <div class="mg-checkout__auth-row">
-              <span class="form-text mg-form-hint">A rendelés visszaigazolását erre a címre küldjük</span>
+              <span class="form-text">A rendelés visszaigazolását erre a címre küldjük</span>
               <!-- BACKEND: bejelentkezés gomb ha nincs session -->
               <button type="button" class="mg-checkout__login-link">Már van fiókom? Bejelentkezés</button>
             </div>
 
           </div>
 
-          <div class="mg-form-group">
-            <label class="form-label mg-form-label">Telefonszám <span class="mg-form-required">*</span></label>
+          <div class="mb-3">
+            <label class="form-label">Telefonszám <span class="text-danger">*</span></label>
             <!-- BACKEND: customer.phone -->
-            <input class="form-control mg-form-input" type="tel" placeholder="+36 30 123 4567">
+            <input class="form-control" type="tel" placeholder="+36 30 123 4567">
           </div>
 
           <!-- Cégként vásárlás -->
-          <label class="form-check mg-form-check">
-            <input class="form-check-input mg-form-check__input" type="checkbox" data-toggle="company">
-            <div class="mg-form-check__body">
-              <span class="form-check-label mg-form-check__label">Cégként vásárolok</span>
-              <span class="mg-form-check__hint">Céges számla kiállításához</span>
+          <label class="form-check form-check">
+            <input class="form-check-input" type="checkbox" data-toggle="company">
+            <div>
+              <span class="form-check-label">Cégként vásárolok</span>
+              <small class="d-block form-text">Céges számla kiállításához</small>
             </div>
           </label>
 
@@ -118,54 +118,54 @@
           <div class="mg-checkout__company-fields">
             <div class="row g-3">
               <div class="col-md-6">
-                <div class="mg-form-group">
-                  <label class="form-label mg-form-label">Cégnév <span class="mg-form-required">*</span></label>
+                <div class="mb-3">
+                  <label class="form-label">Cégnév <span class="text-danger">*</span></label>
                   <!-- BACKEND: company.name -->
-                  <input class="form-control mg-form-input" type="text" placeholder="Példa Kft.">
+                  <input class="form-control" type="text" placeholder="Példa Kft.">
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="mg-form-group">
-                  <label class="form-label mg-form-label">Adószám <span class="mg-form-required">*</span></label>
+                <div class="mb-3">
+                  <label class="form-label">Adószám <span class="text-danger">*</span></label>
                   <!-- BACKEND: company.taxId -->
-                  <input class="form-control mg-form-input" type="text" placeholder="12345678-1-23">
+                  <input class="form-control" type="text" placeholder="12345678-1-23">
                 </div>
               </div>
             </div>
-            <div class="mg-form-group">
-              <label class="form-label mg-form-label">Számlázási cím <span class="mg-form-required">*</span></label>
+            <div class="mb-3">
+              <label class="form-label">Számlázási cím <span class="text-danger">*</span></label>
               <!-- BACKEND: company.address -->
-              <input class="form-control mg-form-input" type="text" placeholder="1234 Budapest, Példa utca 1.">
+              <input class="form-control" type="text" placeholder="1234 Budapest, Példa utca 1.">
             </div>
-            <div class="mg-form-group">
-              <label class="form-label mg-form-label">Számlázási e-mail <span class="mg-form-required">*</span></label>
+            <div class="mb-3">
+              <label class="form-label">Számlázási e-mail <span class="text-danger">*</span></label>
               <!-- BACKEND: company.invoiceEmail -->
-              <input class="form-control mg-form-input" type="email" placeholder="szamla@ceg.hu">
-              <span class="form-text mg-form-hint">Ide küldjük a számlát (ha eltér a fenti e-mail címtől)</span>
+              <input class="form-control" type="email" placeholder="szamla@ceg.hu">
+              <span class="form-text">Ide küldjük a számlát (ha eltér a fenti e-mail címtől)</span>
             </div>
           </div>
 
           <!-- Fiók létrehozás -->
-          <label class="form-check mg-form-check">
-            <input class="form-check-input mg-form-check__input" type="checkbox" data-toggle="account">
-            <div class="mg-form-check__body">
-              <span class="form-check-label mg-form-check__label">Szeretnék fiókot létrehozni</span>
-              <span class="mg-form-check__hint">Gyorsabb vásárlás és rendeléskövetés</span>
+          <label class="form-check form-check">
+            <input class="form-check-input" type="checkbox" data-toggle="account">
+            <div>
+              <span class="form-check-label">Szeretnék fiókot létrehozni</span>
+              <small class="d-block form-text">Gyorsabb vásárlás és rendeléskövetés</small>
             </div>
           </label>
 
           <div class="mg-checkout__account-fields">
             <div class="row g-3">
               <div class="col-md-6">
-                <div class="mg-form-group">
-                  <label class="form-label mg-form-label">Jelszó <span class="mg-form-required">*</span></label>
-                  <input class="form-control mg-form-input" type="password" placeholder="Min. 8 karakter">
+                <div class="mb-3">
+                  <label class="form-label">Jelszó <span class="text-danger">*</span></label>
+                  <input class="form-control" type="password" placeholder="Min. 8 karakter">
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="mg-form-group">
-                  <label class="form-label mg-form-label">Jelszó megerősítése <span class="mg-form-required">*</span></label>
-                  <input class="form-control mg-form-input" type="password" placeholder="Jelszó újra">
+                <div class="mb-3">
+                  <label class="form-label">Jelszó megerősítése <span class="text-danger">*</span></label>
+                  <input class="form-control" type="password" placeholder="Jelszó újra">
                 </div>
               </div>
             </div>
@@ -183,7 +183,7 @@
 
           <!-- Bolt -->
           <button class="mg-checkout__option is-selected" data-method="bolt">
-            <input class="form-check-input mg-form-radio" type="radio" name="delivery" checked>
+            <input class="form-check-input" type="radio" name="delivery" checked>
             <div class="mg-checkout__option-body">
               <div class="mg-checkout__option-header">
                 <svg class="mg-checkout__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
@@ -202,7 +202,7 @@
 
           <!-- Klub -->
           <button class="mg-checkout__option" data-method="klub">
-            <input class="form-check-input mg-form-radio" type="radio" name="delivery">
+            <input class="form-check-input" type="radio" name="delivery">
             <div class="mg-checkout__option-body">
               <div class="mg-checkout__option-header">
                 <svg class="mg-checkout__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -221,7 +221,7 @@
 
           <!-- Házhozszállítás -->
           <button class="mg-checkout__option" data-method="delivery">
-            <input class="form-check-input mg-form-radio" type="radio" name="delivery">
+            <input class="form-check-input" type="radio" name="delivery">
             <div class="mg-checkout__option-body">
               <div class="mg-checkout__option-header">
                 <svg class="mg-checkout__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -240,25 +240,25 @@
           <h3 class="mg-checkout__address-title">Szállítási cím</h3>
           <div class="row g-3">
             <div class="col-md-4">
-              <div class="mg-form-group">
-                <label class="form-label mg-form-label">Irányítószám <span class="mg-form-required">*</span></label>
-                <input class="form-control mg-form-input" type="text" placeholder="1234">
+              <div class="mb-3">
+                <label class="form-label">Irányítószám <span class="text-danger">*</span></label>
+                <input class="form-control" type="text" placeholder="1234">
               </div>
             </div>
             <div class="col-md-8">
-              <div class="mg-form-group">
-                <label class="form-label mg-form-label">Város <span class="mg-form-required">*</span></label>
-                <input class="form-control mg-form-input" type="text" placeholder="Budapest">
+              <div class="mb-3">
+                <label class="form-label">Város <span class="text-danger">*</span></label>
+                <input class="form-control" type="text" placeholder="Budapest">
               </div>
             </div>
           </div>
-          <div class="mg-form-group">
-            <label class="form-label mg-form-label">Utca, házszám <span class="mg-form-required">*</span></label>
-            <input class="form-control mg-form-input" type="text" placeholder="Példa utca 123.">
+          <div class="mb-3">
+            <label class="form-label">Utca, házszám <span class="text-danger">*</span></label>
+            <input class="form-control" type="text" placeholder="Példa utca 123.">
           </div>
-          <div class="mg-form-group">
-            <label class="form-label mg-form-label">Megjegyzés a futárnak</label>
-            <input class="form-control mg-form-input" type="text" placeholder="Pl. kapucsengő, emelet, ajtó">
+          <div class="mb-3">
+            <label class="form-label">Megjegyzés a futárnak</label>
+            <input class="form-control" type="text" placeholder="Pl. kapucsengő, emelet, ajtó">
           </div>
         </div>
       </section>
@@ -272,7 +272,7 @@
         <div class="mg-checkout__options mg-checkout__options--payment">
 
           <button class="mg-checkout__option is-selected" data-method="card">
-            <input class="form-check-input mg-form-radio" type="radio" name="payment" checked>
+            <input class="form-check-input" type="radio" name="payment" checked>
             <div class="mg-checkout__option-body">
               <div class="mg-checkout__option-header">
                 <svg class="mg-checkout__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
@@ -283,7 +283,7 @@
           </button>
 
           <button class="mg-checkout__option" data-method="cod">
-            <input class="form-check-input mg-form-radio" type="radio" name="payment">
+            <input class="form-check-input" type="radio" name="payment">
             <div class="mg-checkout__option-body">
               <div class="mg-checkout__option-header">
                 <svg class="mg-checkout__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M2 8h2M20 8h2"/></svg>
@@ -424,13 +424,13 @@
 
     <!-- Email + jelszó form -->
     <div class="mg-login-modal__form">
-      <div class="mg-form-group">
-        <label class="form-label mg-form-label">E-mail cím</label>
-        <input class="form-control mg-form-input" type="email" placeholder="pelda@email.com">
+      <div class="mb-3">
+        <label class="form-label">E-mail cím</label>
+        <input class="form-control" type="email" placeholder="pelda@email.com">
       </div>
-      <div class="mg-form-group">
-        <label class="form-label mg-form-label">Jelszó</label>
-        <input class="form-control mg-form-input" type="password" placeholder="••••••••">
+      <div class="mb-3">
+        <label class="form-label">Jelszó</label>
+        <input class="form-control" type="password" placeholder="••••••••">
       </div>
       <button class="btn btn-primary" style="width:100%;justify-content:center;">Bejelentkezés</button>
       <button class="mg-login-modal__forgot" type="button">Elfelejtett jelszó?</button>
