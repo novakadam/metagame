@@ -120,6 +120,7 @@
   color: var(--color-secondary);
 }
 
+.mg-product-card h3,
 .mg-product-card .card-title,
 .mg-product-card__title {
   font-family: var(--font-display);
