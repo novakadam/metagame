@@ -470,6 +470,7 @@
 }
 
 /* BS form-control a drawer kontextusban */
+.preview-drawer .form-control,
 .mg-drawer-profile .form-control,
 .mg-drawer-contact .form-control,
 .mg-drawer-profile__field input,
@@ -494,6 +495,7 @@
   min-height: 80px;
 }
 
+.preview-drawer .form-control:focus,
 .mg-drawer-profile .form-control:focus,
 .mg-drawer-contact .form-control:focus,
 .mg-drawer-profile__field input:focus,
@@ -505,6 +507,7 @@
   box-shadow: none;
 }
 
+.preview-drawer .form-control::placeholder,
 .mg-drawer-profile .form-control::placeholder,
 .mg-drawer-contact .form-control::placeholder,
 .mg-drawer-profile__field input::placeholder,
