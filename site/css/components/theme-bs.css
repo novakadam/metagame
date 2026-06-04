@@ -181,8 +181,9 @@ hr {
 /* Összesítő blokk háttér */
 .bg-muted-mg { background: var(--color-bg-muted) !important; }
 
-/* Search panel footer */
+/* Search panel footer + ajánlott termék kép */
 .search-footer { padding: 12px 16px; border-top: 1px solid var(--color-border-muted); }
+.search-featured-img { max-height: 80px; object-fit: contain; }
 
 /* Upsell item border — !important kell mert list-group-flush törli */
 .upsell-item { border: 1px solid var(--color-gold) !important; border-radius: var(--radius-xs) !important; cursor: pointer; }
