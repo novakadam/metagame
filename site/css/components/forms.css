@@ -4,16 +4,14 @@
  * Bootstrap 5 form komponensek vizuális felülírása a Metagame design tokenekkel.
  * A BS selectorokat szabjuk át theme-szerűen — nincs mg-form-* class.
  * HTML: <label class="form-label">, <input class="form-control">, stb.
+ *
+ * BS CSS változókat használunk ahol lehet, így a specificitás nem probléma.
  */
 
-/* ── CSOPORT (BS mb-3 helyettesíti, de ha kell custom gap) ── */
-
-.mb-3,
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+/* ── CSOPORT ────────────────────────────────────────────── */
+/* Megjegyzés: NE írj felül globális BS utility-t (.mb-3).
+   Ha kell form-csoport, használj BS .mb-3-at a HTML-ben,
+   a gap a label margin-bottom: 0 + az input margin-top-pal jön. */
 
 /* ── LABEL ──────────────────────────────────────────────── */
 
@@ -32,18 +30,21 @@
   margin-left: 2px;
 }
 
-/* ── INPUT / SELECT / TEXTAREA ─────────────────────────── */
+/* ── INPUT / SELECT / TEXTAREA (BS CSS variable override) ── */
 
 .form-control,
 .form-select {
+  --bs-body-bg: var(--color-bg-muted);
+  --bs-border-color: transparent;
   height: 44px;
   padding: 0 var(--space-md);
-  background: var(--color-bg-muted);
-  border: 1px solid transparent;
+  background-color: var(--color-bg-muted);
+  border-color: transparent;
   border-radius: var(--radius-xs);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   color: var(--color-text);
+  color-scheme: dark;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -54,15 +55,13 @@
 
 .form-control:focus,
 .form-select:focus {
-  outline: none;
-  background: var(--color-bg-muted);
+  background-color: var(--color-bg-muted);
   border-color: var(--color-gold);
   box-shadow: 0 0 0 1px rgba(179, 138, 36, 0.3);
   color: var(--color-text);
 }
 
 .form-select {
-  appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23D8CBAF' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
@@ -88,7 +87,7 @@ textarea.form-control {
 .form-text {
   font-family: var(--font-body);
   font-size: 12px;
-  color: var(--color-text-muted);
+  color: var(--color-text-muted) !important;
   opacity: 0.7;
 }
 
@@ -98,7 +97,7 @@ textarea.form-control {
   color: var(--color-destructive);
 }
 
-/* ── CHECKBOX ──────────────────────────────────────────── */
+/* ── CHECKBOX (BS variable override + custom checkmark) ── */
 
 .form-check {
   display: flex;
@@ -108,37 +107,31 @@ textarea.form-control {
   padding-left: 0;
 }
 
-.form-check-input {
+.form-check-input[type="checkbox"] {
+  --bs-form-check-bg: transparent;
   width: 18px;
   height: 18px;
   margin: 2px 0 0;
   float: none;
   flex-shrink: 0;
-  appearance: none;
-  -webkit-appearance: none;
   border: 1.5px solid var(--color-text-muted);
   border-radius: 3px;
-  background: transparent;
+  background-color: transparent;
+  background-image: none;
   cursor: pointer;
   position: relative;
-  transition: border-color var(--transition-fast), background var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.form-check-input:checked {
-  background: var(--color-gold);
+.form-check-input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 1px rgba(179, 138, 36, 0.3);
   border-color: var(--color-gold);
 }
 
-.form-check-input:checked::after {
-  content: '';
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 9px;
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+.form-check-input[type="checkbox"]:checked {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
 }
 
 .form-check-label {
@@ -148,29 +141,28 @@ textarea.form-control {
   cursor: pointer;
 }
 
-/* ── RADIO ─────────────────────────────────────────────── */
+/* ── RADIO (BS variable override) ────────────────────────── */
 
 .form-check-input[type="radio"] {
+  --bs-form-check-bg: transparent;
   width: 20px;
   height: 20px;
+  margin: 2px 0 0;
   border: 2px solid var(--color-text-muted);
   border-radius: 50%;
-  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-check-input[type="radio"]:focus {
+  box-shadow: 0 0 0 1px rgba(179, 138, 36, 0.3);
+  border-color: var(--color-gold);
 }
 
 .form-check-input[type="radio"]:checked {
+  background-color: var(--color-gold);
   border-color: var(--color-gold);
-  background: var(--color-gold);
-}
-
-.form-check-input[type="radio"]:checked::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
