@@ -22,12 +22,17 @@
     .demo-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
     .demo-box { background: var(--color-bg-card); border: 1px solid var(--color-border-muted); border-radius: 4px; padding: 24px; }
     code { background: rgba(179,138,36,0.15); color: var(--color-gold); padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+    .tag-bs { display: inline-block; padding: 2px 8px; background: #198754; color: #fff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 3px; vertical-align: middle; margin-left: 6px; }
+    .tag-custom { display: inline-block; padding: 2px 8px; background: var(--color-destructive); color: #fff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 3px; vertical-align: middle; margin-left: 6px; }
+    .tag-theme { display: inline-block; padding: 2px 8px; background: var(--color-gold); color: var(--color-bg); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 3px; vertical-align: middle; margin-left: 6px; }
+    .custom-border { border: 2px dashed var(--color-destructive) !important; position: relative; }
+    .custom-border::after { content: 'CUSTOM'; position: absolute; top: -10px; right: 8px; background: var(--color-destructive); color: #fff; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 2px; }
   </style>
 </head>
 <body>
 
 <h1 style="font-family:var(--font-display);color:var(--color-text);margin-bottom:8px;">Metagame — BS komponensek</h1>
-<p class="text-muted">Minden ami a projektben BS classokkal működik. Metagame theme override-okkal.</p>
+<p class="text-muted mb-4">Jelölések: <span class="tag-bs">BS</span> = tiszta Bootstrap 5.3 &nbsp; <span class="tag-theme">THEME</span> = BS selector, Metagame színekkel/fontokkal felülírva &nbsp; <span class="tag-custom">CUSTOM</span> = egyedi, nincs BS megfelelő</p>
 
 <!-- ═══════════════════════════════════════════════════════════
      GOMBOK
@@ -35,37 +40,37 @@
 
 <h2 class="section-title">Gombok</h2>
 
-<p class="sub-title">Variánsok</p>
+<p class="sub-title">Variánsok <span class="tag-theme">theme</span> — BS classok, Metagame színek (buttons.css)</p>
 <div class="demo-row">
-  <button class="btn btn-primary">Primary</button>
-  <button class="btn btn-secondary">Secondary</button>
-  <button class="btn btn-outline-secondary">Outline</button>
-  <button class="btn btn-light">Light</button>
-  <button class="btn btn-dark">Dark</button>
-  <button class="btn btn-link">Link</button>
+  <button class="btn btn-primary">btn-primary</button>
+  <button class="btn btn-secondary">btn-secondary</button>
+  <button class="btn btn-outline-secondary">btn-outline-secondary</button>
+  <button class="btn btn-light">btn-light</button>
+  <button class="btn btn-dark">btn-dark</button>
+  <button class="btn btn-link">btn-link</button>
 </div>
 
-<p class="sub-title">Méretek</p>
+<p class="sub-title">Méretek <span class="tag-bs">BS</span></p>
 <div class="demo-row">
-  <button class="btn btn-primary btn-lg">Large</button>
-  <button class="btn btn-primary">Default</button>
-  <button class="btn btn-primary btn-sm">Small</button>
+  <button class="btn btn-primary btn-lg">btn-lg</button>
+  <button class="btn btn-primary">default</button>
+  <button class="btn btn-primary btn-sm">btn-sm</button>
 </div>
 
-<p class="sub-title">Ikon gomb <code>btn rounded-circle</code></p>
+<p class="sub-title">Ikon gomb <span class="tag-bs">BS</span> — <code>btn rounded-circle</code> (méret a buttons.css-ben)</p>
 <div class="demo-row">
-  <button class="btn btn-outline-secondary rounded-circle" aria-label="Kedvenc">
+  <button class="btn btn-outline-secondary rounded-circle">
     <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
   </button>
-  <button class="btn btn-outline-secondary rounded-circle" aria-label="Kosárba">
+  <button class="btn btn-outline-secondary rounded-circle">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 2v10M2 7h10"/></svg>
   </button>
-  <button class="btn btn-outline-secondary rounded-circle" aria-label="Törlés">
+  <button class="btn btn-outline-secondary rounded-circle">
     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M4 6h12M8 6V4h4v2M6 6v10a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6"/></svg>
   </button>
 </div>
 
-<p class="sub-title">Teljes szélességű <code>w-100</code></p>
+<p class="sub-title">Teljes szélesség <span class="tag-bs">BS</span> — <code>w-100 justify-content-center</code></p>
 <div style="max-width:360px;">
   <button class="btn btn-secondary w-100 justify-content-center mb-2">Tovább a pénztárhoz</button>
   <button class="btn btn-outline-secondary w-100 justify-content-center">Vásárlás folytatása</button>
@@ -77,19 +82,19 @@
 
 <h2 class="section-title">Badge-ek</h2>
 
-<p class="sub-title">Standard BS badge <code>badge text-bg-*</code></p>
+<p class="sub-title">Standard badge <span class="tag-bs">BS</span> — <code>badge text-bg-*</code></p>
 <div class="demo-row">
-  <span class="badge text-bg-primary">Primary</span>
-  <span class="badge text-bg-secondary">Secondary</span>
-  <span class="badge text-bg-success">Success</span>
-  <span class="badge text-bg-danger">Danger</span>
-  <span class="badge text-bg-warning">Warning</span>
-  <span class="badge text-bg-info">Info</span>
-  <span class="badge text-bg-light">Light</span>
-  <span class="badge text-bg-dark">Dark</span>
+  <span class="badge text-bg-primary">text-bg-primary</span>
+  <span class="badge text-bg-secondary">text-bg-secondary</span>
+  <span class="badge text-bg-success">text-bg-success</span>
+  <span class="badge text-bg-danger">text-bg-danger</span>
+  <span class="badge text-bg-warning">text-bg-warning</span>
+  <span class="badge text-bg-info">text-bg-info</span>
+  <span class="badge text-bg-light">text-bg-light</span>
+  <span class="badge text-bg-dark">text-bg-dark</span>
 </div>
 
-<p class="sub-title">Pill badge <code>badge rounded-pill</code></p>
+<p class="sub-title">Pill badge <span class="tag-bs">BS</span> — <code>badge rounded-pill text-bg-*</code></p>
 <div class="demo-row">
   <span class="badge rounded-pill text-bg-warning">1</span>
   <span class="badge rounded-pill text-bg-warning">12</span>
@@ -97,26 +102,27 @@
   <span class="badge rounded-pill text-bg-danger">Elfogyott</span>
 </div>
 
-<p class="sub-title">Ribbon badge <code>badge badge-ribbon</code> (custom forma)</p>
-<div class="demo-row">
-  <span class="badge badge-ribbon">Ajánlott</span>
-  <span class="badge badge-ribbon">Előrendelés</span>
-  <span class="badge badge-ribbon text-bg-primary">TCG</span>
-  <span class="badge badge-ribbon text-bg-primary">Verseny</span>
+<div class="custom-border p-3 my-4">
+  <p class="sub-title mt-0">Ribbon badge <span class="tag-custom">CUSTOM</span> — <code>badge badge-ribbon</code></p>
+  <p class="small text-muted mb-3">SVG háttérkép a hatszöges nyíl formához. BS-ben nincs ilyen forma.</p>
+  <div class="demo-row">
+    <span class="badge badge-ribbon">Ajánlott</span>
+    <span class="badge badge-ribbon">Előrendelés</span>
+    <span class="badge badge-ribbon text-bg-primary">TCG (arany)</span>
+    <span class="badge badge-ribbon text-bg-primary">Verseny (arany)</span>
+  </div>
+
+  <p class="sub-title">Oktogon badge <span class="tag-custom">CUSTOM</span> — <code>badge badge-octagon</code></p>
+  <p class="small text-muted mb-3">SVG háttérkép az oktogon formához. BS-ben nincs ilyen forma.</p>
+  <div class="demo-row">
+    <span class="badge badge-octagon">új</span>
+  </div>
 </div>
 
-<p class="sub-title">Oktogon badge <code>badge badge-octagon</code> (custom forma)</p>
-<div class="demo-row">
-  <span class="badge badge-octagon">új</span>
-</div>
-
-<p class="sub-title">Pozícionált badge <code>position-absolute</code></p>
+<p class="sub-title">Pozícionált badge <span class="tag-bs">BS</span> — <code>position-absolute translate-middle</code></p>
 <div class="demo-row">
   <div class="position-relative demo-box" style="width:80px;height:80px;">
     <span class="badge rounded-pill text-bg-warning position-absolute top-0 start-100 translate-middle">3</span>
-  </div>
-  <div class="position-relative demo-box" style="width:80px;height:80px;">
-    <span class="badge badge-octagon position-absolute" style="top:-8px;left:-8px;">új</span>
   </div>
 </div>
 
@@ -127,30 +133,30 @@
 <h2 class="section-title">Form elemek</h2>
 
 <div style="max-width:400px;">
-  <p class="sub-title">Input <code>form-label</code> + <code>form-control</code></p>
+  <p class="sub-title">Input <span class="tag-theme">THEME</span> — <code>form-label</code> + <code>form-control</code></p>
+  <p class="small text-muted mb-3">BS classok, Metagame sötét háttér/arany focus a forms.css-ben.</p>
   <div class="mb-3">
     <label class="form-label">E-mail cím <span class="text-danger">*</span></label>
     <input type="email" class="form-control" placeholder="pelda@email.com">
   </div>
 
-  <p class="sub-title">Textarea</p>
+  <p class="sub-title">Textarea <span class="tag-theme">THEME</span></p>
   <div class="mb-3">
     <label class="form-label">Üzenet</label>
     <textarea class="form-control" rows="3" placeholder="Írd ide..."></textarea>
   </div>
 
-  <p class="sub-title">Select <code>form-select</code></p>
+  <p class="sub-title">Select <span class="tag-theme">THEME</span> — <code>form-select</code></p>
   <div class="mb-3">
     <label class="form-label">Rendezés</label>
     <select class="form-select">
       <option>Alapértelmezett</option>
       <option>Ár szerint növekvő</option>
-      <option>Ár szerint csökkenő</option>
       <option>Legújabbak elől</option>
     </select>
   </div>
 
-  <p class="sub-title">Checkbox <code>form-check</code></p>
+  <p class="sub-title">Checkbox <span class="tag-theme">THEME</span> — <code>form-check</code></p>
   <div class="form-check mb-2">
     <input class="form-check-input" type="checkbox" id="chk1" checked>
     <label class="form-check-label" for="chk1">Pokémon</label>
@@ -160,7 +166,7 @@
     <label class="form-check-label" for="chk2">Magic: The Gathering</label>
   </div>
 
-  <p class="sub-title">Radio <code>form-check</code> + <code>type="radio"</code></p>
+  <p class="sub-title">Radio <span class="tag-theme">THEME</span></p>
   <div class="form-check mb-2">
     <input class="form-check-input" type="radio" name="demo-radio" id="rad1" checked>
     <label class="form-check-label" for="rad1">Bolti átvétel</label>
@@ -170,7 +176,7 @@
     <label class="form-check-label" for="rad2">Házhozszállítás</label>
   </div>
 
-  <p class="sub-title">Input group — qty stepper <code>input-group</code></p>
+  <p class="sub-title">Qty stepper <span class="tag-bs">BS</span> — <code>input-group</code> + <code>btn</code> + <code>form-control</code></p>
   <div class="input-group input-group-sm qty-stepper">
     <button class="btn btn-outline-secondary" type="button">−</button>
     <input type="number" class="form-control text-center" value="1" min="1">
@@ -182,26 +188,25 @@
      CARD
      ═══════════════════════════════════════════════════════════ -->
 
-<h2 class="section-title">Card</h2>
+<h2 class="section-title">Card <span class="tag-theme">THEME</span></h2>
+<p class="small text-muted mb-3">BS .card, arany border + sötét háttér a layout.css-ben.</p>
 
 <div class="demo-row" style="align-items:flex-start;">
   <div class="card" style="width:280px;">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2">Card subtitle</h6>
-      <p class="card-text">Valamilyen tartalom a kártyában.</p>
+      <h5 class="card-title">card-title</h5>
+      <h6 class="card-subtitle mb-2">card-subtitle</h6>
+      <p class="card-text">card-text tartalom.</p>
       <a href="#" class="btn btn-outline-secondary btn-sm">Tovább</a>
     </div>
   </div>
 
   <div class="card" style="width:280px;">
-    <div class="card-header">Fejléc</div>
+    <div class="card-header">card-header</div>
     <div class="card-body">
-      <p class="card-text">Card header + body + footer.</p>
+      <p class="card-text">card-body tartalom.</p>
     </div>
-    <div class="card-footer">
-      <a href="#" class="btn btn-secondary btn-sm">Akció</a>
-    </div>
+    <div class="card-footer">card-footer</div>
   </div>
 </div>
 
@@ -209,25 +214,24 @@
      LIST-GROUP
      ═══════════════════════════════════════════════════════════ -->
 
-<h2 class="section-title">List Group</h2>
+<h2 class="section-title">List Group <span class="tag-theme">THEME</span></h2>
+<p class="small text-muted mb-3">BS list-group, átlátszó háttér + token színek a theme-bs.css-ben.</p>
 
 <div style="max-width:400px;">
-  <p class="sub-title">Alap <code>list-group</code></p>
+  <p class="sub-title">Alap <span class="tag-bs">BS</span> — <code>list-group</code></p>
   <ul class="list-group mb-4">
     <li class="list-group-item">Első elem</li>
-    <li class="list-group-item">Második elem</li>
     <li class="list-group-item active">Aktív elem</li>
-    <li class="list-group-item">Negyedik elem</li>
+    <li class="list-group-item">Harmadik elem</li>
   </ul>
 
-  <p class="sub-title">Flush <code>list-group-flush</code></p>
+  <p class="sub-title">Flush <span class="tag-bs">BS</span> — <code>list-group-flush</code> (nincs külső border)</p>
   <ul class="list-group list-group-flush mb-4">
     <li class="list-group-item">Flush elem 1</li>
     <li class="list-group-item">Flush elem 2</li>
-    <li class="list-group-item">Flush elem 3</li>
   </ul>
 
-  <p class="sub-title">Action items <code>list-group-item-action</code></p>
+  <p class="sub-title">Action + ikon <span class="tag-bs">BS</span> — <code>list-group-item-action d-flex</code></p>
   <div class="list-group">
     <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3">
       <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18"/><path d="M16 3v18"/></svg>
@@ -248,42 +252,37 @@
 
 <h2 class="section-title">Tipográfia</h2>
 
-<p class="sub-title">Font size <code>fs-*</code></p>
-<div>
-  <p class="fs-1">fs-1 — Legnagyobb</p>
-  <p class="fs-2">fs-2</p>
-  <p class="fs-3">fs-3</p>
-  <p class="fs-4">fs-4</p>
-  <p class="fs-5">fs-5</p>
-  <p class="fs-6">fs-6 — Legkisebb</p>
-  <p><small>small — Kis szöveg</small></p>
-</div>
+<p class="sub-title">Font size <span class="tag-bs">BS</span> — <code>fs-*</code></p>
+<p class="fs-1 mb-1">fs-1 — Legnagyobb</p>
+<p class="fs-2 mb-1">fs-2</p>
+<p class="fs-3 mb-1">fs-3</p>
+<p class="fs-4 mb-1">fs-4</p>
+<p class="fs-5 mb-1">fs-5</p>
+<p class="fs-6 mb-1">fs-6 — Legkisebb</p>
+<p class="mb-1"><small>small — Kis szöveg</small></p>
 
-<p class="sub-title">Font weight <code>fw-*</code></p>
-<div>
-  <p class="fw-bold">fw-bold — Bold (700)</p>
-  <p class="fw-semibold">fw-semibold — Semibold (600)</p>
-  <p class="fw-medium">fw-medium — Medium (500)</p>
-  <p class="fw-normal">fw-normal — Normal (400)</p>
-  <p class="fw-light">fw-light — Light (300)</p>
-</div>
+<p class="sub-title">Font weight <span class="tag-bs">BS</span> — <code>fw-*</code></p>
+<p class="fw-bold mb-1">fw-bold (700)</p>
+<p class="fw-semibold mb-1">fw-semibold (600)</p>
+<p class="fw-medium mb-1">fw-medium (500)</p>
+<p class="fw-normal mb-1">fw-normal (400)</p>
+<p class="fw-light mb-1">fw-light (300)</p>
 
 <p class="sub-title">Szöveg szín</p>
-<div>
-  <p>Alapértelmezett szöveg</p>
-  <p class="text-muted">text-muted — Másodlagos (bézs)</p>
-  <p class="text-card">text-card — Kártya szöveg (világos)</p>
-  <p class="text-gold">text-gold — Arany akcentus</p>
-  <p class="text-success">text-success — Sikeres (zöld)</p>
-  <p class="text-danger">text-danger — Hiba (piros)</p>
-</div>
+<p class="mb-1">Alapértelmezett szöveg <span class="tag-bs">BS</span></p>
+<p class="text-muted mb-1">text-muted <span class="tag-theme">THEME</span> — felülírva bézsre (theme-bs.css)</p>
+<p class="text-card mb-1">text-card <span class="tag-custom">CUSTOM</span> — kártya szöveg, nincs BS megfelelő</p>
+<p class="text-gold mb-1">text-gold <span class="tag-custom">CUSTOM</span> — arany akcentus, nincs BS megfelelő</p>
+<p class="text-success mb-1">text-success <span class="tag-bs">BS</span></p>
+<p class="text-danger mb-1">text-danger <span class="tag-bs">BS</span></p>
+<p class="text-warning mb-1">text-warning <span class="tag-bs">BS</span></p>
 
-<p class="sub-title">Text utility-k</p>
-<div style="max-width:200px;">
-  <p class="text-truncate">text-truncate — Ez egy nagyon hosszú szöveg ami levágódik</p>
-  <p class="text-center">text-center</p>
-  <p class="text-end">text-end</p>
-  <p class="text-uppercase small">text-uppercase</p>
+<p class="sub-title">Text utility-k <span class="tag-bs">BS</span></p>
+<div style="max-width:250px;">
+  <p class="text-truncate mb-1">text-truncate — Ez egy nagyon hosszú szöveg ami levágódik</p>
+  <p class="text-center mb-1">text-center</p>
+  <p class="text-end mb-1">text-end</p>
+  <p class="text-uppercase small mb-1">text-uppercase</p>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -292,55 +291,40 @@
 
 <h2 class="section-title">Spacing & Layout</h2>
 
-<p class="sub-title">Flex <code>d-flex</code></p>
+<p class="sub-title">Flex <span class="tag-bs">BS</span> — <code>d-flex gap-* align-items-* justify-content-*</code></p>
 <div class="d-flex gap-3 mb-3">
   <div class="demo-box flex-grow-1 text-center">flex-grow-1</div>
   <div class="demo-box text-center">auto</div>
   <div class="demo-box flex-shrink-0 text-center">flex-shrink-0</div>
 </div>
 
-<p class="sub-title">Gap <code>gap-*</code></p>
-<div class="d-flex gap-1 mb-2"><div class="demo-box">gap-1</div><div class="demo-box">gap-1</div></div>
-<div class="d-flex gap-3 mb-2"><div class="demo-box">gap-3</div><div class="demo-box">gap-3</div></div>
-<div class="d-flex gap-5 mb-2"><div class="demo-box">gap-5</div><div class="demo-box">gap-5</div></div>
+<p class="sub-title">Container <span class="tag-bs">BS</span></p>
+<p class="text-muted small">
+  <code>container</code> — max 1320px (responsive breakpointok)<br>
+  <code>container-xl</code> — max 1140px<br>
+  <code>container-xxl</code> — max 1320px<br>
+  <code>container-fluid</code> — 100% szélesség
+</p>
 
-<p class="sub-title">Container <code>container-*</code></p>
-<div class="demo-box mb-2"><code>container</code> — max 1320px</div>
-<div class="demo-box mb-2"><code>container-xl</code> — max 1140px</div>
-<div class="demo-box mb-2"><code>container-xxl</code> — max 1320px</div>
-<div class="demo-box mb-2"><code>container-fluid</code> — 100% szélesség</div>
-
-<p class="sub-title">Grid <code>row</code> + <code>col-*</code></p>
+<p class="sub-title">Grid <span class="tag-bs">BS</span> — <code>row</code> + <code>col-*</code></p>
 <div class="row g-3 mb-3">
   <div class="col-4"><div class="demo-box text-center">col-4</div></div>
   <div class="col-4"><div class="demo-box text-center">col-4</div></div>
   <div class="col-4"><div class="demo-box text-center">col-4</div></div>
 </div>
 <div class="row g-3">
-  <div class="col-md-6"><div class="demo-box text-center">col-md-6</div></div>
-  <div class="col-md-6"><div class="demo-box text-center">col-md-6</div></div>
+  <div class="col-md-8"><div class="demo-box text-center">col-md-8</div></div>
+  <div class="col-md-4"><div class="demo-box text-center">col-md-4</div></div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     NAV & OFFCANVAS
-     ═══════════════════════════════════════════════════════════ -->
-
-<h2 class="section-title">Nav & Offcanvas</h2>
-
-<p class="sub-title">Nav vertical <code>nav flex-column</code></p>
-<nav class="nav flex-column" style="max-width:300px;">
-  <a class="nav-link" href="#">Booster csomagok</a>
-  <a class="nav-link" href="#">Displayek</a>
-  <a class="nav-link" href="#">Elite dobozok</a>
-  <a class="nav-link" href="#">Single kártyák</a>
-</nav>
-
-<p class="sub-title">Offcanvas (csak kód referencia)</p>
-<p class="text-muted small">
-  <code>offcanvas offcanvas-start</code> — bal oldali panel<br>
-  <code>offcanvas offcanvas-end</code> — jobb oldali (drawer)<br>
-  <code>offcanvas offcanvas-bottom</code> — alulról felcsúszó (footer)
-</p>
+<p class="sub-title">Spacing <span class="tag-bs">BS</span> — <code>m-* p-* gap-*</code> (0–5)</p>
+<div class="d-flex gap-2 mb-3">
+  <div class="demo-box p-1 text-center small">p-1</div>
+  <div class="demo-box p-2 text-center small">p-2</div>
+  <div class="demo-box p-3 text-center small">p-3</div>
+  <div class="demo-box p-4 text-center small">p-4</div>
+  <div class="demo-box p-5 text-center small">p-5</div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════
      EGYÉB UTILITY-K
@@ -348,41 +332,84 @@
 
 <h2 class="section-title">Egyéb utility-k</h2>
 
-<p class="sub-title">Position</p>
+<p class="sub-title">Position <span class="tag-bs">BS</span></p>
 <p class="text-muted small">
-  <code>position-relative</code> <code>position-absolute</code><br>
-  <code>top-0</code> <code>start-0</code> <code>end-0</code> <code>bottom-0</code><br>
-  <code>translate-middle</code>
+  <code>position-relative</code> <code>position-absolute</code> <code>position-fixed</code><br>
+  <code>top-0</code> <code>start-0</code> <code>end-0</code> <code>bottom-0</code> <code>translate-middle</code>
 </p>
 
-<p class="sub-title">Display</p>
+<p class="sub-title">Display <span class="tag-bs">BS</span></p>
 <p class="text-muted small">
-  <code>d-flex</code> <code>d-block</code> <code>d-none</code> <code>d-inline-flex</code>
+  <code>d-flex</code> <code>d-block</code> <code>d-none</code> <code>d-inline-flex</code> <code>d-grid</code>
 </p>
 
-<p class="sub-title">Border</p>
+<p class="sub-title">Border & Radius <span class="tag-bs">BS</span></p>
 <div class="demo-row">
   <div class="demo-box border">border</div>
   <div class="demo-box border-bottom">border-bottom</div>
-  <div class="demo-box rounded-circle" style="width:48px;height:48px;background:var(--color-bg-muted);"></div>
-  <div class="demo-box rounded-pill px-3" style="background:var(--color-bg-muted);">rounded-pill</div>
+  <div class="p-3 rounded-circle" style="width:48px;height:48px;background:var(--color-bg-muted);"></div>
+  <div class="p-2 px-3 rounded-pill" style="background:var(--color-bg-muted);">rounded-pill</div>
 </div>
 
-<p class="sub-title">Width</p>
-<p class="text-muted small">
-  <code>w-100</code> — 100% szélesség<br>
-  <code>w-auto</code> — auto szélesség
-</p>
+<p class="sub-title">Width <span class="tag-bs">BS</span></p>
+<p class="text-muted small"><code>w-100</code> — 100% &nbsp; <code>w-auto</code> — auto</p>
 
-<p class="sub-title">Divider szöveggel <code>hstack + hr</code></p>
+<p class="sub-title">Divider szöveggel <span class="tag-theme">THEME</span> — <code>hstack gap-3</code> + <code>hr</code></p>
+<p class="small text-muted mb-2">BS hstack+hr struktúra, span szín a theme-bs.css-ben.</p>
 <div class="divider hstack gap-3 py-3" style="max-width:400px;"><hr><span>vagy e-mail címmel</span><hr></div>
 
-<p class="sub-title">Status dot <code>rounded-circle + bg-*</code></p>
+<p class="sub-title">Status dot <span class="tag-bs">BS</span> — <code>rounded-circle bg-*</code></p>
 <div class="demo-row">
   <div class="d-flex align-items-center gap-2"><span class="p-1 bg-success rounded-circle"></span> Nyitva</div>
   <div class="d-flex align-items-center gap-2"><span class="p-1 bg-secondary rounded-circle"></span> Zárva</div>
   <div class="d-flex align-items-center gap-2"><span class="p-1 bg-danger rounded-circle"></span> Hiba</div>
 </div>
+
+<p class="sub-title">Nav vertical <span class="tag-theme">THEME</span> — <code>nav flex-column</code></p>
+<nav class="nav flex-column" style="max-width:300px;">
+  <a class="nav-link" href="#">Booster csomagok</a>
+  <a class="nav-link" href="#">Displayek</a>
+  <a class="nav-link" href="#">Single kártyák</a>
+</nav>
+
+<p class="sub-title">Offcanvas <span class="tag-theme">THEME</span> — kód referencia</p>
+<p class="text-muted small">
+  <code>offcanvas offcanvas-start</code> — bal oldali panel (mobil menu)<br>
+  <code>offcanvas offcanvas-end</code> — jobb oldali (drawer)<br>
+  <code>offcanvas offcanvas-bottom</code> — alulról felcsúszó (footer panel)
+</p>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ÖSSZEFOGLALÓ
+     ═══════════════════════════════════════════════════════════ -->
+
+<h2 class="section-title">Összefoglaló — mi honnan jön</h2>
+
+<table class="table table-sm" style="color:var(--color-text);max-width:700px;">
+  <thead><tr><th>Elem</th><th>Class</th><th>Típus</th></tr></thead>
+  <tbody>
+    <tr><td>Gombok</td><td>btn btn-primary/secondary/outline/light/dark/link</td><td><span class="tag-theme">THEME</span></td></tr>
+    <tr><td>Ikon gomb</td><td>btn rounded-circle</td><td><span class="tag-bs">BS</span></td></tr>
+    <tr><td>Badge (standard)</td><td>badge text-bg-* rounded-pill</td><td><span class="tag-bs">BS</span></td></tr>
+    <tr><td>Badge (ribbon)</td><td>badge badge-ribbon</td><td><span class="tag-custom">CUSTOM</span></td></tr>
+    <tr><td>Badge (oktogon)</td><td>badge badge-octagon</td><td><span class="tag-custom">CUSTOM</span></td></tr>
+    <tr><td>Form input</td><td>form-label, form-control</td><td><span class="tag-theme">THEME</span></td></tr>
+    <tr><td>Checkbox/Radio</td><td>form-check, form-check-input</td><td><span class="tag-theme">THEME</span></td></tr>
+    <tr><td>Qty stepper</td><td>input-group + btn + form-control</td><td><span class="tag-bs">BS</span></td></tr>
+    <tr><td>Card</td><td>card, card-body, card-title, card-text</td><td><span class="tag-theme">THEME</span></td></tr>
+    <tr><td>List group</td><td>list-group, list-group-item</td><td><span class="tag-theme">THEME</span></td></tr>
+    <tr><td>Nav</td><td>nav, nav-link</td><td><span class="tag-theme">THEME</span></td></tr>
+    <tr><td>Offcanvas</td><td>offcanvas, offcanvas-start/end/bottom</td><td><span class="tag-theme">THEME</span></td></tr>
+    <tr><td>Container</td><td>container-xl/xxl/fluid</td><td><span class="tag-bs">BS</span></td></tr>
+    <tr><td>Grid</td><td>row, col-*</td><td><span class="tag-bs">BS</span></td></tr>
+    <tr><td>Flex/Spacing</td><td>d-flex, gap-*, m-*, p-*</td><td><span class="tag-bs">BS</span></td></tr>
+    <tr><td>Typography</td><td>fs-*, fw-*, small, text-truncate</td><td><span class="tag-bs">BS</span></td></tr>
+    <tr><td>Szöveg szín</td><td>text-muted, text-success, text-danger</td><td><span class="tag-theme">THEME</span></td></tr>
+    <tr><td>Szöveg szín</td><td>text-gold, text-card</td><td><span class="tag-custom">CUSTOM</span></td></tr>
+    <tr><td>Status dot</td><td>rounded-circle bg-success/secondary</td><td><span class="tag-bs">BS</span></td></tr>
+    <tr><td>Divider</td><td>hstack + hr + span</td><td><span class="tag-theme">THEME</span></td></tr>
+  </tbody>
+</table>
 
 <div style="height:80px;"></div>
 
