@@ -222,9 +222,10 @@
   text-transform: lowercase;
 }
 
-/* ── RIBBON BADGE (kategória sáv, kék) ────────────────── */
+/* ── RIBBON BADGE (BS .badge átszabva ribbon formára) ──── */
+/* Alap = kék (text-bg-secondary), arany = text-bg-primary  */
 
-.badge-ribbon {
+.badge {
   background-color: transparent !important;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpolygon points='12,0 188,0 200,12 188,24 12,24 0,12' fill='%23022139'/%3E%3C/svg%3E");
   background-size: 100% 100%;
@@ -241,25 +242,16 @@
   border-radius: 0;
 }
 
-/* ── RIBBON BADGE GOLD (ajánló kártya badge) ──────────── */
-
-.badge-ribbon-gold {
-  background-color: transparent !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpolygon points='12,0 188,0 200,12 188,24 12,24 0,12' fill='%23B38A24'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  font-family: var(--font-display);
+/* Arany variáns (BS text-bg-primary) */
+.badge.text-bg-primary {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpolygon points='12,0 188,0 200,12 188,24 12,24 0,12' fill='%23B38A24'/%3E%3C/svg%3E") !important;
+  color: var(--color-bg) !important;
   font-size: 11px;
   font-weight: 700;
-  color: var(--color-bg);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 4px 26px;
   height: 26px;
-  display: inline-flex;
-  align-items: center;
-  border: none;
-  border-radius: 0;
 }
 
 /* ═══════════════════════════════════════════════════════════
