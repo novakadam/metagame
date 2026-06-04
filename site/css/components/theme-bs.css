@@ -1,0 +1,124 @@
+/*
+ * theme-bs.css – Bootstrap selectorok Metagame theme override-jai
+ *
+ * Ez a fájl a BS standard komponensek (card, list-group, nav, stb.)
+ * vizuális felülírását tartalmazza a Metagame design tokenekkel.
+ * A forms.css és buttons.css a saját komponenseiket kezeli,
+ * ide a layout/tartalmi komponensek kerülnek.
+ *
+ * Fokozatosan bővül, ahogy a régi mg-* classok BS-re migrálnak.
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   CARD
+   ═══════════════════════════════════════════════════════════ */
+
+.card {
+  --bs-card-bg: transparent;
+  --bs-card-border-width: 0;
+  --bs-card-border-radius: var(--radius-xs);
+  --bs-card-color: var(--color-text);
+}
+
+.card .card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text-card);
+}
+
+.card .card-subtitle {
+  color: var(--color-text-card);
+}
+
+.card .card-text {
+  color: var(--color-text-muted);
+}
+
+.card .card-body {
+  --bs-card-spacer-y: 1rem;
+  --bs-card-spacer-x: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LIST-GROUP
+   ═══════════════════════════════════════════════════════════ */
+
+.list-group-item {
+  --bs-list-group-bg: transparent;
+  --bs-list-group-border-color: var(--color-border-muted);
+  --bs-list-group-color: var(--color-text);
+  --bs-list-group-action-hover-bg: var(--color-bg-muted);
+  --bs-list-group-action-hover-color: var(--color-text);
+  --bs-list-group-action-active-bg: var(--color-bg-muted);
+}
+
+.list-group-item.active {
+  --bs-list-group-active-bg: var(--color-bg-muted);
+  --bs-list-group-active-color: var(--color-text);
+  --bs-list-group-active-border-color: var(--color-border-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV (menü linkek)
+   ═══════════════════════════════════════════════════════════ */
+
+.nav-link {
+  color: var(--color-text);
+}
+
+.nav-link:hover {
+  color: var(--color-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   OFFCANVAS (drawer, mobil menu)
+   ═══════════════════════════════════════════════════════════ */
+
+.offcanvas {
+  --bs-offcanvas-bg: var(--color-bg);
+  --bs-offcanvas-color: var(--color-text);
+  --bs-offcanvas-border-color: var(--color-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INPUT-GROUP (qty stepper stb.)
+   ═══════════════════════════════════════════════════════════ */
+
+.input-group .form-control {
+  background-color: var(--color-bg);
+  border-color: var(--color-border-muted);
+  color: var(--color-text);
+}
+
+.input-group .btn-outline-secondary {
+  border-color: var(--color-border-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HR (divider)
+   ═══════════════════════════════════════════════════════════ */
+
+hr {
+  border-color: var(--color-border-muted);
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIVIDER SZÖVEGGEL (hstack + hr)
+   ═══════════════════════════════════════════════════════════ */
+
+.divider span {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EGYEDI UTILITY-K
+   ═══════════════════════════════════════════════════════════ */
+
+.icon { width: 18px; height: 18px; flex-shrink: 0; }
+.value { color: var(--color-gold); }
+.value.out { color: var(--color-destructive); }

@@ -12,158 +12,69 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
   <link rel="stylesheet" href="../css/components/event-calendar.css">
-
-  <style>
-    body {
-      background: var(--color-bg);
-      color: var(--color-text);
-      font-family: var(--font-body);
-      padding: 60px 40px;
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .template-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-gold);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-    /* Template preview: relative pozíció */
-    .mg-event-tooltip--preview {
-      position: relative;
-      opacity: 1;
-      pointer-events: auto;
-      transform: none;
-    }
-  </style>
+  <link rel="stylesheet" href="preview.css">
 </head>
-<body>
-
-<!-- ═══════════════════════════════════════════════════════════════
-     EVENT TOOLTIP
-     Kattintásra jelenik meg egy FullCalendar eseményen.
-     Tartalom: cím, idő, díj, férőhely, helyszín, CTA gomb.
-     ═══════════════════════════════════════════════════════════════ -->
+<body style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center;">
 
 <div>
   <p class="template-label">Event tooltip — Magic</p>
-
-  <div class="mg-event-tooltip mg-event-tooltip--preview card" style="width: 280px;">
+  <div class="mg-event-tooltip card" style="width:280px;position:relative;opacity:1;pointer-events:auto;transform:none;">
     <div class="card-body p-3">
-      <!-- Fejléc: szín pont + cím -->
       <div class="d-flex align-items-center gap-2 mb-2">
-        <!-- wicket:style — background szín a rendszer alapján (systemColors map) -->
-        <span class="mg-event-tooltip__dot" style="width:10px;height:10px;border-radius:50%;background:#1565C0;flex-shrink:0;"></span>
-        <!-- wicket:text -->
-        <strong class="mg-event-tooltip__title" style="font-size:15px;">Magic: Friday Night</strong>
+        <span class="p-1 rounded-circle flex-shrink-0" style="background:#1565C0;"></span>
+        <strong style="font-size:15px;">Magic: Friday Night</strong>
       </div>
-
-      <!-- Részletek -->
       <div class="d-flex flex-column gap-1" style="font-size:13px;">
         <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Időpont</span>
-          <!-- wicket:text — formázott dátum/idő -->
-          <span class="mg-event-tooltip__time">június 6. 18:00 – 22:00</span>
+          <span style="color:var(--color-text-muted)">Időpont</span>
+          <span>június 6. 18:00 – 22:00</span>
         </div>
         <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Részvételi díj</span>
-          <!-- wicket:text -->
-          <span class="mg-event-tooltip__fee">1500 Ft</span>
+          <span style="color:var(--color-text-muted)">Részvételi díj</span>
+          <span>1500 Ft</span>
         </div>
         <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Férőhely</span>
-          <!-- wicket:text -->
-          <span class="mg-event-tooltip__slots">16/24</span>
+          <span style="color:var(--color-text-muted)">Férőhely</span>
+          <span>16/24</span>
         </div>
         <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Helyszín</span>
-          <!-- wicket:text -->
-          <span class="mg-event-tooltip__location">Kresz Géza utca</span>
+          <span style="color:var(--color-text-muted)">Helyszín</span>
+          <span>Kresz Géza utca</span>
         </div>
       </div>
-
-      <!-- CTA -->
       <div class="mt-3 text-center">
         <a class="btn btn-primary btn-sm" href="#">Jelentkezés</a>
       </div>
     </div>
   </div>
 </div>
-
 
 <div>
   <p class="template-label">Event tooltip — Pokémon</p>
-
-  <div class="mg-event-tooltip mg-event-tooltip--preview card" style="width: 280px;">
+  <div class="mg-event-tooltip card" style="width:280px;position:relative;opacity:1;pointer-events:auto;transform:none;">
     <div class="card-body p-3">
       <div class="d-flex align-items-center gap-2 mb-2">
-        <span class="mg-event-tooltip__dot" style="width:10px;height:10px;border-radius:50%;background:#E8A517;flex-shrink:0;"></span>
-        <strong class="mg-event-tooltip__title" style="font-size:15px;">Pokémon Liga Kupa</strong>
+        <span class="p-1 rounded-circle flex-shrink-0" style="background:#E8A517;"></span>
+        <strong style="font-size:15px;">Pokémon Liga Kupa</strong>
       </div>
-
       <div class="d-flex flex-column gap-1" style="font-size:13px;">
         <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Időpont</span>
-          <span class="mg-event-tooltip__time">június 7. 14:00 – 19:00</span>
+          <span style="color:var(--color-text-muted)">Időpont</span>
+          <span>június 7. 14:00 – 19:00</span>
         </div>
         <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Részvételi díj</span>
-          <span class="mg-event-tooltip__fee">2000 Ft</span>
+          <span style="color:var(--color-text-muted)">Részvételi díj</span>
+          <span>2000 Ft</span>
         </div>
         <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Férőhely</span>
-          <span class="mg-event-tooltip__slots">32/32</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Helyszín</span>
-          <span class="mg-event-tooltip__location">Kádár utca</span>
+          <span style="color:var(--color-text-muted)">Férőhely</span>
+          <span>32/32</span>
         </div>
       </div>
-
       <div class="mt-3 text-center">
         <a class="btn btn-primary btn-sm" href="#">Jelentkezés</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div>
-  <p class="template-label">Event tooltip — Wargame (ingyenes)</p>
-
-  <div class="mg-event-tooltip mg-event-tooltip--preview card" style="width: 280px;">
-    <div class="card-body p-3">
-      <div class="d-flex align-items-center gap-2 mb-2">
-        <span class="mg-event-tooltip__dot" style="width:10px;height:10px;border-radius:50%;background:#2E7D32;flex-shrink:0;"></span>
-        <strong class="mg-event-tooltip__title" style="font-size:15px;">Warhammer 40K Asztalfoglalás</strong>
-      </div>
-
-      <div class="d-flex flex-column gap-1" style="font-size:13px;">
-        <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Időpont</span>
-          <span class="mg-event-tooltip__time">június 9. (egész napos)</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Részvételi díj</span>
-          <span class="mg-event-tooltip__fee">Ingyenes</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Férőhely</span>
-          <span class="mg-event-tooltip__slots">3/6 asztal</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="text-body-secondary" style="color:var(--color-text-muted)!important">Helyszín</span>
-          <span class="mg-event-tooltip__location">Kádár utca</span>
-        </div>
-      </div>
-
-      <div class="mt-3 text-center">
-        <a class="btn btn-primary btn-sm" href="#">Foglalás</a>
       </div>
     </div>
   </div>

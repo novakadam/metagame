@@ -12,210 +12,102 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/components/buttons.css">
-
-  <style>
-    body {
-      background: var(--color-bg);
-      color: var(--color-text);
-      font-family: var(--font-body);
-      padding: 60px 40px;
-    }
-    .template-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-gold);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    /* ═══════════════════════════════════════════════════════════
-       BS THEME OVERRIDES — selectorokon keresztül
-       ═══════════════════════════════════════════════════════════ */
-
-    .card {
-      --bs-card-bg: transparent;
-      --bs-card-border-width: 0;
-      --bs-card-border-radius: var(--radius-xs);
-      --bs-card-color: var(--color-text);
-      position: relative;
-      padding-bottom: 24px;
-      overflow: visible;
-      cursor: pointer;
-      transition: box-shadow var(--transition-base);
-    }
-    .card:hover { box-shadow: 0 4px 24px rgba(179, 138, 36, 0.15); }
-    .card .card-body { --bs-card-spacer-y: 0; --bs-card-spacer-x: 0; }
-    .card .card-title { font-family: var(--font-display); font-weight: 600; font-size: 23px; line-height: 26px; color: var(--color-text-card); letter-spacing: 0.01em; }
-    .card .card-subtitle { font-weight: 400; font-size: 18px; line-height: 24px; color: var(--color-text-card); }
-    .card .card-text.price { padding: 18px 4px 24px; text-align: center; border-bottom: 0.5px solid var(--color-gold); font-family: var(--font-display); font-weight: 900; font-size: 24px; line-height: 30px; color: #fafafa; letter-spacing: 0.03em; }
-
-    /* BS list-group theme */
-    .card .list-group-item { --bs-list-group-bg: transparent; --bs-list-group-border-color: var(--color-bg-muted); --bs-list-group-color: var(--color-text-muted); padding: 8px 6px; font-size: 12px; }
-    .card .list-group-item .value { width: 40px; text-align: center; color: var(--color-gold); }
-    .card .list-group-item .value.out { color: var(--color-destructive); }
-    .card .list-group-item .icon { width: 18px; height: 18px; flex-shrink: 0; }
-
-    /* BS card-img-top theme: gradient háttér a termékkép mögé */
-    .card .card-img-top {
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-      padding: 16px;
-      background: radial-gradient(ellipse at center bottom, var(--color-bg) 0%, rgba(114, 10, 43, 0.35) 80%);
-    }
-
-    /* BS btn rounded-circle theme: kedvenc gomb */
-    .card .btn.rounded-circle {
-      width: 36px;
-      height: 36px;
-      padding: 0;
-      z-index: 3;
-    }
-
-    /* ═══════════════════════════════════════════════════════════
-       CUSTOM — nincs BS megfelelő
-       ═══════════════════════════════════════════════════════════ */
-
-    /* BS badge-octagon: "Új" oktogon badge — 1 elem, SVG háttér */
-    .badge-octagon {
-      background-color: transparent !important;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpolygon points='24,0 40.8,7.2 48,24 40.8,40.8 24,48 7.2,40.8 0,24 7.2,7.2' fill='%2340022C'/%3E%3Cpolygon points='24,3 38.4,9.4 44.6,24 38.4,38.6 24,44.6 9.6,38.6 3.4,24 9.6,9.4' fill='%23B38A24'/%3E%3Cpolygon points='24,6 36,11.5 41.5,24 36,36.5 24,42 12,36.5 6.5,24 12,11.5' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2340022C'/%3E%3Cstop offset='100%25' stop-color='%23720A2B'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 48px;
-      height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      font-family: var(--font-display);
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      text-transform: lowercase;
-    }
-
-    /* BS badge-ribbon: kategória sáv SVG háttérrel — 1 elem */
-    .badge-ribbon {
-      background-color: transparent !important;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpolygon points='12,0 188,0 200,12 188,24 12,24 0,12' fill='%23022139'/%3E%3C/svg%3E");
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--color-gold);
-      padding: 2px 24px;
-      height: 24px;
-      display: inline-flex;
-      align-items: center;
-      border: none;
-      border-radius: 0;
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-
-    /* Félig lelógó CTA — BS card-footer nem tud kilógni */
-    .mg-product-card__cta { position: absolute; bottom: 0; left: 50%; transform: translate(-50%, 50%); z-index: 2; }
-  </style>
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <link rel="stylesheet" href="../css/components/product-card.css">
+  <link rel="stylesheet" href="preview.css">
 </head>
 <body>
 
 <div class="container">
   <div class="row justify-content-center g-5">
 
-  <!-- ═══════════════════════════════════════════════════════════
-       1. PRODUCT CARD — TELJES
-       ═══════════════════════════════════════════════════════════ -->
-
   <div class="col-auto">
     <p class="template-label">Product card — teljes</p>
 
-    <div class="card" style="width: 260px;" data-new data-category>
+    <div class="card mg-product-card mg-product-card--new mg-product-card--has-category" style="width: 260px;">
 
-      <!-- BS: badge-octagon — 1 elem, SVG háttér -->
       <span class="badge badge-octagon position-absolute" style="top:-8px;left:-8px;z-index:3;">új</span>
 
-      <!-- BS: btn rounded-circle + position-absolute -->
-      <button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" style="margin:-8px -8px 0 0;" aria-label="Kedvencekhez">
+      <button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" style="margin:-8px -8px 0 0;z-index:3;width:36px;height:36px;padding:0;" aria-label="Kedvencekhez">
         <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
       </button>
 
-      <!-- BS: card-img-top (gradient a theme CSS-ben fent) -->
-      <img class="card-img-top" src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Set One: Origins">
-
-      <!-- BS: card-body, card-title, card-subtitle -->
-      <div class="card-body text-center position-relative border-bottom" style="border-color: var(--color-gold) !important; padding: 28px 28px 24px;">
-        <!-- BS: badge-ribbon — 1 elem, SVG háttér -->
-        <span class="badge badge-ribbon">Ajánlott</span>
-        <h3 class="card-title mb-2">Set One:</h3>
-        <p class="card-subtitle mb-0">Origins Champion Deck - Viktor</p>
+      <div class="mg-product-card__image">
+        <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Set One: Origins">
       </div>
 
-      <!-- BS: card-body, card-text, list-group, list-group-item -->
-      <div class="card-body px-4 py-0">
-        <p class="card-text price mb-0">12 358 Ft</p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex align-items-center gap-2 px-1">
-            <svg class="icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="flex-grow-1">Üzletben elérhető</span>
-            <span class="value">10+</span>
-          </li>
-          <li class="list-group-item d-flex align-items-center gap-2 px-1">
-            <svg class="icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-            <span class="flex-grow-1">Klubban nincs</span>
-            <span class="value out">0db</span>
-          </li>
-        </ul>
+      <div class="mg-product-card__info">
+        <div class="mg-product-card__category">
+          <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--left" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="12,0 12,24 0,12"/></svg>
+          <span class="mg-product-card__category-text">Ajánlott</span>
+          <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>
+        </div>
+        <h3 class="mg-product-card__title">Set One:</h3>
+        <p class="mg-product-card__subtitle">Origins Champion Deck - Viktor</p>
       </div>
 
-      <!-- CUSTOM: félig lelógó CTA pozíció -->
+      <div class="mg-product-card__content">
+        <p class="mg-product-card__price">12 358 Ft</p>
+        <div class="mg-product-card__rows">
+          <div class="mg-product-card__row">
+            <span class="mg-product-card__row-icon">
+              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="mg-product-card__row-label">Üzletben elérhető</span>
+            <span class="mg-product-card__row-value">10+</span>
+          </div>
+          <div class="mg-product-card__row">
+            <span class="mg-product-card__row-icon">
+              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </span>
+            <span class="mg-product-card__row-label">Klubban nincs</span>
+            <span class="mg-product-card__row-value mg-product-card__row-value--out">0db</span>
+          </div>
+        </div>
+      </div>
+
       <div class="mg-product-card__cta">
         <a class="btn btn-primary" href="#">Kosárba</a>
       </div>
     </div>
   </div>
-
-
-  <!-- ═══════════════════════════════════════════════════════════
-       2. PRODUCT CARD — MINIMÁL
-       ═══════════════════════════════════════════════════════════ -->
 
   <div class="col-auto">
     <p class="template-label">Product card — minimál</p>
 
-    <div class="card" style="width: 260px;">
-      <button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" style="margin:-8px -8px 0 0;z-index:3;" aria-label="Kedvencekhez">
+    <div class="card mg-product-card" style="width: 260px;">
+
+      <button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" style="margin:-8px -8px 0 0;z-index:3;width:36px;height:36px;padding:0;" aria-label="Kedvencekhez">
         <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
       </button>
 
-      <img class="card-img-top" src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Twilight Masquerade">
-
-      <div class="card-body text-center" style="padding: 16px 28px 24px; border-bottom: 1px solid var(--color-gold);">
-        <h3 class="card-title mb-2">Twilight Masquerade</h3>
-        <p class="card-subtitle mb-0">Booster Display Box</p>
+      <div class="mg-product-card__image">
+        <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Twilight Masquerade">
       </div>
 
-      <div class="card-body px-4 py-0">
-        <p class="card-text price mb-0">5 490 Ft</p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex align-items-center gap-2 px-1">
-            <svg class="icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="flex-grow-1">Üzletben elérhető</span>
-            <span class="value">25+</span>
-          </li>
-          <li class="list-group-item d-flex align-items-center gap-2 px-1">
-            <svg class="icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="flex-grow-1">Klubban elérhető</span>
-            <span class="value">-10%</span>
-          </li>
-        </ul>
+      <div class="mg-product-card__info">
+        <h3 class="mg-product-card__title">Twilight Masquerade</h3>
+        <p class="mg-product-card__subtitle">Booster Display Box</p>
+      </div>
+
+      <div class="mg-product-card__content">
+        <p class="mg-product-card__price">5 490 Ft</p>
+        <div class="mg-product-card__rows">
+          <div class="mg-product-card__row">
+            <span class="mg-product-card__row-icon">
+              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="mg-product-card__row-label">Üzletben elérhető</span>
+            <span class="mg-product-card__row-value">25+</span>
+          </div>
+          <div class="mg-product-card__row">
+            <span class="mg-product-card__row-icon">
+              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="mg-product-card__row-label">Klubban elérhető</span>
+            <span class="mg-product-card__row-value">-10%</span>
+          </div>
+        </div>
       </div>
 
       <div class="mg-product-card__cta">
@@ -224,43 +116,49 @@
     </div>
   </div>
 
-
-  <!-- ═══════════════════════════════════════════════════════════
-       3. PRODUCT CARD — ELŐRENDELÉS
-       ═══════════════════════════════════════════════════════════ -->
-
   <div class="col-auto">
     <p class="template-label">Product card — előrendelés</p>
 
-    <div class="card" style="width: 260px;" data-new data-category>
-      <div class="mg-badge-new"><span>új</span></div>
+    <div class="card mg-product-card mg-product-card--new mg-product-card--has-category" style="width: 260px;">
 
-      <button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" style="margin:-8px -8px 0 0;z-index:3;" aria-label="Kedvencekhez">
+      <span class="badge badge-octagon position-absolute" style="top:-8px;left:-8px;z-index:3;">új</span>
+
+      <button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" style="margin:-8px -8px 0 0;z-index:3;width:36px;height:36px;padding:0;" aria-label="Kedvencekhez">
         <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
       </button>
 
-      <img class="card-img-top" src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Prismatic Evolutions">
-
-      <div class="card-body text-center position-relative border-bottom" style="border-color: var(--color-gold) !important; padding: 28px 28px 24px;">
-        <span class="badge badge-ribbon">Előrendelés</span>
-        <h3 class="card-title mb-2">Prismatic Evolutions</h3>
-        <p class="card-subtitle mb-0">Elite Trainer Box</p>
+      <div class="mg-product-card__image">
+        <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Prismatic Evolutions">
       </div>
 
-      <div class="card-body px-4 py-0">
-        <p class="card-text price mb-0">18 990 Ft</p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex align-items-center gap-2 px-1">
-            <svg class="icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="flex-grow-1">Megjelenés</span>
-            <span class="value">2026.07.15</span>
-          </li>
-          <li class="list-group-item d-flex align-items-center gap-2 px-1">
-            <svg class="icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="flex-grow-1">Foglalás</span>
-            <span class="value">3/50</span>
-          </li>
-        </ul>
+      <div class="mg-product-card__info">
+        <div class="mg-product-card__category">
+          <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--left" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="12,0 12,24 0,12"/></svg>
+          <span class="mg-product-card__category-text">Előrendelés</span>
+          <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>
+        </div>
+        <h3 class="mg-product-card__title">Prismatic Evolutions</h3>
+        <p class="mg-product-card__subtitle">Elite Trainer Box</p>
+      </div>
+
+      <div class="mg-product-card__content">
+        <p class="mg-product-card__price">18 990 Ft</p>
+        <div class="mg-product-card__rows">
+          <div class="mg-product-card__row">
+            <span class="mg-product-card__row-icon">
+              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="mg-product-card__row-label">Megjelenés</span>
+            <span class="mg-product-card__row-value">2026.07.15</span>
+          </div>
+          <div class="mg-product-card__row">
+            <span class="mg-product-card__row-icon">
+              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="mg-product-card__row-label">Foglalás</span>
+            <span class="mg-product-card__row-value">3/50</span>
+          </div>
+        </div>
       </div>
 
       <div class="mg-product-card__cta">

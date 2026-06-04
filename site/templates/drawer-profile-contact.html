@@ -12,314 +12,144 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/components/buttons.css">
-
-  <style>
-    body {
-      background: var(--color-bg);
-      color: var(--color-text);
-      font-family: var(--font-body);
-      padding: 40px;
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    .template-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-gold);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-    .template-drawer {
-      width: 360px;
-      background: var(--color-bg-muted);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    /* BS THEME OVERRIDES — form elemek */
-    .form-label {
-      font-weight: 500;
-      font-size: 12px;
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .form-control {
-      background: var(--color-bg);
-      border: 1.5px solid var(--color-border-muted);
-      border-radius: var(--radius-xs);
-      color: var(--color-text-card);
-      font-size: var(--font-size-sm);
-    }
-    .form-control:focus {
-      background: var(--color-bg);
-      border-color: var(--color-gold);
-      color: var(--color-text-card);
-      box-shadow: none;
-    }
-    .form-control::placeholder {
-      color: var(--color-text-muted);
-      opacity: 0.5;
-    }
-
-    /* BS: card theme */
-    .card {
-      --bs-card-bg: var(--color-bg);
-      --bs-card-border-color: var(--color-border-muted);
-      --bs-card-border-radius: var(--radius-sm);
-      --bs-card-color: var(--color-text);
-    }
-
-    /* BS: list-group theme */
-    .list-group-item {
-      --bs-list-group-bg: transparent;
-      --bs-list-group-border-color: var(--color-border-muted);
-      --bs-list-group-color: var(--color-text-card);
-      padding: 14px 0;
-    }
-    .list-group-item:last-child { border-bottom: 0; }
-    .list-group-item svg:first-child { color: var(--color-text-muted); flex-shrink: 0; }
-    .list-group-item:hover { color: var(--color-gold); }
-
-    /* BS btn-outline-secondary theme: social login gombok */
-    .btn-outline-secondary.btn-social {
-      --bs-btn-font-size: var(--font-size-sm);
-      --bs-btn-font-weight: 500;
-      width: 100%;
-      height: 44px;
-      justify-content: center;
-    }
-
-    /* BS hstack + hr: divider szöveggel */
-    .divider hr {
-      flex: 1;
-      border-color: var(--color-border-muted);
-      opacity: 1;
-    }
-    .divider span {
-      font-size: 11px;
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-
-    /* CUSTOM: stat counter — BS-ben nincs stat grid, de BS border/flex utility-ket használ */
-    .stat-grid .stat {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      padding: 16px 0;
-      border: 1px solid var(--color-border-muted);
-      background: var(--color-bg);
-    }
-    .stat-grid .stat:first-child { border-radius: var(--radius-xs) 0 0 var(--radius-xs); }
-    .stat-grid .stat:last-child { border-radius: 0 var(--radius-xs) var(--radius-xs) 0; border-left: 0; }
-    .stat-grid .stat:not(:first-child):not(:last-child) { border-left: 0; }
-  </style>
+  <link rel="stylesheet" href="../css/components/forms.css">
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <link rel="stylesheet" href="../css/components/drawer.css">
+  <link rel="stylesheet" href="preview.css">
 </head>
-<body>
+<body style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center;align-items:flex-start;">
 
-<!-- ═══════════════════════════════════════════════════════════════
-     1. PROFIL — KIJELENTKEZETT
-     BS classok: form-label, form-control, mb-3, d-flex, stb.
-     ═══════════════════════════════════════════════════════════════ -->
-
+<!-- 1. PROFIL — KIJELENTKEZETT -->
 <div>
   <p class="template-label">Profil — kijelentkezett</p>
-
-  <div class="template-drawer">
-    <div class="d-flex flex-column align-items-center text-center gap-3 p-4">
-      <div style="width:64px;height:64px;color:var(--color-gold);opacity:0.6;">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="18" r="10"/><path d="M6 44c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke-linecap="round"/></svg>
+  <div style="width:360px;background:var(--color-bg-muted);border-radius:8px;overflow:hidden;">
+    <div class="mg-drawer-profile">
+      <div class="mg-drawer-profile__welcome">
+        <div class="mg-drawer-profile__avatar">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="18" r="10"/><path d="M6 44c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="mg-drawer-profile__heading">Üdvözlünk a Metagame-ben!</h3>
+        <p class="mg-drawer-profile__sub">Jelentkezz be, hogy hozzáférj kedvenceidhez, rendeléseidhez és exkluzív ajánlatainkhoz.</p>
       </div>
-      <h5 class="fw-semibold mb-0" style="color:var(--color-text-card)">Üdvözlünk a Metagame-ben!</h5>
-      <p class="small mb-0" style="color:var(--color-text-muted)">Jelentkezz be, hogy hozzáférj kedvenceidhez, rendeléseidhez és exkluzív ajánlatainkhoz.</p>
+      <div class="mg-drawer-profile__social">
+        <button class="btn btn-outline-secondary" style="width:100%;height:44px;justify-content:center;">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09a6.97 6.97 0 0 1 0-4.17V7.07H2.18A11.97 11.97 0 0 0 0 12c0 1.94.46 3.77 1.28 5.4l3.56-2.77.01-.54z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 1.99 14.97.96 12 .96 7.7.96 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span>Bejelentkezés Google fiókkal</span>
+        </button>
+      </div>
+      <div class="mg-drawer-profile__divider"><span>vagy e-mail címmel</span></div>
+      <form class="mg-drawer-profile__form">
+        <div class="mg-drawer-profile__field">
+          <label class="form-label">E-mail cím</label>
+          <input type="email" class="form-control" placeholder="pelda@email.com">
+        </div>
+        <div class="mg-drawer-profile__field">
+          <label class="form-label">Jelszó</label>
+          <input type="password" class="form-control" placeholder="••••••••">
+        </div>
+        <button class="btn btn-secondary w-100 justify-content-center" type="submit">Bejelentkezés</button>
+        <p class="mg-drawer-profile__register">Még nincs fiókod? <a href="#">Regisztráció</a></p>
+      </form>
     </div>
-
-    <!-- BS: btn btn-outline-secondary + ikon — social login -->
-    <div class="d-flex flex-column gap-2 px-4">
-      <button class="btn btn-outline-secondary btn-social">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09a6.97 6.97 0 0 1 0-4.17V7.07H2.18A11.97 11.97 0 0 0 0 12c0 1.94.46 3.77 1.28 5.4l3.56-2.77.01-.54z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 1.99 14.97.96 12 .96 7.7.96 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        <span>Bejelentkezés Google fiókkal</span>
-      </button>
-      <button class="btn btn-outline-secondary btn-social">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.49 0-1.956.93-1.956 1.886v2.283h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-        <span>Bejelentkezés Facebook fiókkal</span>
-      </button>
-    </div>
-
-    <!-- BS: hstack + hr — divider szöveggel -->
-    <div class="divider hstack gap-3 px-4 py-3"><hr><span>vagy e-mail címmel</span><hr></div>
-
-    <!-- BS: form-label, form-control, mb-3 -->
-    <form class="px-4 pb-4">
-      <div class="mb-3">
-        <label class="form-label">E-mail cím</label>
-        <input type="email" class="form-control" placeholder="pelda@email.com">
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Jelszó</label>
-        <input type="password" class="form-control" placeholder="••••••••">
-      </div>
-      <button class="btn btn-secondary w-100 justify-content-center" type="submit">Bejelentkezés</button>
-      <p class="text-center small mt-3 mb-0" style="color:var(--color-text-muted)">Még nincs fiókod? <a href="#" style="color:var(--color-gold);text-decoration:none;font-weight:500;">Regisztráció</a></p>
-    </form>
   </div>
 </div>
 
-
-<!-- ═══════════════════════════════════════════════════════════════
-     2. PROFIL — BEJELENTKEZETT
-     ═══════════════════════════════════════════════════════════════ -->
-
+<!-- 2. PROFIL — BEJELENTKEZETT -->
 <div>
   <p class="template-label">Profil — bejelentkezett</p>
-
-  <div class="template-drawer">
-    <!-- BS: d-flex, align-items-center, gap-3 -->
-    <div class="d-flex align-items-center gap-3 p-4">
-      <!-- BS: rounded-circle + bg/text utility — monogram avatar -->
-      <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 fw-bold" style="width:48px;height:48px;background:var(--color-gold);color:white;font-size:var(--font-size-lg);">ÁN</div>
-      <div>
-        <span class="d-block fw-semibold" style="color:var(--color-text-card)">Novák Ádám</span>
-        <span class="d-block small" style="color:var(--color-text-muted)">novak.adam@metagame.hu</span>
+  <div style="width:360px;background:var(--color-bg-muted);border-radius:8px;overflow:hidden;">
+    <div class="mg-drawer-profile mg-drawer-profile--logged">
+      <div class="mg-drawer-profile__user">
+        <div class="mg-drawer-profile__user-avatar">ÁN</div>
+        <div class="mg-drawer-profile__user-info">
+          <span class="mg-drawer-profile__user-name">Novák Ádám</span>
+          <span class="mg-drawer-profile__user-email">novak.adam@metagame.hu</span>
+        </div>
       </div>
-    </div>
-
-    <!-- CUSTOM: stat counter — BS-ben nincs stat/counter grid -->
-    <div class="stat-grid px-4 mb-2">
-      <div class="stat">
-        <span class="fw-bold" style="font-size:var(--font-size-xl);color:var(--color-gold)">12</span>
-        <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--color-text-muted)">Rendelés</span>
+      <div class="mg-drawer-profile__stats">
+        <div class="mg-drawer-profile__stat">
+          <span class="mg-drawer-profile__stat-value">12</span>
+          <span class="mg-drawer-profile__stat-label">Rendelés</span>
+        </div>
+        <div class="mg-drawer-profile__stat">
+          <span class="mg-drawer-profile__stat-value">5</span>
+          <span class="mg-drawer-profile__stat-label">Kedvenc</span>
+        </div>
+        <div class="mg-drawer-profile__stat">
+          <span class="mg-drawer-profile__stat-value">2 340</span>
+          <span class="mg-drawer-profile__stat-label">Pont</span>
+        </div>
       </div>
-      <div class="stat">
-        <span class="fw-bold" style="font-size:var(--font-size-xl);color:var(--color-gold)">5</span>
-        <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--color-text-muted)">Kedvenc</span>
-      </div>
-      <div class="stat">
-        <span class="fw-bold" style="font-size:var(--font-size-xl);color:var(--color-gold)">2 340</span>
-        <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--color-text-muted)">Pont</span>
-      </div>
-    </div>
-
-    <!-- BS: list-group — menüpontok -->
-    <div class="list-group list-group-flush px-4 pb-4">
-      <a class="list-group-item d-flex align-items-center gap-3 text-decoration-none" href="#">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 8h16"/></svg>
-        <span class="flex-grow-1">Rendeléseim</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:var(--color-text-muted)"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
-      <a class="list-group-item d-flex align-items-center gap-3 text-decoration-none" href="#">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z"/></svg>
-        <span class="flex-grow-1">Kedvencek</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:var(--color-text-muted)"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
-      <a class="list-group-item d-flex align-items-center gap-3 text-decoration-none" href="#">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="10" cy="7" r="4"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke-linecap="round"/></svg>
-        <span class="flex-grow-1">Személyes adatok</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="color:var(--color-text-muted)"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
+      <nav class="mg-drawer-profile__menu">
+        <a class="mg-drawer-profile__menu-item" href="#">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 8h16"/></svg>
+          <span>Rendeléseim</span>
+          <svg class="mg-drawer-profile__menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+        <a class="mg-drawer-profile__menu-item" href="#">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z"/></svg>
+          <span>Kedvencek</span>
+          <svg class="mg-drawer-profile__menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </nav>
     </div>
   </div>
 </div>
 
-
-<!-- ═══════════════════════════════════════════════════════════════
-     3. KAPCSOLAT + HELYSZÍNEK
-     ═══════════════════════════════════════════════════════════════ -->
-
+<!-- 3. KAPCSOLAT + HELYSZÍNEK -->
 <div>
   <p class="template-label">Kapcsolat + Helyszínek</p>
-
-  <div class="template-drawer">
-
-    <!-- BS: list-group — kapcsolati csatornák -->
-    <div class="list-group list-group-flush px-4">
-      <a class="list-group-item d-flex align-items-center gap-3 text-decoration-none" href="tel:+3617944116">
-        <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width:36px;height:36px;background:var(--color-bg);border:1px solid var(--color-border-muted);border-radius:var(--radius-xs);color:var(--color-gold);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg>
+  <div style="width:360px;background:var(--color-bg-muted);border-radius:8px;overflow:hidden;">
+    <div class="mg-drawer-contact">
+      <div class="mg-drawer-contact__channels">
+        <a class="mg-drawer-contact__channel" href="tel:+3617944116">
+          <div class="mg-drawer-contact__channel-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg>
+          </div>
+          <span class="mg-drawer-contact__channel-label">Telefon</span>
+          <span class="mg-drawer-contact__channel-value">+36 1 794 4116</span>
+        </a>
+        <a class="mg-drawer-contact__channel" href="mailto:info@metagames.hu">
+          <div class="mg-drawer-contact__channel-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg>
+          </div>
+          <span class="mg-drawer-contact__channel-label">E-mail</span>
+          <span class="mg-drawer-contact__channel-value">info@metagames.hu</span>
+        </a>
+      </div>
+      <div class="mg-drawer-contact__divider"><span>Azonnali üzenet</span></div>
+      <form class="mg-drawer-contact__form">
+        <div class="mg-drawer-contact__field">
+          <label class="form-label">Név</label>
+          <input type="text" class="form-control" placeholder="Neved">
         </div>
-        <span class="flex-grow-1 fw-medium small" style="color:var(--color-text-card)">Telefon</span>
-        <span class="small" style="color:var(--color-text-muted)">+36 1 794 4116</span>
-      </a>
-      <a class="list-group-item d-flex align-items-center gap-3 text-decoration-none" href="mailto:info@metagames.hu">
-        <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width:36px;height:36px;background:var(--color-bg);border:1px solid var(--color-border-muted);border-radius:var(--radius-xs);color:var(--color-gold);">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg>
+        <div class="mg-drawer-contact__field">
+          <label class="form-label">E-mail</label>
+          <input type="email" class="form-control" placeholder="pelda@email.com">
         </div>
-        <span class="flex-grow-1 fw-medium small" style="color:var(--color-text-card)">E-mail</span>
-        <span class="small" style="color:var(--color-text-muted)">info@metagames.hu</span>
-      </a>
-    </div>
-
-    <div class="divider hstack gap-3 px-4 py-3"><hr><span>Azonnali üzenet</span><hr></div>
-
-    <!-- BS: form-label, form-control, mb-3 -->
-    <form class="px-4 pb-4">
-      <div class="mb-3">
-        <label class="form-label">Név</label>
-        <input type="text" class="form-control" placeholder="Neved">
-      </div>
-      <div class="mb-3">
-        <label class="form-label">E-mail</label>
-        <input type="email" class="form-control" placeholder="pelda@email.com">
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Üzenet</label>
-        <textarea class="form-control" rows="4" placeholder="Írd ide az üzeneted..."></textarea>
-      </div>
-      <button class="btn btn-secondary w-100 justify-content-center" type="submit">Üzenet küldése</button>
-    </form>
-
-    <div class="divider hstack gap-3 px-4 py-3"><hr><span>Helyszíneink</span><hr></div>
-
-    <!-- BS: card — helyszín kártyák -->
-    <div class="d-flex flex-column gap-3 px-4 pb-4">
-      <div class="card">
-        <div class="card-body d-flex flex-column gap-2">
-          <span class="badge rounded-pill" style="align-self:flex-start;background:var(--color-gold);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">Bolt</span>
-          <h6 class="card-title fw-semibold mb-0">Metagame Store</h6>
-          <div class="d-flex align-items-start gap-2 small" style="color:var(--color-text-muted)">
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" class="flex-shrink-0 mt-1" style="color:var(--color-gold)"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg>
+        <div class="mg-drawer-contact__field">
+          <label class="form-label">Üzenet</label>
+          <textarea class="form-control" rows="4" placeholder="Írd ide az üzeneted..."></textarea>
+        </div>
+        <button class="btn btn-secondary" type="submit" style="width:100%;justify-content:center;">Üzenet küldése</button>
+      </form>
+      <div class="mg-drawer-contact__divider"><span>Helyszíneink</span></div>
+      <div class="mg-drawer-location">
+        <div class="mg-drawer-location__card">
+          <div class="mg-drawer-location__badge">Bolt</div>
+          <h4 class="mg-drawer-location__name">Metagame Store</h4>
+          <div class="mg-drawer-location__row">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg>
             <span>1132 Budapest, Kádár utca 10.</span>
           </div>
-          <div class="d-flex align-items-start gap-2 small" style="color:var(--color-text-muted)">
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" class="flex-shrink-0 mt-1" style="color:var(--color-gold)"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 3"/></svg>
-            <span>H–Szo: 10:00 – 18:00</span>
+          <div class="mg-drawer-location__status mg-drawer-location__status--open">
+            <span class="mg-drawer-location__status-dot"></span>
+            <span>Jelenleg nyitva</span>
           </div>
-          <!-- BS: rounded-circle + bg-success — nyitva dot -->
-          <div class="d-flex align-items-center gap-2 small">
-            <span class="p-1 bg-success rounded-circle flex-shrink-0"></span>
-            <span style="color:#27ae60;">Jelenleg nyitva</span>
-          </div>
-          <a class="btn btn-outline-secondary btn-sm align-self-start mt-1" href="#" target="_blank">Útvonaltervezés</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body d-flex flex-column gap-2">
-          <span class="badge rounded-pill" style="align-self:flex-start;background:var(--color-secondary);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;">Klub</span>
-          <h6 class="card-title fw-semibold mb-0">Metagame Klub</h6>
-          <div class="d-flex align-items-start gap-2 small" style="color:var(--color-text-muted)">
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" class="flex-shrink-0 mt-1" style="color:var(--color-gold)"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg>
-            <span>1132 Budapest, Kresz Géza utca 36.</span>
-          </div>
-          <!-- BS: rounded-circle + bg-secondary — zárva dot -->
-          <div class="d-flex align-items-center gap-2 small">
-            <span class="p-1 bg-secondary rounded-circle flex-shrink-0"></span>
-            <span style="color:var(--color-text-muted)">Jelenleg zárva</span>
-          </div>
-          <a class="btn btn-outline-secondary btn-sm align-self-start mt-1" href="#" target="_blank">Útvonaltervezés</a>
+          <a class="btn btn-outline-secondary mg-drawer-location__map-btn" href="#" target="_blank">Útvonaltervezés</a>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 

@@ -1,0 +1,20 @@
+/*
+ * preview.css – Template preview oldalak közös stílusai
+ * Csak az oldal layout és címkék — a komponens stílusok a közös CSS fájlokból jönnek.
+ */
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  padding: 40px;
+}
+
+.template-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+  font-weight: 600;
+}

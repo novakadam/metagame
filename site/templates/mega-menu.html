@@ -12,184 +12,64 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/components/buttons.css">
-
-  <style>
-    body {
-      background: var(--color-bg);
-      color: var(--color-text);
-      font-family: var(--font-body);
-      padding: 40px;
-    }
-    .template-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-gold);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    /* BS THEME: list-group a brand listához */
-    .list-group-item {
-      --bs-list-group-bg: var(--color-bg-card);
-      --bs-list-group-border-color: var(--color-gold);
-      --bs-list-group-color: var(--color-text);
-      --bs-list-group-action-hover-bg: var(--color-bg-muted);
-      --bs-list-group-action-hover-color: var(--color-text);
-      --bs-list-group-action-active-bg: var(--color-bg-muted);
-      padding: 20px 14px;
-    }
-    .list-group-item.active {
-      --bs-list-group-active-bg: var(--color-bg-muted);
-      --bs-list-group-active-color: var(--color-text);
-      --bs-list-group-active-border-color: var(--color-gold);
-      font-weight: 600;
-    }
-
-    /* BS THEME: nav links az alkategóriákhoz */
-    .nav-link {
-      color: var(--color-text);
-      padding: 6px 0;
-    }
-    .nav-link:hover { color: var(--color-gold); }
-
-    /* Preview wrapper */
-    .menu-preview {
-      display: flex;
-      background: var(--color-bg);
-      border: 1px solid var(--color-gold);
-      padding: 24px;
-      max-width: 900px;
-    }
-
-    /* Brand logo fix méret — BS-ben nincs ilyen specifikus img constraint */
-    .brand-logo {
-      width: 60px;
-      height: 30px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    /* CUSTOM: népszerű termék kártya — kis horizontális kártya a menüben,
-       BS card túl nehéz erre, de a belső struktúra BS-es */
-    .popular-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-      border: 1px solid var(--color-gold);
-      text-decoration: none;
-      transition: background var(--transition-fast);
-    }
-    .popular-card:hover { background: var(--color-bg-muted); }
-    .popular-card__img {
-      width: 80px;
-      height: 80px;
-      background: var(--color-bg-muted);
-      border-radius: var(--radius-xs);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .popular-card__img img { width: 60px; height: 60px; object-fit: contain; }
-  </style>
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <link rel="stylesheet" href="../css/components/mega-menu.css">
+  <link rel="stylesheet" href="preview.css">
 </head>
 <body>
 
 <p class="template-label">Mega menu — TCG kategória (teljes)</p>
 
-<div class="container-fluid">
-
-<!-- ═══════════════════════════════════════════════════════════════
-     MEGA MENU
-     BS classok: list-group, list-group-item, list-group-item-action,
-     nav, nav-link, d-flex, fw-bold, stb.
-     CUSTOM: popular-card (kompakt horizontális kártya), brand-logo méret
-     ═══════════════════════════════════════════════════════════════ -->
-
-<div class="menu-preview">
-
-  <!-- BAL: BS list-group — brand lista -->
-  <div class="list-group list-group-flush" style="width:328px; min-width:328px;">
-
-    <!-- BS: list-group-item-action, active, d-flex -->
-    <a href="#" class="list-group-item list-group-item-action active d-flex align-items-center gap-3" data-brand="Pokémon">
-      <img class="brand-logo" src="../assets/brands/pokemon.png" alt="Pokémon">
-      <span class="flex-grow-1">Pokémon</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--color-text-muted)"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
-
-    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3" data-brand="Magic: The Gathering">
-      <img class="brand-logo" src="../assets/brands/magic.png" alt="Magic: The Gathering">
-      <span class="flex-grow-1">Magic: The Gathering</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--color-text-muted)"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
-
-    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3" data-brand="Yu-Gi-Oh!">
-      <img class="brand-logo" src="../assets/brands/yugioh.png" alt="Yu-Gi-Oh!">
-      <span class="flex-grow-1">Yu-Gi-Oh!</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--color-text-muted)"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
-
-    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3">
-      <div style="width:46px;height:46px;background:var(--color-bg-muted);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+<div class="mg-megamenu" style="position:relative;top:auto;left:auto;bottom:auto;opacity:1;visibility:visible;transform:none;pointer-events:auto;max-width:900px;">
+  <div class="mg-megamenu__brands">
+    <div class="mg-megamenu__brand is-active" data-brand="Pokémon">
+      <img class="mg-megamenu__brand-logo" src="../assets/brands/pokemon.png" alt="Pokémon">
+      <span class="mg-megamenu__brand-name">Pokémon</span>
+      <span class="mg-megamenu__brand-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></span>
+    </div>
+    <div class="mg-megamenu__brand" data-brand="Magic: The Gathering">
+      <img class="mg-megamenu__brand-logo" src="../assets/brands/magic.png" alt="Magic: The Gathering">
+      <span class="mg-megamenu__brand-name">Magic: The Gathering</span>
+      <span class="mg-megamenu__brand-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></span>
+    </div>
+    <div class="mg-megamenu__brand" data-brand="Yu-Gi-Oh!">
+      <img class="mg-megamenu__brand-logo" src="../assets/brands/yugioh.png" alt="Yu-Gi-Oh!">
+      <span class="mg-megamenu__brand-name">Yu-Gi-Oh!</span>
+      <span class="mg-megamenu__brand-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></span>
+    </div>
+  </div>
+  <div class="mg-megamenu__right">
+    <div class="mg-megamenu__subcats">
+      <h3 class="mg-megamenu__subcats-title">ALKATEGÓRIÁK</h3>
+      <div class="mg-megamenu__subcats-list">
+        <a href="#">Booster csomagok</a>
+        <a href="#">Booster boxok</a>
+        <a href="#">Displayek</a>
+        <a href="#">Elite/Prémium dobozok</a>
+        <a href="#">Deckek</a>
+        <a href="#">Single kártyák</a>
+        <a href="#">Kiegészítők</a>
       </div>
-      <span class="flex-grow-1">Továbbiak</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--color-text-muted)"><path d="M9 18l6-6-6-6"/></svg>
-    </a>
-  </div>
-
-  <!-- JOBB: alkategóriák + népszerű -->
-  <div class="d-flex" style="width:540px;">
-
-    <!-- BS: nav flex-column — alkategóriák -->
-    <div class="flex-grow-1 p-4" style="background:var(--color-bg)">
-      <h6 class="fw-bold mb-4">ALKATEGÓRIÁK</h6>
-      <nav class="nav flex-column gap-3">
-        <a class="nav-link p-0" href="#">Booster csomagok</a>
-        <a class="nav-link p-0" href="#">Booster boxok</a>
-        <a class="nav-link p-0" href="#">Displayek</a>
-        <a class="nav-link p-0" href="#">Elite/Prémium dobozok</a>
-        <a class="nav-link p-0" href="#">Deckek</a>
-        <a class="nav-link p-0" href="#">Single kártyák</a>
-        <a class="nav-link p-0" href="#">Kiegészítők</a>
-        <a class="nav-link p-0" href="#">Gyűjtői termékek</a>
-      </nav>
     </div>
-
-    <!-- Népszerű termékek -->
-    <div class="d-flex flex-column gap-4 p-4" style="flex:1;">
-      <h6 class="fw-bold mb-0">LEGNÉPSZERŰBB</h6>
-
-      <!-- CUSTOM: popular-card — kompakt horizontális mini kártya,
-           BS card túl nehéz overhead erre a kis elemre -->
-      <a class="popular-card" href="#">
-        <div class="popular-card__img">
-          <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Magic Play Display">
-        </div>
-        <div>
-          <span class="d-block" style="color:var(--color-text)">Magic Play Display</span>
-          <span class="d-block fw-semibold" style="font-size:var(--font-size-lg);color:var(--color-text)">2 500 Ft</span>
+    <div class="mg-megamenu__popular">
+      <h3 class="mg-megamenu__popular-title">LEGNÉPSZERŰBB</h3>
+      <a class="mg-megamenu__product-card" href="#">
+        <div class="mg-megamenu__product-img"><img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Magic Play Display"></div>
+        <div class="mg-megamenu__product-info">
+          <span class="mg-megamenu__product-name">Magic Play Display</span>
+          <span class="mg-megamenu__product-price">2 500 Ft</span>
         </div>
       </a>
-
-      <a class="popular-card" href="#">
-        <div class="popular-card__img">
-          <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Riftbound Booster">
-        </div>
-        <div>
-          <span class="d-block" style="color:var(--color-text)">Riftbound Booster</span>
-          <span class="d-block fw-semibold" style="font-size:var(--font-size-lg);color:var(--color-text)">3 990 Ft</span>
+      <a class="mg-megamenu__product-card" href="#">
+        <div class="mg-megamenu__product-img"><img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Riftbound Booster"></div>
+        <div class="mg-megamenu__product-info">
+          <span class="mg-megamenu__product-name">Riftbound Booster</span>
+          <span class="mg-megamenu__product-price">3 990 Ft</span>
         </div>
       </a>
     </div>
   </div>
-
 </div>
-
-</div><!-- /container-fluid -->
 
 </body>
 </html>

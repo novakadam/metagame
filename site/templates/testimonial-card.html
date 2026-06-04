@@ -11,142 +11,55 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/tokens.css">
-
-  <style>
-    body {
-      background: var(--color-bg);
-      color: var(--color-text);
-      font-family: var(--font-body);
-      padding: 60px 40px;
-    }
-    .template-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-gold);
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    /* BS THEME OVERRIDES — .card selectoron */
-    .card {
-      --bs-card-bg: var(--color-bg-card);
-      --bs-card-border-color: rgba(179, 138, 36, 0.3);
-      --bs-card-border-width: 1px;
-      --bs-card-border-radius: 4px;
-      --bs-card-color: var(--color-text);
-      --bs-card-spacer-y: 1rem;
-      --bs-card-spacer-x: 1.5rem;
-    }
-
-    .card .card-title {
-      font-size: var(--font-size-base);
-      font-weight: 500;
-      color: var(--color-text);
-    }
-
-    .card .card-subtitle {
-      font-size: var(--font-size-sm);
-      color: var(--color-text-muted);
-    }
-
-    .card .card-text {
-      font-size: var(--font-size-base);
-      line-height: 1.5;
-      color: var(--color-text-muted);
-    }
-
-    /* CUSTOM: avatar kör — BS rounded-circle-t használjuk,
-       de a placeholder SVG-nek fix méret kell */
-    .avatar {
-      width: 64px;
-      height: 64px;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-    .avatar svg, .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* CUSTOM: csillagok — SVG fill, BS-ben nincs rating komponens */
-    .stars svg {
-      width: 16px;
-      height: 16px;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <link rel="stylesheet" href="../css/components/testimonials.css">
+  <link rel="stylesheet" href="preview.css">
 </head>
-<body>
+<body style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
 
-<div class="container">
-  <div class="row justify-content-center g-4">
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       TESTIMONIAL CARD — 100% BS classokkal
-       Egyetlen custom: avatar méret + csillag SVG méret
-       ═══════════════════════════════════════════════════════════════ -->
-
-  <div class="col-auto" style="width: 270px;">
-    <p class="template-label">Testimonial — 4.5 csillag</p>
-
-    <div class="card">
-      <div class="card-body d-flex flex-column gap-3">
-
-        <!-- BS: d-flex, align-items-center, gap-3, rounded-circle -->
-        <div class="d-flex align-items-center gap-3">
-          <div class="avatar rounded-circle">
-            <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="#022139"/><circle cx="32" cy="26" r="10" fill="#D8CBAF"/><path d="M14 54c0-9.941 8.059-18 18-18s18 8.059 18 18" fill="#D8CBAF"/></svg>
-          </div>
-          <div>
-            <h5 class="card-title mb-0">Dani</h5>
-            <h6 class="card-subtitle">Magic játékos</h6>
-          </div>
-        </div>
-
-        <!-- CUSTOM: csillag SVG-k — BS-ben nincs rating widget -->
-        <div class="stars d-flex gap-1">
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-          <svg viewBox="0 0 16 16"><defs><linearGradient id="half-star"><stop offset="50%" stop-color="var(--color-gold)"/><stop offset="50%" stop-color="rgba(179,138,36,0.25)"/></linearGradient></defs><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z" fill="url(#half-star)"/></svg>
-        </div>
-
-        <!-- BS: card-text -->
-        <p class="card-text">„Az első draftom óta ide járok. Jó a hangulat, segítőkészek az emberek, és mindig van kivel játszani."</p>
-
+<div style="width:270px;">
+  <p class="template-label">Testimonial — 4.5 csillag</p>
+  <div class="mg-testimonial-card">
+    <div class="mg-testimonial-card__header">
+      <div class="mg-testimonial-card__avatar">
+        <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="#022139"/><circle cx="32" cy="26" r="10" fill="#D8CBAF"/><path d="M14 54c0-9.941 8.059-18 18-18s18 8.059 18 18" fill="#D8CBAF"/></svg>
+      </div>
+      <div class="mg-testimonial-card__info">
+        <p class="mg-testimonial-card__name">Dani</p>
+        <p class="mg-testimonial-card__role">Magic játékos</p>
       </div>
     </div>
+    <div class="mg-testimonial-card__stars">
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+      <svg viewBox="0 0 16 16"><defs><linearGradient id="half-star"><stop offset="50%" stop-color="var(--color-gold)"/><stop offset="50%" stop-color="rgba(179,138,36,0.25)"/></linearGradient></defs><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z" fill="url(#half-star)"/></svg>
+    </div>
+    <p class="mg-testimonial-card__quote">„Az első draftom óta ide járok. Jó a hangulat, segítőkészek az emberek, és mindig van kivel játszani."</p>
   </div>
+</div>
 
-
-  <div class="col-auto" style="width: 270px;">
-    <p class="template-label">Testimonial — 5 csillag</p>
-
-    <div class="card">
-      <div class="card-body d-flex flex-column gap-3">
-        <div class="d-flex align-items-center gap-3">
-          <div class="avatar rounded-circle">
-            <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="#022139"/><circle cx="32" cy="26" r="10" fill="#D8CBAF"/><path d="M14 54c0-9.941 8.059-18 18-18s18 8.059 18 18" fill="#D8CBAF"/></svg>
-          </div>
-          <div>
-            <h5 class="card-title mb-0">Márk</h5>
-            <h6 class="card-subtitle">Yu-Gi-Oh! rajongó</h6>
-          </div>
-        </div>
-        <div class="stars d-flex gap-1">
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-          <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
-        </div>
-        <p class="card-text">„A locals közösség fantasztikus. Minden héten jövök, és mindig tanulok valami újat a tapasztaltabbaktól."</p>
+<div style="width:270px;">
+  <p class="template-label">Testimonial — 5 csillag</p>
+  <div class="mg-testimonial-card">
+    <div class="mg-testimonial-card__header">
+      <div class="mg-testimonial-card__avatar">
+        <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="#022139"/><circle cx="32" cy="26" r="10" fill="#D8CBAF"/><path d="M14 54c0-9.941 8.059-18 18-18s18 8.059 18 18" fill="#D8CBAF"/></svg>
+      </div>
+      <div class="mg-testimonial-card__info">
+        <p class="mg-testimonial-card__name">Márk</p>
+        <p class="mg-testimonial-card__role">Yu-Gi-Oh! rajongó</p>
       </div>
     </div>
-  </div>
-
+    <div class="mg-testimonial-card__stars">
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+      <svg viewBox="0 0 16 16" fill="var(--color-gold)"><path d="M8 0l2.35 4.76 5.25.77-3.8 3.7.9 5.24L8 12.17l-4.7 2.3.9-5.24-3.8-3.7 5.25-.77z"/></svg>
+    </div>
+    <p class="mg-testimonial-card__quote">„A locals közösség fantasztikus. Minden héten jövök, és mindig tanulok valami újat a tapasztaltabbaktól."</p>
   </div>
 </div>
 
