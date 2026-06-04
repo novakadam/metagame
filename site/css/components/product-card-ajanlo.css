@@ -58,7 +58,6 @@
 
 /* ── "ÚJ" BADGE POZÍCIONÁLÁS ── */
 
-.mg-ajanlo .mg-badge-new,
 .mg-ajanlo .badge-octagon {
   top: -22px;
   left: -22px;
@@ -67,7 +66,6 @@
 
 /* ── KEDVENC BADGE POZÍCIONÁLÁS ── */
 
-.mg-ajanlo .mg-badge-fav,
 .mg-ajanlo > .btn.rounded-circle {
   top: -18px;
   right: -18px;

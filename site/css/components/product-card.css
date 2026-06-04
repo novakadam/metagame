@@ -7,7 +7,7 @@
  *   3. Content zóna – ár + elérhetőségi sorok
  *   4. CTA – mg-btn--glow gomb, félig lelóg a kártya aljáról
  *
- * Badge-ek: megosztott .mg-badge-new és .mg-badge-fav (buttons.css)
+ * Badge-ek: .badge-octagon (buttons.css), kedvenc: btn.rounded-circle
  */
 
 /* ── KÁRTYA ALAP ─────────────────────────────────────────── */
@@ -51,14 +51,12 @@
 
 /* ── BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css adja) ─── */
 
-.mg-product-card .mg-badge-new,
 .mg-product-card .badge-octagon {
   top: -8px;
   left: -8px;
   z-index: 3;
 }
 
-.mg-product-card .mg-badge-fav,
 .mg-product-card > .btn.rounded-circle {
   top: -8px;
   right: -8px;

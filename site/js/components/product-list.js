@@ -94,7 +94,7 @@ function mgInitProductList() {
 
   // ── KÁRTYA KATTINTÁS → TERMÉK OLDAL ───────────────────────
   $(document).on('click', '.mg-product-card', function (e) {
-    if ($(e.target).closest('.mg-badge-fav, .mg-product-card__cta').length) return;
+    if ($(e.target).closest('.btn.rounded-circle, .mg-product-card__cta').length) return;
     window.location.href = 'product.html';
   });
 
