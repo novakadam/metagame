@@ -170,7 +170,7 @@ function mgCreateDemoCard() {
     '<div class="card mg-product-card mg-product-card--new mg-product-card--has-category">' +
 
       '<span class="badge badge-octagon position-absolute">új</span>' +
-      '<button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" aria-label="Kedvencekhez">' +
+      '<button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">' +
         '<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>' +
       '</button>' +
 
