@@ -80,16 +80,16 @@ function mgInitHero() {
     var it = items()[idx];
     if (!it) { $ajanlo.empty(); return; }
 
-    var checkSvg = '<svg class="icon" viewBox="0 0 16 16" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg>';
-    var xSvg = '<svg class="icon" viewBox="0 0 16 16" fill="none" stroke="#FF4400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>';
+    var checkSvg = '<svg class="mg-ajanlo__row-icon" viewBox="0 0 16 16" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg>';
+    var xSvg = '<svg class="mg-ajanlo__row-icon" viewBox="0 0 16 16" fill="none" stroke="#FF4400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>';
 
     var rows = '';
     for (var i = 0; i < it.rows.length; i++) {
       var r = it.rows[i];
       var icon = (r.value === '0 db' || r.value === '0db') ? xSvg : checkSvg;
-      rows += '<li class="list-group-item d-flex align-items-center justify-content-between">' +
-        '<span class="d-flex align-items-center gap-1">' + icon + r.label + '</span>' +
-        '<span class="fw-semibold" style="color:var(--color-text)">' + r.value + '</span></li>';
+      rows += '<div class="mg-ajanlo__row">' +
+        '<span class="mg-ajanlo__row-label">' + icon + r.label + '</span>' +
+        '<span class="mg-ajanlo__row-value">' + r.value + '</span></div>';
     }
 
     var heartSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
@@ -114,7 +114,7 @@ function mgInitHero() {
           '</div>' +
           '<div class="mg-ajanlo__details">' +
             '<div class="mg-ajanlo__highlight">' + it.highlight + '</div>' +
-            '<ul class="list-group list-group-flush">' + rows + '</ul>' +
+            '<div class="mg-ajanlo__rows">' + rows + '</div>' +
           '</div>' +
         '</div>' +
         '<div class="mg-ajanlo__action">' +
