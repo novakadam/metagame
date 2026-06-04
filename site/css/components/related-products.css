@@ -11,8 +11,12 @@
 .mg-related__card {
   --bs-card-border-radius: var(--radius-sm);
   overflow: hidden;
-  gap: 24px;
-  padding-bottom: 24px;
+  gap: 0;
+}
+
+.mg-related__card .card-body {
+  background: var(--color-bg);
+  padding: 24px;
 }
 
 /* CUSTOM: gradient háttér a termékkép mögé — BS card-img-top nem tudja */
@@ -35,11 +39,11 @@
 
 /* ── UPSELL HOVER ─────────────────────────────────────────── */
 
-.list-group-item[style*="cursor"]:hover {
+.upsell-item:hover {
   background: var(--color-secondary);
 }
 
-.list-group-item[style*="cursor"]:hover .btn.rounded-circle {
+.upsell-item:hover .btn.rounded-circle {
   background: var(--color-gold);
   color: var(--color-bg);
 }
