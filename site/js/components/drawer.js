@@ -111,7 +111,7 @@ var mgDrawerContents = {
     },
     footer: function () {
       return '<div class="mg-drawer-profile__logout">' +
-        '<button class="btn btn-outline-secondary mg-drawer-profile__logout-btn" id="mg-drawer-logout-btn" style="width:100%;justify-content:center;">' +
+        '<button class="btn btn-outline-secondary mg-drawer-profile__logout-btn w-100 justify-content-center" id="mg-drawer-logout-btn">' +
           '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M7 2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><path d="M14 15l5-5-5-5"/><path d="M19 10H7"/></svg>' +
           'Kijelentkezés' +
         '</button>' +
@@ -250,7 +250,7 @@ var mgDrawerContents = {
             '<label>Üzenet</label>' +
             '<textarea rows="4" placeholder="Írd ide az üzeneted..."></textarea>' +
           '</div>' +
-          '<button class="btn btn-secondary" type="submit" style="width:100%;justify-content:center;">' +
+          '<button class="btn btn-secondary w-100 justify-content-center" type="submit">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M18 2L2 9l7 2 2 7z"/></svg>' +
             'Üzenet küldése' +
           '</button>' +
@@ -320,8 +320,8 @@ function mgBuildCartFooter() {
     '<span class="mg-drawer-cart__total-amount">22 800 Ft</span>' +
   '</div>' +
   '<div class="mg-drawer-cart__actions">' +
-    '<a href="checkout.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Tovább a pénztárhoz</a>' +
-    '<a href="#" class="btn btn-outline-secondary" style="width:100%;justify-content:center;">Vásárlás folytatása</a>' +
+    '<a href="checkout.html" class="btn btn-secondary w-100 justify-content-center">Tovább a pénztárhoz</a>' +
+    '<a href="#" class="btn btn-outline-secondary w-100 justify-content-center">Vásárlás folytatása</a>' +
   '</div>';
 }
 
@@ -357,7 +357,7 @@ function mgBuildFavBody() {
 
 function mgBuildFavFooter() {
   return '<div class="mg-drawer-cart__actions">' +
-    '<a href="products.html" class="btn btn-outline-secondary" style="width:100%;justify-content:center;">Böngéssz tovább</a>' +
+    '<a href="products.html" class="btn btn-outline-secondary w-100 justify-content-center">Böngéssz tovább</a>' +
   '</div>';
 }
 
