@@ -27,9 +27,9 @@
     <!-- preview: width a grid nélküli megjelenítéshez — élesben a CSS grid adja -->
     <div class="card mg-product-card mg-product-card--new mg-product-card--has-category" style="width:260px;">
 
-      <span class="badge badge-octagon position-absolute" >új</span>
+      <span class="badge badge-octagon position-absolute">új</span>
 
-      <button class="btn btn-outline-secondary rounded-circle position-absolute"  aria-label="Kedvencekhez">
+      <button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">
         <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
       </button>
 
@@ -43,26 +43,32 @@
           <span class="mg-product-card__category-text">Ajánlott</span>
           <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>
         </div>
-        <h3 class="mg-product-card__title">Set One:</h3>
-        <p class="mg-product-card__subtitle">Origins Champion Deck - Viktor</p>
+        <!-- BS: h5 → Playfair (--bs-heading-font-family), card-title → theme stílus -->
+        <h5 class="card-title">Set One:</h5>
+        <!-- BS: card-text fs-5 → 18px body font -->
+        <p class="card-text fs-5">Origins Champion Deck - Viktor</p>
       </div>
 
       <div class="mg-product-card__content">
-        <p class="mg-product-card__price">12 358 Ft</p>
+        <!-- BS: fs-3 fw-bold font-monospace → 24px Playfair bold -->
+        <p class="card-text fs-3 fw-bold font-monospace text-center text-white mb-0">12 358 Ft</p>
         <div class="mg-product-card__rows">
           <div class="mg-product-card__row">
             <span class="mg-product-card__row-icon">
-              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            <span class="mg-product-card__row-label">Üzletben elérhető</span>
-            <span class="mg-product-card__row-value">10+</span>
+            <!-- BS: fs-7 fw-medium text-muted -->
+            <span class="fs-7 fw-medium text-muted flex-grow-1">Üzletben elérhető</span>
+            <!-- BS: fs-7 text-gold -->
+            <span class="fs-7 text-gold">10+</span>
           </div>
           <div class="mg-product-card__row">
             <span class="mg-product-card__row-icon">
-              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              <svg class="text-danger" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
             </span>
-            <span class="mg-product-card__row-label">Klubban nincs</span>
-            <span class="mg-product-card__row-value mg-product-card__row-value--out">0db</span>
+            <span class="fs-7 fw-medium text-muted flex-grow-1">Klubban nincs</span>
+            <!-- BS: text-danger a piros értékhez -->
+            <span class="fs-7 text-danger">0db</span>
           </div>
         </div>
       </div>
@@ -79,7 +85,7 @@
     <!-- preview: width a grid nélküli megjelenítéshez -->
     <div class="card mg-product-card" style="width:260px;">
 
-      <button class="btn btn-outline-secondary rounded-circle position-absolute"  aria-label="Kedvencekhez">
+      <button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">
         <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
       </button>
 
@@ -88,26 +94,26 @@
       </div>
 
       <div class="mg-product-card__info">
-        <h3 class="mg-product-card__title">Twilight Masquerade</h3>
-        <p class="mg-product-card__subtitle">Booster Display Box</p>
+        <h5 class="card-title">Twilight Masquerade</h5>
+        <p class="card-text fs-5">Booster Display Box</p>
       </div>
 
       <div class="mg-product-card__content">
-        <p class="mg-product-card__price">5 490 Ft</p>
+        <p class="card-text fs-3 fw-bold font-monospace text-center text-white mb-0">5 490 Ft</p>
         <div class="mg-product-card__rows">
           <div class="mg-product-card__row">
             <span class="mg-product-card__row-icon">
-              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            <span class="mg-product-card__row-label">Üzletben elérhető</span>
-            <span class="mg-product-card__row-value">25+</span>
+            <span class="fs-7 fw-medium text-muted flex-grow-1">Üzletben elérhető</span>
+            <span class="fs-7 text-gold">25+</span>
           </div>
           <div class="mg-product-card__row">
             <span class="mg-product-card__row-icon">
-              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            <span class="mg-product-card__row-label">Klubban elérhető</span>
-            <span class="mg-product-card__row-value">-10%</span>
+            <span class="fs-7 fw-medium text-muted flex-grow-1">Klubban elérhető</span>
+            <span class="fs-7 text-gold">-10%</span>
           </div>
         </div>
       </div>
@@ -124,9 +130,9 @@
     <!-- preview: width a grid nélküli megjelenítéshez — élesben a CSS grid adja -->
     <div class="card mg-product-card mg-product-card--new mg-product-card--has-category" style="width:260px;">
 
-      <span class="badge badge-octagon position-absolute" >új</span>
+      <span class="badge badge-octagon position-absolute">új</span>
 
-      <button class="btn btn-outline-secondary rounded-circle position-absolute"  aria-label="Kedvencekhez">
+      <button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">
         <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
       </button>
 
@@ -140,26 +146,26 @@
           <span class="mg-product-card__category-text">Előrendelés</span>
           <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>
         </div>
-        <h3 class="mg-product-card__title">Prismatic Evolutions</h3>
-        <p class="mg-product-card__subtitle">Elite Trainer Box</p>
+        <h5 class="card-title">Prismatic Evolutions</h5>
+        <p class="card-text fs-5">Elite Trainer Box</p>
       </div>
 
       <div class="mg-product-card__content">
-        <p class="mg-product-card__price">18 990 Ft</p>
+        <p class="card-text fs-3 fw-bold font-monospace text-center text-white mb-0">18 990 Ft</p>
         <div class="mg-product-card__rows">
           <div class="mg-product-card__row">
             <span class="mg-product-card__row-icon">
-              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            <span class="mg-product-card__row-label">Megjelenés</span>
-            <span class="mg-product-card__row-value">2026.07.15</span>
+            <span class="fs-7 fw-medium text-muted flex-grow-1">Megjelenés</span>
+            <span class="fs-7 text-gold">2026.07.15</span>
           </div>
           <div class="mg-product-card__row">
             <span class="mg-product-card__row-icon">
-              <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            <span class="mg-product-card__row-label">Foglalás</span>
-            <span class="mg-product-card__row-value">3/50</span>
+            <span class="fs-7 fw-medium text-muted flex-grow-1">Foglalás</span>
+            <span class="fs-7 text-gold">3/50</span>
           </div>
         </div>
       </div>
