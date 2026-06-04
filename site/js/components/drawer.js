@@ -288,7 +288,7 @@ function mgBuildCartBody() {
       '<div class="mg-drawer-cart__row">' +
         '<div class="mg-drawer-cart__img">' +
           '<img src="' + item.img + '" alt="' + item.name + '">' +
-          '<span class="badge rounded-pill text-bg-primary position-absolute">' + item.qty + '</span>' +
+          '<span class="badge rounded-pill text-bg-warning position-absolute">' + item.qty + '</span>' +
         '</div>' +
         '<div class="mg-drawer-cart__name">' +
           '<span class="mg-drawer-cart__name-main">' + item.name + '</span>' +
