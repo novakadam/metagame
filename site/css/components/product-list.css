@@ -17,9 +17,9 @@
   flex-direction: column;
 }
 
+/* BS container-fluid kezeli a width: 100%-ot */
 .mg-product-layout {
   display: flex;
-  width: 100%;
   flex: 1;
   min-height: 0;
 }
