@@ -147,6 +147,7 @@
   padding: 0 24px;
 }
 
+.mg-product-card__content h4,
 .mg-product-card__price {
   padding: 18px 4px 24px;
   text-align: center;
