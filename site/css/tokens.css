@@ -34,6 +34,10 @@
   --font-size-3xl:   30px;
   --font-size-4xl:   36px;
 
+  /* ── BS FONT OVERRIDE ──────────────────── */
+  --bs-body-font-family: 'Manrope', system-ui, sans-serif;
+  --bs-heading-font-family: 'Playfair Display', Georgia, serif;
+
   /* ── BORDER RADIUS ────────────────────────── */
   --radius-xs:   2px;
   --radius-sm:   6px;
