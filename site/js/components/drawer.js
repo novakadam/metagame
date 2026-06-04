@@ -290,13 +290,13 @@ function mgBuildCartBody() {
           '<img src="' + item.img + '" alt="' + item.name + '">' +
           '<span class="badge rounded-pill text-bg-warning position-absolute">' + item.qty + '</span>' +
         '</div>' +
-        '<div class="mg-drawer-cart__name">' +
-          '<span class="mg-drawer-cart__name-main">' + item.name + '</span>' +
-          '<span class="mg-drawer-cart__name-sub">' + item.sub + '</span>' +
+        '<div>' +
+          '<span class="d-block fw-medium">' + item.name + '</span>' +
+          '<span class="d-block small text-muted-mg">' + item.sub + '</span>' +
         '</div>' +
       '</div>' +
       '<div class="mg-drawer-cart__price-row">' +
-        '<span class="mg-drawer-cart__price">' + item.price + '</span>' +
+        '<span class="fw-semibold fs-5 text-card">' + item.price + '</span>' +
         '<div class="input-group input-group-sm qty-stepper">' +
           '<button class="btn btn-outline-secondary" data-action="dec" data-idx="' + i + '">−</button>' +
           '<input type="number" class="form-control text-center" value="' + item.qty + '" min="1" readonly>' +
@@ -335,13 +335,13 @@ function mgBuildFavBody() {
         '<div class="mg-drawer-cart__img">' +
           '<img src="' + item.img + '" alt="' + item.name + '">' +
         '</div>' +
-        '<div class="mg-drawer-cart__name">' +
-          '<span class="mg-drawer-cart__name-main">' + item.name + '</span>' +
-          '<span class="mg-drawer-cart__name-sub">' + item.sub + '</span>' +
+        '<div>' +
+          '<span class="d-block fw-medium">' + item.name + '</span>' +
+          '<span class="d-block small text-muted-mg">' + item.sub + '</span>' +
         '</div>' +
       '</div>' +
       '<div class="mg-drawer-cart__price-row">' +
-        '<span class="mg-drawer-cart__price">' + item.price + '</span>' +
+        '<span class="fw-semibold fs-5 text-card">' + item.price + '</span>' +
         '<div class="mg-drawer-fav__actions">' +
           '<a href="product.html" class="btn btn-secondary btn-sm">Megnézem</a>' +
           '<button class="btn mg-btn--icon mg-drawer-fav__remove" aria-label="Eltávolítás">' +
