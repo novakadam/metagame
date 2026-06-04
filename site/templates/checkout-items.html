@@ -20,55 +20,68 @@
 <div class="preview-narrow">
   <p class="template-label">Checkout — rendelési összesítő</p>
 
-  <div class="mg-checkout__items">
-    <div class="mg-checkout__item">
+  <!-- BS: list-group a tételekhez -->
+  <ul class="list-group list-group-flush">
+
+    <li class="list-group-item d-flex gap-3 py-3 px-0">
+      <!-- CUSTOM: gradient háttér a termékkép mögé -->
       <div class="mg-checkout__item-img">
         <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Riftbound Deck">
-        <span class="mg-checkout__item-stock">Még 3 db</span>
+        <!-- BS: badge -->
+        <span class="badge text-bg-warning position-absolute top-0 start-0 m-1" style="font-size:10px;">Még 3 db</span>
       </div>
-      <div class="mg-checkout__item-info">
+      <div class="d-flex flex-column flex-grow-1 justify-content-between py-1" style="min-width:0;">
         <div>
-          <div class="mg-checkout__item-name">Riftbound Deck</div>
-          <div class="mg-checkout__item-sub">Origins Champion Deck</div>
+          <!-- BS: fw-medium, small, text-truncate -->
+          <div class="fw-medium small text-truncate">Riftbound Deck</div>
+          <div class="small text-muted-mg text-truncate">Origins Champion Deck</div>
         </div>
-        <div class="mg-checkout__item-bottom">
+        <div class="d-flex align-items-center justify-content-between">
+          <!-- BS: input-group qty stepper -->
           <div class="input-group input-group-sm qty-stepper">
             <button class="btn btn-outline-secondary" type="button" disabled>−</button>
             <input type="number" class="form-control text-center" value="1" min="1">
             <button class="btn btn-outline-secondary" type="button">+</button>
           </div>
-          <span class="mg-checkout__item-price">12 358 Ft</span>
+          <span class="fw-semibold text-gold" style="font-variant-numeric:tabular-nums;">12 358 Ft</span>
         </div>
       </div>
-    </div>
-    <div class="mg-checkout__item">
+    </li>
+
+    <li class="list-group-item d-flex gap-3 py-3 px-0">
       <div class="mg-checkout__item-img">
         <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Riftbound Booster">
       </div>
-      <div class="mg-checkout__item-info">
+      <div class="d-flex flex-column flex-grow-1 justify-content-between py-1" style="min-width:0;">
         <div>
-          <div class="mg-checkout__item-name">Riftbound Booster</div>
-          <div class="mg-checkout__item-sub">Origins Booster Display (24 pack)</div>
+          <div class="fw-medium small text-truncate">Riftbound Booster</div>
+          <div class="small text-muted-mg text-truncate">Origins Booster Display (24 pack)</div>
         </div>
-        <div class="mg-checkout__item-bottom">
+        <div class="d-flex align-items-center justify-content-between">
           <div class="input-group input-group-sm qty-stepper">
             <button class="btn btn-outline-secondary" type="button">−</button>
             <input type="number" class="form-control text-center" value="2" min="1">
             <button class="btn btn-outline-secondary" type="button">+</button>
           </div>
-          <span class="mg-checkout__item-price">25 600 Ft</span>
+          <span class="fw-semibold text-gold" style="font-variant-numeric:tabular-nums;">25 600 Ft</span>
         </div>
       </div>
-    </div>
-  </div>
+    </li>
 
-  <div class="mg-checkout__totals mt-4">
-    <div class="mg-checkout__totals-row"><span>Részösszeg</span><span>37 958 Ft</span></div>
-    <div class="mg-checkout__totals-row"><span>Szállítás</span><span class="mg-checkout__totals-free">Ingyenes</span></div>
-    <div class="mg-checkout__totals-divider"></div>
-    <div class="mg-checkout__totals-final">
-      <span class="mg-checkout__totals-final-label">Végösszeg</span>
-      <span class="mg-checkout__totals-final-amount">37 958 Ft</span>
+  </ul>
+
+  <!-- Összesítő — BS: d-flex, justify-content-between, hr -->
+  <div class="p-4 mt-3" style="background:var(--color-bg-muted);">
+    <div class="d-flex justify-content-between small text-muted-mg mb-3">
+      <span>Részösszeg</span><span class="text-card">37 958 Ft</span>
+    </div>
+    <div class="d-flex justify-content-between small text-muted-mg mb-3">
+      <span>Szállítás</span><span class="text-success">Ingyenes</span>
+    </div>
+    <hr class="my-3" style="opacity:0.3;">
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="small text-muted-mg">Végösszeg</span>
+      <span class="fw-bold text-gold" style="font-size:var(--font-size-3xl);font-variant-numeric:tabular-nums;">37 958 Ft</span>
     </div>
   </div>
 </div>

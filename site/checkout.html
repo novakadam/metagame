@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components/buttons.css">
   <link rel="stylesheet" href="css/components/forms.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
   <link rel="stylesheet" href="css/components/checkout.css">
 </head>
 <body>
@@ -362,9 +363,9 @@
         </div>
 
         <!-- BACKEND: cart.items – JS tölti rendereléskor -->
-        <div class="mg-checkout__items"></div>
+        <ul class="list-group list-group-flush mg-checkout__items"></ul>
 
-        <div class="mg-checkout__totals"></div>
+        <div class="mg-checkout__totals p-4 mt-3" style="background:var(--color-bg-muted);"></div>
 
         <div class="mg-checkout__cta">
           <!-- BACKEND: fizetési gateway redirect -->

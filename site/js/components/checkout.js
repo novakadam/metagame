@@ -27,29 +27,29 @@ function mgRenderSummaryItems() {
   var html = '';
   mgCheckoutState.items.forEach(function (it, i) {
     var stockBadge = it.stock <= 5
-      ? '<span class="mg-checkout__item-stock">Még ' + it.stock + ' db</span>'
+      ? '<span class="badge text-bg-warning position-absolute top-0 start-0 m-1" style="font-size:10px;">Még ' + it.stock + ' db</span>'
       : '';
 
-    html += '<div class="mg-checkout__item">' +
+    html += '<li class="list-group-item d-flex gap-3 py-3 px-0">' +
       '<div class="mg-checkout__item-img">' +
         '<img src="' + it.img + '" alt="' + it.name + '">' +
         stockBadge +
       '</div>' +
-      '<div class="mg-checkout__item-info">' +
+      '<div class="d-flex flex-column flex-grow-1 justify-content-between py-1" style="min-width:0;">' +
         '<div>' +
-          '<div class="mg-checkout__item-name">' + it.name + '</div>' +
-          '<div class="mg-checkout__item-sub">' + it.sub + '</div>' +
+          '<div class="fw-medium small text-truncate">' + it.name + '</div>' +
+          '<div class="small text-muted-mg text-truncate">' + it.sub + '</div>' +
         '</div>' +
-        '<div class="mg-checkout__item-bottom">' +
-          '<div class="mg-checkout__qty">' +
-            '<button class="mg-checkout__qty-btn" data-action="dec" data-idx="' + i + '"' + (it.qty <= 1 ? ' disabled' : '') + '>−</button>' +
-            '<span class="mg-checkout__qty-val">' + it.qty + '</span>' +
-            '<button class="mg-checkout__qty-btn" data-action="inc" data-idx="' + i + '"' + (it.qty >= it.stock ? ' disabled' : '') + '>+</button>' +
+        '<div class="d-flex align-items-center justify-content-between">' +
+          '<div class="input-group input-group-sm qty-stepper">' +
+            '<button class="btn btn-outline-secondary" data-action="dec" data-idx="' + i + '"' + (it.qty <= 1 ? ' disabled' : '') + '>−</button>' +
+            '<input type="number" class="form-control text-center" value="' + it.qty + '" min="1" readonly>' +
+            '<button class="btn btn-outline-secondary" data-action="inc" data-idx="' + i + '"' + (it.qty >= it.stock ? ' disabled' : '') + '>+</button>' +
           '</div>' +
-          '<span class="mg-checkout__item-price">' + mgFormatPrice(it.price * it.qty) + '</span>' +
+          '<span class="fw-semibold text-gold" style="font-variant-numeric:tabular-nums;">' + mgFormatPrice(it.price * it.qty) + '</span>' +
         '</div>' +
       '</div>' +
-    '</div>';
+    '</li>';
   });
   return html;
 }
@@ -57,15 +57,15 @@ function mgRenderSummaryItems() {
 function mgRenderSummaryTotals() {
   var c = mgCheckoutCalc();
   var shipText = c.shipping === 0
-    ? '<span class="mg-checkout__totals-free">Ingyenes</span>'
+    ? '<span class="text-success">Ingyenes</span>'
     : '<span>' + mgFormatPrice(c.shipping) + '</span>';
 
-  return '<div class="mg-checkout__totals-row"><span>Részösszeg</span><span>' + mgFormatPrice(c.subtotal) + '</span></div>' +
-    '<div class="mg-checkout__totals-row"><span>Szállítás</span>' + shipText + '</div>' +
-    '<div class="mg-checkout__totals-divider"></div>' +
-    '<div class="mg-checkout__totals-final">' +
-      '<span class="mg-checkout__totals-final-label">Végösszeg</span>' +
-      '<span class="mg-checkout__totals-final-amount">' + mgFormatPrice(c.total) + '</span>' +
+  return '<div class="d-flex justify-content-between small text-muted-mg mb-3"><span>Részösszeg</span><span class="text-card">' + mgFormatPrice(c.subtotal) + '</span></div>' +
+    '<div class="d-flex justify-content-between small text-muted-mg mb-3"><span>Szállítás</span>' + shipText + '</div>' +
+    '<hr class="my-3" style="opacity:0.3;">' +
+    '<div class="d-flex align-items-center justify-content-between">' +
+      '<span class="small text-muted-mg">Végösszeg</span>' +
+      '<span class="fw-bold text-gold" style="font-size:var(--font-size-3xl);font-variant-numeric:tabular-nums;">' + mgFormatPrice(c.total) + '</span>' +
     '</div>';
 }
 
@@ -82,7 +82,7 @@ function mgInitCheckout() {
   mgRefreshSummary();
 
   /* Mennyiség léptető */
-  $(document).on('click', '.mg-checkout__qty-btn', function () {
+  $(document).on('click', '.mg-checkout__items .btn', function () {
     var $btn = $(this);
     var idx  = $btn.data('idx');
     var act  = $btn.data('action');
