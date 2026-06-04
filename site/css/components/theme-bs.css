@@ -24,6 +24,13 @@
    fs-7: nincs BS-ben  → 12px (custom)
 */
 
+/* Headings → Playfair Display (BS CDN nem alkalmazza --bs-heading-font-family-t) */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: var(--font-display);
+}
+
 .fs-1 { font-size: var(--font-size-4xl) !important; }
 .fs-2 { font-size: var(--font-size-3xl) !important; }
 .fs-3 { font-size: var(--font-size-2xl) !important; }
