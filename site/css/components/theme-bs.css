@@ -44,6 +44,45 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ═══════════════════════════════════════════════════════════
+   NAV TABS & PILLS
+   ═══════════════════════════════════════════════════════════ */
+
+.nav-tabs {
+  --bs-nav-tabs-border-color: var(--color-gold);
+  --bs-nav-tabs-link-active-bg: var(--color-bg);
+  --bs-nav-tabs-link-active-color: var(--color-gold);
+  --bs-nav-tabs-link-active-border-color: var(--color-gold) var(--color-gold) var(--color-bg);
+  --bs-nav-tabs-link-hover-border-color: var(--color-gold) var(--color-gold) var(--color-gold);
+}
+
+.nav-tabs .nav-link {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--color-text);
+}
+
+.nav-pills {
+  --bs-nav-pills-link-active-bg: var(--color-gold);
+  --bs-nav-pills-link-active-color: var(--color-bg);
+}
+
+.nav-pills .nav-link {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.nav-pills .nav-link:hover {
+  color: var(--color-text);
+}
+
+/* ═══════════════════════════════════════════════════════════
    BREADCRUMB
    ═══════════════════════════════════════════════════════════ */
 
