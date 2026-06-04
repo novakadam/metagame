@@ -169,47 +169,33 @@ function mgCreateDemoCard() {
   return $(
     '<div class="card mg-product-card mg-product-card--new mg-product-card--has-category">' +
 
-      '<div class="mg-badge-new">' +
-        '<span class="mg-badge-new__text">új</span>' +
-      '</div>' +
-      '<button class="mg-badge-fav" aria-label="Kedvencekhez">' +
-        '<span class="mg-badge-fav__inner">' +
-          '<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>' +
-        '</span>' +
+      '<span class="badge badge-octagon position-absolute" style="top:-8px;left:-8px;z-index:3;">új</span>' +
+      '<button class="btn btn-outline-secondary rounded-circle position-absolute top-0 end-0" style="margin:-8px -8px 0 0;z-index:3;width:36px;height:36px;padding:0;" aria-label="Kedvencekhez">' +
+        '<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>' +
       '</button>' +
 
-      '<div class="mg-product-card__image">' +
-        '<img src="' + images[idx] + '" alt="' + titles[idx] + '">' +
+      '<img class="card-img-top" src="' + images[idx] + '" alt="' + titles[idx] + '">' +
+
+      '<div class="card-body text-center position-relative border-bottom" style="border-color:var(--color-gold)!important;padding:28px 28px 24px;">' +
+        '<span class="badge badge-ribbon">Ajánlott</span>' +
+        '<h3 class="card-title mb-2">' + titles[idx] + '</h3>' +
+        '<p class="card-subtitle mb-0">' + subtitles[idx] + '</p>' +
       '</div>' +
 
-      '<div class="mg-product-card__info">' +
-        '<div class="mg-product-card__category">' +
-          '<svg class="mg-product-card__category-arrow mg-product-card__category-arrow--left" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="12,0 12,24 0,12"/></svg>' +
-          '<span class="mg-product-card__category-text">Ajánlott</span>' +
-          '<svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>' +
-        '</div>' +
-        '<h3 class="mg-product-card__title">' + titles[idx] + '</h3>' +
-        '<p class="mg-product-card__subtitle">' + subtitles[idx] + '</p>' +
-      '</div>' +
-
-      '<div class="mg-product-card__content">' +
-        '<p class="mg-product-card__price">' + prices[idx] + '</p>' +
-        '<div class="mg-product-card__rows">' +
-          '<div class="mg-product-card__row">' +
-            '<span class="mg-product-card__row-icon">' +
-              '<svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-            '</span>' +
-            '<span class="mg-product-card__row-label">Üzletben elérhető</span>' +
-            '<span class="mg-product-card__row-value">10+</span>' +
-          '</div>' +
-          '<div class="mg-product-card__row">' +
-            '<span class="mg-product-card__row-icon">' +
-              '<svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' +
-            '</span>' +
-            '<span class="mg-product-card__row-label">Klubban nincs</span>' +
-            '<span class="mg-product-card__row-value mg-product-card__row-value--out">0db</span>' +
-          '</div>' +
-        '</div>' +
+      '<div class="card-body px-4 py-0">' +
+        '<p class="card-text price mb-0">' + prices[idx] + '</p>' +
+        '<ul class="list-group list-group-flush">' +
+          '<li class="list-group-item d-flex align-items-center gap-2 px-1">' +
+            '<svg class="icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '<span class="flex-grow-1">Üzletben elérhető</span>' +
+            '<span class="value">10+</span>' +
+          '</li>' +
+          '<li class="list-group-item d-flex align-items-center gap-2 px-1">' +
+            '<svg class="icon" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' +
+            '<span class="flex-grow-1">Klubban nincs</span>' +
+            '<span class="value out">0db</span>' +
+          '</li>' +
+        '</ul>' +
       '</div>' +
 
       '<div class="mg-product-card__cta">' +

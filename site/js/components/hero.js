@@ -80,24 +80,24 @@ function mgInitHero() {
     var it = items()[idx];
     if (!it) { $ajanlo.empty(); return; }
 
-    var checkSvg = '<svg class="mg-ajanlo__row-icon" viewBox="0 0 16 16" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg>';
-    var xSvg = '<svg class="mg-ajanlo__row-icon" viewBox="0 0 16 16" fill="none" stroke="#FF4400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>';
+    var checkSvg = '<svg class="icon" viewBox="0 0 16 16" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.5 3.5L13 5"/></svg>';
+    var xSvg = '<svg class="icon" viewBox="0 0 16 16" fill="none" stroke="#FF4400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>';
 
     var rows = '';
     for (var i = 0; i < it.rows.length; i++) {
       var r = it.rows[i];
       var icon = (r.value === '0 db' || r.value === '0db') ? xSvg : checkSvg;
-      rows += '<div class="mg-ajanlo__row">' +
-        '<span class="mg-ajanlo__row-label">' + icon + r.label + '</span>' +
-        '<span class="mg-ajanlo__row-value">' + r.value + '</span></div>';
+      rows += '<li class="list-group-item d-flex align-items-center justify-content-between">' +
+        '<span class="d-flex align-items-center gap-1">' + icon + r.label + '</span>' +
+        '<span class="fw-semibold" style="color:var(--color-text)">' + r.value + '</span></li>';
     }
 
     var heartSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 
     var newBadge = it.isNew
-      ? '<span class="mg-badge-new"><span class="mg-badge-new__text">új</span></span>'
+      ? '<span class="badge badge-octagon position-absolute" style="top:-22px;left:-22px;z-index:3;">új</span>'
       : '';
-    var favBtn = '<button class="mg-badge-fav" aria-label="Kedvenc"><span class="mg-badge-fav__inner">' + heartSvg + '</span></button>';
+    var favBtn = '<button class="btn btn-outline-secondary rounded-circle position-absolute" style="top:-18px;right:-18px;z-index:3;width:36px;height:36px;padding:0;" aria-label="Kedvenc">' + heartSvg + '</button>';
 
     $ajanlo.html(
       '<div class="mg-ajanlo mg-ajanlo--' + it.type + '">' +
@@ -108,13 +108,13 @@ function mgInitHero() {
             '<img src="' + it.image + '" alt="' + it.title + '">' +
           '</div>' +
           '<div class="mg-ajanlo__info">' +
-            '<span class="mg-ajanlo__badge">' + it.badge + '</span>' +
+            '<span class="badge badge-ribbon-gold">' + it.badge + '</span>' +
             '<h3 class="mg-ajanlo__title">' + it.title + '</h3>' +
             '<p class="mg-ajanlo__subtitle">' + (it.type === 'event' ? 'Következő esemény' : 'Kiemelt termék') + '</p>' +
           '</div>' +
           '<div class="mg-ajanlo__details">' +
             '<div class="mg-ajanlo__highlight">' + it.highlight + '</div>' +
-            '<div class="mg-ajanlo__rows">' + rows + '</div>' +
+            '<ul class="list-group list-group-flush">' + rows + '</ul>' +
           '</div>' +
         '</div>' +
         '<div class="mg-ajanlo__action">' +
