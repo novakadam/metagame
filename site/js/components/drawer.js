@@ -12,8 +12,8 @@ var mgDrawerContents = {
           '<div class="mg-drawer-profile__avatar">' +
             '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="18" r="10"/><path d="M6 44c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke-linecap="round"/></svg>' +
           '</div>' +
-          '<h3 class="mg-drawer-profile__heading">Üdvözlünk a Metagame-ben!</h3>' +
-          '<p class="mg-drawer-profile__sub">Jelentkezz be, hogy hozzáférj kedvenceidhez, rendeléseidhez és exkluzív ajánlatainkhoz.</p>' +
+          '<h5 class="fw-semibold text-card mb-0">Üdvözlünk a Metagame-ben!</h5>' +
+          '<p class="small text-muted mb-0">Jelentkezz be, hogy hozzáférj kedvenceidhez, rendeléseidhez és exkluzív ajánlatainkhoz.</p>' +
         '</div>' +
 
         '<div class="mg-drawer-profile__social">' +
@@ -54,23 +54,23 @@ var mgDrawerContents = {
         '<div class="mg-drawer-profile__user">' +
           '<div class="mg-drawer-profile__user-avatar">ÁN</div>' +
           '<div class="mg-drawer-profile__user-info">' +
-            '<span class="mg-drawer-profile__user-name">Novák Ádám</span>' +
-            '<span class="mg-drawer-profile__user-email">novak.adam@metagame.hu</span>' +
+            '<span class="d-block fw-semibold text-card">Novák Ádám</span>' +
+            '<span class="d-block small text-muted">novak.adam@metagame.hu</span>' +
           '</div>' +
         '</div>' +
 
         '<div class="mg-drawer-profile__stats">' +
           '<div class="mg-drawer-profile__stat">' +
-            '<span class="mg-drawer-profile__stat-value">12</span>' +
-            '<span class="mg-drawer-profile__stat-label">Rendelés</span>' +
+            '<span class="fs-4 fw-bold text-gold">12</span>' +
+            '<span class="fs-7 text-uppercase text-muted">Rendelés</span>' +
           '</div>' +
           '<div class="mg-drawer-profile__stat">' +
-            '<span class="mg-drawer-profile__stat-value">5</span>' +
-            '<span class="mg-drawer-profile__stat-label">Kedvenc</span>' +
+            '<span class="fs-4 fw-bold text-gold">5</span>' +
+            '<span class="fs-7 text-uppercase text-muted">Kedvenc</span>' +
           '</div>' +
           '<div class="mg-drawer-profile__stat">' +
-            '<span class="mg-drawer-profile__stat-value">2 340</span>' +
-            '<span class="mg-drawer-profile__stat-label">Pont</span>' +
+            '<span class="fs-4 fw-bold text-gold">2 340</span>' +
+            '<span class="fs-7 text-uppercase text-muted">Pont</span>' +
           '</div>' +
         '</div>' +
 
@@ -146,7 +146,7 @@ var mgDrawerContents = {
 
         '<div class="mg-drawer-location__card">' +
           '<div class="mg-drawer-location__badge">Bolt</div>' +
-          '<h4 class="mg-drawer-location__name">Metagame Store</h4>' +
+          '<h4 class="h6 fw-semibold mb-0">Metagame Store</h4>' +
           '<div class="mg-drawer-location__row">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg>' +
             '<span>1132 Budapest, Kádár utca 10.</span>' +
@@ -171,7 +171,7 @@ var mgDrawerContents = {
 
         '<div class="mg-drawer-location__card">' +
           '<div class="mg-drawer-location__badge mg-drawer-location__badge--club">Klub</div>' +
-          '<h4 class="mg-drawer-location__name">Metagame Klub</h4>' +
+          '<h4 class="h6 fw-semibold mb-0">Metagame Klub</h4>' +
           '<div class="mg-drawer-location__row">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg>' +
             '<span>1132 Budapest, Kresz Géza utca 36.</span>' +
@@ -209,29 +209,29 @@ var mgDrawerContents = {
             '<div class="mg-drawer-contact__channel-icon">' +
               '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg>' +
             '</div>' +
-            '<span class="mg-drawer-contact__channel-label">Telefon</span>' +
-            '<span class="mg-drawer-contact__channel-value">+36 1 794 4116</span>' +
+            '<span class="flex-grow-1 fw-medium small text-card">Telefon</span>' +
+            '<span class="small text-muted">+36 1 794 4116</span>' +
           '</a>' +
           '<a class="mg-drawer-contact__channel" href="mailto:info@metagames.hu">' +
             '<div class="mg-drawer-contact__channel-icon">' +
               '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg>' +
             '</div>' +
-            '<span class="mg-drawer-contact__channel-label">E-mail</span>' +
-            '<span class="mg-drawer-contact__channel-value">info@metagames.hu</span>' +
+            '<span class="flex-grow-1 fw-medium small text-card">E-mail</span>' +
+            '<span class="small text-muted">info@metagames.hu</span>' +
           '</a>' +
           '<a class="mg-drawer-contact__channel" href="https://www.facebook.com/metagames.hu" target="_blank">' +
             '<div class="mg-drawer-contact__channel-icon">' +
               '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.49 0-1.956.93-1.956 1.886v2.283h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>' +
             '</div>' +
-            '<span class="mg-drawer-contact__channel-label">Facebook</span>' +
-            '<span class="mg-drawer-contact__channel-value">metagames.hu</span>' +
+            '<span class="flex-grow-1 fw-medium small text-card">Facebook</span>' +
+            '<span class="small text-muted">metagames.hu</span>' +
           '</a>' +
           '<a class="mg-drawer-contact__channel" href="https://www.instagram.com/metagames.hu" target="_blank">' +
             '<div class="mg-drawer-contact__channel-icon">' +
               '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>' +
             '</div>' +
-            '<span class="mg-drawer-contact__channel-label">Instagram</span>' +
-            '<span class="mg-drawer-contact__channel-value">@metagames.hu</span>' +
+            '<span class="flex-grow-1 fw-medium small text-card">Instagram</span>' +
+            '<span class="small text-muted">@metagames.hu</span>' +
           '</a>' +
         '</div>' +
 

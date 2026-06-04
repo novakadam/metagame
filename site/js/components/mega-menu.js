@@ -85,8 +85,8 @@ function mgInitMegaMenu() {
         html += '<img class="mg-megamenu__brand-logo" src="' + b.logo + '" alt="' + b.name + '">';
       }
 
-      html += '<span class="mg-megamenu__brand-name">' + b.name + '</span>';
-      html += '<span class="mg-megamenu__brand-arrow">' + chevronSvg(20) + '</span>';
+      html += '<span class="flex-grow-1">' + b.name + '</span>';
+      html += ' + '<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>';
       html += '</div>';
     });
 
@@ -110,7 +110,7 @@ function mgInitMegaMenu() {
   function buildSubcats(data, brandName) {
     var subs = (data.subcategories && data.subcategories[brandName]) || [];
     var html = '<div class="mg-megamenu__subcats">';
-    html += '<h3 class="mg-megamenu__subcats-title">ALKATEGÓRIÁK</h3>';
+    html += '<h6 class="fw-bold text-uppercase mb-4">Alkategóriák</h6>';
     html += '<div class="mg-megamenu__subcats-list">';
     subs.forEach(function (s) {
       html += '<a href="#">' + s + '</a>';
@@ -122,16 +122,16 @@ function mgInitMegaMenu() {
   function buildPopular(data) {
     var items = data.popular || [];
     var html = '<div class="mg-megamenu__popular">';
-    html += '<h3 class="mg-megamenu__popular-title">LEGNÉPSZERŰBB</h3>';
+    html += '<h6 class="fw-bold text-uppercase mb-4">Legnépszerűbb</h6>';
     items.forEach(function (p) {
       var imgHtml = p.img
         ? '<img src="' + p.img + '" alt="' + p.name + '">'
         : '<div style="width:60px;height:60px;background:var(--color-bg-muted);border-radius:4px;"></div>';
       html += '<a class="mg-megamenu__product-card" href="#">' +
         '<div class="mg-megamenu__product-img">' + imgHtml + '</div>' +
-        '<div class="mg-megamenu__product-info">' +
-        '<span class="mg-megamenu__product-name">' + p.name + '</span>' +
-        '<span class="mg-megamenu__product-price">' + p.price + '</span>' +
+        '<div>' +
+        '<span class="d-block">' + p.name + '</span>' +
+        '<span class="d-block fs-5 fw-semibold">' + p.price + '</span>' +
         '</div></a>';
     });
     html += '</div>';

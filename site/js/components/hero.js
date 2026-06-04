@@ -69,8 +69,8 @@ function mgInitHero() {
         '<img src="' + it.image + '" alt="' + it.title + '">' +
       '</div>' +
       '<div class="mg-hero-card__body">' +
-        '<p class="mg-hero-card__title">' + it.title + '</p>' +
-        '<p class="mg-hero-card__meta">' + it.meta + '</p>' +
+        '<p class="small fw-semibold text-truncate mb-1">' + it.title + '</p>' +
+        '<p class="fs-7 text-gold mb-0">' + it.meta + '</p>' +
       '</div></div>';
   }
 
@@ -109,8 +109,8 @@ function mgInitHero() {
           '</div>' +
           '<div class="mg-ajanlo__info">' +
             '<span class="badge badge-ribbon text-bg-primary">' + it.badge + '</span>' +
-            '<h3 class="mg-ajanlo__title">' + it.title + '</h3>' +
-            '<p class="mg-ajanlo__subtitle">' + (it.type === 'event' ? 'Következő esemény' : 'Kiemelt termék') + '</p>' +
+            '<h5 class="fw-bold mb-1">' + it.title + '</h3>' +
+            '<p class="small text-muted mb-0">' + (it.type === 'event' ? 'Következő esemény' : 'Kiemelt termék') + '</p>' +
           '</div>' +
           '<div class="mg-ajanlo__details">' +
             '<div class="mg-ajanlo__highlight">' + it.highlight + '</div>' +

@@ -184,26 +184,26 @@ function mgCreateDemoCard() {
           '<span class="mg-product-card__category-text">Ajánlott</span>' +
           '<svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>' +
         '</div>' +
-        '<h3 class="mg-product-card__title">' + titles[idx] + '</h3>' +
-        '<p class="mg-product-card__subtitle">' + subtitles[idx] + '</p>' +
+        '<h3>' + titles[idx] + '</h3>' +
+        '<p class="fs-5 text-card">' + subtitles[idx] + '</p>' +
       '</div>' +
 
       '<div class="mg-product-card__content">' +
-        '<p class="mg-product-card__price">' + prices[idx] + '</p>' +
+        '<h4 class="fw-bold text-center text-white mb-0">' + prices[idx] + '</h4>' +
         '<div class="mg-product-card__rows">' +
           '<div class="mg-product-card__row">' +
             '<span class="mg-product-card__row-icon">' +
               '<svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</span>' +
-            '<span class="mg-product-card__row-label">Üzletben elérhető</span>' +
-            '<span class="mg-product-card__row-value">10+</span>' +
+            '<span class="fs-7 fw-medium text-muted flex-grow-1">Üzletben elérhető</span>' +
+            '<span class="fs-7 text-gold">10+</span>' +
           '</div>' +
           '<div class="mg-product-card__row">' +
             '<span class="mg-product-card__row-icon">' +
               '<svg class="text-danger" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' +
             '</span>' +
-            '<span class="mg-product-card__row-label">Klubban nincs</span>' +
-            '<span class="mg-product-card__row-value mg-product-card__row-value--out">0db</span>' +
+            '<span class="fs-7 fw-medium text-muted flex-grow-1">Klubban nincs</span>' +
+            '<span class="fs-7 text-danger">0db</span>' +
           '</div>' +
         '</div>' +
       '</div>' +

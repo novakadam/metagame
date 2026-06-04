@@ -68,12 +68,12 @@ function mgInitTestimonials() {
         '<div class="mg-testimonial-card__header">' +
           '<div class="mg-testimonial-card__avatar">' + avatarSvg() + '</div>' +
           '<div class="mg-testimonial-card__info">' +
-            '<p class="mg-testimonial-card__name">' + t.name + '</p>' +
-            '<p class="mg-testimonial-card__role">' + t.role + '</p>' +
+            '<p class="fw-medium mb-0">' + t.name + '</p>' +
+            '<p class="small text-muted mb-0">' + t.role + '</p>' +
           '</div>' +
         '</div>' +
         '<div class="mg-testimonial-card__stars">' + starsSvg(t.stars) + '</div>' +
-        '<p class="mg-testimonial-card__quote">' + t.quote + '</p>' +
+        '<p class="text-muted mb-0">' + t.quote + '</p>' +
       '</div>';
     }
     $strip.html(h);
