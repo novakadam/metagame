@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template: Product Card (BS-first)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body class="preview-row">
+
+  <!-- ════════════════════════════════════════════════════════
+       BS-FIRST product card. A mg-product-card.css NINCS linkelve!
+       Csak BS utility + tokens + buttons.css (badge/octagon/ribbon).
+       Indokolt custom maradék (kommentezve):
+         • kép gradient háttér → .bg-product-card-img (theme-bs.css)
+         • octagon + kedvenc gomb pixel-pozíció → inline (negatív offset)
+       ════════════════════════════════════════════════════════ -->
+
+  <!-- ── 1. TELJES (új + kategória) ── -->
+  <div>
+    <p class="template-label">Product card — teljes</p>
+    <!-- preview: width — élesben a grid col adja -->
+    <div class="d-flex flex-column position-relative pb-4 border border-gold rounded" style="width:260px">
+
+      <!-- "Új" oktogon — BS badge-octagon, pixel-pozíció inline -->
+      <!-- BACKEND: product.is_new -->
+      <span class="badge badge-octagon position-absolute" style="top:-8px;left:-8px;z-index:3">új</span>
+
+      <!-- Kedvenc gomb — BS ikon gomb, pixel-pozíció inline -->
+      <button class="btn btn-outline-secondary rounded-circle position-absolute" style="top:-8px;right:-8px;z-index:3;width:36px;height:36px;padding:0" aria-label="Kedvencekhez">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+
+      <!-- Kép zóna — ratio 1:1 + gradient háttér -->
+      <!-- BACKEND: product.image -->
+      <div class="ratio ratio-1x1 rounded-top overflow-hidden bg-product-card-img">
+        <div class="d-flex align-items-center justify-content-center p-3">
+          <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Set One: Origins" class="w-100 h-100 object-fit-contain">
+        </div>
+      </div>
+
+      <!-- Info zóna — kategória ribbon + cím + alcím -->
+      <div class="position-relative text-center px-4 pt-4 pb-3 border-bottom border-gold">
+        <!-- Kategória — meglévő BS badge-ribbon (buttons.css) -->
+        <!-- BACKEND: product.category -->
+        <span class="badge badge-ribbon position-absolute top-0 start-50 translate-middle">Ajánlott</span>
+        <!-- BACKEND: product.title — h4 → Playfair, text-card -->
+        <h4 class="text-card mb-2">Set One:</h4>
+        <!-- BACKEND: product.subtitle -->
+        <p class="fs-5 text-card mb-0">Origins Champion Deck - Viktor</p>
+      </div>
+
+      <!-- Ár — Playfair bold, alsó arany vonal -->
+      <!-- BACKEND: product.price -->
+      <h4 class="fw-bold text-center text-white py-3 mb-0 border-bottom border-gold">12 358 Ft</h4>
+
+      <!-- Elérhetőségi sorok -->
+      <div class="d-flex flex-column px-3 pt-2">
+        <!-- BACKEND: availability foreach -->
+        <div class="d-flex align-items-center gap-1" style="height:36px">
+          <svg width="18" height="18" class="text-success flex-shrink-0" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="fs-7 fw-medium text-muted flex-grow-1 ps-1">Üzletben elérhető</span>
+          <span class="fs-7 text-gold">10+</span>
+        </div>
+        <div class="d-flex align-items-center gap-1 border-top" style="height:36px;border-color:var(--color-bg-muted)!important">
+          <svg width="18" height="18" class="text-danger flex-shrink-0" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <span class="fs-7 fw-medium text-muted flex-grow-1 ps-1">Klubban nincs</span>
+          <span class="fs-7 text-danger">0db</span>
+        </div>
+      </div>
+
+      <!-- CTA — félig lelógó, tiszta BS position utility -->
+      <!-- BACKEND: add_to_cart -->
+      <a class="btn btn-primary position-absolute top-100 start-50 translate-middle" href="product.html">Kosárba</a>
+    </div>
+  </div>
+
+  <!-- ── 2. MINIMÁL (badge/kategória nélkül) ── -->
+  <div>
+    <p class="template-label">Product card — minimál</p>
+    <div class="d-flex flex-column position-relative pb-4 border border-gold rounded" style="width:260px">
+
+      <button class="btn btn-outline-secondary rounded-circle position-absolute" style="top:-8px;right:-8px;z-index:3;width:36px;height:36px;padding:0" aria-label="Kedvencekhez">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+
+      <div class="ratio ratio-1x1 rounded-top overflow-hidden bg-product-card-img">
+        <div class="d-flex align-items-center justify-content-center p-3">
+          <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Twilight Masquerade" class="w-100 h-100 object-fit-contain">
+        </div>
+      </div>
+
+      <div class="text-center px-4 pt-3 pb-3 border-bottom border-gold">
+        <h4 class="text-card mb-2">Twilight Masquerade</h4>
+        <p class="fs-5 text-card mb-0">Booster Display Box</p>
+      </div>
+
+      <h4 class="fw-bold text-center text-white py-3 mb-0 border-bottom border-gold">5 490 Ft</h4>
+
+      <div class="d-flex flex-column px-3 pt-2">
+        <div class="d-flex align-items-center gap-1" style="height:36px">
+          <svg width="18" height="18" class="text-success flex-shrink-0" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="fs-7 fw-medium text-muted flex-grow-1 ps-1">Üzletben elérhető</span>
+          <span class="fs-7 text-gold">25+</span>
+        </div>
+        <div class="d-flex align-items-center gap-1 border-top" style="height:36px;border-color:var(--color-bg-muted)!important">
+          <svg width="18" height="18" class="text-success flex-shrink-0" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="fs-7 fw-medium text-muted flex-grow-1 ps-1">Klubban elérhető</span>
+          <span class="fs-7 text-gold">-10%</span>
+        </div>
+      </div>
+
+      <a class="btn btn-primary position-absolute top-100 start-50 translate-middle" href="product.html">Kosárba</a>
+    </div>
+  </div>
+
+  <!-- ── 3. ELŐRENDELÉS (új + kategória) ── -->
+  <div>
+    <p class="template-label">Product card — előrendelés</p>
+    <div class="d-flex flex-column position-relative pb-4 border border-gold rounded" style="width:260px">
+
+      <span class="badge badge-octagon position-absolute" style="top:-8px;left:-8px;z-index:3">új</span>
+
+      <button class="btn btn-outline-secondary rounded-circle position-absolute" style="top:-8px;right:-8px;z-index:3;width:36px;height:36px;padding:0" aria-label="Kedvencekhez">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+
+      <div class="ratio ratio-1x1 rounded-top overflow-hidden bg-product-card-img">
+        <div class="d-flex align-items-center justify-content-center p-3">
+          <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Prismatic Evolutions" class="w-100 h-100 object-fit-contain">
+        </div>
+      </div>
+
+      <div class="position-relative text-center px-4 pt-4 pb-3 border-bottom border-gold">
+        <span class="badge badge-ribbon position-absolute top-0 start-50 translate-middle">Előrendelés</span>
+        <h4 class="text-card mb-2">Prismatic Evolutions</h4>
+        <p class="fs-5 text-card mb-0">Elite Trainer Box</p>
+      </div>
+
+      <h4 class="fw-bold text-center text-white py-3 mb-0 border-bottom border-gold">18 990 Ft</h4>
+
+      <div class="d-flex flex-column px-3 pt-2">
+        <div class="d-flex align-items-center gap-1" style="height:36px">
+          <svg width="18" height="18" class="text-success flex-shrink-0" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="fs-7 fw-medium text-muted flex-grow-1 ps-1">Megjelenés</span>
+          <span class="fs-7 text-gold">2026.07.15</span>
+        </div>
+        <div class="d-flex align-items-center gap-1 border-top" style="height:36px;border-color:var(--color-bg-muted)!important">
+          <svg width="18" height="18" class="text-success flex-shrink-0" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="fs-7 fw-medium text-muted flex-grow-1 ps-1">Foglalás</span>
+          <span class="fs-7 text-gold">3/50</span>
+        </div>
+      </div>
+
+      <a class="btn btn-primary position-absolute top-100 start-50 translate-middle" href="product.html">Előrendelés</a>
+    </div>
+  </div>
+
+</body>
+</html>

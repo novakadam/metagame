@@ -1,0 +1,649 @@
+/*
+ * event-calendar.css – FullCalendar v5 Metagame theme override
+ *
+ * FullCalendar CSS változók + szelektorok felülírása a Metagame design tokenekkel.
+ * A FullCalendar CDN CSS után töltődik be.
+ */
+
+/* ── FC CSS VÁLTOZÓK (globális override) ───────────────────── */
+
+.fc {
+  --fc-border-color: var(--color-border-muted);
+  --fc-button-text-color: var(--color-bg);
+  --fc-button-bg-color: var(--color-gold);
+  --fc-button-border-color: var(--color-gold);
+  --fc-button-hover-bg-color: var(--color-gold-ring);
+  --fc-button-hover-border-color: var(--color-gold-ring);
+  --fc-button-active-bg-color: var(--color-gold-ring);
+  --fc-button-active-border-color: var(--color-gold-ring);
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: rgba(90, 14, 58, 0.3);
+  --fc-highlight-color: rgba(179, 138, 36, 0.12);
+  --fc-today-bg-color: rgba(179, 138, 36, 0.08);
+  --fc-event-bg-color: var(--color-gold);
+  --fc-event-border-color: var(--color-gold);
+  --fc-event-text-color: var(--color-bg);
+  --fc-non-business-color: rgba(42, 0, 32, 0.4);
+  --fc-small-font-size: 13px;
+}
+
+/* ── TOOLBAR ───────────────────────────────────────────────── */
+
+.fc .fc-toolbar {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fc .fc-toolbar-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: capitalize;
+}
+
+/* ── GOMBOK ─────────────────────────────────────────────────── */
+
+.fc .fc-button {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--radius-xs);
+  padding: 6px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: none;
+}
+
+.fc .fc-button:focus {
+  box-shadow: 0 0 0 2px rgba(179, 138, 36, 0.3);
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  background: var(--color-gold-ring);
+  border-color: var(--color-gold-ring);
+  color: var(--color-bg);
+}
+
+.fc .fc-button-group > .fc-button {
+  border-radius: 0;
+}
+
+.fc .fc-button-group > .fc-button:first-child {
+  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+}
+
+.fc .fc-button-group > .fc-button:last-child {
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+}
+
+.fc .fc-today-button {
+  background: transparent;
+  border: 1.5px solid var(--color-gold);
+  color: var(--color-gold);
+}
+
+.fc .fc-today-button:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.fc .fc-today-button:disabled {
+  background: transparent;
+  border-color: var(--color-border-muted);
+  color: var(--color-text-muted);
+  opacity: 0.4;
+}
+
+.fc .fc-prev-button,
+.fc .fc-next-button {
+  padding: 6px 10px;
+}
+
+/* ── NAPFEJLÉC (hétfő, kedd...) ───────────────────────────── */
+
+.fc .fc-col-header {
+  background: rgba(42, 0, 32, 0.5);
+}
+
+.fc .fc-col-header-cell {
+  border-color: var(--color-border-muted);
+  padding: 10px 0;
+}
+
+.fc .fc-col-header-cell-cushion {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 8px 4px;
+}
+
+/* ── NAPZELLÁK ──────────────────────────────────────────────── */
+
+.fc .fc-daygrid-day {
+  transition: background var(--transition-fast);
+}
+
+.fc .fc-daygrid-day:hover {
+  background: rgba(179, 138, 36, 0.05);
+}
+
+.fc .fc-daygrid-day-number {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 8px;
+}
+
+.fc .fc-day-today .fc-daygrid-day-number {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.fc .fc-day-today {
+  background: var(--fc-today-bg-color) !important;
+}
+
+.fc .fc-day-other .fc-daygrid-day-number {
+  opacity: 0.35;
+}
+
+/* ── ESEMÉNYEK (havi nézet) ─────────────────────────────────── */
+
+.fc .fc-daygrid-event {
+  border-radius: var(--radius-xs);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 6px;
+  margin-bottom: 2px;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.fc .fc-daygrid-event:hover {
+  opacity: 0.85;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.fc .fc-daygrid-dot-event {
+  padding: 4px 6px;
+}
+
+.fc .fc-daygrid-dot-event .fc-event-title {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.fc .fc-daygrid-dot-event:hover {
+  background: rgba(179, 138, 36, 0.1);
+}
+
+.fc .fc-event-title {
+  font-weight: 500;
+}
+
+.fc .fc-event-time {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.fc .fc-daygrid-event-dot {
+  border-color: var(--color-gold);
+}
+
+/* ── "+more" LINK ──────────────────────────────────────────── */
+
+.fc .fc-daygrid-more-link {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-gold);
+  padding: 2px 6px;
+}
+
+.fc .fc-daygrid-more-link:hover {
+  color: var(--color-gold-ring);
+  background: rgba(179, 138, 36, 0.1);
+  border-radius: var(--radius-xs);
+}
+
+/* ── POPOVER (+more kattintás) ─────────────────────────────── */
+
+.fc .fc-popover {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.fc .fc-popover-header {
+  background: rgba(42, 0, 32, 0.6);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border-muted);
+}
+
+.fc .fc-popover-close {
+  color: var(--color-text-muted);
+}
+
+.fc .fc-popover-body {
+  padding: 8px;
+}
+
+/* ── IDŐSÁVOS NÉZET (hét/nap — timeGrid) ───────────────────── */
+
+/* Óra tengely + idősáv címkék */
+.fc .fc-timegrid-axis,
+.fc .fc-timegrid-slot-label {
+  border-color: var(--color-border-muted);
+}
+
+.fc .fc-timegrid-slot-label-cushion,
+.fc .fc-timegrid-axis-cushion {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Idősáv sorok */
+.fc .fc-timegrid-slot {
+  height: 40px;
+  border-color: var(--color-border-muted);
+}
+
+.fc .fc-timegrid-slot-minor {
+  border-top-style: dotted;
+  border-top-color: rgba(138, 69, 21, 0.4);
+}
+
+/* "Egész nap" sor jobbra zárt címke */
+.fc .fc-timegrid-axis-frame {
+  justify-content: flex-end;
+}
+
+/* Mai nap oszlop kiemelés */
+.fc .fc-timegrid-col.fc-day-today {
+  background: var(--fc-today-bg-color);
+}
+
+/* Események az idősávban */
+.fc .fc-timegrid-event {
+  border-radius: var(--radius-xs);
+  border: none;
+  padding: 2px 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.fc .fc-timegrid-event .fc-event-time {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.fc .fc-timegrid-event .fc-event-title {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Most-vonal (nowIndicator) */
+.fc .fc-timegrid-now-indicator-line {
+  border-color: var(--color-gold);
+}
+
+.fc .fc-timegrid-now-indicator-arrow {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* ── LISTA NÉZET ───────────────────────────────────────────── */
+
+.fc .fc-list {
+  border-color: var(--color-border-muted);
+}
+
+.fc .fc-list-sticky .fc-list-day > * {
+  background: var(--color-bg-card);
+}
+
+.fc .fc-list-day-cushion {
+  background: rgba(42, 0, 32, 0.6);
+  padding: 10px 16px;
+}
+
+.fc .fc-list-day-text,
+.fc .fc-list-day-side-text {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.fc .fc-list-day-side-text {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.fc .fc-list-event {
+  cursor: pointer;
+}
+
+.fc .fc-list-event:hover td {
+  background: rgba(179, 138, 36, 0.08);
+}
+
+.fc .fc-list-event-dot {
+  border-color: var(--color-gold);
+}
+
+.fc .fc-list-event-time {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  padding: 10px 8px 10px 16px;
+}
+
+.fc .fc-list-event-title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  padding: 10px 16px 10px 8px;
+}
+
+.fc .fc-list-event-title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.fc .fc-list-event-title a:hover {
+  color: var(--color-gold);
+}
+
+.fc .fc-list-empty-cushion {
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: 40px 16px;
+}
+
+/* ── SCROLL & TÁBLA KERETEK ────────────────────────────────── */
+
+.fc .fc-scrollgrid {
+  border-color: var(--color-border-muted);
+}
+
+.fc .fc-scrollgrid-section > * {
+  border-color: var(--color-border-muted);
+}
+
+.fc td, .fc th {
+  border-color: var(--color-border-muted);
+}
+
+/* ── ESEMÉNY SZÍNEK (rendszer szerint) ─────────────────────── */
+
+.fc-event--magic {
+  background: #1565C0 !important;
+  border-color: #1565C0 !important;
+}
+
+.fc-event--pokemon {
+  background: #E8A517 !important;
+  border-color: #E8A517 !important;
+  color: #1a1a1a !important;
+}
+
+.fc-event--yugioh {
+  background: #7B1FA2 !important;
+  border-color: #7B1FA2 !important;
+}
+
+.fc-event--wargame {
+  background: #2E7D32 !important;
+  border-color: #2E7D32 !important;
+}
+
+.fc-event--boardgame {
+  background: #D84315 !important;
+  border-color: #D84315 !important;
+}
+
+.fc-event--dnd {
+  background: #C62828 !important;
+  border-color: #C62828 !important;
+}
+
+.fc-event--lorcana {
+  background: #00838F !important;
+  border-color: #00838F !important;
+}
+
+.fc-event--general {
+  background: var(--color-gold) !important;
+  border-color: var(--color-gold) !important;
+  color: var(--color-bg) !important;
+}
+
+/* Dot-style override (listában + havi dot nézetben) */
+.fc .fc-list-event-dot.fc-event--magic-dot,
+.fc .fc-daygrid-event-dot.fc-event--magic-dot { border-color: #1565C0; }
+.fc .fc-list-event-dot.fc-event--pokemon-dot,
+.fc .fc-daygrid-event-dot.fc-event--pokemon-dot { border-color: #E8A517; }
+.fc .fc-list-event-dot.fc-event--yugioh-dot,
+.fc .fc-daygrid-event-dot.fc-event--yugioh-dot { border-color: #7B1FA2; }
+.fc .fc-list-event-dot.fc-event--wargame-dot,
+.fc .fc-daygrid-event-dot.fc-event--wargame-dot { border-color: #2E7D32; }
+.fc .fc-list-event-dot.fc-event--boardgame-dot,
+.fc .fc-daygrid-event-dot.fc-event--boardgame-dot { border-color: #D84315; }
+
+/* ── OLDALSPECIFIKUS LAYOUT ────────────────────────────────── */
+
+.mg-events-page {
+  padding: 0 0 var(--space-xl);
+}
+
+.mg-events-header {
+  margin-bottom: var(--space-lg);
+}
+
+.mg-events-header__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.mg-events-header__desc {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin: 0;
+}
+
+/* ── SZŰRŐ BAR (rendszer szűrő) ───────────────────────────── */
+
+.mg-events-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.mg-events-filters__label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-right: 4px;
+}
+
+.mg-events-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border: 1.5px solid var(--color-border-muted);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
+}
+
+.mg-events-filter:hover {
+  border-color: var(--color-gold);
+  color: var(--color-text);
+}
+
+.mg-events-filter.is-active {
+  border-color: var(--color-gold);
+  background: rgba(179, 138, 36, 0.12);
+  color: var(--color-gold);
+}
+
+.mg-events-filter__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── LEGENDA ───────────────────────────────────────────────── */
+
+.mg-events-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.mg-events-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.mg-events-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── BREADCRUMB (product oldalról hozott) ──────────────────── */
+
+.mg-events-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+}
+
+.mg-events-breadcrumb a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.mg-events-breadcrumb a:hover {
+  color: var(--color-gold);
+}
+
+.mg-events-breadcrumb span {
+  color: var(--color-text);
+}
+
+.mg-events-breadcrumb__sep {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  display: flex;
+}
+
+/* ── ESEMÉNY TOOLTIP ────────────────────────────────────────── */
+
+.mg-event-tooltip {
+  position: absolute;
+  z-index: var(--z-overlay);
+  width: 280px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.mg-event-tooltip.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .fc .fc-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .fc .fc-toolbar-chunk {
+    display: flex;
+    justify-content: center;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: var(--font-size-xl);
+    text-align: center;
+  }
+
+  .fc .fc-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .mg-events-header__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .mg-events-filters {
+    gap: 6px;
+  }
+
+  .mg-events-filter {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .mg-events-legend {
+    gap: 10px;
+  }
+}

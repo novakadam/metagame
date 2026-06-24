@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metagame Klub – játékklub a város szívében | Metagames</title>
+  <meta name="description" content="A Metagame Klub a társas-, kártya- és szerepjátékosok találkozóhelye: kipróbálható játékkönyvtár, versenyek, közösségi estek és terembérlés egy helyen. Gyere el és játssz velünk!">
+  <link rel="canonical" href="https://metagames.hu/klub">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Metagames">
+  <meta property="og:locale" content="hu_HU">
+  <meta property="og:title" content="Metagame Klub – játékklub a város szívében">
+  <meta property="og:description" content="Kipróbálható játékkönyvtár, versenyek, közösségi estek és terembérlés egy helyen. Gyere el és játssz velünk!">
+  <meta property="og:url" content="https://metagames.hu/klub">
+  <meta property="og:image" content="https://metagames.hu/assets/og/og-default.jpg">
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Playfair+Display+SC:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Design tokenek -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Globális komponensek -->
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">  <link rel="stylesheet" href="css/components/forms.css">
+
+  <!-- Komponensek -->
+  <link rel="stylesheet" href="css/components/frame.css">
+  <link rel="stylesheet" href="css/components/frame-shimmer.css">
+  <link rel="stylesheet" href="css/components/mega-menu.css">
+  <link rel="stylesheet" href="css/components/drawer.css">
+  <link rel="stylesheet" href="css/components/search-overlay.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css">
+
+  <!-- Átemelt index-widgetek (krónikák stílus, vélemények carousel) -->
+  <link rel="stylesheet" href="css/components/chronicles.css">
+  <link rel="stylesheet" href="css/components/testimonials.css">
+
+  <!-- Klub landing -->
+  <link rel="stylesheet" href="css/components/klub.css">
+</head>
+<body>
+
+<div class="mg-frame">
+
+  <!-- ── KERET SVG elemek ────────────────────────────────────────── -->
+  <div class="mg-frame-corner mg-frame-corner--tl"><img class="mg-frame-corner__img--desktop" src="../assets/frame/frame-corner-tl.svg" alt=""><img class="mg-frame-corner__img--tablet" src="../assets/frame/mobile/frame-corner-tl-tablet.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--tr"><img src="../assets/frame/frame-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--bl"><img src="../assets/frame/frame-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--br"><img src="../assets/frame/frame-corner-br.svg" alt=""></div>
+
+  <div class="mg-frame-line mg-frame-line--top"><img src="../assets/frame/frame-line-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--left"><img src="../assets/frame/frame-line-left.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--right-bottom"><img src="../assets/frame/frame-right-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--bottom"><img src="../assets/frame/frame-line-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── MOBIL KERET ─────────────────────────────────────────────── -->
+  <a class="mg-frame-m mg-frame-m-corner--tl" href="index.html"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt="Metagame"></a>
+  <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--right"><img src="../assets/frame/mobile/frame-m-line-right.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--bl"><img src="../assets/frame/mobile/frame-m-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--bottom"><img src="../assets/frame/mobile/frame-m-line-bottom.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--br"><img src="../assets/frame/mobile/frame-m-corner-br.svg" alt=""></div>
+  <div class="mg-frame-m-bar">
+    <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
+    <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
+    <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- ── MOBIL: Keresőmező ── -->
+  <div class="mg-mobile-search mg-cut-frame">
+    <input type="text" placeholder="Keresés..." readonly>
+    <button class="mg-mobile-search__btn" aria-label="Keresés">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── MOBIL: Hamburger gomb ── -->
+  <button class="mg-mobile-hamburger" aria-label="Menü">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ── MOBIL: Alsó bar ikonok ── -->
+  <div class="mg-mobile-bar-icons">
+    <button class="mg-mobile-bar-icons__btn" aria-label="Elérhetőségek">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn mg-mobile-bar-icons__btn--center" aria-label="Kosár">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="16" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn" aria-label="Profil">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- ── TOP BAR ────────────────────────────────────────────────── -->
+  <header class="mg-topbar">
+    <a href="index.html">
+      <img class="mg-logo mg-logo--full" src="../assets/images/logo.svg" alt="Metagame">
+      <img class="mg-logo mg-logo--compact" src="../assets/frame/mobile/mg-logo-closed.svg" alt="Metagame">
+    </a>
+
+    <div class="mg-topbar-row">
+      <div class="mg-toggle mg-cut-frame" data-active="community">
+        <div class="mg-toggle__slider"></div>
+        <button class="mg-toggle__btn" data-target="shop">Shop</button>
+        <button class="mg-toggle__btn mg-toggle__btn--active" data-target="community">Eseménynaptár</button>
+      </div>
+
+      <div class="mg-search mg-cut-frame">
+        <input type="text" placeholder="Keresés a klubban...">
+        <button class="mg-search__btn" aria-label="Keresés">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BAL NAV ────────────────────────────────────────────────── -->
+  <nav class="mg-nav-left" id="mg-nav-left">
+    <div class="mg-nav-section mg-nav-section--hidden" data-nav="shop">
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18"/><path d="M16 3v18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">TCG</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="12" cy="12" r="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Társasjáték</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="9" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Gyűjthető kártya</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Kiegészítők</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Szerepjátékok</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Wargame</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Modellezés</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Figurák</span></div>
+      </a>
+    </div>
+
+    <div class="mg-nav-section" data-nav="community">
+      <a class="mg-nav-item" href="events.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Események</span></div>
+      </a>
+      <a class="mg-nav-item mg-nav-item--active" href="klub.html" aria-current="page">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 0 12 0V3H6v6z"/><path d="M6 4H3v2a3 3 0 0 0 3 3"/><path d="M18 4h3v2a3 3 0 0 1-3 3"/><path d="M9 21h6"/><path d="M12 15v6"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Klub</span></div>
+      </a>
+      <a class="mg-nav-item" href="#">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Krónikák</span></div>
+      </a>
+      <a class="mg-nav-item" href="#">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Közösség</span></div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── MEGA MENU ──────────────────────────────────────────────── -->
+  <div class="mg-megamenu" id="mg-megamenu"></div>
+
+  <div class="mg-frame-line mg-frame-line--right-top"><img src="../assets/frame/frame-right-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── JOBB NAV ───────────────────────────────────────────────── -->
+  <aside class="mg-nav-right">
+    <button class="mg-nav-right__btn" aria-label="Profil">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Kedvencek">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn mg-nav-right__btn--cart" aria-label="Kosár">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="16" r="1.5" fill="currentColor"/><circle cx="14" cy="16" r="1.5" fill="currentColor"/></svg>
+        <span class="mg-nav-badge"></span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Értesítések">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v4l-2 2h16l-2-2V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8 16a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-nav-badge"></span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Helyszín">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Telefon">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+  </aside>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       TARTALOM – KLUB LANDING
+       ══════════════════════════════════════════════════════════════ -->
+  <main class="mg-content">
+
+    <!-- ── HERO ────────────────────────────────────────────────── -->
+    <section class="mg-section">
+      <div class="mg-klub-hero">
+        <div class="mg-klub-hero__inner">
+          <span class="mg-klub-eyebrow">Metagame Klub · Budapest</span>
+          <h1 class="mg-klub-hero__title">Ahol a játék közösséggé válik</h1>
+          <p class="mg-klub-hero__lead">Tágas asztalok, több száz kipróbálható játék, heti versenyek és egy befogadó közösség, ami minden szinten vár. Foglalj asztalt, vagy ugorj be egy esemény erejéig.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#kapcsolat" class="btn btn-primary">Asztalfoglalás</a>
+            <a href="events.html" class="btn btn-outline-secondary">Események megtekintése</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ÉRTÉKAJÁNLAT ────────────────────────────────────────── -->
+    <section class="mg-section">
+      <div class="text-center mb-4">
+        <span class="mg-klub-eyebrow">Miért a Metagame Klub?</span>
+        <h2 class="mg-klub-section-title">Minden egy helyen a játékhoz</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 p-4">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3 class="fs-5 fw-semibold text-card mb-2">300+ játék</h3>
+            <p class="text-muted mb-0">Kölcsönvehető játékkönyvtár a kapuktól a nehézsúlyú stratégiákig – a helyszínen, ingyen kipróbálható.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 p-4">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 0 12 0V3H6v6z"/><path d="M6 4H3v2a3 3 0 0 0 3 3"/><path d="M18 4h3v2a3 3 0 0 1-3 3"/><path d="M9 21h6"/><path d="M12 15v6"/></svg>
+            </div>
+            <h3 class="fs-5 fw-semibold text-card mb-2">Heti versenyek</h3>
+            <p class="text-muted mb-0">Magic, Pokémon, Yu-Gi-Oh!, Lorcana és társas bajnokságok – kezdőtől a kompetitív szintig.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 p-4">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="fs-5 fw-semibold text-card mb-2">Befogadó közösség</h3>
+            <p class="text-muted mb-0">Egyedül jössz? Beültetünk egy asztalhoz. Itt mindenki talál játszótársat és új barátokat.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 p-4">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/></svg>
+            </div>
+            <h3 class="fs-5 fw-semibold text-card mb-2">Terembérlés</h3>
+            <p class="text-muted mb-0">Csapatépítő, szülinap vagy privát game night? Bérelj termet, mi gondoskodunk a játékokról.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── JÁTÉKKÖNYVTÁR — tab-váltó + nagy kiemelt kép ────────── -->
+    <section class="mg-section mg-klub-library" id="konyvtar">
+      <div class="text-center mb-4">
+        <span class="mg-klub-eyebrow">Játékkönyvtár</span>
+        <h2 class="mg-klub-section-title">Próbáld ki, mielőtt megveszed</h2>
+        <p class="mg-klub-section-lead mx-auto">A polcainkról bármelyik játékot leveheted és kipróbálhatod a helyszínen. Válassz kategóriát:</p>
+      </div>
+
+      <!-- Tabok -->
+      <div class="mg-klub-tabs" role="tablist">
+        <button class="mg-klub-tab mg-klub-tab--active" data-klub-tab="tarsas">Társasjátékok</button>
+        <button class="mg-klub-tab" data-klub-tab="tcg">Kártyajátékok</button>
+        <button class="mg-klub-tab" data-klub-tab="szerep">Szerepjátékok</button>
+        <button class="mg-klub-tab" data-klub-tab="wargame">Wargame &amp; figurák</button>
+      </div>
+
+      <!-- Kiemelt panel: nagy kép + info (a JS tölti tab szerint) -->
+      <div class="card overflow-hidden">
+        <div class="row g-0">
+          <div class="col-lg-7">
+            <img class="mg-klub-feature__img" src="../assets/images/about/klub.png" alt="" loading="lazy">
+          </div>
+          <div class="col-lg-5">
+            <div class="mg-klub-feature__panel p-4 p-lg-5 d-flex flex-column h-100">
+              <span class="badge text-bg-primary align-self-start mb-3 mg-klub-feature__badge">Társasjátékok</span>
+              <h3 class="fs-3 fw-semibold text-card mb-2 mg-klub-feature__title">Több száz társas a polcokon</h3>
+              <p class="text-muted mg-klub-feature__desc mb-4">A könnyed party-játékoktól a több órás stratégiákig — vedd le, próbáld ki, és csak akkor vidd haza, ha tényleg bejött.</p>
+              <ul class="mg-klub-feature__list"></ul>
+              <a href="products.html" class="btn btn-primary align-self-start mt-auto">Irány a webshop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── KÖZELGŐ ESEMÉNYEK — krónikák stílus (gradiens + featured + lista) ── -->
+    <section class="mg-section mg-chronicles" id="programok">
+      <div class="mg-chronicles__inner">
+
+        <div class="mg-chronicles__heading">
+          <h2 class="mg-chronicles__title">Közelgő események a klubban</h2>
+          <p class="mg-chronicles__desc">Versenyek, ligák és közösségi esték — nézd meg, mi vár rád a héten, és gyere el játszani.</p>
+        </div>
+
+        <div class="mg-chronicles__blog">
+
+          <!-- Kiemelt esemény -->
+          <article class="card mg-chronicle-card mg-chronicle-card--featured">
+            <div class="mg-chronicle-card__image">
+              <img src="../assets/images/about/bolt.png" alt="Friday Night Magic">
+            </div>
+            <div class="mg-chronicle-card__content">
+              <div class="mg-chronicle-card__meta">
+                <span class="mg-chronicle-card__date"><strong>Minden péntek</strong> | 18:00</span>
+              </div>
+              <h3 class="mg-chronicle-card__title">Friday Night Magic</h3>
+              <p class="mg-chronicle-card__excerpt">Heti standard verseny barátságos hangulatban, díjakkal. Kezdők is bátran — kölcsönpaklit is adunk a belépéshez.</p>
+              <div class="mg-chronicle-card__badges">
+                <span class="mg-badge mg-badge--gold">Klub</span>
+                <span class="mg-badge mg-badge--outline">Magic</span>
+              </div>
+            </div>
+            <a href="event-detail.html" class="btn btn-outline-secondary btn-sm mg-chronicle-card__cta">Részletek &amp; nevezés</a>
+          </article>
+
+          <!-- Esemény lista -->
+          <div class="mg-chronicles__list">
+
+            <a href="event-detail.html" class="mg-chronicle-item">
+              <div class="mg-chronicle-item__text">
+                <div class="mg-chronicle-item__info">
+                  <span class="mg-chronicle-card__date"><strong>Szerda</strong> | 17:00</span>
+                  <h4 class="mg-chronicle-item__title">Társasjáték est — nyitott asztalok</h4>
+                </div>
+                <div class="mg-chronicle-card__badges">
+                  <span class="mg-badge mg-badge--gold">Klub</span>
+                  <span class="mg-badge mg-badge--outline">Társas</span>
+                </div>
+                <span class="mg-chronicle-item__read">Részletek <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+              </div>
+              <div class="mg-chronicle-item__thumb">
+                <img src="../assets/images/chronicles/thumb-1.jpg" alt="Társasjáték est">
+              </div>
+            </a>
+
+            <div class="mg-chronicles__divider"></div>
+
+            <a href="event-detail.html" class="mg-chronicle-item">
+              <div class="mg-chronicle-item__text">
+                <div class="mg-chronicle-item__info">
+                  <span class="mg-chronicle-card__date"><strong>Vasárnap</strong> | 15:00</span>
+                  <h4 class="mg-chronicle-item__title">Kalandozók klubja — D&amp;D one-shot</h4>
+                </div>
+                <div class="mg-chronicle-card__badges">
+                  <span class="mg-badge mg-badge--gold">Klub</span>
+                  <span class="mg-badge mg-badge--outline">Szerepjáték</span>
+                </div>
+                <span class="mg-chronicle-item__read">Részletek <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+              </div>
+              <div class="mg-chronicle-item__thumb">
+                <img src="../assets/images/content%20-%20placeholder/events/DSC00180-3c36.webp" alt="D&amp;D one-shot">
+              </div>
+            </a>
+
+            <div class="mg-chronicles__divider"></div>
+
+            <a href="event-detail.html" class="mg-chronicle-item">
+              <div class="mg-chronicle-item__text">
+                <div class="mg-chronicle-item__info">
+                  <span class="mg-chronicle-card__date"><strong>Szombat</strong> | 11:00</span>
+                  <h4 class="mg-chronicle-item__title">Pokémon Liga — kezdőbarát</h4>
+                </div>
+                <div class="mg-chronicle-card__badges">
+                  <span class="mg-badge mg-badge--gold">Klub</span>
+                  <span class="mg-badge mg-badge--outline">Pokémon</span>
+                </div>
+                <span class="mg-chronicle-item__read">Részletek <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+              </div>
+              <div class="mg-chronicle-item__thumb">
+                <img src="../assets/images/chronicles/thumb-3.jpg" alt="Pokémon Liga">
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+
+        <a href="events.html" class="btn btn-secondary">Teljes eseménynaptár</a>
+
+      </div>
+    </section>
+
+    <!-- ── TEREMBÉRLÉS / CSAPATÉPÍTŐ ───────────────────────────── -->
+    <section class="mg-section">
+      <div class="text-center mb-4">
+        <span class="mg-klub-eyebrow">Bérelj teret</span>
+        <h2 class="mg-klub-section-title">A klub a tiéd egy estére</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="card h-100 p-4">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="fs-5 fw-semibold text-card mb-2">Csapatépítő</h3>
+            <p class="text-muted mb-3">Játékvezetett céges programok 8–40 főig, igény szerint moderátorral és menüvel.</p>
+            <a href="#kapcsolat" class="btn btn-light btn-sm align-self-start mt-auto">Ajánlatot kérek</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100 p-4">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <h3 class="fs-5 fw-semibold text-card mb-2">Szülinap &amp; privát</h3>
+            <p class="text-muted mb-3">Privát game night vagy gyerekzsúr a teljes játékkönyvtárral, foglalt asztalokkal.</p>
+            <a href="#kapcsolat" class="btn btn-light btn-sm align-self-start mt-auto">Időpontot foglalok</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100 p-4">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+            </div>
+            <h3 class="fs-5 fw-semibold text-card mb-2">Saját esemény</h3>
+            <p class="text-muted mb-3">Szervezel egy versenyt vagy találkozót? Befogadjuk és segítünk a lebonyolításban.</p>
+            <a href="#kapcsolat" class="btn btn-light btn-sm align-self-start mt-auto">Megbeszéljük</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALÉRIA ─────────────────────────────────────────────── -->
+    <section class="mg-section">
+      <div class="text-center mb-4">
+        <span class="mg-klub-eyebrow">Galéria</span>
+        <h2 class="mg-klub-section-title">Pillanatképek a klubból</h2>
+      </div>
+      <!-- Masonry fal — kisebb-nagyobb képek (a természetes képarányok adják a ritmust).
+           BACKEND/tartalom: ide jöhet a klub valódi fotógalériája, tetszőleges számú képpel. -->
+      <div class="mg-klub-masonry">
+        <div class="mg-klub-masonry__item"><a href="#"><img src="../assets/images/about/klub.png" alt="Játékosok a klubban" loading="lazy"></a></div>
+        <div class="mg-klub-masonry__item"><a href="#"><img src="../assets/images/content%20-%20placeholder/events/DSC00180-3c36.webp" alt="Pokémon kártyák" loading="lazy"></a></div>
+        <div class="mg-klub-masonry__item"><a href="#"><img src="../assets/images/about/bolt.png" alt="Magic paklik" loading="lazy"></a></div>
+        <div class="mg-klub-masonry__item"><a href="#"><img src="../assets/images/chronicles/thumb-1.jpg" alt="Verseny a klubban" loading="lazy"></a></div>
+        <div class="mg-klub-masonry__item"><a href="#"><img src="../assets/images/chronicles/thumb-2.png" alt="Riftbound termékek" loading="lazy"></a></div>
+        <div class="mg-klub-masonry__item"><a href="#"><img src="../assets/images/chronicles/featured.jpg" alt="Kiemelt kártya" loading="lazy"></a></div>
+      </div>
+    </section>
+
+    <!-- ── VÉLEMÉNYEK — carousel (index testimonials widget) ───── -->
+    <section class="mg-section mg-testimonials" id="velemenyek">
+      <div class="mg-testimonials__container">
+
+        <!-- BAL: heading + nav -->
+        <div class="mg-testimonials__left">
+          <div class="mg-testimonials__heading">
+            <span class="mg-testimonials__label">Vélemények</span>
+            <h2 class="mg-testimonials__title">Akik már a klubban játszanak</h2>
+            <p class="mg-testimonials__desc">Valódi vélemények a klubról, versenyekről és a közösségről</p>
+          </div>
+          <div class="mg-testimonials__nav">
+            <button class="mg-testimonials__nav-btn mg-testimonials__nav-btn--prev" aria-label="Előző">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="mg-testimonials__nav-btn mg-testimonials__nav-btn--next" aria-label="Következő">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- JOBB: kártyák carousel (a testimonials.js tölti) -->
+        <div class="mg-testimonials__right">
+          <div class="mg-testimonials__cards-wrap">
+            <div class="mg-testimonials__cards"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── KONTAKT ─────────────────────────────────────────────── -->
+    <section class="mg-section" id="kapcsolat">
+      <div class="text-center mb-4">
+        <span class="mg-klub-eyebrow">Gyere el</span>
+        <h2 class="mg-klub-section-title">Nyitvatartás &amp; helyszín</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-5">
+          <div class="card h-100 p-4">
+            <h3 class="fs-5 fw-semibold text-card mb-2">Metagame Klub</h3>
+            <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between border-bottom border-secondary py-2"><span class="text-muted">Hétfő – Péntek</span><span class="text-card">16:00 – 22:00</span></li>
+              <li class="d-flex justify-content-between border-bottom border-secondary py-2"><span class="text-muted">Szombat</span><span class="text-card">10:00 – 18:00</span></li>
+              <li class="d-flex justify-content-between py-2"><span class="text-muted">Vasárnap</span><span class="text-card">eseménytől függő</span></li>
+            </ul>
+            <p class="text-muted mb-1"><strong class="text-card">Cím:</strong> 1132 Budapest, Kresz Géza utca 36.</p>
+            <p class="text-muted mb-1"><strong class="text-card">Telefon:</strong> <a href="tel:+3617944116">(+36) 1 794 4116</a></p>
+            <p class="text-muted mb-4"><strong class="text-card">Email:</strong> <a href="mailto:info@metagames.hu">info@metagames.hu</a></p>
+            <a href="tel:+3617944116" class="btn btn-primary align-self-start mt-auto">Asztalfoglalás telefonon</a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-7">
+          <div class="card h-100 p-0 overflow-hidden">
+            <iframe class="mg-klub-map" title="Metagame Klub térkép" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=1132%20Budapest%2C%20Kresz%20G%C3%A9za%20utca%2036&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visszafogott étel/ital sáv -->
+      <div class="card mt-4 p-3">
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <div class="card-icon mb-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <p class="text-muted mb-0">Megszomjaztál játék közben? Kávé, üdítő és néhány harapnivaló a helyszínen is elérhető – hogy a parti meg se álljon.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="mg-footer">
+    <div class="mg-footer__left">
+      <span class="mg-footer__brand">© metagame 2026</span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kádár utca 10.</span>
+        <span class="mg-footer__hours">H–SZ 10–18</span>
+      </span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kresz Géza utca 36.</span>
+        <span class="mg-footer__hours">H-P 16–22, SZ 10–18</span>
+      </span>
+    </div>
+    <div class="mg-footer__right">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatvédelem</a>
+      <a class="mg-footer__info-trigger" href="#">Információ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- ── MOBIL MENÜ ──────────────────────────────────────────── -->
+  <div class="mg-mobile-menu"></div>
+
+  <!-- ── MOBIL KERESŐ OVERLAY ──────────────────────────────── -->
+  <div class="mg-mobile-search-overlay"></div>
+
+  <!-- ── MOBIL DRAWER OVERLAY ────────────────────────────────── -->
+  <div class="mg-mobile-drawer"></div>
+
+  <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
+  <div class="mg-widget-search-overlay"></div>
+
+  <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
+    <div class="mg-drawer__card">
+      <div class="mg-drawer__header">
+        <h2 class="mg-drawer__title"></h2>
+        <span class="mg-drawer__subtitle"></span>
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mg-drawer__body"></div>
+      <div class="mg-drawer__footer"></div>
+    </div>
+  </div>
+
+</div><!-- /.mg-frame -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Frame widget -->
+<script src="js/components/frame.js"></script>
+<script src="js/components/frame-shimmer.js"></script>
+<!-- Mega menu -->
+<script src="js/components/mega-menu.js"></script>
+<!-- Drawer -->
+<script src="js/components/drawer.js"></script>
+<!-- Mobile menu + drawer -->
+<script src="js/components/mobile-menu.js"></script>
+<!-- Footer panel -->
+<script src="js/components/footer.js"></script>
+<!-- Search overlay -->
+<script src="js/components/search-overlay.js"></script>
+<!-- Vélemények carousel (index widget) -->
+<script src="js/components/testimonials.js"></script>
+<!-- Klub landing interakciók (játékkönyvtár tab-váltó) -->
+<script src="js/components/klub.js"></script>
+
+<script>
+$(function () {
+  mgInitMegaMenu();
+  mgInitMobileMenu();
+  mgInitMobileSearch();
+  mgInitMobileDrawer();
+  mgInitDrawer();
+  mgInitFooter();
+  mgInitTestimonials();
+  mgInitKlubLibrary();
+  $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
+    mgInitSearchOverlay();
+  });
+});
+</script>
+
+</body>
+</html>

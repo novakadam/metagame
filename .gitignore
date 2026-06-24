@@ -1,2 +1,5 @@
 .DS_Store
 .vercel
+
+# Belső felvétel-átiratok — ne kerüljenek a publikus repóba
+docs/transcript/

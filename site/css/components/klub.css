@@ -1,0 +1,291 @@
+/*
+ * klub.css – Metagame Klub landing oldalspecifikus stílus
+ *
+ * Csak az a réteg, amit a Bootstrap utility-k + tokens.css nem fednek le
+ * (hero overlay, kép-placeholderek, galéria-grid hover, szekció-ritmus).
+ * Minden szín/spacing design tokenből — nincs hardcode hex, nincs inline style.
+ */
+
+/* ── SZEKCIÓ-FEJLÉC (közös a landing szekciókhoz) ─────────── */
+
+.mg-klub-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold-ring);
+  margin-bottom: var(--space-sm);
+}
+
+.mg-klub-section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--font-size-3xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.mg-klub-section-lead {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  max-width: 640px;
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+
+.mg-klub-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 460px;
+  padding: var(--space-2xl) var(--space-xl);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  /* Hangulatkép a klubból + sötét/arany overlay a szöveg olvashatóságához.
+     Cserélhető: a kliens saját klub-fotója (assets/images/about/klub.png). */
+  background:
+    linear-gradient(to top, rgba(64, 2, 44, 0.95) 0%, rgba(64, 2, 44, 0.6) 48%, rgba(64, 2, 44, 0.35) 100%),
+    url('../../../assets/images/about/klub.png') center / cover no-repeat,
+    var(--color-bg-card);
+}
+
+.mg-klub-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.mg-klub-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--font-size-4xl);
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.mg-klub-hero__lead {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* ── KÉP-PLACEHOLDER (játékborító, galéria) ───────────────── */
+
+.mg-klub-ph {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-xs);
+  color: var(--color-gold);
+  background:
+    repeating-linear-gradient(135deg, rgba(179, 138, 36, 0.06) 0 12px, transparent 12px 24px),
+    var(--color-bg-muted);
+  overflow: hidden;
+}
+
+.mg-klub-ph svg {
+  width: 38px;
+  height: 38px;
+  opacity: 0.5;
+}
+
+.mg-klub-ph--cover { aspect-ratio: 3 / 4; }
+.mg-klub-ph--wide  { aspect-ratio: 16 / 9; }
+
+/* ── VALÓDI KÉP (placeholder helyett) ─────────────────────── */
+
+.mg-klub-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-xs);
+}
+
+.mg-klub-img--cover { aspect-ratio: 3 / 4; }
+.mg-klub-img--wide  { aspect-ratio: 16 / 9; }
+
+/* Termék/brand art — átlátszó PNG gradiens háttéren, levágás nélkül */
+.mg-klub-img--product {
+  object-fit: contain;
+  padding: 16px;
+  background: radial-gradient(ellipse at center, var(--color-bg-card) 0%, var(--color-bg) 100%);
+}
+
+/* ── GALÉRIA ──────────────────────────────────────────────── */
+
+.mg-klub-gallery a {
+  display: block;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mg-klub-gallery a:hover .mg-klub-ph,
+.mg-klub-gallery a:hover .mg-klub-img {
+  border-color: var(--color-gold-ring);
+  transform: translateY(-2px);
+}
+
+/* ── CSILLAGOK (vélemények) ───────────────────────────────── */
+
+.mg-klub-stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--color-gold-ring);
+  margin-bottom: var(--space-sm);
+}
+
+.mg-klub-stars svg { width: 16px; height: 16px; }
+
+/* ── KONTAKT TÉRKÉP ───────────────────────────────────────── */
+
+.mg-klub-map {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border: 0;
+  border-radius: var(--radius-xs);
+  filter: saturate(0.85);
+}
+
+/* ── FLEX-ZSUGORODÁS FIX ──────────────────────────────────────
+   A .mg-content fix magasságú flex-oszlop. Az átemelt szekciók
+   (.mg-chronicles, .mg-testimonials) overflow:hidden-je miatt a
+   flex min-height-juk 0 lesz, így a flex-algoritmus összenyomná a
+   tartalmukat. Direkt .mg-content-gyerekként ne zsugorodjanak.
+   (Index.html-en nincs gond, mert ott egy .mg-widget-* div fogja fel.) */
+.mg-content > .mg-chronicles,
+.mg-content > .mg-testimonials {
+  flex-shrink: 0;
+}
+
+/* ── JÁTÉKKÖNYVTÁR — TAB-VÁLTÓ + NAGY KIEMELT KÉP ─────────── */
+
+.mg-klub-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.mg-klub-tab {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.mg-klub-tab:hover {
+  color: var(--color-text);
+  border-color: var(--color-gold);
+}
+
+.mg-klub-tab--active {
+  color: var(--color-bg);
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.mg-klub-feature__img {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Lágy átúsztatás tabváltáskor (a JS cseréli a src-t) */
+.mg-klub-feature__img,
+.mg-klub-feature__panel > * {
+  animation: mg-klub-fade var(--transition-base);
+}
+
+@keyframes mg-klub-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mg-klub-feature__list {
+  list-style: none;
+  margin: 0 0 var(--space-lg);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.mg-klub-feature__list li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-base);
+}
+
+.mg-klub-feature__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  transform: rotate(45deg);
+  background: var(--color-gold);
+}
+
+/* ── MASONRY GALÉRIA (kisebb-nagyobb képek) ───────────────── */
+
+.mg-klub-masonry {
+  column-count: 3;
+  column-gap: 12px;
+}
+
+.mg-klub-masonry__item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+}
+
+.mg-klub-masonry__item img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border-muted);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.mg-klub-masonry a:hover img {
+  border-color: var(--color-gold-ring);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 991px) { .mg-klub-masonry { column-count: 3; } }
+@media (max-width: 575px) { .mg-klub-masonry { column-count: 2; } }
+
+/* ── RESZPONZÍV ───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .mg-klub-hero {
+    min-height: 360px;
+    padding: var(--space-xl) var(--space-md);
+  }
+  .mg-klub-hero__title { font-size: var(--font-size-3xl); }
+  .mg-klub-section-title { font-size: var(--font-size-2xl); }
+  .mg-klub-feature__img { min-height: 220px; aspect-ratio: 16 / 10; }
+}

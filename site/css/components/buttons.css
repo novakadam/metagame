@@ -229,6 +229,25 @@
   font-weight: 600;
 }
 
+/* ── PILL BADGE SZÍNEK (BS text-bg-* theme) ──────────────
+   Kategória badge-ek: krónika kártyák, kereső chipek.
+   text-bg-primary = arany (Klub), text-bg-dark = sötét kártya
+   + arany szöveg (Bolt). A ribbon saját override-ja lentebb
+   van, így az felülírja ezeket. */
+
+.badge.text-bg-primary {
+  background-color: var(--color-gold) !important;
+  color: #fff !important;
+}
+
+.badge.text-bg-dark {
+  background: linear-gradient(90deg,
+    rgba(212, 12, 26, 0.1),
+    rgba(212, 12, 26, 0.1)),
+    var(--color-bg-card) !important;
+  color: var(--color-gold) !important;
+}
+
 /* ── RIBBON BADGE (kategória sáv — kontextus alapján) ──── */
 /* Ribbon forma csak ott ahol kategória badge: card info, ajánló info */
 

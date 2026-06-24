@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template: Product List (termék lista + pagináció)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <link rel="stylesheet" href="../css/components/product-card.css">
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body>
+
+<div class="container-xxl py-4">
+
+  <p class="template-label">Termék lista — grid + pagináció (a kártya: product-card-bs.html)</p>
+
+  <!-- Eredményszám -->
+  <!-- BACKEND: resultCount -->
+  <p class="text-muted mb-4">51 termék</p>
+
+  <!-- ══ TERMÉK GRID ══════════════════════════════════════════
+       BS row-cols reszponzív rács: 1 / 2 / 3 / 4 oszlop töréspontonként.
+       A kártya markupja a product-card-bs.html template-ben részletezve;
+       Wicketben egyszer definiált, iterált komponens. -->
+  <!-- BACKEND: products foreach -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 g-4 mb-5">
+
+    <!-- ── Kártya: teljes (új + kategória) ── -->
+    <div class="col d-flex">
+      <div class="card mg-product-card mg-product-card--new mg-product-card--has-category w-100">
+        <span class="badge badge-octagon position-absolute">új</span>
+        <button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="mg-product-card__image">
+          <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Set One: Origins">
+        </div>
+        <div class="mg-product-card__info">
+          <div class="mg-product-card__category">
+            <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--left" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="12,0 12,24 0,12"/></svg>
+            <span class="mg-product-card__category-text">Ajánlott</span>
+            <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>
+          </div>
+          <h3>Set One:</h3>
+          <p class="fs-5 text-card">Origins Champion Deck - Viktor</p>
+        </div>
+        <div class="mg-product-card__content">
+          <h4 class="fw-bold text-center text-white mb-0">12 358 Ft</h4>
+          <div class="mg-product-card__rows">
+            <div class="mg-product-card__row">
+              <span class="mg-product-card__row-icon"><svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="fs-7 fw-medium text-muted flex-grow-1">Üzletben elérhető</span>
+              <span class="fs-7 text-gold">10+</span>
+            </div>
+            <div class="mg-product-card__row">
+              <span class="mg-product-card__row-icon"><svg class="text-danger" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+              <span class="fs-7 fw-medium text-muted flex-grow-1">Klubban nincs</span>
+              <span class="fs-7 text-danger">0db</span>
+            </div>
+          </div>
+        </div>
+        <div class="mg-product-card__cta"><a class="btn btn-primary" href="product.html">Kosárba</a></div>
+      </div>
+    </div>
+
+    <!-- ── Kártya: minimál ── -->
+    <div class="col d-flex">
+      <div class="card mg-product-card w-100">
+        <button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="mg-product-card__image">
+          <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Twilight Masquerade">
+        </div>
+        <div class="mg-product-card__info">
+          <h3>Twilight Masquerade</h3>
+          <p class="fs-5 text-card">Booster Display Box</p>
+        </div>
+        <div class="mg-product-card__content">
+          <h4 class="fw-bold text-center text-white mb-0">5 490 Ft</h4>
+          <div class="mg-product-card__rows">
+            <div class="mg-product-card__row">
+              <span class="mg-product-card__row-icon"><svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="fs-7 fw-medium text-muted flex-grow-1">Üzletben elérhető</span>
+              <span class="fs-7 text-gold">25+</span>
+            </div>
+            <div class="mg-product-card__row">
+              <span class="mg-product-card__row-icon"><svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="fs-7 fw-medium text-muted flex-grow-1">Klubban elérhető</span>
+              <span class="fs-7 text-gold">-10%</span>
+            </div>
+          </div>
+        </div>
+        <div class="mg-product-card__cta"><a class="btn btn-primary" href="product.html">Kosárba</a></div>
+      </div>
+    </div>
+
+    <!-- ── Kártya: előrendelés ── -->
+    <div class="col d-flex">
+      <div class="card mg-product-card mg-product-card--new mg-product-card--has-category w-100">
+        <span class="badge badge-octagon position-absolute">új</span>
+        <button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="mg-product-card__image">
+          <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Prismatic Evolutions">
+        </div>
+        <div class="mg-product-card__info">
+          <div class="mg-product-card__category">
+            <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--left" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="12,0 12,24 0,12"/></svg>
+            <span class="mg-product-card__category-text">Előrendelés</span>
+            <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>
+          </div>
+          <h3>Prismatic Evolutions</h3>
+          <p class="fs-5 text-card">Elite Trainer Box</p>
+        </div>
+        <div class="mg-product-card__content">
+          <h4 class="fw-bold text-center text-white mb-0">18 990 Ft</h4>
+          <div class="mg-product-card__rows">
+            <div class="mg-product-card__row">
+              <span class="mg-product-card__row-icon"><svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="fs-7 fw-medium text-muted flex-grow-1">Megjelenés</span>
+              <span class="fs-7 text-gold">06.20</span>
+            </div>
+          </div>
+        </div>
+        <div class="mg-product-card__cta"><a class="btn btn-primary" href="product.html">Előrendelés</a></div>
+      </div>
+    </div>
+
+    <!-- ── Kártya: teljes (raktáron) ── -->
+    <div class="col d-flex">
+      <div class="card mg-product-card w-100">
+        <button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="mg-product-card__image">
+          <img src="../assets/images/content - placeholder/product/magic-play-display.png" alt="Magic Play Display">
+        </div>
+        <div class="mg-product-card__info">
+          <h3>Edge of Eternities</h3>
+          <p class="fs-5 text-card">Play Booster Display</p>
+        </div>
+        <div class="mg-product-card__content">
+          <h4 class="fw-bold text-center text-white mb-0">24 900 Ft</h4>
+          <div class="mg-product-card__rows">
+            <div class="mg-product-card__row">
+              <span class="mg-product-card__row-icon"><svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="fs-7 fw-medium text-muted flex-grow-1">Üzletben elérhető</span>
+              <span class="fs-7 text-gold">8</span>
+            </div>
+            <div class="mg-product-card__row">
+              <span class="mg-product-card__row-icon"><svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="fs-7 fw-medium text-muted flex-grow-1">Klubban elérhető</span>
+              <span class="fs-7 text-gold">3</span>
+            </div>
+          </div>
+        </div>
+        <div class="mg-product-card__cta"><a class="btn btn-primary" href="product.html">Kosárba</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ LOAD MORE ════════════════════════════════════════════
+       "További N betöltése" gomb, ahogy a tervben.
+       Progressive enhancement: <a href="?page=2"> → JS-sel ajaxosan
+       tölt (load more élmény), JS nélkül a következő oldalra navigál
+       (a crawler így is végigjárja a palettát — Laci igénye).
+       A számozott lapozó BS-mintája a bs-components.html katalógusban. -->
+  <!-- BACKEND: pagination (current_page, total_pages, next_url) -->
+  <div class="d-flex flex-column align-items-center gap-2">
+    <!-- BACKEND: load_more.count, load_more.next_url -->
+    <a href="?page=2" class="btn btn-secondary d-inline-flex align-items-center gap-2">
+      További 24 betöltése
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+    <!-- BACKEND: current_page, total_pages -->
+    <span class="small text-muted">1 / 10 oldal</span>
+  </div>
+
+</div>
+
+</body>
+</html>
