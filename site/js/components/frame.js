@@ -31,6 +31,11 @@ $(function () {
     var target  = $btn.data('target');
     var $toggle = $btn.closest('.mg-toggle');
 
+    // Shop / Eseménynaptár közti navigáció (prototípus — élesben BACKEND/router)
+    var onEvents = window.location.pathname.indexOf('events') !== -1;
+    if (target === 'community' && !onEvents) { window.location.href = 'events.html'; return; }
+    if (target === 'shop' && onEvents)       { window.location.href = 'index.html';  return; }
+
     $toggle.attr('data-active', target);
 
     $toggle.find('.mg-toggle__btn').removeClass('mg-toggle__btn--active');

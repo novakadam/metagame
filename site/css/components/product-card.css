@@ -7,17 +7,16 @@
  *   3. Content zóna – ár + elérhetőségi sorok
  *   4. CTA – mg-btn--glow gomb, félig lelóg a kártya aljáról
  *
- * Badge-ek: megosztott .mg-badge-new és .mg-badge-fav (buttons.css)
+ * Badge-ek: .badge-octagon (buttons.css), kedvenc: btn.rounded-circle
  */
 
 /* ── KÁRTYA ALAP ─────────────────────────────────────────── */
 
+/* .mg-product-card: Bootstrap .card + override (layout.css) */
+
 .mg-product-card {
+  --bs-card-bg: transparent;
   position: relative;
-  border: 1px solid var(--color-gold);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
   padding: 0 0 24px;
   transition: box-shadow var(--transition-base);
   overflow: visible;
@@ -52,14 +51,20 @@
 
 /* ── BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css adja) ─── */
 
-.mg-product-card .mg-badge-new {
+.mg-product-card .badge-octagon {
   top: -8px;
   left: -8px;
+  z-index: 3;
 }
 
-.mg-product-card .mg-badge-fav {
+.mg-product-card > .btn.rounded-circle {
   top: -8px;
   right: -8px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
 }
 
 /* ── INFO ZÓNA (kategória badge + cím) ────────────────────── */
@@ -115,6 +120,8 @@
   color: var(--color-secondary);
 }
 
+.mg-product-card h3,
+.mg-product-card .card-title,
 .mg-product-card__title {
   font-family: var(--font-display);
   font-weight: 600;
@@ -140,6 +147,7 @@
   padding: 0 24px;
 }
 
+.mg-product-card__content h4,
 .mg-product-card__price {
   padding: 18px 4px 24px;
   text-align: center;
@@ -162,6 +170,7 @@
   align-items: center;
   gap: 4px;
   height: 36px;
+  color: var(--color-text-muted);
 }
 
 .mg-product-card__row + .mg-product-card__row {

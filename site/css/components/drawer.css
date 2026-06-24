@@ -1,38 +1,9 @@
-/* ── DRAWER (right-side slide-in) ───────────────────────────────── */
-
-.mg-drawer-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: var(--z-overlay);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-base);
-}
-
-.mg-drawer-overlay.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
+/* ── DRAWER (Bootstrap Offcanvas end) ───────────────────────────── */
 
 .mg-drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
   width: 360px;
-  z-index: var(--z-modal);
   background: var(--color-bg);
   border-left: 1.5px solid var(--color-gold);
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.mg-drawer.is-open {
-  transform: translateX(0);
 }
 
 /* ── DRAWER INNER ──────────────────────────────────────────────── */
@@ -179,23 +150,11 @@
   object-fit: contain;
 }
 
-.mg-drawer-cart__badge {
-  position: absolute;
+/* BS badge pozícionálás a termékkép sarkán */
+.mg-drawer-cart__img > .badge {
   top: -5px;
   right: -8px;
-  min-width: 22px;
-  height: 22px;
-  padding: 2px 8px;
-  background: var(--color-gold);
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 500;
   font-size: 12px;
-  line-height: 16px;
-  border-radius: var(--radius-pill);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .mg-drawer-cart__name {
@@ -510,6 +469,10 @@
   letter-spacing: 0.5px;
 }
 
+/* BS form-control a drawer kontextusban */
+.preview-drawer .form-control,
+.mg-drawer-profile .form-control,
+.mg-drawer-contact .form-control,
 .mg-drawer-profile__field input,
 .mg-drawer-contact__field input,
 .mg-drawer-contact__field textarea {
@@ -532,13 +495,21 @@
   min-height: 80px;
 }
 
+.preview-drawer .form-control:focus,
+.mg-drawer-profile .form-control:focus,
+.mg-drawer-contact .form-control:focus,
 .mg-drawer-profile__field input:focus,
 .mg-drawer-contact__field input:focus,
 .mg-drawer-contact__field textarea:focus {
   outline: none;
   border-color: var(--color-gold);
+  background: var(--color-bg);
+  box-shadow: none;
 }
 
+.preview-drawer .form-control::placeholder,
+.mg-drawer-profile .form-control::placeholder,
+.mg-drawer-contact .form-control::placeholder,
 .mg-drawer-profile__field input::placeholder,
 .mg-drawer-contact__field input::placeholder,
 .mg-drawer-contact__field textarea::placeholder {

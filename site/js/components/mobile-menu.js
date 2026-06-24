@@ -406,7 +406,7 @@ function mgInitMobileDrawer() {
     }
 
     if (type === 'cart') {
-      $drawer.on('click.mobileDrawer', '.mg-drawer-cart__qty-btn', function() {
+      $drawer.on('click.mobileDrawer', '.qty-stepper .btn', function() {
         var $btn = $(this);
         var idx = parseInt($btn.data('idx'));
         var action = $btn.data('action');

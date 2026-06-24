@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template: Article Body (cikktörzs)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body>
+
+<!-- preview: a cikktörzs élesben max ~820px széles oszlopban él (article.html középső sáv) -->
+<div class="container" style="max-width:860px;">
+
+  <p class="template-label">Cikktörzs — CMS rich-text</p>
+
+  <!-- ══ CIKK FEJ ════════════════════════════════════════════ -->
+  <!-- BACKEND: featured_article / a teljes blokk a CMS-ből -->
+  <article class="d-flex flex-column gap-4 py-4">
+
+    <!-- Breadcrumb — BS standard (theme-bs.css színezi) -->
+    <!-- BACKEND: breadcrumb foreach -->
+    <nav>
+      <ol class="breadcrumb small mb-0">
+        <li class="breadcrumb-item"><a href="index.html">Főoldal</a></li>
+        <li class="breadcrumb-item"><a href="#">Krónikák</a></li>
+        <!-- BACKEND: article.category -->
+        <li class="breadcrumb-item active" aria-current="page">Pokémon</li>
+      </ol>
+    </nav>
+
+    <!-- Cím — h1: Playfair auto (theme-bs.css heading override) -->
+    <!-- BACKEND: article.title -->
+    <h1 class="mb-0">Megérkezett az új Pokémon Twilight Masquerade – mit érdemes tudni?</h1>
+
+    <!-- Kivonat — BS .lead -->
+    <!-- BACKEND: article.excerpt -->
+    <p class="lead text-muted mb-0">Rövid összefoglaló az új lapokról, erős deckekről és várható meta változásokról. Mutatjuk a top pull-okat is az első napi bontásból.</p>
+
+    <!-- Arany elválasztó — hr + border-gold -->
+    <hr class="border-gold opacity-100 m-0">
+
+    <!-- Meta sor: szerző + olvasási idő + dátum -->
+    <div class="d-flex flex-wrap justify-content-between gap-4">
+
+      <!-- BACKEND: author -->
+      <div class="d-flex align-items-center gap-2">
+        <!-- BACKEND: author.avatar — avatar-md utility (48px) -->
+        <div class="avatar-md rounded-circle overflow-hidden flex-shrink-0 bg-muted-mg d-flex align-items-center justify-content-center text-muted">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="d-flex flex-column">
+          <span class="small text-muted">Szerző</span>
+          <!-- BACKEND: author.name -->
+          <span class="small fw-medium">Metagame Szerkesztőség</span>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column">
+        <span class="small text-muted">Olvasási idő</span>
+        <!-- BACKEND: article.read_time -->
+        <span class="small fw-medium">4 perc</span>
+      </div>
+
+      <div class="d-flex flex-column">
+        <span class="small text-muted">Megjelent</span>
+        <!-- BACKEND: article.date -->
+        <span class="small fw-medium">2026. május 20.</span>
+      </div>
+
+    </div>
+
+    <!-- Hero kép — BS ratio + object-fit-cover -->
+    <!-- BACKEND: article.image -->
+    <div class="ratio ratio-16x9">
+      <img src="../assets/images/chronicles/featured.jpg" alt="Pokémon Twilight Masquerade" class="rounded object-fit-cover">
+    </div>
+
+    <!-- ══ CIKK TÖRZS (CMS rich-text) ════════════════════════
+         A .article-content wrapperen BELÜL a CMS nyers HTML-t ad:
+         class nélküli h2/h3/p/ul/figure. A theme-bs.css `.article-content`
+         szabálya stílusozza őket. Wicket ide írja a tartalmat egy
+         <div class="article-content"> ... </div> blokkba. -->
+    <!-- BACKEND: article.body_html (rich-text, escape NÉLKÜL) -->
+    <div class="article-content">
+
+      <h2>Bevezetés – Miért fontos a Twilight Masquerade?</h2>
+      <p>A Pokémon Trading Card Game legújabb kiegészítője, a Twilight Masquerade friss szeleket hoz a verseny- és casual meta világába egyaránt. A szett új mechanikákat, eddig nem látott Terastal kombinációkat és erős Trainer kártyákat vezet be, amelyek alapjaiban változtathatják meg a jelenlegi versenydeckek felépítését.</p>
+      <p>Ebben a cikkben végigmegyünk az összes fontos újdonságon: megnézzük az új mechanikákat, elemezzük a várható meta változásokat, és bemutatjuk a legértékesebb pull-okat az első bontásokból.</p>
+
+      <h2>Új mechanikák és kártyatípusok</h2>
+      <p>A Twilight Masquerade több szempontból is innovatív szett. Az új kártyák nem csupán erősebbek a régieknél, hanem teljesen új stratégiai lehetőségeket nyitnak meg a játékosok számára.</p>
+
+      <h3>Terastal képességek</h3>
+      <p>A Terastal Pokémonok ebben a szettben igazán felnőttek a feladathoz. Az új Ogerpon ex Terastal változata például egyedülálló képességet kap, ami lehetővé teszi, hogy egyetlen körben akár három energiát is felcsatolj – ami drámaian felgyorsítja a játékot.</p>
+
+      <h3>Trainer kártyák</h3>
+      <p>A Trainer kártyák között is vannak igazi gyöngyszemek. A Kieran supporter kártya azonnal staple lett a legtöbb agresszív deckben, míg a Perrin kártya a Pokémon-keresést emeli új szintre.</p>
+
+      <!-- Inline kép a cikkben — BS figure -->
+      <figure class="figure w-100 my-2">
+        <img src="../assets/images/chronicles/thumb-1.jpg" alt="Twilight Masquerade kártyák" class="figure-img img-fluid rounded w-100 mb-1">
+        <figcaption class="figure-caption text-center">Az új szett néhány kiemelt kártyája</figcaption>
+      </figure>
+
+      <h2>Várható meta változások</h2>
+      <p>A Twilight Masquerade megjelenése jelentős hatással lesz a kompetitív metagame-re. Az eddigi domináns deckek – mint a Charizard ex és a Lugia VSTAR – továbbra is életképesek maradnak, de az új kártyák új ellenfeleket hoznak a mezőnybe.</p>
+
+      <h3>Top deckek</h3>
+      <ul>
+        <li>Ogerpon ex / Teal Mask – agresszív tempó deck, amely az új Terastal mechanikára épít</li>
+        <li>Bloodmoon Ursaluna ex – kontroll orientált deck padmanipulációval</li>
+        <li>Dragapult ex – az eddig alulértékelt sárkány típus végre versenyképes lett</li>
+        <li>Terapagos ex – egyedülálló Terastal szinergia, amely több típust kombinál</li>
+      </ul>
+
+      <h2>Elérhető termékvariánsok</h2>
+      <p>A Metagame boltban az alábbi Twilight Masquerade termékek érhetők el:</p>
+      <ul>
+        <li>Booster Pack (egyes csomag) – 1.490 Ft</li>
+        <li>Booster Bundle (6 csomag) – 7.990 Ft</li>
+        <li>Elite Trainer Box – 14.990 Ft</li>
+      </ul>
+      <p>Klubtagjainknak 10% kedvezmény jár minden Twilight Masquerade termékre!</p>
+
+      <h2>Összegzés</h2>
+      <p>A Twilight Masquerade az egyik legjobban sikerült Pokémon TCG szett az utóbbi időben. Friss mechanikákat, gyönyörű illusztrációkat és versenyképes kártyákat kínál. Akár gyűjtő vagy, akár versenyző – ebben a szettben mindenki talál magának valót.</p>
+
+    </div>
+
+    <!-- Előző / következő cikk — BS gombok -->
+    <div class="d-flex flex-wrap justify-content-between gap-3 pt-4 mt-2 border-top border-gold">
+      <!-- BACKEND: prev_article.url -->
+      <a href="#" class="btn btn-light btn-sm d-inline-flex align-items-center gap-1">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        Előző cikk
+      </a>
+      <!-- BACKEND: next_article.url -->
+      <a href="#" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-1">
+        Következő cikk
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+
+  </article>
+</div>
+
+</body>
+</html>

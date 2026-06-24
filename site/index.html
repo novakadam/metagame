@@ -15,9 +15,12 @@
 
   <!-- Design tokenek -->
   <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
 
   <!-- Globális komponensek -->
   <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/forms.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
 
   <!-- Komponensek -->
   <link rel="stylesheet" href="css/components/frame.css">
@@ -376,14 +379,13 @@
   <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
   <div class="mg-widget-search-overlay"></div>
 
-  <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
-  <div class="mg-drawer-overlay"></div>
-  <div class="mg-drawer">
+  <!-- ── DRAWER (right-side, Bootstrap Offcanvas) ────────────── -->
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
     <div class="mg-drawer__card">
       <div class="mg-drawer__header">
         <h2 class="mg-drawer__title"></h2>
         <span class="mg-drawer__subtitle"></span>
-        <button class="mg-drawer__close" aria-label="Bezárás">
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
         </button>
       </div>
@@ -392,14 +394,13 @@
     </div>
   </div>
 
-  <!-- ── FOOTER PANEL (slide-up) ───────────────────────────────── -->
-  <div class="mg-footer-overlay"></div>
-  <div class="mg-footer-panel">
+  <!-- ── FOOTER PANEL (slide-up, Bootstrap Offcanvas) ────────── -->
+  <div class="mg-footer-panel offcanvas offcanvas-bottom" tabindex="-1">
 
     <div class="mg-footer-panel__scroll">
 
     <div class="mg-footer-panel__close">
-      <button class="mg-footer-panel__close-btn" aria-label="Bezárás">
+      <button class="mg-footer-panel__close-btn" data-bs-dismiss="offcanvas" aria-label="Bezárás">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
       </button>
     </div>

@@ -16,9 +16,12 @@
 
   <!-- Design tokenek -->
   <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
 
   <!-- Globális komponensek -->
   <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/forms.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
 
   <!-- Komponensek -->
   <link rel="stylesheet" href="css/components/frame.css">
@@ -236,14 +239,14 @@
        TARTALOM – TERMÉK LISTA
        ══════════════════════════════════════════════════════════════ -->
   <main class="mg-content mg-content--product">
-    <div class="mg-product-layout">
+    <div class="container-fluid mg-product-layout p-0">
 
       <!-- ── FILTER SIDEBAR ─────────────────────────────────────── -->
-      <aside class="mg-filter-panel">
+      <aside class="mg-filter-panel offcanvas-lg offcanvas-start" tabindex="-1">
 
         <div class="mg-filter-panel__header">
           <span>Találatok szűrése</span>
-          <button class="mg-filter-panel__close" aria-label="Bezárás">
+          <button class="mg-filter-panel__close" data-bs-dismiss="offcanvas" data-bs-target=".mg-filter-panel" aria-label="Bezárás">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
           </button>
         </div>
@@ -251,8 +254,8 @@
         <!-- Ár szűrő -->
         <div class="mg-filter-panel__section">
           <div class="mg-filter-panel__inputs">
-            <input class="mg-filter-panel__input" type="number" placeholder="Min">
-            <input class="mg-filter-panel__input" type="number" placeholder="Max">
+            <input class="form-control form-control-sm" type="number" placeholder="Min">
+            <input class="form-control form-control-sm" type="number" placeholder="Max">
           </div>
 
           <div class="mg-filter-panel__chips">
@@ -436,7 +439,7 @@
         </div>
 
         <div class="mg-filter-panel__apply">
-          <button class="mg-btn mg-btn--filled mg-filter-panel__apply-btn">Szűrők alkalmazása</button>
+          <button class="btn btn-secondary mg-filter-panel__apply-btn">Szűrők alkalmazása</button>
         </div>
 
       </aside>
@@ -568,7 +571,7 @@
         <!-- Toolbar: szűrő chipek + rendezés + nézet váltás -->
         <div class="mg-product-toolbar">
           <div class="mg-product-toolbar__left">
-            <button class="mg-product-toolbar__filter-btn mg-btn mg-btn--outline mg-btn--sm">
+            <button class="mg-product-toolbar__filter-btn btn-outline-secondary btn-sm" data-bs-toggle="offcanvas" data-bs-target=".mg-filter-panel">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 21V14"/><path d="M4 10V3"/><path d="M12 21V12"/><path d="M12 8V3"/><path d="M20 21V16"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg>
               Szűrők
             </button>
@@ -615,11 +618,11 @@
             </div>
 
             <div class="mg-product-toolbar__quick-filters">
-              <button class="mg-btn mg-btn--soft mg-btn--sm">
+              <button class="btn btn-light btn-sm">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 Legújabbak elől
               </button>
-              <button class="mg-btn mg-btn--filled mg-btn--sm">Ajánlott</button>
+              <button class="btn btn-secondary btn-sm">Ajánlott</button>
             </div>
 
             <div class="mg-product-toolbar__view">
@@ -650,7 +653,7 @@
 
         <!-- Load more -->
         <div class="mg-product-loadmore">
-          <button class="mg-btn mg-btn--filled mg-product-loadmore__btn">
+          <button class="btn btn-secondary mg-product-loadmore__btn">
             <span class="mg-product-loadmore__btn-text">További 24 betöltése</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
           </button>
@@ -698,13 +701,12 @@
   <div class="mg-widget-search-overlay"></div>
 
   <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
-  <div class="mg-drawer-overlay"></div>
-  <div class="mg-drawer">
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
     <div class="mg-drawer__card">
       <div class="mg-drawer__header">
         <h2 class="mg-drawer__title"></h2>
         <span class="mg-drawer__subtitle"></span>
-        <button class="mg-drawer__close" aria-label="Bezárás">
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
         </button>
       </div>

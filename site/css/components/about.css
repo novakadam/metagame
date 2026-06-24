@@ -9,11 +9,11 @@
 
 /* ── SZEKCIÓ WRAPPER ─────────────────────────────────────────── */
 
+/* .mg-about használja a közös .mg-section wrapper-t (layout.css) */
+
 .mg-about {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 60px 45px 24px;
+  padding-top: 60px;
+  padding-bottom: 24px;
   overflow: hidden;
 }
 
@@ -69,9 +69,9 @@
 
 /* ── KÖZÖS KÁRTYA STÍLUS ─────────────────────────────────────── */
 
+/* .mg-about-card: Bootstrap .card + override (layout.css) */
+
 .mg-about-card {
-  border: 1px solid var(--color-gold);
-  border-radius: 4px;
   padding: 24px 0;
   min-width: 328px;
 }
@@ -138,7 +138,7 @@
 .mg-about-card--klub {
   flex: 1 0 0;
   min-width: 500px;
-  display: flex;
+  flex-direction: row;
   gap: 24px;
   padding: 24px;
 }
@@ -179,14 +179,13 @@
   gap: 16px;
 }
 
+/* .mg-about-stat: Bootstrap .card + override */
+
 .mg-about-stat {
   flex: 0 0 calc(50% - 8px);
   max-width: 120px;
   min-width: 120px;
-  border: 1px solid var(--color-gold);
   padding: 16px;
-  display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 
@@ -233,9 +232,8 @@
 
 @media (max-width: 768px) {
   .mg-about {
-    padding: 24px 0 12px;
-    margin: 0;
-    max-width: none;
+    padding-top: 24px;
+    padding-bottom: 12px;
   }
 
   .mg-about__frame {

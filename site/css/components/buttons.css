@@ -1,188 +1,220 @@
 /*
  * buttons.css – Metagame gomb rendszer
  *
- * Alap class: .mg-btn
- * Variánsok:
- *   --filled    Arany háttér, fehér szöveg (elsődleges CTA)
- *   --outline   Átlátszó háttér, arany keret (másodlagos akció)
- *   --glow      Arany gradient, box-shadow fény (kiemelt akció, ajánló)
- *   --soft      Halvány háttér, arany szöveg (visszafogott, pl. navigáció)
- *   --icon      Kör alakú, csak ikon (kosárba +, kedvenc, stb.)
+ * Standard Bootstrap class-ok, Metagame design tokenekkel.
+ * HTML: <button class="btn btn-primary">Kosárba</button>
  *
- * Méret módosítók:
- *   --sm        Kisebb padding, 14px font
- *   (alap)      Normál méret, 14–16px font
+ * Bootstrap standard variánsok:
+ *   btn-primary           Arany gradient + fény (fő CTA: kosárba, fizetés)
+ *   btn-secondary         Arany filled (általános akció: tovább, küldés)
+ *   btn-outline-secondary Arany keret (másodlagos: vissza, tovább olvasás)
+ *   btn-light             Visszafogott (halk: contact linkek, szűrők)
+ *   btn-dark              Sötétkék (kontrasztos felületen: CTA banner)
+ *
+ * Egyedi (nincs Bootstrap megfelelő):
+ *   mg-btn--icon          Kör alakú, csak ikon (kosárba +, kedvenc)
+ *
+ * Méret: btn-sm, btn-lg (Bootstrap standard)
  */
 
-/* ── ALAP ────────────────────────────────────────────────── */
+/* ── KÖZÖS ALAP (minden Metagame gomb) ───────────────────── */
 
-.mg-btn {
+.btn {
+  --bs-btn-font-family: var(--font-body);
+  --bs-btn-font-weight: 500;
+  --bs-btn-border-radius: var(--radius-xs);
+  --bs-btn-focus-shadow-rgb: 179, 138, 36;
+  --bs-btn-disabled-opacity: 0.45;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-sizing: border-box;
-  height: 40px;
-  padding: 10px var(--space-lg);
-  border: none;
-  border-radius: var(--radius-xs);
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--font-size-base);
-  line-height: 20px;
-  text-decoration: none;
   white-space: nowrap;
-  cursor: pointer;
   transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-/* ── FILLED (elsődleges CTA) ─────────────────────────────── */
+/* ── PRIMARY (gradient + glow — fő CTA) ─────────────────── */
 
-.mg-btn--filled {
-  background: var(--color-gold);
-  border: 1px solid var(--color-text-card);
-  color: white;
-}
+.btn-primary {
+  --bs-btn-padding-x: 32px;
+  --bs-btn-border-width: 2px;
+  --bs-btn-border-color: var(--color-bg);
+  --bs-btn-border-radius: 4px;
+  --bs-btn-font-family: var(--font-display);
+  --bs-btn-font-weight: 700;
+  --bs-btn-font-size: var(--font-size-sm);
+  --bs-btn-color: var(--color-bg);
+  --bs-btn-hover-color: var(--color-bg);
+  --bs-btn-hover-border-color: var(--color-bg);
+  --bs-btn-active-color: var(--color-bg);
+  --bs-btn-active-border-color: var(--color-bg);
 
-.mg-btn--filled:hover {
-  background: var(--color-gold-ring);
-  color: white;
-}
-
-/* ── OUTLINE (másodlagos akció) ──────────────────────────── */
-
-.mg-btn--outline {
-  background: var(--color-bg);
-  border: 1.5px solid var(--color-gold);
-  color: var(--color-gold);
-}
-
-.mg-btn--outline:hover {
-  background: var(--color-gold);
-  color: var(--color-bg);
-}
-
-/* ── GLOW (kiemelt akció – ajánló kártya) ────────────────── */
-
-.mg-btn--glow {
-  padding: 10px 32px;
-  border: 2px solid var(--color-bg);
-  border-radius: 4px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-bg);
   background: linear-gradient(to bottom, #D4A829 0%, var(--color-gold) 100%);
   box-shadow: 0 0 12px rgba(179, 138, 36, 0.3);
 }
 
-.mg-btn--glow:hover {
-  color: var(--color-bg);
+.btn-primary:hover {
   background: linear-gradient(to bottom, #E0B830 0%, #D4A829 100%);
   box-shadow:
     0 0 20px rgba(179, 138, 36, 0.5),
     0 0 40px rgba(179, 138, 36, 0.25);
 }
 
-/* ── SOFT (visszafogott) ─────────────────────────────────── */
+/* ── SECONDARY (arany filled — általános akció) ──────────── */
 
-.mg-btn--soft {
-  background: linear-gradient(90deg, rgba(212, 12, 26, 0.1), rgba(212, 12, 26, 0.1)), var(--color-bg-card);
-  color: var(--color-gold);
+.btn-secondary {
+  --bs-btn-bg: var(--color-gold);
+  --bs-btn-color: white;
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: var(--color-gold-ring);
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: var(--color-gold-ring);
+  --bs-btn-active-color: white;
+  --bs-btn-active-border-color: transparent;
 }
 
-.mg-btn--soft:hover {
+/* ── OUTLINE-SECONDARY (arany keret — másodlagos) ────────── */
+
+.btn-outline-secondary {
+  --bs-btn-bg: var(--color-bg);
+  --bs-btn-color: var(--color-gold);
+  --bs-btn-border-width: 1.5px;
+  --bs-btn-border-color: var(--color-gold);
+  --bs-btn-hover-bg: var(--color-gold);
+  --bs-btn-hover-color: var(--color-bg);
+  --bs-btn-hover-border-color: var(--color-gold);
+  --bs-btn-active-bg: var(--color-gold);
+  --bs-btn-active-color: var(--color-bg);
+  --bs-btn-active-border-color: var(--color-gold);
+}
+
+/* ── LIGHT (visszafogott — halk akció) ───────────────────── */
+
+.btn-light {
+  --bs-btn-bg: transparent;
+  --bs-btn-color: var(--color-gold);
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: var(--color-bg-card);
+  --bs-btn-hover-color: var(--color-gold);
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: var(--color-bg-card);
+  --bs-btn-active-color: var(--color-gold);
+  --bs-btn-active-border-color: transparent;
+
+  background: linear-gradient(90deg, rgba(212, 12, 26, 0.1), rgba(212, 12, 26, 0.1)), var(--color-bg-card);
+}
+
+.btn-light:hover {
   background: var(--color-bg-card);
-  color: var(--color-gold);
+}
+
+/* ── DARK (sötétkék — kontrasztos felületen) ─────────────── */
+
+.btn-dark {
+  --bs-btn-bg: var(--color-secondary);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: #033158;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: #033158;
+  --bs-btn-active-color: #fff;
+}
+
+/* ── LINK (szöveges link stílus) ─────────────────────────── */
+
+.btn-link {
+  --bs-btn-color: var(--color-gold);
+  --bs-btn-hover-color: var(--color-gold-ring);
+  --bs-btn-active-color: var(--color-gold-ring);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-width: 0;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: transparent;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
 }
 
 /* ── ICON (kör alakú, csak ikon) ─────────────────────────── */
 
-.mg-btn--icon {
+.btn.rounded-circle {
   width: 32px;
   height: 32px;
   padding: 0;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-gold);
-  background: transparent;
-  color: var(--color-gold);
+  flex-shrink: 0;
 }
 
-.mg-btn--icon:hover {
-  background: var(--color-gold);
-  color: var(--color-bg);
+/* Legacy alias */
+.mg-btn--icon {
+  --bs-btn-border-width: 1.5px;
+  --bs-btn-border-color: var(--color-gold);
+  --bs-btn-border-radius: 50%;
+  --bs-btn-bg: transparent;
+  --bs-btn-color: var(--color-gold);
+  --bs-btn-hover-bg: var(--color-gold);
+  --bs-btn-hover-color: var(--color-bg);
+  --bs-btn-hover-border-color: var(--color-gold);
+  --bs-btn-active-bg: var(--color-gold);
+  --bs-btn-active-color: var(--color-bg);
+  --bs-btn-active-border-color: var(--color-gold);
+
+  width: 32px;
+  height: 32px;
+  padding: 0;
 }
 
 /* ── MÉRET: SM ───────────────────────────────────────────── */
 
-.mg-btn--sm {
-  height: 36px;
-  padding: 8px var(--space-lg);
-  font-size: var(--font-size-sm);
+.btn-sm {
+  --bs-btn-padding-x: 12px;
+  --bs-btn-padding-y: 4px;
+  --bs-btn-font-size: 13px;
+  --bs-btn-font-family: var(--font-body);
+  --bs-btn-font-weight: 500;
+  height: 30px;
+  gap: 4px;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 /* ── MÉRET: LG ───────────────────────────────────────────── */
 
-.mg-btn--lg {
-  height: 44px;
-  padding: 10px 32px;
-  font-size: var(--font-size-base);
-  font-weight: 600;
+.btn-lg {
+  --bs-btn-padding-x: 32px;
+  --bs-btn-padding-y: 12px;
+  --bs-btn-font-size: var(--font-size-lg);
+  height: 48px;
 }
 
 /* ═══════════════════════════════════════════════════════════
-   BADGE-EK (globálisan újrafelhasználható)
+   BS BADGE VARIÁNSOK (SVG háttér, 1 elem)
    ═══════════════════════════════════════════════════════════ */
 
-/* ── "ÚJ" OKTOGON BADGE ────────────────────────────────── */
+/* ── OKTOGON BADGE (pl. "Új") ─────────────────────────── */
 
-.mg-badge-new {
-  position: absolute;
-  z-index: 3;
+.badge.badge-octagon {
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpolygon points='24,0 40.8,7.2 48,24 40.8,40.8 24,48 7.2,40.8 0,24 7.2,7.2' fill='%2340022C'/%3E%3Cpolygon points='24,3 38.4,9.4 44.6,24 38.4,38.6 24,44.6 9.6,38.6 3.4,24 9.6,9.4' fill='%23B38A24'/%3E%3Cpolygon points='24,6 36,11.5 41.5,24 36,36.5 24,42 12,36.5 6.5,24 12,11.5' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2340022C'/%3E%3Cstop offset='100%25' stop-color='%23720A2B'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
   width: 48px;
   height: 48px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.mg-badge-new::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--color-bg);
-  clip-path: polygon(
-    50% 0%, 85% 15%, 100% 50%, 85% 85%,
-    50% 100%, 15% 85%, 0% 50%, 15% 15%
-  );
-}
-
-.mg-badge-new::after {
-  content: '';
-  position: absolute;
-  inset: 3px;
-  background: var(--color-gold);
-  clip-path: polygon(
-    50% 0%, 85% 15%, 100% 50%, 85% 85%,
-    50% 100%, 15% 85%, 0% 50%, 15% 15%
-  );
-}
-
-.mg-badge-new__text {
-  position: relative;
-  z-index: 1;
-  width: 39px;
-  height: 39px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-card) 100%);
-  clip-path: polygon(
-    50% 0%, 85% 15%, 100% 50%, 85% 85%,
-    50% 100%, 15% 85%, 0% 50%, 15% 15%
-  );
+  padding: 0;
+  border: none;
+  border-radius: 0;
   font-family: var(--font-display);
   font-size: 12px;
   font-weight: 700;
@@ -190,48 +222,61 @@
   text-transform: lowercase;
 }
 
-/* ── KEDVENC (szív) BADGE ───────────────────────────────── */
+/* ── BADGE ALAP (BS .badge theme) ─────────────────────── */
 
-.mg-badge-fav {
-  position: absolute;
-  z-index: 3;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.badge {
+  font-family: var(--font-body);
+  font-weight: 600;
 }
 
-.mg-badge-fav::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: var(--color-bg);
+/* ── PILL BADGE SZÍNEK (BS text-bg-* theme) ──────────────
+   Kategória badge-ek: krónika kártyák, kereső chipek.
+   text-bg-primary = arany (Klub), text-bg-dark = sötét kártya
+   + arany szöveg (Bolt). A ribbon saját override-ja lentebb
+   van, így az felülírja ezeket. */
+
+.badge.text-bg-primary {
+  background-color: var(--color-gold) !important;
+  color: #fff !important;
 }
 
-.mg-badge-fav__inner {
-  position: relative;
-  z-index: 1;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-gold);
-  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-card) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.badge.text-bg-dark {
+  background: linear-gradient(90deg,
+    rgba(212, 12, 26, 0.1),
+    rgba(212, 12, 26, 0.1)),
+    var(--color-bg-card) !important;
+  color: var(--color-gold) !important;
+}
+
+/* ── RIBBON BADGE (kategória sáv — kontextus alapján) ──── */
+/* Ribbon forma csak ott ahol kategória badge: card info, ajánló info */
+
+.badge.badge-ribbon {
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpolygon points='12,0 188,0 200,12 188,24 12,24 0,12' fill='%23022139'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
   color: var(--color-gold);
-  transition: background var(--transition-fast), color var(--transition-fast);
+  padding: 2px 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  border-radius: 0;
 }
 
-.mg-badge-fav:hover .mg-badge-fav__inner,
-.mg-badge-fav.is-active .mg-badge-fav__inner {
-  background: var(--color-gold);
-  color: var(--color-bg);
+/* Arany ribbon variáns */
+.badge.badge-ribbon.text-bg-primary {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24' preserveAspectRatio='none'%3E%3Cpolygon points='12,0 188,0 200,12 188,24 12,24 0,12' fill='%23B38A24'/%3E%3C/svg%3E") !important;
+  color: var(--color-bg) !important;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 26px;
+  height: 26px;
 }
+

@@ -1,195 +1,168 @@
 /*
  * forms.css – Metagame form rendszer
  *
- * Globális input, select, textarea, checkbox, radio stílusok.
- * Minden form elem az mg- prefixet használja.
+ * Bootstrap 5 form komponensek vizuális felülírása a Metagame design tokenekkel.
+ * A BS selectorokat szabjuk át theme-szerűen — nincs mg-form-* class.
+ * HTML: <label class="form-label">, <input class="form-control">, stb.
+ *
+ * BS CSS változókat használunk ahol lehet, így a specificitás nem probléma.
  */
 
 /* ── CSOPORT ────────────────────────────────────────────── */
-
-.mg-form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+/* Megjegyzés: NE írj felül globális BS utility-t (.mb-3).
+   Ha kell form-csoport, használj BS .mb-3-at a HTML-ben,
+   a gap a label margin-bottom: 0 + az input margin-top-pal jön. */
 
 /* ── LABEL ──────────────────────────────────────────────── */
 
-.mg-form-label {
+.form-label {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-text-muted);
+  margin-bottom: 0;
 }
 
-.mg-form-required {
-  color: var(--color-destructive);
+.form-label .text-danger {
+  color: var(--color-destructive) !important;
   margin-left: 2px;
 }
 
-/* ── INPUT / SELECT / TEXTAREA ──────────────────────────── */
+/* ── INPUT / SELECT / TEXTAREA (BS CSS variable override) ── */
 
-.mg-form-input,
-.mg-form-select,
-.mg-form-textarea {
+.form-control,
+.form-select {
+  --bs-body-bg: var(--color-bg-muted);
+  --bs-border-color: transparent;
   height: 44px;
   padding: 0 var(--space-md);
-  background: var(--color-bg-muted);
-  border: 1px solid transparent;
+  background-color: var(--color-bg-muted);
+  border-color: transparent;
   border-radius: var(--radius-xs);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   color: var(--color-text);
+  color-scheme: dark;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-  width: 100%;
-  box-sizing: border-box;
 }
 
-.mg-form-input::placeholder,
-.mg-form-textarea::placeholder {
+.form-control::placeholder {
   color: var(--color-text-muted);
   opacity: 0.4;
 }
 
-.mg-form-input:focus,
-.mg-form-select:focus,
-.mg-form-textarea:focus {
-  outline: none;
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--color-bg-muted);
   border-color: var(--color-gold);
   box-shadow: 0 0 0 1px rgba(179, 138, 36, 0.3);
+  color: var(--color-text);
 }
 
-.mg-form-select {
-  appearance: none;
+.form-select {
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23D8CBAF' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
   padding-right: 40px;
 }
 
-.mg-form-textarea {
+textarea.form-control {
   height: auto;
   min-height: 80px;
   padding: var(--space-sm) var(--space-md);
   resize: vertical;
 }
 
-/* ── HINT / ERROR ───────────────────────────────────────── */
+/* ── SM VARIÁNS ────────────────────────────────────────── */
 
-.mg-form-hint {
+.form-control-sm {
+  height: 36px;
+  font-size: var(--font-size-sm);
+}
+
+/* ── HINT / ERROR ──────────────────────────────────────── */
+
+.form-text {
   font-family: var(--font-body);
   font-size: 12px;
-  color: var(--color-text-muted);
+  color: var(--color-text-muted) !important;
   opacity: 0.7;
 }
 
-.mg-form-error {
+.invalid-feedback {
   font-family: var(--font-body);
   font-size: 12px;
   color: var(--color-destructive);
 }
 
-/* ── GRID SOROK ─────────────────────────────────────────── */
+/* ── CHECKBOX (BS variable override + custom checkmark) ── */
 
-.mg-form-row {
-  display: grid;
-  gap: var(--space-md);
-}
-
-.mg-form-row--2 { grid-template-columns: 1fr 1fr; }
-.mg-form-row--1-2 { grid-template-columns: 1fr 2fr; }
-
-/* ── CHECKBOX ───────────────────────────────────────────── */
-
-.mg-form-check {
+.form-check {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   cursor: pointer;
+  padding-left: 0;
 }
 
-.mg-form-check__input {
+.form-check-input[type="checkbox"] {
+  --bs-form-check-bg: transparent;
   width: 18px;
   height: 18px;
-  margin-top: 2px;
+  margin: 2px 0 0;
+  float: none;
   flex-shrink: 0;
-  appearance: none;
-  -webkit-appearance: none;
   border: 1.5px solid var(--color-text-muted);
   border-radius: 3px;
-  background: transparent;
+  background-color: transparent;
+  background-image: none;
   cursor: pointer;
   position: relative;
-  transition: border-color var(--transition-fast), background var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.mg-form-check__input:checked {
-  background: var(--color-gold);
+.form-check-input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 1px rgba(179, 138, 36, 0.3);
   border-color: var(--color-gold);
 }
 
-.mg-form-check__input:checked::after {
-  content: '';
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 9px;
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+.form-check-input[type="checkbox"]:checked {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
 }
 
-.mg-form-check__body {
-  display: flex;
-  flex-direction: column;
-}
-
-.mg-form-check__label {
+.form-check-label {
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   color: var(--color-text);
   cursor: pointer;
 }
 
-.mg-form-check__hint {
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--color-text-muted);
-  margin-top: 2px;
-}
+/* ── RADIO (BS variable override) ────────────────────────── */
 
-/* ── RADIO ──────────────────────────────────────────────── */
-
-.mg-form-radio {
+.form-check-input[type="radio"] {
+  --bs-form-check-bg: transparent;
   width: 20px;
   height: 20px;
-  flex-shrink: 0;
-  appearance: none;
-  -webkit-appearance: none;
+  margin: 2px 0 0;
   border: 2px solid var(--color-text-muted);
   border-radius: 50%;
-  background: transparent;
+  background-color: transparent;
+  background-image: none;
   cursor: pointer;
-  position: relative;
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.mg-form-radio:checked {
+.form-check-input[type="radio"]:focus {
+  box-shadow: 0 0 0 1px rgba(179, 138, 36, 0.3);
   border-color: var(--color-gold);
-  background: var(--color-gold);
 }
 
-.mg-form-radio:checked::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+.form-check-input[type="radio"]:checked {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }

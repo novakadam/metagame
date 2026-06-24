@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template: Product Detail (termék részletező)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body>
+
+<div class="container-xxl py-4">
+
+  <p class="template-label">Termék részletező — fő blokk (galéria + info panel + accordion)</p>
+
+  <!-- Breadcrumb — BS standard -->
+  <!-- BACKEND: breadcrumb foreach -->
+  <nav class="border-bottom border-gold pb-2 mb-4">
+    <ol class="breadcrumb small mb-0">
+      <li class="breadcrumb-item"><a href="products.html">Gyűjtögetős kártyajátékok</a></li>
+      <li class="breadcrumb-item"><a href="#">Riftbound: League of Legends TCG</a></li>
+      <!-- BACKEND: product.breadcrumb_title -->
+      <li class="breadcrumb-item active" aria-current="page">Lunar Bundle</li>
+    </ol>
+  </nav>
+
+  <!-- Két oszlop: bal galéria+accordion, jobb info panel (a sidebar külön: related-products.html) -->
+  <div class="row g-4 g-xl-5">
+
+    <!-- ══ BAL: GALÉRIA + ACCORDION ══════════════════════════ -->
+    <div class="col-12 col-lg-6 d-flex flex-column gap-4">
+
+      <!-- Fő kép — ratio 1:1 + arany keret + gradient háttér -->
+      <!-- BACKEND: product.images[0] -->
+      <div class="ratio ratio-1x1 border border-gold bg-product-frame">
+        <div class="d-flex align-items-center justify-content-center p-4">
+          <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Riftbound Booster Display" class="mw-100 mh-100 object-fit-contain">
+        </div>
+      </div>
+
+      <!-- Thumbnailek — BACKEND: product.images foreach -->
+      <div class="d-flex gap-3">
+        <button class="ratio ratio-1x1 flex-fill border border-2 border-gold bg-product-frame p-2 d-block" aria-label="1. kép">
+          <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Booster Display" class="w-100 h-100 object-fit-contain">
+        </button>
+        <button class="ratio ratio-1x1 flex-fill border border-gold bg-product-frame p-2 d-block" aria-label="2. kép">
+          <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Deck" class="w-100 h-100 object-fit-contain">
+        </button>
+        <button class="ratio ratio-1x1 flex-fill border border-gold bg-product-frame p-2 d-block" aria-label="3. kép">
+          <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Magic Display" class="w-100 h-100 object-fit-contain">
+        </button>
+        <button class="ratio ratio-1x1 flex-fill border border-gold bg-product-frame p-2 d-block" aria-label="4. kép">
+          <img src="../assets/images/content - placeholder/product/magic-play-display.png" alt="Magic Box" class="w-100 h-100 object-fit-contain">
+        </button>
+      </div>
+
+      <!-- Accordion — BS standard (theme-bs.css sötét theme) -->
+      <!-- BACKEND: product.detail_sections foreach -->
+      <div class="accordion" id="product-accordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc-details">Termékleírás</button>
+          </h2>
+          <div id="acc-details" class="accordion-collapse collapse show" data-bs-parent="#product-accordion">
+            <!-- BACKEND: section.body -->
+            <div class="accordion-body">A Riftbound: League of Legends TCG – Set One Unleashed Booster Display 24 darab booster pack-et tartalmaz, amelyekből a League of Legends univerzum ikonikus bajnokait gyűjtheted össze. Minden csomag 12 kártyát tartalmaz, köztük garantáltan legalább 1 ritka lapot.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-specs">Specifikáció</button>
+          </h2>
+          <div id="acc-specs" class="accordion-collapse collapse" data-bs-parent="#product-accordion">
+            <div class="accordion-body">
+              <strong>Tartalom:</strong> 24 booster pack (12 kártya/csomag)<br>
+              <strong>Nyelv:</strong> Angol<br>
+              <strong>Kiadó:</strong> Riot Games<br>
+              <strong>Korosztály:</strong> 13+
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-warranty">Garancia</button>
+          </h2>
+          <div id="acc-warranty" class="accordion-collapse collapse" data-bs-parent="#product-accordion">
+            <div class="accordion-body">30 napos visszaküldési lehetőség bontatlan termék esetén. A garancia nem vonatkozik kinyitott booster csomagokra.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ JOBB: TERMÉKINFÓ PANEL ════════════════════════════ -->
+    <div class="col-12 col-lg-6">
+
+      <!-- Panel: arany keret, sötét kártyaháttér, szekciókra bontva.
+           position-relative a lelógó kategória badge-hez. -->
+      <div class="border border-gold bg-card-mg position-relative h-100 d-flex flex-column pt-4 pb-3">
+
+        <!-- Kategória badge — lelógó, BS ribbon (buttons.css) + position utility -->
+        <!-- BACKEND: product.category -->
+        <span class="badge badge-ribbon text-bg-primary position-absolute top-0 start-50 translate-middle">TCG</span>
+
+        <!-- Heading szekció -->
+        <div class="d-flex flex-column align-items-center text-center gap-2 px-4 pb-4 border-bottom border-2" style="border-color:var(--color-bg)!important">
+          <!-- BACKEND: product.brand — h6: Playfair auto -->
+          <p class="h6 text-card mb-0">Riftbound &bull; League of Legends</p>
+          <!-- BACKEND: product.title — h1: a fő termékcím (SEO) -->
+          <h1 class="fs-2 mb-0">Set One – Unleashed Booster Display</h1>
+          <!-- BACKEND: product.short_info -->
+          <p class="small text-card mb-0">24 packs &bull; English version</p>
+        </div>
+
+        <!-- Ár + készlet szekció (sötétkék háttér) -->
+        <div class="bg-secondary-mg d-flex flex-column gap-3 p-4 border-bottom border-2" style="border-color:var(--color-bg)!important">
+          <div class="d-flex align-items-center flex-wrap gap-2">
+            <!-- BACKEND: product.price — h4 Playfair -->
+            <span class="h4 fw-bold mb-0">12 800 Ft</span>
+            <!-- BACKEND: product.original_price -->
+            <span class="text-muted text-decoration-line-through">16 640 Ft</span>
+            <!-- BACKEND: product.discount_pct -->
+            <span class="badge rounded-pill text-bg-danger">-60%</span>
+          </div>
+
+          <!-- Készlet: 3 sor, arany kerettel -->
+          <div class="border border-gold d-flex flex-wrap">
+            <!-- BACKEND: stock.online -->
+            <div class="d-flex align-items-center gap-2 p-3 flex-fill min-w-0">
+              <svg width="22" height="22" class="text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              <span class="text-muted flex-grow-1">Online</span>
+              <span class="text-success fw-medium">10+</span>
+            </div>
+            <!-- BACKEND: stock.store -->
+            <div class="d-flex align-items-center gap-2 p-3 flex-fill min-w-0">
+              <svg width="22" height="22" class="text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a8 8 0 0 0-8 8c0 5.33 8 12 8 12s8-6.67 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="text-muted flex-grow-1">Bolt</span>
+              <span class="text-success fw-medium">5+</span>
+            </div>
+            <!-- BACKEND: stock.club -->
+            <div class="d-flex align-items-center gap-2 p-3 flex-fill min-w-0">
+              <svg width="22" height="22" class="text-muted flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a8 8 0 0 0-8 8c0 5.33 8 12 8 12s8-6.67 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="text-muted flex-grow-1">Klub</span>
+              <span class="text-danger fw-medium">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Változatok szekció -->
+        <div class="bg-muted-mg d-flex flex-wrap align-items-center gap-3 p-4 border-bottom border-gold">
+          <span class="fw-semibold fs-5 flex-shrink-0">Változatok:</span>
+          <!-- BACKEND: product.variants foreach -->
+          <div class="d-flex flex-fill justify-content-between gap-2">
+            <button class="border border-2 border-gold p-2 bg-product-frame d-flex align-items-center justify-content-center" style="width:64px;height:64px" aria-label="1. változat">
+              <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Booster Display" class="mw-100 mh-100 object-fit-contain">
+            </button>
+            <button class="border border-gold p-2 bg-product-frame d-flex align-items-center justify-content-center" style="width:64px;height:64px" aria-label="2. változat">
+              <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Deck" class="mw-100 mh-100 object-fit-contain">
+            </button>
+            <button class="border border-gold p-2 bg-product-frame d-flex align-items-center justify-content-center" style="width:64px;height:64px" aria-label="3. változat">
+              <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Magic Display" class="mw-100 mh-100 object-fit-contain">
+            </button>
+            <button class="border border-gold p-2 bg-product-frame d-flex align-items-center justify-content-center" style="width:64px;height:64px" aria-label="4. változat">
+              <img src="../assets/images/content - placeholder/product/magic-play-display.png" alt="Magic Box" class="mw-100 mh-100 object-fit-contain">
+            </button>
+            <button class="border border-gold p-2 bg-product-frame d-flex align-items-center justify-content-center" style="width:64px;height:64px" aria-label="5. változat">
+              <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Booster" class="mw-100 mh-100 object-fit-contain">
+            </button>
+            <button class="border border-gold p-2 bg-product-frame d-flex align-items-center justify-content-center" style="width:64px;height:64px" aria-label="6. változat">
+              <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Deck alt" class="mw-100 mh-100 object-fit-contain">
+            </button>
+          </div>
+        </div>
+
+        <!-- Kosár sor + leírás + benefits -->
+        <div class="d-flex flex-column gap-3 p-4">
+
+          <!-- Kosár sor: qty stepper + Kosárba + wishlist -->
+          <div class="d-flex flex-wrap align-items-center gap-3">
+            <!-- Qty stepper — BS input-group (a gombokkal egy magas) -->
+            <div class="input-group" style="width:auto;max-width:130px">
+              <button class="btn btn-outline-secondary" type="button" aria-label="Kevesebb">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h8"/></svg>
+              </button>
+              <input class="form-control text-center px-0" type="number" value="1" min="1" max="99" aria-label="Mennyiség" style="max-width:44px">
+              <button class="btn btn-outline-secondary" type="button" aria-label="Több">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 3v8M3 7h8"/></svg>
+              </button>
+            </div>
+            <!-- BACKEND: add_to_cart action -->
+            <button class="btn btn-secondary flex-grow-1">Kosárba</button>
+            <!-- Wishlist — BS ikon gomb (buttons.css rounded-circle) -->
+            <button class="btn btn-outline-secondary rounded-circle flex-shrink-0" aria-label="Kedvencekhez">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+
+          <!-- Rövid leírás -->
+          <!-- BACKEND: product.description -->
+          <p class="text-muted mb-0">A Riftbound: League of Legends TCG – Set One Unleashed Booster Display 24 darab booster pack-et tartalmaz, köztük garantáltan legalább 1 ritka vagy magasabb ritkaságú lapot.</p>
+
+          <!-- Benefits -->
+          <div class="d-flex flex-column gap-3">
+            <p class="fw-semibold fs-5 mb-0">Előnyök:</p>
+            <!-- BACKEND: product.benefits foreach -->
+            <div class="d-flex align-items-center gap-2 text-muted">
+              <svg width="16" height="16" class="flex-shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5" r="3"/><path d="M5 10l-2 5 5-2 5 2-2-5"/></svg>
+              <span>15 éve a piacon</span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-muted">
+              <svg width="16" height="16" class="flex-shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5l-7 7-3-3"/></svg>
+              <span>30 napos visszaküldési lehetőség</span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-muted">
+              <svg width="16" height="16" class="flex-shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="14" height="9" rx="1"/><path d="M10 4V3a2 2 0 0 0-4 0v1M1 7h14"/></svg>
+              <span>Gyors szállítás</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

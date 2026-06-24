@@ -1,39 +1,25 @@
 /*
  * related-products.css – Kapcsolódó termékek widget
  *
- * Újrafelhasználható: cikk oldal, termék oldal, stb.
- * Tartalmaz: fő termékkártya + kiegészítő upsell lista
+ * BS classok: card, card-body, card-title, card-text, list-group,
+ * list-group-item, d-flex, btn rounded-circle, stb.
+ * Itt csak ami BS-sel nem megoldható: kép gradient háttér, responsive méretezés.
  */
-
-/* ── WIDGET KONTÉNER ─────────────────────────────────────── */
-
-.mg-related {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.mg-related__title {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--font-size-2xl);
-  line-height: 32px;
-  color: var(--color-text-muted);
-  margin: 0;
-}
 
 /* ── FŐ TERMÉKKÁRTYA ─────────────────────────────────────── */
 
 .mg-related__card {
-  border: 1px solid var(--color-gold);
-  border-radius: var(--radius-sm);
+  --bs-card-border-radius: var(--radius-sm);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding-bottom: 24px;
+  gap: 0;
 }
 
+.mg-related__card .card-body {
+  background: var(--color-bg);
+  padding: 24px;
+}
+
+/* CUSTOM: gradient háttér a termékkép mögé — BS card-img-top nem tudja */
 .mg-related__card-image {
   width: 100%;
   height: 220px;
@@ -51,112 +37,21 @@
   object-fit: contain;
 }
 
-.mg-related__card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 0 24px;
-}
+/* ── UPSELL HOVER ─────────────────────────────────────────── */
 
-.mg-related__card-name {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--font-size-xl);
-  line-height: 28px;
-  color: var(--color-text-card);
-  margin: 0;
-}
-
-.mg-related__card-desc {
-  font-family: var(--font-body);
-  font-size: var(--font-size-sm);
-  line-height: 20px;
-  color: var(--color-text-muted);
-  margin: 0;
-}
-
-.mg-related__card-price {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: var(--font-size-2xl);
-  line-height: 32px;
-  color: var(--color-text-card);
-  margin: 0;
-}
-
-/* ── KIEGÉSZÍTŐ UPSELL LISTA ────────────────────────────── */
-
-.mg-related__upsell {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.mg-related__upsell-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
-  border: 1px solid var(--color-gold);
-  border-radius: var(--radius-xs);
-  cursor: pointer;
-  transition: background var(--transition-fast);
-}
-
-.mg-related__upsell-item:hover {
+.upsell-item:hover {
   background: var(--color-secondary);
 }
 
-/* Plusz ikon – hover színváltás a sor hoverétől */
-
-.mg-related__upsell-add {
-  flex-shrink: 0;
-}
-
-.mg-related__upsell-item:hover .mg-related__upsell-add {
+.upsell-item:hover .btn.rounded-circle {
   background: var(--color-gold);
   color: var(--color-bg);
 }
 
-.mg-related__upsell-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-  flex: 1;
-}
-
-.mg-related__upsell-name {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--font-size-sm);
-  line-height: 20px;
-  color: var(--color-text-card);
-}
-
-.mg-related__upsell-desc {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: var(--font-size-sm);
-  line-height: 20px;
-  color: var(--color-text-muted);
-}
-
-.mg-related__upsell-price {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: var(--font-size-sm);
-  line-height: 20px;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* ══ MOBIL ════════════════════════════════════════════════════════ */
+/* ══ RESPONSIVE ═══════════════════════════════════════════════ */
 
 @media (max-width: 1400px) {
   .mg-related__card {
-    flex-direction: row;
     gap: 16px;
     padding: 12px;
   }
@@ -168,41 +63,17 @@
     align-self: stretch;
     height: auto;
   }
-
-  .mg-related__card-info {
-    padding: 0;
-    flex: 1;
-    min-width: 0;
-    gap: 8px;
-  }
-
-  .mg-related__card-name {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .mg-related__card-price {
-    font-size: 18px;
-    line-height: 24px;
-  }
 }
 
 @media (max-width: 768px) {
   .mg-related__card-image {
     width: 100px;
+    padding: 8px;
   }
 
-  .mg-related__card-name {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .mg-related__card-price {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .mg-related__upsell-item {
-    padding: 12px;
+  .mg-related__card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

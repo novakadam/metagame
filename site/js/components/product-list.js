@@ -83,18 +83,18 @@ function mgInitProductList() {
   });
 
   // ── GYORS SZŰRŐ GOMBOK ───────────────────────────────────
-  $('.mg-product-toolbar__quick-filters .mg-btn').on('click', function () {
-    $('.mg-product-toolbar__quick-filters .mg-btn')
-      .removeClass('mg-btn--filled')
-      .addClass('mg-btn--soft');
+  $('.mg-product-toolbar__quick-filters .btn').on('click', function () {
+    $('.mg-product-toolbar__quick-filters .btn')
+      .removeClass('btn-secondary')
+      .addClass('btn-light');
     $(this)
-      .removeClass('mg-btn--soft')
-      .addClass('mg-btn--filled');
+      .removeClass('btn-light')
+      .addClass('btn-secondary');
   });
 
   // ── KÁRTYA KATTINTÁS → TERMÉK OLDAL ───────────────────────
   $(document).on('click', '.mg-product-card', function (e) {
-    if ($(e.target).closest('.mg-badge-fav, .mg-product-card__cta').length) return;
+    if ($(e.target).closest('.btn.rounded-circle, .mg-product-card__cta').length) return;
     window.location.href = 'product.html';
   });
 
@@ -167,15 +167,11 @@ function mgCreateDemoCard() {
   var idx = Math.floor(Math.random() * images.length);
 
   return $(
-    '<div class="mg-product-card mg-product-card--new mg-product-card--has-category">' +
+    '<div class="card mg-product-card mg-product-card--new mg-product-card--has-category">' +
 
-      '<div class="mg-badge-new">' +
-        '<span class="mg-badge-new__text">új</span>' +
-      '</div>' +
-      '<button class="mg-badge-fav" aria-label="Kedvencekhez">' +
-        '<span class="mg-badge-fav__inner">' +
-          '<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>' +
-        '</span>' +
+      '<span class="badge badge-octagon position-absolute">új</span>' +
+      '<button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">' +
+        '<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>' +
       '</button>' +
 
       '<div class="mg-product-card__image">' +
@@ -188,32 +184,32 @@ function mgCreateDemoCard() {
           '<span class="mg-product-card__category-text">Ajánlott</span>' +
           '<svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>' +
         '</div>' +
-        '<h3 class="mg-product-card__title">' + titles[idx] + '</h3>' +
-        '<p class="mg-product-card__subtitle">' + subtitles[idx] + '</p>' +
+        '<h3>' + titles[idx] + '</h3>' +
+        '<p class="fs-5 text-card">' + subtitles[idx] + '</p>' +
       '</div>' +
 
       '<div class="mg-product-card__content">' +
-        '<p class="mg-product-card__price">' + prices[idx] + '</p>' +
+        '<h4 class="fw-bold text-center text-white mb-0">' + prices[idx] + '</h4>' +
         '<div class="mg-product-card__rows">' +
           '<div class="mg-product-card__row">' +
             '<span class="mg-product-card__row-icon">' +
-              '<svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+              '<svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</span>' +
-            '<span class="mg-product-card__row-label">Üzletben elérhető</span>' +
-            '<span class="mg-product-card__row-value">10+</span>' +
+            '<span class="fs-7 fw-medium text-muted flex-grow-1">Üzletben elérhető</span>' +
+            '<span class="fs-7 text-gold">10+</span>' +
           '</div>' +
           '<div class="mg-product-card__row">' +
             '<span class="mg-product-card__row-icon">' +
-              '<svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' +
+              '<svg class="text-danger" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' +
             '</span>' +
-            '<span class="mg-product-card__row-label">Klubban nincs</span>' +
-            '<span class="mg-product-card__row-value mg-product-card__row-value--out">0db</span>' +
+            '<span class="fs-7 fw-medium text-muted flex-grow-1">Klubban nincs</span>' +
+            '<span class="fs-7 text-danger">0db</span>' +
           '</div>' +
         '</div>' +
       '</div>' +
 
       '<div class="mg-product-card__cta">' +
-        '<a class="mg-btn mg-btn--glow" href="#">Kosárba</a>' +
+        '<a class="btn btn-primary" href="#">Kosárba</a>' +
       '</div>' +
 
     '</div>'

@@ -56,18 +56,23 @@
   pointer-events: none;
 }
 
-/* ── "ÚJ" BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css .mg-badge-new adja) */
+/* ── "ÚJ" BADGE POZÍCIONÁLÁS ── */
 
-.mg-ajanlo .mg-badge-new {
+.mg-ajanlo .badge-octagon {
   top: -22px;
   left: -22px;
+  z-index: 3;
 }
 
-/* ── KEDVENC BADGE POZÍCIONÁLÁS (vizuálisat a buttons.css .mg-badge-fav adja) */
+/* ── KEDVENC BADGE POZÍCIONÁLÁS ── */
 
-.mg-ajanlo .mg-badge-fav {
+.mg-ajanlo > .btn.rounded-circle {
   top: -18px;
   right: -18px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  padding: 0;
 }
 
 /* ── KÉK ZÓNA (kategória + cím) ──────────────────────────────── */
@@ -79,7 +84,15 @@
   position: relative;
 }
 
-/* Kategória badge – háromszög végek, középen metszi a kép/kék határt */
+/* BS badge pozíció — középen metszi a kép/kék határt */
+.mg-ajanlo__info .badge {
+  margin-top: -14px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Legacy kategória badge */
 .mg-ajanlo__badge {
   display: inline-block;
   position: relative;
@@ -102,6 +115,7 @@
   );
 }
 
+.mg-ajanlo__info h5,
 .mg-ajanlo__title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -109,6 +123,13 @@
   line-height: 1.25;
   color: var(--color-text);
   margin: 0;
+}
+
+.mg-ajanlo__info .small,
+.mg-ajanlo__info p:last-child {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 5px 0 0;
 }
 
 .mg-ajanlo__subtitle {

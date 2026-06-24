@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metagame – Kártya előnézet</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+
+  <style>
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      padding: 40px;
+    }
+    h1 { font-family: var(--font-display); font-size: 32px; margin-bottom: 8px; }
+    h2 { font-family: var(--font-display); font-size: 22px; color: var(--color-gold); margin: 40px 0 16px; border-bottom: 1px solid var(--color-gold); padding-bottom: 8px; }
+    .subtitle { color: var(--color-text-muted); font-size: 14px; margin-bottom: 32px; }
+    .preview-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+    .note { font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+
+<h1>Kártya előnézet</h1>
+<p class="subtitle">Bootstrap <code>.card</code> Metagame stílussal. Laci: <code>class="card"</code> és kész.</p>
+
+<!-- ── ALAP CARD ──────────────────────────── -->
+<h2>Alap card</h2>
+<p class="note">Csak <code>card</code> + <code>card-body</code> — arany keret, sötét háttér, 24px padding</p>
+
+<div class="preview-row">
+  <div class="card" style="width: 320px;">
+    <div class="card-body">
+      <h5 class="card-title">Kártya címe</h5>
+      <p class="card-text">Ez egy alap Bootstrap card Metagame stílussal. Arany keret, sötét háttér.</p>
+      <a href="#" class="btn btn-secondary">Akció</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 320px;">
+    <div class="card-body">
+      <h5 class="card-title">Másik kártya</h5>
+      <p class="card-text">Több szöveg a kártyában, hogy lássuk a tördelést és a spacing-et.</p>
+      <a href="#" class="btn btn-outline-secondary">Másodlagos</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARD-HEADER + CARD-FOOTER ──────────── -->
+<h2>card-header + card-footer</h2>
+<p class="note"><code>card-header</code> = sötétebb háttér, arany alsó vonal. <code>card-footer</code> = muted háttér, arany felső vonal.</p>
+
+<div class="preview-row">
+  <div class="card" style="width: 360px;">
+    <div class="card-header">Rendelés összegzése</div>
+    <div class="card-body">
+      <h5 class="card-title">3 termék</h5>
+      <p class="card-text">Riftbound Deck, Booster Display, Magic Play Display</p>
+    </div>
+    <div class="card-footer">
+      Végösszeg: <strong style="color: var(--color-gold);">62 858 Ft</strong>
+    </div>
+  </div>
+
+  <div class="card" style="width: 360px;">
+    <div class="card-header">Szállítási információ</div>
+    <div class="card-body">
+      <h5 class="card-title">Metagame Bolt</h5>
+      <p class="card-text">1132 Budapest, Kádár utca 10.</p>
+      <p class="card-text">H–SZ 10:00–18:00</p>
+    </div>
+    <div class="card-footer">
+      <a href="#" class="btn btn-light" style="width:100%;justify-content:center;">Megtekintés a térképen</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARD-IMG-TOP ───────────────────────── -->
+<h2>card-img-top</h2>
+<p class="note">Kép a kártya tetején — termék, cikk előnézet</p>
+
+<div class="preview-row">
+  <div class="card" style="width: 280px;">
+    <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" class="card-img-top" alt="Termék" style="background: radial-gradient(circle, var(--color-bg) 0%, rgba(114, 10, 43, 0.35) 80%); padding: 16px; aspect-ratio: 1/1; object-fit: contain;">
+    <div class="card-body">
+      <h5 class="card-title">Riftbound Deck</h5>
+      <p class="card-text">Origins Champion Deck</p>
+      <p style="font-size: 20px; font-weight: 600; color: var(--color-gold);">12 358 Ft</p>
+      <a href="#" class="btn btn-primary">Kosárba</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 280px;">
+    <img src="../assets/images/chronicles/featured.jpg" class="card-img-top" alt="Cikk" style="height: 180px; object-fit: cover;">
+    <div class="card-body">
+      <h5 class="card-title">Megérkezett az új Pokémon Twilight Masquerade</h5>
+      <p class="card-text">Rövid összefoglaló az új lapokról és a várható meta változásokról.</p>
+      <a href="#" class="btn btn-outline-secondary btn-sm">Tovább olvasás</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── MÉRETEK ────────────────────────────── -->
+<h2>Méretek: card-sm + card-lg</h2>
+<p class="note">Kompaktabb vagy nagyobb padding/font — <code>class="card card-sm"</code></p>
+
+<div class="preview-row">
+  <div class="card card-sm" style="width: 260px;">
+    <div class="card-body">
+      <h5 class="card-title">Small kártya</h5>
+      <p class="card-text">Kompakt méret, kisebb padding és szöveg. Stat box-ok, upsell elemek.</p>
+      <a href="#" class="btn btn-outline-secondary btn-sm">Részletek</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 320px;">
+    <div class="card-body">
+      <h5 class="card-title">Alap kártya</h5>
+      <p class="card-text">Standard méret — 24px padding, lg title, base text.</p>
+      <a href="#" class="btn btn-secondary">Akció</a>
+    </div>
+  </div>
+
+  <div class="card card-lg" style="width: 400px;">
+    <div class="card-body">
+      <h5 class="card-title">Large kártya</h5>
+      <p class="card-text">Kiemelt, nagyobb padding és szöveg. Landing szekciók, hero kártyák.</p>
+      <a href="#" class="btn btn-primary">Fő CTA</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── KATTINTHATÓ KÁRTYA ────────────────── -->
+<h2>Kattintható kártya (link)</h2>
+<p class="note">Az egész kártya egy link — <code>&lt;a class="card"&gt;</code>. Hover: fényesebb keret + shadow.</p>
+
+<div class="preview-row">
+  <a href="#" class="card" style="width: 280px; text-decoration: none;">
+    <div class="card-body">
+      <h5 class="card-title">Kattints rám</h5>
+      <p class="card-text">Ez az egész kártya egy link. Hoverelj rá — arany keret fényesedik, shadow jelenik meg.</p>
+    </div>
+  </a>
+
+  <a href="#" class="card card-sm" style="width: 220px; text-decoration: none;">
+    <div class="card-body">
+      <h5 class="card-title">Kis link kártya</h5>
+      <p class="card-text">Kompakt és kattintható.</p>
+    </div>
+  </a>
+</div>
+
+<!-- ── IKON KÁRTYA ───────────────────────── -->
+<h2>Ikon kártya</h2>
+<p class="note">Kör ikon a szöveg mellett — <code>class="card-icon"</code> a card-body-n belül</p>
+
+<div class="preview-row">
+  <div class="card" style="width: 320px;">
+    <div class="card-body">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <h5 class="card-title">Bolt</h5>
+      <p class="card-text">1132 Budapest, Kádár utca 10.</p>
+      <p class="card-text">H–SZ 10:00–18:00</p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 320px;">
+    <div class="card-body">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 5a2 2 0 0 1 2-2z"/></svg>
+      </div>
+      <h5 class="card-title">Telefon</h5>
+      <p class="card-text">+36 1 123 4567</p>
+    </div>
+    <div class="card-footer">
+      <a href="#" class="btn btn-light" style="width:100%;justify-content:center;">Hívás</a>
+    </div>
+  </div>
+
+  <div class="card card-sm" style="width: 260px;">
+    <div class="card-body">
+      <div class="card-icon" style="width:36px; height:36px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px; height:16px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h5 class="card-title">Nyitvatartás</h5>
+      <p class="card-text">H–SZ 10–18</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── VÍZSZINTES CARD ────────────────────── -->
+<h2>Vízszintes card (flex-row)</h2>
+<p class="note">Kép balra, tartalom jobbra — <code>class="card flex-row"</code></p>
+
+<div class="preview-row">
+  <div class="card flex-row" style="width: 480px;">
+    <img src="../assets/images/content - placeholder/product/magic-play-display-transparent.png" alt="Termék" style="width: 140px; object-fit: contain; padding: 12px; background: radial-gradient(circle, var(--color-bg) 0%, rgba(114, 10, 43, 0.35) 80%);">
+    <div class="card-body">
+      <h5 class="card-title">Magic Play Display</h5>
+      <p class="card-text">Play Boosters Display — 36 booster pack</p>
+      <p style="font-size: 18px; font-weight: 600; color: var(--color-gold);">24 900 Ft</p>
+      <a href="#" class="btn btn-outline-secondary btn-sm">Kosárba</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARD GRID ──────────────────────────── -->
+<h2>Kártya grid (row + col)</h2>
+<p class="note">Bootstrap grid-del: <code>row</code> + <code>col-md-4</code></p>
+
+<div class="row g-4">
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Bolt</h5>
+        <p class="card-text">1132 Budapest, Kádár utca 10.</p>
+        <p class="card-text">H–SZ 10:00–18:00</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-light" style="width:100%;justify-content:center;">Térkép</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Klub</h5>
+        <p class="card-text">1132 Budapest, Kresz Géza utca 36.</p>
+        <p class="card-text">H–P 16:00–22:00, SZ 10:00–18:00</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-light" style="width:100%;justify-content:center;">Térkép</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Telefon</h5>
+        <p class="card-text">+36 1 123 4567</p>
+        <p class="card-text">H–P 10:00–18:00</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-light" style="width:100%;justify-content:center;">Hívás</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ÖSSZEHASONLÍTÁS ────────────────────── -->
+<h2>Összefoglaló — minden card elem</h2>
+<p class="note">Egy kártyában az összes sub-komponens</p>
+
+<div class="card" style="max-width: 400px;">
+  <div class="card-header"><strong>card-header</strong> — sötétebb háttér, arany border</div>
+  <img src="../assets/images/chronicles/thumb-1.jpg" class="card-img-top" alt="Kép" style="height: 160px; object-fit: cover;">
+  <div class="card-body">
+    <h5 class="card-title">card-title</h5>
+    <p class="card-text">card-text — muted szöveg, body font</p>
+    <a href="#" class="btn btn-secondary">btn-secondary</a>
+  </div>
+  <div class="card-footer"><strong>card-footer</strong> — muted háttér, arany border</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2 style="margin-top:60px; font-size:28px; border-bottom-width:2px;">Metagame speciális kártyák (ezekre épülnek)</h2>
+<p class="note">Ezek a <code>.card</code> alapra épülő, már kész Metagame komponensek. Mindegyik a fenti alap stílusokat örökli (arany keret, sötét háttér) + saját egyedi layout/stílus.</p>
+
+<table style="width:100%; border-collapse:collapse; margin:24px 0 40px;">
+  <thead>
+    <tr style="border-bottom:1px solid var(--color-gold); text-align:left;">
+      <th style="padding:8px 16px; color:var(--color-gold);">Komponens</th>
+      <th style="padding:8px 16px; color:var(--color-gold);">CSS class</th>
+      <th style="padding:8px 16px; color:var(--color-gold);">Hol</th>
+      <th style="padding:8px 16px; color:var(--color-gold);">Ami egyedi</th>
+    </tr>
+  </thead>
+  <tbody style="font-size:14px;">
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">Termék kártya</td>
+      <td style="padding:8px 16px;"><code>card mg-product-card</code></td>
+      <td style="padding:8px 16px;">Terméklista, hero ajánló</td>
+      <td style="padding:8px 16px;">Transzparens háttér, radial gradient kép, CTA félig kilóg, hover shadow</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">About — Bolt</td>
+      <td style="padding:8px 16px;"><code>card mg-about-card--bolt</code></td>
+      <td style="padding:8px 16px;">Kezdőlap</td>
+      <td style="padding:8px 16px;">Függőleges layout, fix kép magasság</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">About — Klub</td>
+      <td style="padding:8px 16px;"><code>card mg-about-card--klub</code></td>
+      <td style="padding:8px 16px;">Kezdőlap</td>
+      <td style="padding:8px 16px;">Vízszintes layout (flex-row), stat box-ok, nagyobb kép</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">About — Stat box</td>
+      <td style="padding:8px 16px;"><code>card mg-about-stat</code></td>
+      <td style="padding:8px 16px;">Kezdőlap (klub kártyán belül)</td>
+      <td style="padding:8px 16px;">Mini kártya: szám + label, 2x2 grid</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">Contact — Fő kártya</td>
+      <td style="padding:8px 16px;"><code>card mg-contact__card</code></td>
+      <td style="padding:8px 16px;">Kezdőlap</td>
+      <td style="padding:8px 16px;">Form + térkép egymás mellett (row + col-md-6)</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">Contact — Info kártya</td>
+      <td style="padding:8px 16px;"><code>card mg-contact__info-card</code></td>
+      <td style="padding:8px 16px;">Kezdőlap (3 db: Bolt, Klub, Telefon)</td>
+      <td style="padding:8px 16px;">Ikon + szöveg + akció gomb, col-md-4 gridben</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">Related product</td>
+      <td style="padding:8px 16px;"><code>card mg-related__card</code></td>
+      <td style="padding:8px 16px;">Termékoldal, cikk oldal sidebar</td>
+      <td style="padding:8px 16px;">Desktop column / mobil row, cover kép mobilon, radius-sm</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">Krónika — Kiemelt</td>
+      <td style="padding:8px 16px;"><code>card mg-chronicle-card--featured</code></td>
+      <td style="padding:8px 16px;">Kezdőlap</td>
+      <td style="padding:8px 16px;">Cikk kép + tartalom + badge-ek, hover nélkül</td>
+    </tr>
+    <tr style="border-bottom:1px solid rgba(179,138,36,0.2);">
+      <td style="padding:8px 16px;">USP feature</td>
+      <td style="padding:8px 16px;"><code>card mg-usp-card</code></td>
+      <td style="padding:8px 16px;">Kezdőlap (6 db)</td>
+      <td style="padding:8px 16px;">Gradient háttér (nem bg-card), hex ikon, topológia SVG</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Hogyan épül fel egy speciális kártya</h2>
+<p class="note">A <code>.card</code> adja az alapot (keret, háttér, radius, flex-column). Az <code>mg-*</code> class hozzáadja az egyedi layoutot és stílust.</p>
+
+<div style="background: var(--color-bg-muted); padding: 24px; border-radius: 4px; font-family: monospace; font-size: 14px; line-height: 1.8; color: var(--color-text-muted); overflow-x: auto;">
+  <span style="color:var(--color-gold);">&lt;!-- Új kártya Lacinak: standard Bootstrap --&gt;</span><br>
+  &lt;div class="<span style="color:#22c55e;">card</span>"&gt;<br>
+  &nbsp;&nbsp;&lt;div class="<span style="color:#22c55e;">card-body</span>"&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;h5 class="<span style="color:#22c55e;">card-title</span>"&gt;Cím&lt;/h5&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="<span style="color:#22c55e;">card-text</span>"&gt;Szöveg&lt;/p&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="<span style="color:#22c55e;">btn btn-secondary</span>"&gt;Gomb&lt;/a&gt;<br>
+  &nbsp;&nbsp;&lt;/div&gt;<br>
+  &lt;/div&gt;<br><br>
+
+  <span style="color:var(--color-gold);">&lt;!-- Meglévő speciális kártya: card + egyedi class --&gt;</span><br>
+  &lt;div class="<span style="color:#22c55e;">card</span> <span style="color:#f59e0b;">mg-product-card</span>"&gt;<br>
+  &nbsp;&nbsp;&lt;div class="<span style="color:#f59e0b;">mg-product-card__image</span>"&gt;...&lt;/div&gt;<br>
+  &nbsp;&nbsp;&lt;div class="<span style="color:#f59e0b;">mg-product-card__info</span>"&gt;...&lt;/div&gt;<br>
+  &nbsp;&nbsp;&lt;div class="<span style="color:#f59e0b;">mg-product-card__content</span>"&gt;...&lt;/div&gt;<br>
+  &lt;/div&gt;
+</div>
+
+<p style="margin-top:24px; font-size:14px; color:var(--color-text-muted);">
+  <strong style="color:var(--color-gold);">Zöld</strong> = Bootstrap standard class-ok (dokumentáció: <a href="https://getbootstrap.com/docs/5.3/components/card/" style="color:var(--color-gold);">getbootstrap.com/docs/5.3/components/card</a>)<br>
+  <strong style="color:#f59e0b;">Sárga</strong> = Metagame egyedi class-ok (csak specifikus komponenseknél)
+</p>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

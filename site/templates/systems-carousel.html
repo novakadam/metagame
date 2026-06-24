@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template: Systems Carousel (világok)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/theme-bs.css">
+  <!-- A carousel mg-* stílusai (a JS is ezekre a class-okra épül) -->
+  <link rel="stylesheet" href="../css/components/systems.css">
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body>
+
+<!-- preview: a carousel élesben a "Világok" szekció keretében él (mg-section-frame) -->
+<div class="container py-5">
+
+  <p class="template-label">Világok carousel — brand kártyák (JS: systems.js)</p>
+  <!-- preview: a léptetés / animáció / infinite scroll a systems.js-ben van
+       (élesben az index.html-en fut). Ide SZÁNDÉKOSAN nincs belinkelve —
+       ez statikus markup-preview Lacinak. A működő carousel: site/js/components/systems.js -->
+  <p class="small text-muted mb-4 fst-italic">A léptetést és animációt a <code>systems.js</code> végzi — ide nincs belinkelve, ez statikus markup-preview. Működő carousel: <code>index.html</code>.</p>
+
+  <!-- Szekció heading — BS tipográfia -->
+  <div class="text-center mb-4">
+    <!-- BACKEND: section.title — h2: Playfair auto -->
+    <h2 class="mb-2">Válassz játék világot</h2>
+    <!-- BACKEND: section.subtitle -->
+    <p class="fs-5 text-muted mb-0">Böngéssz a kedvenc rendszered termékei között</p>
+  </div>
+
+  <!-- ══ CAROUSEL ═════════════════════════════════════════════
+       A kártya sor + nav gombok JS-vezéreltek (systems.js):
+       a .mg-brand-card / .mg-brand-cards / .mg-carousel-btn
+       class-okra épül + data-brand a szűréshez. Ezért a markup
+       hibrid (mg-* a JS/CSS miatt), mint a product-card.
+       A Wicket a brand kártyát iterálja. -->
+  <div class="mg-systems-carousel position-relative">
+    <div class="mg-brand-cards-wrap">
+      <div class="mg-brand-cards">
+
+        <!-- BACKEND: brands foreach -->
+        <!-- BACKEND: brand.slug → data-brand, brand.logo → img, brand.name → alt -->
+        <div class="mg-brand-card mg-brand-card--active" data-brand="pokemon">
+          <div class="mg-brand-card__logo"><img src="../assets/brands/pokemon.png" alt="Pokémon"></div>
+        </div>
+        <div class="mg-brand-card" data-brand="magic">
+          <div class="mg-brand-card__logo"><img src="../assets/brands/magic.png" alt="Magic: The Gathering"></div>
+        </div>
+        <div class="mg-brand-card" data-brand="yugioh">
+          <div class="mg-brand-card__logo"><img src="../assets/brands/yugioh.png" alt="Yu-Gi-Oh!"></div>
+        </div>
+        <div class="mg-brand-card" data-brand="magic-2">
+          <div class="mg-brand-card__logo"><img src="../assets/brands/magic.png" alt="Magic: The Gathering"></div>
+        </div>
+        <div class="mg-brand-card" data-brand="pokemon-2">
+          <div class="mg-brand-card__logo"><img src="../assets/brands/pokemon.png" alt="Pokémon"></div>
+        </div>
+        <div class="mg-brand-card" data-brand="yugioh-2">
+          <div class="mg-brand-card__logo"><img src="../assets/brands/yugioh.png" alt="Yu-Gi-Oh!"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Nav gombok — JS-kötött class, belül BS ikon -->
+    <button class="mg-carousel-btn mg-carousel-prev" aria-label="Előző">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="mg-carousel-btn mg-carousel-next" aria-label="Következő">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+</div>
+
+</body>
+</html>

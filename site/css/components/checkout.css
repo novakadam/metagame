@@ -130,17 +130,14 @@ html, body {
 
 /* ── FŐ TARTALOM (kétoszlopos) ──────────────────────────── */
 
+/* BS container-xl kezeli a max-width-et és a margin: 0 auto-t */
 .mg-checkout__main {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 40px 48px;
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 40px;
-  align-items: start;
+  padding-top: 32px;
+  padding-bottom: 48px;
 }
+
 
 /* ── BAL OSZLOP (formok) ────────────────────────────────── */
 
@@ -214,43 +211,23 @@ html, body {
 }
 
 
-/* ── LOGIN MODAL ────────────────────────────────────────── */
+/* ── LOGIN MODAL (Bootstrap Modal override) ────────────── */
 
-.mg-login-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: var(--z-overlay);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-base);
+.mg-login-modal .modal-dialog {
+  transform: scale(0.95);
+  transition: transform var(--transition-base);
 }
 
-.mg-login-overlay.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.mg-login-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.95);
-  z-index: var(--z-modal);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-base), transform var(--transition-base);
-}
-
-.mg-login-modal.is-open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
+.mg-login-modal.show .modal-dialog {
+  transform: scale(1);
 }
 
 .mg-login-modal__card {
   width: 420px;
+  max-width: 100%;
   background: var(--color-bg-card);
+  border: none;
+  border-radius: 0;
   padding: 40px 32px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
   position: relative;
@@ -587,8 +564,6 @@ html, body {
 /* ── TRUST BADGES ───────────────────────────────────────── */
 
 .mg-checkout__trust {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
@@ -1249,21 +1224,13 @@ html, body {
     display: none;
   }
 
-  /* ── Fő tartalom: egyoszlopos, összesítő felülre ── */
+  /* ── Fő tartalom: Bootstrap row stackel, összesítő felülre (order class-ok) ── */
   .mg-checkout__main {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
     padding: 20px 0 32px;
     max-width: none;
   }
 
-  .mg-checkout__sidebar {
-    order: -1;
-  }
-
   .mg-checkout__forms {
-    order: 1;
     padding: 0 16px;
   }
 
@@ -1274,12 +1241,6 @@ html, body {
 
   .mg-checkout__section-title {
     font-size: var(--font-size-base);
-  }
-
-  /* ── Form sorok: egymás alá ── */
-  .mg-form-row--2,
-  .mg-form-row--1-2 {
-    grid-template-columns: 1fr;
   }
 
   /* ── Opciók (átvétel, fizetés) ── */
@@ -1302,12 +1263,11 @@ html, body {
   }
 
   .mg-checkout__express-btn {
-    height: 44px;
+    height: 48px;
   }
 
   /* ── Trust badges ── */
   .mg-checkout__trust {
-    grid-template-columns: 1fr;
     gap: 8px;
   }
 
@@ -1358,8 +1318,6 @@ html, body {
 
   /* ── Login modal ── */
   .mg-login-modal__card {
-    width: calc(100vw - 32px);
-    max-width: 400px;
     padding: 28px 20px;
   }
 

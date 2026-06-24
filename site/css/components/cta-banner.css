@@ -7,12 +7,7 @@
 
 /* ── BANNER ──────────────────────────────────────────────────── */
 
-.mg-cta-banner {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 45px;
-}
+/* .mg-cta-banner használja a közös .mg-section wrapper-t (layout.css) */
 
 .mg-cta-banner__strip {
   background: var(--color-gold);
@@ -103,27 +98,9 @@
   flex-shrink: 0;
 }
 
-/* ── GOMB VARIÁNS: DARK (sötétkék háttér) ────────────────────── */
-
-.mg-btn--dark {
-  background: var(--color-secondary);
-  color: #fff;
-}
-
-.mg-btn--dark:hover {
-  background: #033158;
-  color: #fff;
-}
-
 /* ══ MOBIL ══════════════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
-  .mg-cta-banner {
-    padding: 0;
-    margin: 0;
-    max-width: none;
-  }
-
   .mg-cta-banner__strip {
     border-radius: 0;
   }

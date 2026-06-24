@@ -15,11 +15,13 @@
 
   <!-- Design tokenek -->
   <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
 
   <!-- Komponensek -->
   <link rel="stylesheet" href="css/components/frame.css">
   <link rel="stylesheet" href="css/components/frame-shimmer.css">
   <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
   <link rel="stylesheet" href="css/components/article.css">
   <link rel="stylesheet" href="css/components/related-products.css">
   <link rel="stylesheet" href="css/components/drawer.css">
@@ -389,11 +391,11 @@
 
         <!-- Navigáció: előző / következő -->
         <div class="mg-article__nav-posts">
-          <a href="#" class="mg-btn mg-btn--soft mg-btn--sm mg-article__nav-btn">
+          <a href="#" class="btn btn-light btn-sm mg-article__nav-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
             Előző cikk
           </a>
-          <a href="#" class="mg-btn mg-btn--outline mg-btn--sm mg-article__nav-btn">
+          <a href="#" class="btn btn-outline-secondary btn-sm mg-article__nav-btn">
             Következő cikk
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </a>
@@ -405,57 +407,53 @@
 
       <!-- JOBB: Kapcsolódó termékek (újrafelhasználható widget) -->
       <aside class="mg-article__sidebar">
-        <div class="mg-related">
-          <h3 class="mg-related__title">Kapcsolódó</h3>
+        <div class="d-flex flex-column gap-4">
+          <h3 class="fs-4 fw-semibold" style="color:var(--color-text-muted)">Kapcsolódó</h3>
 
           <!-- BACKEND: related_products foreach -->
-          <div class="mg-related__card">
+          <div class="card mg-related__card d-flex flex-row flex-xxl-column">
             <div class="mg-related__card-image">
               <img src="../assets/images/chronicles/thumb-2.png" alt="Twilight Masquerade ETB">
             </div>
-            <div class="mg-related__card-info">
-              <!-- BACKEND: product.title -->
-              <p class="mg-related__card-name">Twilight Masquerade Elite Trainer Box</p>
-              <!-- BACKEND: product.description -->
-              <p class="mg-related__card-desc">9 booster pack, energia kártyák, dice, sleevek</p>
-              <!-- BACKEND: product.price -->
-              <p class="mg-related__card-price">14 990 Ft</p>
-              <!-- BACKEND: product.url -->
-              <a href="#" class="mg-btn mg-btn--outline">Kosárba</a>
+            <div class="card-body d-flex flex-column gap-3">
+              <p class="fw-medium fs-5">Twilight Masquerade Elite Trainer Box</p>
+              <p class="card-text small">9 booster pack, energia kártyák, dice, sleevek</p>
+              <p class="card-text fs-4 fw-semibold" style="color:var(--color-text-card)">14 990 Ft</p>
+              <a href="#" class="btn btn-outline-secondary">Kosárba</a>
             </div>
           </div>
 
           <!-- Kiegészítő ajánlatok -->
-          <div class="mg-related__upsell">
-            <div class="mg-related__upsell-item">
-              <button class="mg-btn mg-btn--icon mg-related__upsell-add" aria-label="Kosárba">
+          <div class="list-group list-group-flush d-flex flex-column gap-2">
+            <div class="list-group-item upsell-item d-flex align-items-center gap-3 p-3">
+              <button class="btn btn-outline-secondary rounded-circle" aria-label="Kosárba">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 2v10M2 7h10"/></svg>
               </button>
-              <div class="mg-related__upsell-text">
-                <span class="mg-related__upsell-name">Pokémon Sleeves (65 db)</span>
-                <span class="mg-related__upsell-desc">Hivatalos kártyavédő</span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">Pokémon Sleeves (65 db)</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">Hivatalos kártyavédő</span>
               </div>
-              <span class="mg-related__upsell-price">2 400 Ft</span>
+              <span class="small flex-shrink-0" style="color:var(--color-text-muted)">2 400 Ft</span>
             </div>
-            <div class="mg-related__upsell-item">
-              <button class="mg-btn mg-btn--icon mg-related__upsell-add" aria-label="Kosárba">
+            <div class="list-group-item upsell-item d-flex align-items-center gap-3 p-3">
+              <button class="btn btn-outline-secondary rounded-circle" aria-label="Kosárba">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 2v10M2 7h10"/></svg>
               </button>
-              <div class="mg-related__upsell-text">
-                <span class="mg-related__upsell-name">Ultra Pro Deck Box</span>
-                <span class="mg-related__upsell-desc">80+ kártya kapacitás</span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">Ultra Pro Deck Box</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">80+ kártya kapacitás</span>
               </div>
-              <span class="mg-related__upsell-price">4 800 Ft</span>
+              <span class="small flex-shrink-0" style="color:var(--color-text-muted)">4 800 Ft</span>
             </div>
-            <div class="mg-related__upsell-item">
-              <button class="mg-btn mg-btn--icon mg-related__upsell-add" aria-label="Kosárba">
+            <div class="list-group-item upsell-item d-flex align-items-center gap-3 p-3">
+              <button class="btn btn-outline-secondary rounded-circle" aria-label="Kosárba">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 2v10M2 7h10"/></svg>
               </button>
-              <div class="mg-related__upsell-text">
-                <span class="mg-related__upsell-name">9-Pocket Portfolio</span>
-                <span class="mg-related__upsell-desc">Gyűjtői album, 360 kártya</span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">9-Pocket Portfolio</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">Gyűjtői album, 360 kártya</span>
               </div>
-              <span class="mg-related__upsell-price">4 800 Ft</span>
+              <span class="small flex-shrink-0" style="color:var(--color-text-muted)">4 800 Ft</span>
             </div>
           </div>
         </div>
@@ -499,13 +497,12 @@
   <div class="mg-widget-search-overlay"></div>
 
   <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
-  <div class="mg-drawer-overlay"></div>
-  <div class="mg-drawer">
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
     <div class="mg-drawer__card">
       <div class="mg-drawer__header">
         <h2 class="mg-drawer__title"></h2>
         <span class="mg-drawer__subtitle"></span>
-        <button class="mg-drawer__close" aria-label="Bezárás">
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
         </button>
       </div>
@@ -515,11 +512,10 @@
   </div>
 
   <!-- ── FOOTER PANEL (slide-up) ───────────────────────────────── -->
-  <div class="mg-footer-overlay"></div>
-  <div class="mg-footer-panel">
+  <div class="mg-footer-panel offcanvas offcanvas-bottom" tabindex="-1">
     <div class="mg-footer-panel__scroll">
     <div class="mg-footer-panel__close">
-      <button class="mg-footer-panel__close-btn" aria-label="Bezárás">
+      <button class="mg-footer-panel__close-btn" data-bs-dismiss="offcanvas" aria-label="Bezárás">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
       </button>
     </div>

@@ -1,0 +1,56 @@
+/*
+ * preview.css – Template preview oldalak közös stílusai
+ * Csak az oldal layout és címkék — a komponens stílusok a közös CSS fájlokból jönnek.
+ */
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  padding: 40px;
+}
+
+/* Preview layout variánsok */
+body.preview-row { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; align-items: flex-start; }
+body.preview-center { display: flex; justify-content: center; }
+body.preview-hero { display: flex; gap: 60px; align-items: flex-start; justify-content: center; min-height: 100vh; }
+
+.template-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Preview wrapperek — fix szélességek a widgetek izolált megjelenítéséhez */
+.preview-drawer { width: 360px; background: var(--color-bg-muted); border-radius: 8px; overflow: hidden; }
+.preview-mobile { width: 360px; background: var(--color-bg); border: 1px solid var(--color-border-muted); border-radius: 8px; overflow: hidden; }
+.preview-tooltip { width: 280px; position: relative; opacity: 1; pointer-events: auto; transform: none; }
+.preview-sidebar { width: 320px; }
+.preview-search { width: 520px; }
+.preview-narrow { max-width: 420px; width: 100%; }
+.preview-ajanlo { width: 280px; position: relative; }
+.preview-card-270 { width: 270px; }
+
+/* Mega menu preview — felülírja az absolute pozíciót */
+.mg-megamenu.preview-menu {
+  position: relative;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+  max-width: 900px;
+}
+
+/* Mobil menu back gomb preview */
+.preview-back-btn {
+  background: var(--color-bg-card);
+  color: var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+  border-radius: 0;
+}

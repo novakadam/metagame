@@ -1,0 +1,140 @@
+/*
+ * layout.css – Metagame közös layout osztályok
+ *
+ * Ismétlődő container/section minták egy helyen.
+ * Minden oldal betölti a tokens.css után, Bootstrap után.
+ */
+
+/* ── SECTION WRAPPER ────────────────────────────────────── */
+/* 9+ widget használja: hero, about, cta-banner, chronicles,
+   testimonials, systems, contact, article, product-detail */
+
+.mg-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 45px;
+}
+
+@media (max-width: 768px) {
+  .mg-section {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+  }
+}
+
+/* ── CARD OVERRIDE ──────────────────────────────────────── */
+/* Bootstrap .card Metagame stílussal: arany keret, sötét háttér.
+   Padding: 0 — a belső elemek kezelik (card-body nem kell). */
+
+.card {
+  --bs-card-bg: var(--color-bg-card);
+  --bs-card-border-color: var(--color-gold);
+  --bs-card-border-width: 1px;
+  --bs-card-border-radius: 4px;
+  --bs-card-spacer-y: 24px;
+  --bs-card-spacer-x: 24px;
+  --bs-card-color: var(--color-text-card);
+  --bs-card-cap-bg: rgba(56, 24, 40, 0.5);
+  --bs-card-cap-padding-y: 16px;
+  --bs-card-cap-padding-x: 24px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-card);
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+}
+
+.card-header {
+  border-bottom-color: var(--color-gold);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.card-footer {
+  border-top-color: var(--color-gold);
+  background: var(--color-bg-muted);
+  color: var(--color-text);
+}
+
+.card-img-top {
+  border-radius: 0;
+}
+
+/* ── CARD MÉRETEK ───────────────────────────────────────── */
+
+.card-sm {
+  --bs-card-spacer-y: 16px;
+  --bs-card-spacer-x: 16px;
+  --bs-card-cap-padding-y: 12px;
+  --bs-card-cap-padding-x: 16px;
+}
+
+.card-sm .card-title {
+  font-size: var(--font-size-base);
+  margin-bottom: 4px;
+}
+
+.card-sm .card-text {
+  font-size: var(--font-size-sm);
+}
+
+.card-lg {
+  --bs-card-spacer-y: 32px;
+  --bs-card-spacer-x: 32px;
+  --bs-card-cap-padding-y: 20px;
+  --bs-card-cap-padding-x: 32px;
+}
+
+.card-lg .card-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: 12px;
+}
+
+.card-lg .card-text {
+  font-size: var(--font-size-lg);
+}
+
+/* ── KATTINTHATÓ KÁRTYA ─────────────────────────────────── */
+
+a.card {
+  text-decoration: none;
+  cursor: pointer;
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+a.card:hover {
+  border-color: var(--color-gold-ring);
+  box-shadow: 0 4px 24px rgba(179, 138, 36, 0.15);
+}
+
+/* ── IKON KÁRTYA ────────────────────────────────────────── */
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(212, 12, 26, 0.1);
+  color: var(--color-gold);
+  flex-shrink: 0;
+  margin-bottom: 12px;
+}
+
+.card-icon svg {
+  width: 22px;
+  height: 22px;
+}

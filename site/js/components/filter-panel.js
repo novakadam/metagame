@@ -54,37 +54,14 @@ function mgInitFilterPanel() {
 }
 
 function mgInitFilterOverlay() {
-  var $panel = $('.mg-filter-panel');
-  if (!$panel.length) return;
+  var panelEl = document.querySelector('.mg-filter-panel');
+  if (!panelEl) return;
 
-  function openFilter() {
-    $panel.addClass('is-open');
-    $('body').addClass('mg-filter-open');
-  }
-
-  function closeFilter() {
-    $panel.removeClass('is-open');
-    $('body').removeClass('mg-filter-open');
-  }
-
-  $(document).on('click', '.mg-product-toolbar__filter-btn', function (e) {
-    e.preventDefault();
-    openFilter();
-  });
-
-  $(document).on('click', '.mg-filter-panel__close', function () {
-    closeFilter();
-  });
+  var offcanvas = bootstrap.Offcanvas.getOrCreateInstance(panelEl);
 
   $(document).on('click', '.mg-filter-panel__apply-btn', function () {
-    closeFilter();
+    offcanvas.hide();
     mgSyncFilterChips();
-  });
-
-  $(document).on('keydown', function (e) {
-    if (e.key === 'Escape' && $panel.hasClass('is-open')) {
-      closeFilter();
-    }
   });
 }
 

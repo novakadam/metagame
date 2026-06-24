@@ -1,0 +1,357 @@
+/*
+ * theme-bs.css – Bootstrap selectorok Metagame theme override-jai
+ *
+ * Ez a fájl a BS standard komponensek (card, list-group, nav, stb.)
+ * vizuális felülírását tartalmazza a Metagame design tokenekkel.
+ * A forms.css és buttons.css a saját komponenseiket kezeli,
+ * ide a layout/tartalmi komponensek kerülnek.
+ *
+ * Fokozatosan bővül, ahogy a régi mg-* classok BS-re migrálnak.
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   TIPOGRÁFIA — BS font-size lépcsők a Metagame méretekre
+   ═══════════════════════════════════════════════════════════ */
+
+/* BS alapértelmezések:
+   fs-1: 2.5rem(40px) → 36px (--font-size-4xl)
+   fs-2: 2rem(32px)   → 30px (--font-size-3xl)
+   fs-3: 1.75rem(28px) → 24px (--font-size-2xl)
+   fs-4: 1.5rem(24px)  → 20px (--font-size-xl)
+   fs-5: 1.25rem(20px) → 18px (--font-size-lg)
+   fs-6: 1rem(16px)    → 16px (--font-size-base) — marad
+   small: 14px         → 14px (--font-size-sm) — marad
+   fs-7: nincs BS-ben  → 12px (custom)
+*/
+
+/* Headings → Playfair Display (BS CDN nem alkalmazza --bs-heading-font-family-t) */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: var(--font-display);
+}
+
+.fs-1 { font-size: var(--font-size-4xl) !important; }
+.fs-2 { font-size: var(--font-size-3xl) !important; }
+.fs-3 { font-size: var(--font-size-2xl) !important; }
+.fs-4 { font-size: var(--font-size-xl) !important; }
+.fs-5 { font-size: var(--font-size-lg) !important; }
+.fs-7 { font-size: 12px !important; }
+
+/* Monospace → Playfair Display (nem kell monospace a projektben) */
+.font-monospace {
+  font-family: var(--font-display) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV TABS & PILLS
+   ═══════════════════════════════════════════════════════════ */
+
+.nav-tabs {
+  --bs-nav-tabs-border-color: var(--color-gold);
+  --bs-nav-tabs-link-active-bg: var(--color-bg);
+  --bs-nav-tabs-link-active-color: var(--color-gold);
+  --bs-nav-tabs-link-active-border-color: var(--color-gold) var(--color-gold) var(--color-bg);
+  --bs-nav-tabs-link-hover-border-color: var(--color-gold) var(--color-gold) var(--color-gold);
+}
+
+.nav-tabs .nav-link {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--color-text);
+}
+
+.nav-pills {
+  --bs-nav-pills-link-active-bg: var(--color-gold);
+  --bs-nav-pills-link-active-color: var(--color-bg);
+}
+
+.nav-pills .nav-link {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.nav-pills .nav-link:hover {
+  color: var(--color-text);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BREADCRUMB
+   ═══════════════════════════════════════════════════════════ */
+
+.breadcrumb {
+  --bs-breadcrumb-divider-color: var(--color-text-muted);
+  --bs-breadcrumb-item-active-color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumb-item a {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-gold-ring);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGINATION
+   ═══════════════════════════════════════════════════════════ */
+
+.page-link {
+  --bs-pagination-bg: transparent;
+  --bs-pagination-border-color: var(--color-border-muted);
+  --bs-pagination-color: var(--color-text-muted);
+  --bs-pagination-hover-bg: var(--color-bg-muted);
+  --bs-pagination-hover-color: var(--color-gold);
+  --bs-pagination-hover-border-color: var(--color-gold);
+  --bs-pagination-focus-box-shadow: 0 0 0 2px rgba(179, 138, 36, 0.3);
+  --bs-pagination-active-bg: var(--color-gold);
+  --bs-pagination-active-border-color: var(--color-gold);
+  --bs-pagination-active-color: var(--color-bg);
+  --bs-pagination-disabled-bg: transparent;
+  --bs-pagination-disabled-color: var(--color-text-muted);
+  --bs-pagination-disabled-border-color: var(--color-border-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ACCORDION
+   ═══════════════════════════════════════════════════════════ */
+
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: var(--color-gold);
+  --bs-accordion-color: var(--color-text);
+  --bs-accordion-btn-color: var(--color-text);
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: var(--color-text);
+  --bs-accordion-btn-focus-box-shadow: none;
+}
+
+.accordion-button {
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  padding: 16px 0;
+}
+
+.accordion-button::after {
+  filter: invert(0.7) sepia(1) saturate(3) hue-rotate(10deg);
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: invert(0.7) sepia(1) saturate(3) hue-rotate(10deg);
+}
+
+/* Nyitott header alatt ne legyen vonal — a BS box-shadow-val
+   húz egy belső vonalat a nyitott gombra; kikapcsoljuk */
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.accordion-body {
+  padding: 0 0 16px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.accordion-item {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+/* Nyitott elem alatt ne legyen elválasztó vonal — a body
+   "összeér" a következő headerrel (globális, minden accordion) */
+.accordion-item:has(> .accordion-collapse.show) {
+  border-bottom-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARD
+   ═══════════════════════════════════════════════════════════ */
+
+.card {
+  --bs-card-border-radius: var(--radius-xs);
+  --bs-card-color: var(--color-text);
+}
+
+.card .card-title {
+  font-weight: 600;
+  color: var(--color-text-card);
+}
+
+.card .card-subtitle {
+  color: var(--color-text-card);
+}
+
+.card .card-text {
+  color: var(--color-text-muted);
+}
+
+.card .card-body {
+  --bs-card-spacer-y: 1rem;
+  --bs-card-spacer-x: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LIST-GROUP
+   ═══════════════════════════════════════════════════════════ */
+
+.list-group-item {
+  --bs-list-group-bg: transparent;
+  --bs-list-group-border-color: var(--color-border-muted);
+  --bs-list-group-color: var(--color-text);
+  --bs-list-group-action-hover-bg: var(--color-bg-muted);
+  --bs-list-group-action-hover-color: var(--color-text);
+  --bs-list-group-action-active-bg: var(--color-bg-muted);
+}
+
+.list-group-item.active {
+  --bs-list-group-active-bg: var(--color-bg-muted);
+  --bs-list-group-active-color: var(--color-text);
+  --bs-list-group-active-border-color: var(--color-border-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV (menü linkek)
+   ═══════════════════════════════════════════════════════════ */
+
+.nav-link {
+  color: var(--color-text);
+}
+
+.nav-link:hover {
+  color: var(--color-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   OFFCANVAS (drawer, mobil menu)
+   ═══════════════════════════════════════════════════════════ */
+
+.offcanvas {
+  --bs-offcanvas-bg: var(--color-bg);
+  --bs-offcanvas-color: var(--color-text);
+  --bs-offcanvas-border-color: var(--color-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INPUT-GROUP (qty stepper stb.)
+   ═══════════════════════════════════════════════════════════ */
+
+.input-group .form-control {
+  background-color: var(--color-bg);
+  border-color: var(--color-border-muted);
+  color: var(--color-text);
+}
+
+.input-group .btn-outline-secondary {
+  border-color: var(--color-border-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HR (divider)
+   ═══════════════════════════════════════════════════════════ */
+
+hr {
+  border-color: var(--color-border-muted);
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIVIDER SZÖVEGGEL (hstack + hr)
+   ═══════════════════════════════════════════════════════════ */
+
+.divider span {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EGYEDI UTILITY-K
+   ═══════════════════════════════════════════════════════════ */
+
+.icon { width: 18px; height: 18px; flex-shrink: 0; }
+/* CUSTOM: BS-ben nincs arany szín token (mint a text-gold) */
+.border-gold { border-color: var(--color-gold) !important; }
+
+/* PROGRESS track — sötét háttér (BS default világosszürke) */
+.progress, .progress-stacked { background-color: var(--color-bg-muted); }
+.value { color: var(--color-gold); }
+
+/* ═══════════════════════════════════════════════════════════
+   CIKK TÖRZS (CMS rich-text "prose")
+   A szerkesztő nyers HTML-t ad (h2/h3/p/ul/figure class NÉLKÜL),
+   ezért nem utility-zhetjük elemenként — a wrapper stílusozza
+   a benne lévő elemeket. Headingek Playfair-t öröklik a fenti
+   heading override-ból.
+   ═══════════════════════════════════════════════════════════ */
+
+.article-content { display: flex; flex-direction: column; gap: 16px; }
+.article-content > h2 { font-size: var(--font-size-2xl); color: var(--color-text); margin: 8px 0 0; }
+.article-content > h3 { font-size: var(--font-size-xl); color: var(--color-text); margin: 0; }
+.article-content p { font-size: var(--font-size-xl); line-height: 1.4; color: var(--color-text-muted); margin: 0; }
+.article-content ul,
+.article-content ol { font-size: var(--font-size-xl); line-height: 1.4; color: var(--color-text-muted); margin: 0; padding-left: 1.75rem; }
+.article-content li { margin-bottom: 8px; }
+.article-content li::marker { color: var(--color-gold); } /* CUSTOM: BS-ben nincs marker-szín utility */
+.article-content img { max-width: 100%; height: auto; border-radius: var(--radius-xs); }
+.value.out { color: var(--color-destructive); }
+
+/* Avatar méretek */
+.avatar-lg { width: 64px; height: 64px; }
+.avatar-md { width: 48px; height: 48px; }
+.icon-box { width: 36px; height: 36px; background: var(--color-bg); border: 1px solid var(--color-border-muted); }
+
+/* Menü ikon és chevron (mobil menu, mega menu) */
+.menu-icon { width: 24px; height: 24px; color: var(--color-gold); flex-shrink: 0; }
+.chevron { width: 20px; height: 20px; color: var(--color-text-muted); }
+.brand-logo { width: 40px; height: 24px; object-fit: contain; flex-shrink: 0; }
+
+/* Szöveg szín utility-k — BS selectorok átszabva */
+/* Link szín — BS default kék helyett arany */
+mark { background: rgba(179, 138, 36, 0.3); color: inherit; padding: 0 2px; }
+
+/* Link szín — BS default kék helyett a mi színeink */
+a { color: var(--color-gold); }
+a:hover { color: var(--color-gold-ring); }
+
+/* Árak tabular nums-szal (egyforma számszélesség) */
+.text-gold { color: var(--color-gold) !important; font-variant-numeric: tabular-nums; }
+.text-card { color: var(--color-text-card) !important; }
+.text-muted, .text-body-secondary { color: var(--color-text-muted) !important; }
+
+/* Input-group méretezés */
+.input-group.qty-stepper { width: 110px; height: 28px; }
+.input-group.qty-stepper .btn { padding: 0 8px; font-size: 13px; }
+.input-group.qty-stepper .form-control { max-width: 36px; padding: 0; font-size: 13px; height: 28px; }
+
+/* Flex min-width fix (text-truncate-hoz kell) */
+.min-w-0 { min-width: 0 !important; }
+
+/* Összesítő blokk háttér */
+.bg-muted-mg { background: var(--color-bg-muted) !important; }
+/* Termék info panel szekció-hátterek (BS bg-* mást jelent) */
+.bg-card-mg { background: var(--color-bg-card) !important; }
+.bg-secondary-mg { background: var(--color-secondary) !important; }
+/* Termékkép keret radial gradient háttér — BS card-img nem tudja (lásd termék galéria) */
+.bg-product-frame { background: radial-gradient(circle, var(--color-bg) 0%, var(--color-bg-card) 100%); }
+/* Termékkártya kép gradient (alulról világosodó ellipszis) — BS nem tudja */
+.bg-product-card-img { background: radial-gradient(ellipse at center bottom, var(--color-bg) 0%, rgba(114, 10, 43, 0.35) 80%); }
+
+/* Search panel footer + ajánlott termék kép */
+.search-footer { padding: 12px 16px; border-top: 1px solid var(--color-border-muted); }
+.search-featured-img { max-height: 80px; object-fit: contain; }
+
+/* Upsell item border — !important kell mert list-group-flush törli */
+.upsell-item { border: 1px solid var(--color-gold) !important; border-radius: var(--radius-xs) !important; cursor: pointer; }

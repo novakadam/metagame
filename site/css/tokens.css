@@ -34,6 +34,19 @@
   --font-size-3xl:   30px;
   --font-size-4xl:   36px;
 
+  /* ── BS FONT OVERRIDE ──────────────────── */
+  --bs-body-font-family: 'Manrope', system-ui, sans-serif;
+  --bs-heading-font-family: 'Playfair Display', Georgia, serif;
+
+  /* ── BS BORDER OVERRIDE ────────────────── */
+  /* A csupasz `border` utility és a komponens fallbackok
+     (table, modal stb.) a theme arany keretszínét kapják
+     a BS default világosszürke (#dee2e6) helyett.
+     A halvány barna (--color-border-muted) csak explicit
+     szabályokban él (inputok, naptár grid, elválasztók). */
+  --bs-border-color: var(--color-border);
+  --bs-border-color-translucent: var(--color-border);
+
   /* ── BORDER RADIUS ────────────────────────── */
   --radius-xs:   2px;
   --radius-sm:   6px;
