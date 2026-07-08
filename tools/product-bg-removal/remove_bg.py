@@ -50,8 +50,9 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Termékfotó háttér-eltávolító (rembg).")
     ap.add_argument("-i", "--input", default="input", help="Bemeneti mappa (alap: input)")
     ap.add_argument("-o", "--output", default="output", help="Kimeneti mappa (alap: output)")
-    ap.add_argument("--model", default="u2net",
-                    help="rembg modell: u2net (alap), isnet-general-use, u2netp, ...")
+    ap.add_argument("--model", default="birefnet-general",
+                    help="rembg modell: birefnet-general (alap, legpontosabb élek – nagyobb/lassabb), "
+                         "u2net (gyorsabb, sok képhez), isnet-general-use, u2netp, ...")
     ap.add_argument("--alpha-matting", action="store_true",
                     help="Finomabb élek (lassabb, jobb hajszál/áttetsző részekre)")
     ap.add_argument("--trim", action="store_true",
