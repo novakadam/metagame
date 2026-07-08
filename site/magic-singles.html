@@ -202,6 +202,10 @@
         <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div></div>
         <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Tudástár</span></div>
       </a>
+      <a class="mg-nav-item" href="liga-allasok.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Liga</span></div>
+      </a>
       <a class="mg-nav-item" href="#">
         <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div></div>
         <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Közösség</span></div>
@@ -268,11 +272,22 @@
       <div class="text-center mb-4">
         <span class="mg-klub-eyebrow">Webshop · Magic: The Gathering</span>
         <h1 class="mg-klub-section-title">Magic singles – tételes laplista</h1>
-        <p class="mg-klub-section-lead mx-auto">A boltunk teljes Magic single kínálata egyetlen, folyamatosan frissülő listában. Keresd meg a lapot, amire szükséged van (a táblázatban a <strong>Ctrl/⌘ + F</strong> is működik), majd rendelj telefonon vagy emailben.</p>
-        <div class="d-flex flex-wrap gap-3 justify-content-center mt-3">
-          <!-- BACKEND: singles.magic_sheet_url — publikált Google Sheets -->
+        <p class="mg-klub-section-lead mx-auto">A boltunk teljes Magic single kínálata egyetlen, folyamatosan frissülő listában. A lista egy külső táblázatban érhető el – nyisd meg, keress rá a lapra, amire szükséged van, majd rendelj telefonon vagy emailben.</p>
+      </div>
+    </section>
+
+    <!-- ── LISTA LINK (külső Google táblázat, NINCS beágyazva) ──── -->
+    <section class="mg-section pt-0">
+      <div class="card p-4 p-lg-5 text-center">
+        <div class="card-icon mx-auto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+        </div>
+        <h2 class="fs-3 fw-semibold text-card mb-2">Magic singles – tételes lista</h2>
+        <p class="text-muted mb-4 mx-auto" style="max-width:38rem;">A teljes laplista (kártyanév, kiadás, típus, nyelv, állapot, darab és ár) egy folyamatosan frissülő táblázatban nyílik meg. Tipp: a megnyíló táblázatban a <strong>Ctrl/⌘ + F</strong> gyorskereséssel könnyen megtalálod a lapot.</p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <!-- BACKEND: singles.magic_sheet_url — a lista külső linkje (NINCS beágyazva) -->
           <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vReMOFa1bUjyN4IScWzpQyZ38GX_-oxYF_gPwLyFL5ub63Q_61u1eBoIDPhZYqbzBDLJ3ibIO5k9DLi/pubhtml?gid=517437724&single=true" target="_blank" rel="noopener" class="btn btn-primary d-inline-flex align-items-center gap-2">
-            Megnyitás új lapon
+            Teljes lista megnyitása
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
           <a href="tel:+3617944116" class="btn btn-outline-secondary d-inline-flex align-items-center gap-2">
@@ -280,22 +295,8 @@
             Rendelés telefonon
           </a>
         </div>
+        <p class="text-muted small mt-4 mb-0">A lista külső táblázatban, új lapon nyílik meg. Az árak és a készlet a bolt frissítése szerint változhatnak.</p>
       </div>
-    </section>
-
-    <!-- ── BEÁGYAZOTT LISTA (Google Sheets) ─────────────────────── -->
-    <section class="mg-section pt-0">
-      <!-- BACKEND: singles.magic_sheet_embed_url — a publikált Google Sheets iframe forrása.
-           A ?widget=true&headers=false a tisztább, fejléc nélküli nézetet adja. -->
-      <div class="card overflow-hidden p-0">
-        <iframe
-          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vReMOFa1bUjyN4IScWzpQyZ38GX_-oxYF_gPwLyFL5ub63Q_61u1eBoIDPhZYqbzBDLJ3ibIO5k9DLi/pubhtml?gid=517437724&single=true&widget=true&headers=false"
-          title="Metagame – Magic singles tételes lista"
-          loading="lazy"
-          style="width:100%; height:80vh; min-height:560px; border:0; display:block;">
-        </iframe>
-      </div>
-      <p class="text-muted small text-center mt-3 mb-0">A lista élő adat a Metagame táblázatából – az árak és a készlet a bolt frissítése szerint változhatnak. Ha egy lap nem szerepel a listában, kérdezz rá bátran!</p>
     </section>
 
     <!-- ── RENDELÉSI INFÓ ──────────────────────────────────────── -->
