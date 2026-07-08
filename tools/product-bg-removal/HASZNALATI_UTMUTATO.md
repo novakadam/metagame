@@ -164,7 +164,27 @@ python remove_bg.py --trim
 
 ---
 
-## 8. Technikai összefoglaló (a fejlesztőnek)
+## 8. Csomagolás – hogyan kapja meg az ügyfél? (döntéshez)
+
+Háromféleképpen adhatjuk át a programot – ez döntés kérdése, attól függően, milyen gépen fog futni és van-e technikai segítség:
+
+| Mód | Előny | Hátrány | Kinek jó |
+|---|---|---|---|
+| **Windows `.exe`** | Nem kell Python telepítés; dupla kattintás | Csak Windowson fut; ~300–800 MB; Windows gépen vagy felhős build-del (GitHub Actions) kell legyártani | Bolti/irodai **Windows PC** |
+| **Mac app (`.command`)** | Nem kell Python; Macen egyszerű | Csak Macen fut | **Mac** gép |
+| **Python + indító** (`.bat`/`.command`) | Kicsi, könnyű frissíteni/karbantartani | A célgépen kell egyszer Python + a csomagok telepítése | Ha van **technikai segítség** (fejlesztő) |
+
+**Közös mindháromnál:** az AI-modell (~1 GB) az **első** futtatáskor egyszer letöltődik (ehhez kell egyszer internet), utána offline megy.
+
+**Ajánlás:**
+- Ha egy **bolti Windows gépen**, technikai tudás nélkül futtatnák → **Windows `.exe`** a legkényelmesebb (felhős build-del legyártható Mac-ről is).
+- Ha a **fejlesztő** kezeli → a **Python + indító** a legrugalmasabb és legkisebb.
+
+> Ez a lépés még nyitott – amint eldől, melyik gépen fut (Windows vagy Mac) és ki kezeli, a megfelelő csomagot elő tudjuk állítani.
+
+---
+
+## 9. Technikai összefoglaló (a fejlesztőnek)
 
 | | |
 |---|---|
