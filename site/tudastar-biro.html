@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bírói tudnivalók versenyekhez | Metagame Tudástár</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Playfair+Display+SC:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Design tokenek -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Komponensek -->
+  <link rel="stylesheet" href="css/components/frame.css">
+  <link rel="stylesheet" href="css/components/frame-shimmer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
+  <link rel="stylesheet" href="css/components/article.css">
+  <link rel="stylesheet" href="css/components/related-products.css">
+  <link rel="stylesheet" href="css/components/drawer.css">
+  <link rel="stylesheet" href="css/components/search-overlay.css">
+  <link rel="stylesheet" href="css/components/mega-menu.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css">
+</head>
+<body>
+
+<div class="mg-frame">
+
+  <!-- ── KERET SVG elemek ────────────────────────────────────────── -->
+  <div class="mg-frame-corner mg-frame-corner--tl"><img class="mg-frame-corner__img--desktop" src="../assets/frame/frame-corner-tl.svg" alt=""><img class="mg-frame-corner__img--tablet" src="../assets/frame/mobile/frame-corner-tl-tablet.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--tr"><img src="../assets/frame/frame-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--bl"><img src="../assets/frame/frame-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--br"><img src="../assets/frame/frame-corner-br.svg" alt=""></div>
+
+  <div class="mg-frame-line mg-frame-line--top"><img src="../assets/frame/frame-line-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--left"><img src="../assets/frame/frame-line-left.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--right-bottom"><img src="../assets/frame/frame-right-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--bottom"><img src="../assets/frame/frame-line-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── MOBIL KERET ─────────────────────────────────────────────── -->
+  <a class="mg-frame-m mg-frame-m-corner--tl" href="index.html"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt="Metagame"></a>
+  <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--right"><img src="../assets/frame/mobile/frame-m-line-right.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--bl"><img src="../assets/frame/mobile/frame-m-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--bottom"><img src="../assets/frame/mobile/frame-m-line-bottom.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--br"><img src="../assets/frame/mobile/frame-m-corner-br.svg" alt=""></div>
+  <div class="mg-frame-m-bar">
+    <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
+    <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
+    <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- ── MOBIL: Keresőmező ── -->
+  <div class="mg-mobile-search mg-cut-frame">
+    <input type="text" placeholder="Keresés..." readonly>
+    <button class="mg-mobile-search__btn" aria-label="Keresés">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── MOBIL: Hamburger gomb ── -->
+  <button class="mg-mobile-hamburger" aria-label="Menü">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ── MOBIL: Alsó bar ikonok ── -->
+  <div class="mg-mobile-bar-icons">
+    <button class="mg-mobile-bar-icons__btn" aria-label="Elérhetőségek">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn mg-mobile-bar-icons__btn--center" aria-label="Kosár">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="16" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn" aria-label="Profil">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- ── TOP BAR ────────────────────────────────────────────────── -->
+  <header class="mg-topbar">
+    <a href="index.html">
+      <img class="mg-logo mg-logo--full" src="../assets/images/logo.svg" alt="Metagame">
+      <img class="mg-logo mg-logo--compact" src="../assets/frame/mobile/mg-logo-closed.svg" alt="Metagame">
+    </a>
+
+    <div class="mg-topbar-row">
+      <div class="mg-toggle mg-cut-frame" data-active="shop">
+        <div class="mg-toggle__slider"></div>
+        <button class="mg-toggle__btn mg-toggle__btn--active" data-target="shop">Shop</button>
+        <button class="mg-toggle__btn" data-target="community">Eseménynaptár</button>
+      </div>
+
+      <div class="mg-search mg-cut-frame">
+        <input type="text" placeholder="Search here...">
+        <button class="mg-search__btn" aria-label="Keresés">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BAL NAV ────────────────────────────────────────────────── -->
+  <nav class="mg-nav-left" id="mg-nav-left">
+    <div class="mg-nav-section" data-nav="shop">
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18"/><path d="M16 3v18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">TCG</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="12" cy="12" r="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Társasjáték</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="9" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Gyűjthető kártya</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Kiegészítők</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Szerepjátékok</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Wargame</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Modellezés</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Figurák</span></div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── MEGA MENU (JS tölti dinamikusan) ───────────────────────── -->
+  <div class="mg-megamenu" id="mg-megamenu"></div>
+
+  <div class="mg-frame-line mg-frame-line--right-top"><img src="../assets/frame/frame-right-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── JOBB NAV ───────────────────────────────────────────────── -->
+  <aside class="mg-nav-right">
+    <button class="mg-nav-right__btn" aria-label="Profil">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Kedvencek">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn mg-nav-right__btn--cart" aria-label="Kosár">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="16" r="1.5" fill="currentColor"/><circle cx="14" cy="16" r="1.5" fill="currentColor"/></svg>
+        <span class="mg-cart-badge" style="display:none">0</span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Értesítések">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v4l-2 2h16l-2-2V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8 16a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Helyszín">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Telefon">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+  </aside>
+
+  <!-- ── CIKK TARTALOM ───────────────────────────────────────────── -->
+  <main class="mg-content">
+    <div class="mg-article">
+
+      <div class="mg-article__main">
+
+      <!-- BAL: Tartalomjegyzék (sticky) -->
+      <aside class="mg-article__toc">
+        <button class="mg-article__toc-toggle">
+          <span>Tartalomjegyzék</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <p class="mg-article__toc-title">Tartalomjegyzék</p>
+
+        <nav class="mg-article__toc-nav">
+          <a href="#bevezeto" class="mg-article__toc-link mg-article__toc-link--active">
+            <span class="mg-article__toc-dash"></span>
+            A bíró szerepe
+          </a>
+          <a href="#biro-hivas" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Hogyan hívj bírót?
+          </a>
+          <a href="#szabalyhelyzetek" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Gyakori szabályhelyzetek
+          </a>
+            <a href="#hibas-huzas" class="mg-article__toc-link mg-article__toc-link--sub">
+              <span class="mg-article__toc-dash"></span>
+              Hibás húzás
+            </a>
+            <a href="#idohiany" class="mg-article__toc-link mg-article__toc-link--sub">
+              <span class="mg-article__toc-dash"></span>
+              Időhiány
+            </a>
+            <a href="#kartyaallapot" class="mg-article__toc-link mg-article__toc-link--sub">
+              <span class="mg-article__toc-dash"></span>
+              Kártyaállapot
+            </a>
+          <a href="#buntetesek" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Figyelmeztetések és büntetések
+          </a>
+          <a href="#fellebbezes" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Fellebbezés
+          </a>
+          <a href="#biro-kepzes" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Leszel-e bíró?
+          </a>
+          <a href="#osszegzes" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Összegzés
+          </a>
+        </nav>
+      </aside>
+
+      <!-- KÖZÉP: Cikk törzs -->
+      <article class="mg-article__body">
+
+        <!-- Breadcrumb -->
+        <nav class="mg-article__breadcrumb">
+          <a href="index.html">Főoldal</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <a href="tudastar.html">Tudástár</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <span>Bírói infók</span>
+        </nav>
+
+        <!-- Cím -->
+        <!-- BACKEND: article.title -->
+        <h1 class="mg-article__title">Bírói tudnivalók versenyekhez</h1>
+
+        <!-- Alcím / kivonat -->
+        <!-- BACKEND: article.excerpt -->
+        <p class="mg-article__subtitle">Mit érdemes tudni a bíróskodásról és a bírói döntésekről a klub versenyein? Végigvesszük, mikor és hogyan hívj bírót, milyen gyakori szabályhelyzetek adódnak, hogyan épülnek fel a büntetések, és hogyan válhatsz te magad is bíróvá.</p>
+
+        <!-- Elválasztó -->
+        <hr class="mg-article__separator">
+
+        <!-- Meta sor -->
+        <div class="mg-article__meta">
+          <div class="mg-article__meta-author">
+            <!-- BACKEND: author.avatar -->
+            <div class="mg-article__meta-avatar">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="mg-article__meta-col">
+              <span class="mg-article__meta-label">Szerző</span>
+              <!-- BACKEND: author.name -->
+              <span class="mg-article__meta-value">Metagame Szerkesztőség</span>
+            </div>
+          </div>
+          <div class="mg-article__meta-col">
+            <span class="mg-article__meta-label">Olvasási idő</span>
+            <!-- BACKEND: article.read_time -->
+            <span class="mg-article__meta-value">7 perc</span>
+          </div>
+          <div class="mg-article__meta-col">
+            <span class="mg-article__meta-label">Megjelent</span>
+            <!-- BACKEND: article.date -->
+            <span class="mg-article__meta-value">2026. június 3.</span>
+          </div>
+        </div>
+
+        <!-- Hero kép -->
+        <div class="mg-article__hero-image">
+          <!-- BACKEND: article.image -->
+          <img src="../assets/images/chronicles/featured.jpg" alt="Bírói tudnivalók a Metagame Klub versenyein">
+        </div>
+
+        <!-- ── SZEKCIÓK ──────────────────────────────────────── -->
+
+        <section class="mg-article__section" id="bevezeto">
+          <h2 class="mg-article__h2">A bíró szerepe – miért fontos?</h2>
+          <p class="mg-article__text">A bíró (angolul <em>judge</em>) a verseny pártatlan szabályőre: az ő feladata, hogy a mérkőzések a szabályoknak megfelelően, tisztán és zökkenőmentesen folyjanak. A bíró nem ellenség és nem is „rendőr” – sokkal inkább egy segítő, aki azért van jelen, hogy a játékosok nyugodtan, a szabályokra hagyatkozva játszhassanak.</p>
+          <p class="mg-article__text">A bíró egyszerre több dolog: szabályértelmező, döntőbíró vitás helyzetekben, és a verseny gördülékeny lebonyolításáért felelős szervező. Ha bizonytalan vagy egy interakcióban, vagy úgy érzed, valami nem szabályos, mindig fordulhatsz hozzá – ez teljesen természetes, és a rutinos versenyzők is rendszeresen élnek vele.</p>
+          <p class="mg-article__text">Fontos alapelv: a bíró döntése a mérkőzés menetére nézve kötelező érvényű. Ez nem azt jelenti, hogy ne lehetne vele nem egyetérteni – erre való a fellebbezés –, de a játék folytatásához a bíró pillanatnyi döntését el kell fogadni. Ez tartja fenn a verseny rendjét és a résztvevők egyenlő elbírálását.</p>
+        </section>
+
+        <section class="mg-article__section" id="biro-hivas">
+          <h2 class="mg-article__h2">Hogyan hívj bírót?</h2>
+          <p class="mg-article__text">Bírót hívni bármikor lehet és szabad – nem számít gyengeségnek vagy „árulkodásnak”. Egyszerűen emeld fel a kezed, és hangosan mondd ki: „Bíró!”. A legközelebbi bíró ekkor odajön az asztalodhoz. Ha nem hallja meg azonnal, nyugodtan ismételd meg, vagy kérd meg a szomszéd asztalt, hogy jelezzenek.</p>
+          <p class="mg-article__text">Bírót az alábbi tipikus helyzetekben érdemes hívni:</p>
+          <ul class="mg-article__list">
+            <li><strong>Szabálykérdés:</strong> ha nem vagy biztos egy kártya vagy interakció pontos működésében, kérdezd meg a bírót, mielőtt cselekednél.</li>
+            <li><strong>Vitás helyzet:</strong> ha te és az ellenfeled másképp értelmeztek egy szabályt vagy egy játékállapotot, ne vitatkozzatok tovább – hívjatok bírót.</li>
+            <li><strong>Szabálysértés gyanúja:</strong> ha úgy látod, hogy valami nem szabályosan történt (akár nálad, akár az ellenfélnél), jelezd a bírónak.</li>
+            <li><strong>Játékállapot tisztázása:</strong> ha összekuszálódott a tábla, elveszett a fonál, vagy nem egyeztek meg abban, mi történt, a bíró segít rekonstruálni a helyzetet.</li>
+          </ul>
+          <p class="mg-article__text">Amikor a bíró megérkezik, foglald össze röviden és tárgyilagosan a helyzetet. Ne szakítsátok félbe egymást: először az egyik játékos mondja el a saját nézőpontját, majd a másik. A bíró kérdezhet, megnézheti a táblát és a naplót, és ez alapján hoz döntést. Türelmesen várd meg, amíg végigköveti a helyzetet.</p>
+        </section>
+
+        <section class="mg-article__section" id="szabalyhelyzetek">
+          <h2 class="mg-article__h2">Gyakori szabályhelyzetek és megoldásuk</h2>
+          <p class="mg-article__text">A versenyeken visszatérő helyzetek adódnak, amelyekre a bíróknak bevált eljárásaik vannak. Az alábbiakban a leggyakoribbakat és a szokásos kezelésüket vesszük végig – ezek ismerete neked, játékosként is segít abban, hogy magabiztosabban játssz.</p>
+
+          <h3 class="mg-article__h3" id="hibas-huzas">Hibás húzás</h3>
+          <p class="mg-article__text">A hibás húzás az egyik leggyakoribb helyzet: valaki több lapot húz a kelleténél, vagy akkor húz, amikor nem lenne szabad. Ilyenkor ne próbáld meg magad orvosolni a helyzetet – állítsd meg a játékot, és hívj bírót.</p>
+          <p class="mg-article__text">A bíró jellemzően megvizsgálja, hány lap került fölöslegesen a kézbe, és a szabályzatnak megfelelően helyreállítja a játékállapotot: például véletlenszerűen visszatesz egy lapot a pakli tetejére, vagy megmutattatja a felesleges lapot. A cél mindig az, hogy a hiba előnyét semlegesítse, anélkül hogy indokolatlanul súlyos hátrányt okozna.</p>
+
+          <h3 class="mg-article__h3" id="idohiany">Időhiány</h3>
+          <p class="mg-article__text">A versenymeccsek időkorlátosak. Ha lejár a kör ideje, a mérkőzés nem áll meg azonnal: jellemzően egy meghatározott számú extra kör (pl. az aktuális kör befejezése + további néhány kör) következik, hogy a folyamatban lévő játszma tisztességesen lezárulhasson.</p>
+          <p class="mg-article__text">Fontos a <strong>lassú játék</strong> kérdése is: aki szándékosan vagy indokolatlanul lassan játszik, hogy időt húzzon, azt a bíró figyelmeztetheti, és ismétlődés esetén büntetheti. Ha úgy érzed, az ellenfeled szándékosan lassít, ne kezdj el veszekedni – hívj bírót, aki figyelemmel kísérheti a tempót.</p>
+
+          <h3 class="mg-article__h3" id="kartyaallapot">Kártyaállapot és megjelölt lapok</h3>
+          <p class="mg-article__text">A versenyeken elvárás, hogy a paklid lapjai egységes állapotúak és hátlapúak legyenek, hogy egyetlen lap se legyen felismerhető a hátuljáról. A sérült, karcos vagy megjelölt (markolt) lapok problémát jelenthetnek, mert információt adhatnak a húzás előtt.</p>
+          <p class="mg-article__text">Ha a bíró megjelölt lapot vagy nem egységes állapotú paklit talál, kérheti a probléma orvoslását – például a lap kártyavédőbe (sleeve) tételét vagy a sleeve-ek cseréjét. Súlyosabb, szándékosnak tűnő esetben büntetés is járhat. Érdemes a verseny előtt átnézni a paklidat, és egységes, jó állapotú védőtokokat használni.</p>
+        </section>
+
+        <!-- Kép a cikkben -->
+        <div class="mg-article__inline-image">
+          <img src="../assets/images/chronicles/thumb-1.jpg" alt="Bíró segít egy szabályhelyzetben a verseny asztalánál">
+          <span class="mg-article__image-caption">A bíró tárgyilagosan, mindkét felet meghallgatva hoz döntést</span>
+        </div>
+
+        <section class="mg-article__section" id="buntetesek">
+          <h2 class="mg-article__h2">Figyelmeztetések és büntetések fokozatai</h2>
+          <p class="mg-article__text">A büntetések célja nem a megtorlás, hanem a tisztességes verseny fenntartása és a hibák jövőbeni megelőzése. A bíró mindig a helyzet súlyához mérten választja meg a következményt, és minden büntetést dokumentál. A fokozatok a legenyhébbtől a legszigorúbbig épülnek fel:</p>
+          <ul class="mg-article__list">
+            <li><strong>Figyelmeztetés (Warning):</strong> a legenyhébb fokozat, apró, jellemzően nem szándékos hibáknál. Rögzítésre kerül, de önmagában nem jár játékbeli hátránnyal.</li>
+            <li><strong>Játszma-vesztés (Game Loss):</strong> súlyosabb vagy ismétlődő szabálysértésnél az adott játszmát elveszíted a mérkőzésen belül.</li>
+            <li><strong>Meccs-vesztés (Match Loss):</strong> komoly vétségnél a teljes mérkőzést elveszíted, függetlenül az addigi állástól.</li>
+            <li><strong>Kizárás (Disqualification):</strong> a legszigorúbb fokozat, amelyet csalás, sportszerűtlen viselkedés vagy súlyos, szándékos szabálysértés von maga után. A kizárt versenyző elhagyja a versenyt.</li>
+          </ul>
+          <p class="mg-article__text">Az alábbi táblázat néhány tipikus vétséget és a hozzájuk jellemzően társuló büntetést foglalja össze. Ez tájékoztató jellegű – a konkrét döntés mindig a bíró mérlegelésétől és az adott verseny szabályzatától függ.</p>
+
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead>
+                <tr>
+                  <th scope="col">Vétség</th>
+                  <th scope="col">Példa</th>
+                  <th scope="col">Jellemző büntetés</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Kisebb eljárási hiba</td>
+                  <td>Elfelejtett kötelező lépés, apró pontatlanság a játékállapotban</td>
+                  <td>Figyelmeztetés</td>
+                </tr>
+                <tr>
+                  <td>Hibás húzás</td>
+                  <td>Eggyel több lap húzása a kezdő- vagy körkezdő lépésnél</td>
+                  <td>Figyelmeztetés</td>
+                </tr>
+                <tr>
+                  <td>Lassú játék</td>
+                  <td>Indokolatlan időhúzás, ismétlődő tempóprobléma</td>
+                  <td>Figyelmeztetés → Játszma-vesztés</td>
+                </tr>
+                <tr>
+                  <td>Pakli-hiba</td>
+                  <td>A benevezett listától eltérő pakli, hiányzó vagy többlet lap</td>
+                  <td>Játszma-vesztés</td>
+                </tr>
+                <tr>
+                  <td>Sportszerűtlen viselkedés</td>
+                  <td>Sértő megnyilvánulás, az ellenfél zaklatása</td>
+                  <td>Meccs-vesztés → Kizárás</td>
+                </tr>
+                <tr>
+                  <td>Csalás</td>
+                  <td>Szándékos szabálysértés előny szerzése céljából</td>
+                  <td>Kizárás</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="mg-article__section" id="fellebbezes">
+          <h2 class="mg-article__h2">Fellebbezés – ha nem értesz egyet</h2>
+          <p class="mg-article__text">Ha úgy érzed, hogy egy bíró döntése téves, jogod van fellebbezni. Ez teljesen legitim lépés, és nem sértés a bíróval szemben – éppen ezért van beépítve a rendszerbe, hogy mindenki biztos lehessen a döntések helyességében.</p>
+          <p class="mg-article__text">A fellebbezés menete röviden:</p>
+          <ul class="mg-article__list">
+            <li><strong>Jelezd a helyszínen:</strong> mondd el udvariasan az eljáró bírónak, hogy szeretnél fellebbezni a döntése ellen.</li>
+            <li><strong>A főbíróhoz fordulnak:</strong> a fellebbezést a verseny <em>főbírája</em> (head judge) bírálja el, aki meghallgatja a helyzetet és az eredeti döntést.</li>
+            <li><strong>A főbíró dönt:</strong> a főbíró döntése végleges. Ő vagy helyben hagyja, vagy felülbírálja az eredeti döntést.</li>
+          </ul>
+          <p class="mg-article__text">Fontos, hogy a fellebbezés a döntés ellen szól, nem a bíró személye ellen. Maradj higgadt és tárgyilagos: a nyugodt, tényszerű előadás sokkal hatékonyabb, mint az indulatos vitatkozás. A fellebbezés a szabályok tisztázását szolgálja, nem a konfliktust.</p>
+        </section>
+
+        <section class="mg-article__section" id="biro-kepzes">
+          <h2 class="mg-article__h2">Leszel-e bíró? – Így képződhetsz</h2>
+          <p class="mg-article__text">Ha szeretsz a szabályokban elmélyülni, és örömödet leled abban, hogy segíted a közösséget, a bíróskodás remek út lehet. Nem kell hozzá bajnoki cím – sokkal fontosabb a szabályismeret, a türelem és a pártatlanság. A klub örömmel fogadja és képzi a leendő bírókat.</p>
+          <p class="mg-article__text">A bíróvá válás jellemző lépcsőfokai:</p>
+          <ul class="mg-article__list">
+            <li><strong>Érdeklődés és megfigyelés:</strong> az első lépés, hogy jelzed a szándékodat egy tapasztalt bírónak, és élesben, mellette figyeled a munkáját egy-egy eseményen.</li>
+            <li><strong>Alapszintű bíróskodás:</strong> kisebb, helyi versenyeken kezdesz segédkezni – egyszerűbb szabálykérdéseket kezelsz mentor felügyelete alatt.</li>
+            <li><strong>Szintlépés és vizsga:</strong> ahogy nő a rutinod, magasabb szintre léphetsz, amit jellemzően szabályvizsga és gyakorlati tapasztalat is kísér.</li>
+            <li><strong>Nagyobb események, főbírói szerep:</strong> a tapasztalt bírók már nagyobb versenyeket is levezényelhetnek, akár főbíróként.</li>
+          </ul>
+          <p class="mg-article__text">A bíróskodás ráadásul shield pontot is ér: az önkéntes bírói munkát a klub külön elismeri a <a href="tudastar-shield.html">shield rendszerben</a>. Ha érdekel a lehetőség, keresd a szervezőket egy klubnapon, vagy jelentkezz egy közelgő eseményen.</p>
+        </section>
+
+        <section class="mg-article__section" id="osszegzes">
+          <h2 class="mg-article__h2">Összegzés</h2>
+          <p class="mg-article__text">A bíró a tisztességes és élvezetes verseny záloga: segít a szabályok betartatásában, tisztázza a vitás helyzeteket, és biztosítja, hogy mindenki egyenlő feltételek mellett játsszon. Játékosként a legfontosabb, hogy ne félj bírót hívni, ismerd a leggyakoribb helyzeteket, és tudd, hogy vitás esetben a fellebbezés is a rendelkezésedre áll.</p>
+          <p class="mg-article__text">Ha pedig magad is szeretnél a szabályok oldalára állni, a bíróvá válás útja nyitva áll előtted. A legjobb módja a tanulásnak, ha eljössz, és élesben tapasztalod meg a versenyek hangulatát. Nézd meg a közelgő programokat az <a href="events.html">eseménynaptárban</a>, és találkozzunk a következő versenyen!</p>
+        </section>
+
+        <!-- Navigáció: előző / következő -->
+        <div class="mg-article__nav-posts">
+          <a href="#" class="btn btn-light btn-sm mg-article__nav-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            Előző cikk
+          </a>
+          <a href="#" class="btn btn-outline-secondary btn-sm mg-article__nav-btn">
+            Következő cikk
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+
+      </article>
+
+      </div><!-- /.mg-article__main -->
+
+      <!-- JOBB: Kapcsolódó tartalmak (újrafelhasználható widget) -->
+      <aside class="mg-article__sidebar">
+        <div class="d-flex flex-column gap-4">
+          <h3 class="fs-4 fw-semibold" style="color:var(--color-text-muted)">Kapcsolódó</h3>
+
+          <!-- BACKEND: related_articles foreach -->
+          <div class="card mg-related__card d-flex flex-row flex-xxl-column">
+            <div class="mg-related__card-image">
+              <img src="../assets/images/chronicles/thumb-2.png" alt="Versenyszabályzat">
+            </div>
+            <div class="card-body d-flex flex-column gap-3">
+              <p class="fw-medium fs-5">Versenyszabályzat</p>
+              <p class="card-text small">Ismerd meg a klub versenyeinek hivatalos szabályait és eljárásait</p>
+              <a href="tudastar-versenyszabalyzat.html" class="btn btn-outline-secondary">Megnézem</a>
+            </div>
+          </div>
+
+          <!-- Kapcsolódó linkek -->
+          <div class="list-group list-group-flush d-flex flex-column gap-2">
+            <a href="liga-allasok.html" class="list-group-item upsell-item d-flex align-items-center gap-3 p-3 text-decoration-none">
+              <span class="btn btn-outline-secondary rounded-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">Liga állások</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">Aktuális helyezések</span>
+              </div>
+            </a>
+            <a href="tudastar-shield.html" class="list-group-item upsell-item d-flex align-items-center gap-3 p-3 text-decoration-none">
+              <span class="btn btn-outline-secondary rounded-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">Shield típusok</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">Tudástár cikk</span>
+              </div>
+            </a>
+            <a href="events.html" class="list-group-item upsell-item d-flex align-items-center gap-3 p-3 text-decoration-none">
+              <span class="btn btn-outline-secondary rounded-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">Eseménynaptár</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">Nézd meg a versenyeket</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="mg-footer">
+    <div class="mg-footer__left">
+      <span class="mg-footer__brand">© metagame 2026</span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kádár utca 10.</span>
+        <span class="mg-footer__hours">H–SZ 10–18</span>
+      </span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kresz Géza utca 36.</span>
+        <span class="mg-footer__hours">H-P 16–22, SZ 10–18</span>
+      </span>
+    </div>
+    <div class="mg-footer__right">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatvédelem</a>
+      <a class="mg-footer__info-trigger" href="#">Információ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- ── MOBIL MENÜ ──────────────────────────────────────────── -->
+  <div class="mg-mobile-menu"></div>
+
+  <!-- ── MOBIL KERESŐ OVERLAY ──────────────────────────────── -->
+  <div class="mg-mobile-search-overlay"></div>
+
+  <!-- ── MOBIL DRAWER OVERLAY (kosár, profil, kapcsolat) ──── -->
+  <div class="mg-mobile-drawer"></div>
+
+  <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
+  <div class="mg-widget-search-overlay"></div>
+
+  <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
+    <div class="mg-drawer__card">
+      <div class="mg-drawer__header">
+        <h2 class="mg-drawer__title"></h2>
+        <span class="mg-drawer__subtitle"></span>
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mg-drawer__body"></div>
+      <div class="mg-drawer__footer"></div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER PANEL (slide-up) ───────────────────────────────── -->
+  <div class="mg-footer-panel offcanvas offcanvas-bottom" tabindex="-1">
+    <div class="mg-footer-panel__scroll">
+    <div class="mg-footer-panel__close">
+      <button class="mg-footer-panel__close-btn" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mg-footer-panel__features">
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div class="mg-footer-panel__feature-title">Ingyenes szállítás</div>
+        <div class="mg-footer-panel__feature-desc">Rendeléseid díjmentesen szállítjuk, hogy a vásárlás élménye zökkenőmentes legyen.</div>
+      </div>
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4h-4z"/></svg></div>
+        <div class="mg-footer-panel__feature-title">Biztonságos fizetés</div>
+        <div class="mg-footer-panel__feature-desc">Fizetési lehetőségek széles választéka, biztonságos és kényelmes online tranzakciókkal.</div>
+      </div>
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+        <div class="mg-footer-panel__feature-title">30 napos visszaküldés</div>
+        <div class="mg-footer-panel__feature-desc">30 napon belül egyszerűen visszaküldheted a terméket, gyors visszatérítéssel vagy cserével.</div>
+      </div>
+    </div>
+    <div class="mg-footer-panel__links">
+      <div class="mg-footer-panel__link-col"><h4>Vásárlás</h4><a href="#">Szállítás</a><a href="#">Fizetés</a><a href="#">Garancia</a><a href="#">Rendelés követése</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Segítség</h4><a href="#">GYIK</a><a href="#">Kapcsolat</a><a href="#">Ügyfélszolgálat</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Jogi</h4><a href="#">ÁSZF</a><a href="#">Adatvédelem</a><a href="#">Cookie</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Metagame</h4><a href="#">Rólunk</a><a href="#">Klub</a><a href="#">Események</a></div>
+    </div>
+    <div class="mg-footer-panel__contact">
+      <div class="mg-footer-panel__store">
+        <div class="mg-footer-panel__store-header"><img class="mg-footer-panel__store-logo" src="../assets/images/about/bolt.png" alt="Metagame Bolt"><span class="mg-footer-panel__store-name">Metagame Bolt</span></div>
+        <div class="mg-footer-panel__store-info">
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--bold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg><span>1132 Budapest, Kádár utca 10.</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg><span>+36-1-794-4116</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 3"/></svg><span>H–SZ 10–18</span></div>
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--highlight"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg><span>info@metagames.hu</span></div>
+        </div>
+      </div>
+      <div class="mg-footer-panel__store">
+        <div class="mg-footer-panel__store-header"><img class="mg-footer-panel__store-logo" src="../assets/images/about/klub.png" alt="Metagame Klub"><span class="mg-footer-panel__store-name">Metagame Klub</span></div>
+        <div class="mg-footer-panel__store-info">
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--bold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg><span>1132 Budapest, Kádár utca 10.</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg><span>+36-1-794-4116</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 3"/></svg><span>H–SZ 10–18</span></div>
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--highlight"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg><span>info@metagames.hu</span></div>
+        </div>
+      </div>
+      <div class="mg-footer-panel__newsletter">
+        <div class="mg-footer-panel__newsletter-title">Csatlakozz a Metagame közösséghez</div>
+        <div class="mg-footer-panel__newsletter-desc">Add meg az e-mail címed, hogy értesülhess a legfrissebb eseményekről, ajánlatokról</div>
+        <div class="mg-footer-panel__subscribe"><input type="email" placeholder="E-mail címed..."><button class="mg-footer-panel__subscribe-btn" aria-label="Feliratkozás"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></button></div>
+      </div>
+    </div>
+    <div class="mg-footer-panel__payment">
+      <div class="mg-footer-panel__secure-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Secure Payment</div>
+      <div class="mg-footer-panel__payment-logos"><span>Barion</span><span>VISA</span><span>PayPal</span><span>Mastercard</span></div>
+    </div>
+    <div class="mg-footer-panel__bottom">© 2026 Metagame — Made with ❤️ for a better gameworld.</div>
+    </div>
+  </div>
+
+</div><!-- /.mg-frame -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Frame widget -->
+<script src="js/components/frame.js"></script>
+<script src="js/components/frame-shimmer.js"></script>
+<script src="js/components/mega-menu.js"></script>
+<script src="js/components/drawer.js"></script>
+<script src="js/components/footer.js"></script>
+<script src="js/components/search-overlay.js"></script>
+<script src="js/components/mobile-menu.js"></script>
+<!-- Cikk TOC aktív állapot -->
+<script>
+$(function () {
+  mgInitMegaMenu();
+  mgInitMobileMenu();
+  mgInitMobileSearch();
+  mgInitMobileDrawer();
+  mgInitDrawer();
+  mgInitFooter();
+  $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
+    mgInitSearchOverlay();
+  });
+
+  // TOC accordion toggle (tablet/mobil)
+  $('.mg-article__toc-toggle').on('click', function () {
+    $(this).closest('.mg-article__toc').toggleClass('is-open');
+  });
+
+  var $toc = $('.mg-article__toc-link');
+  var $sections = $('section[id], h3[id]');
+  var $body = $('.mg-article__body');
+  var $content = $('.mg-content');
+
+  $content.on('scroll', function () {
+    var scrollTop = $content.scrollTop();
+    var active = null;
+
+    $sections.each(function () {
+      if ($(this).position().top - 80 <= 0) {
+        active = this.id;
+      }
+    });
+
+    if (active) {
+      $toc.removeClass('mg-article__toc-link--active');
+      $toc.filter('[href="#' + active + '"]').addClass('mg-article__toc-link--active');
+    }
+  });
+
+  $toc.on('click', function (e) {
+    e.preventDefault();
+    var target = $(this).attr('href');
+    var $target = $(target);
+    if ($target.length) {
+      var offset = $target.position().top + $content.scrollTop() - 40;
+      $content.animate({ scrollTop: offset }, 400);
+    }
+  });
+});
+</script>
+
+</body>
+</html>
