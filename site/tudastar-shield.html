@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mit jelentenek a shield típusok? – Metagame Tudástár</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Playfair+Display+SC:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Design tokenek -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Komponensek -->
+  <link rel="stylesheet" href="css/components/frame.css">
+  <link rel="stylesheet" href="css/components/frame-shimmer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
+  <link rel="stylesheet" href="css/components/article.css">
+  <link rel="stylesheet" href="css/components/related-products.css">
+  <link rel="stylesheet" href="css/components/drawer.css">
+  <link rel="stylesheet" href="css/components/search-overlay.css">
+  <link rel="stylesheet" href="css/components/mega-menu.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css">
+</head>
+<body>
+
+<div class="mg-frame">
+
+  <!-- ── KERET SVG elemek ────────────────────────────────────────── -->
+  <div class="mg-frame-corner mg-frame-corner--tl"><img class="mg-frame-corner__img--desktop" src="../assets/frame/frame-corner-tl.svg" alt=""><img class="mg-frame-corner__img--tablet" src="../assets/frame/mobile/frame-corner-tl-tablet.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--tr"><img src="../assets/frame/frame-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--bl"><img src="../assets/frame/frame-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--br"><img src="../assets/frame/frame-corner-br.svg" alt=""></div>
+
+  <div class="mg-frame-line mg-frame-line--top"><img src="../assets/frame/frame-line-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--left"><img src="../assets/frame/frame-line-left.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--right-bottom"><img src="../assets/frame/frame-right-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--bottom"><img src="../assets/frame/frame-line-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── MOBIL KERET ─────────────────────────────────────────────── -->
+  <a class="mg-frame-m mg-frame-m-corner--tl" href="index.html"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt="Metagame"></a>
+  <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--right"><img src="../assets/frame/mobile/frame-m-line-right.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--bl"><img src="../assets/frame/mobile/frame-m-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--bottom"><img src="../assets/frame/mobile/frame-m-line-bottom.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--br"><img src="../assets/frame/mobile/frame-m-corner-br.svg" alt=""></div>
+  <div class="mg-frame-m-bar">
+    <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
+    <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
+    <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- ── MOBIL: Keresőmező ── -->
+  <div class="mg-mobile-search mg-cut-frame">
+    <input type="text" placeholder="Keresés..." readonly>
+    <button class="mg-mobile-search__btn" aria-label="Keresés">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── MOBIL: Hamburger gomb ── -->
+  <button class="mg-mobile-hamburger" aria-label="Menü">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ── MOBIL: Alsó bar ikonok ── -->
+  <div class="mg-mobile-bar-icons">
+    <button class="mg-mobile-bar-icons__btn" aria-label="Elérhetőségek">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn mg-mobile-bar-icons__btn--center" aria-label="Kosár">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="16" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn" aria-label="Profil">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- ── TOP BAR ────────────────────────────────────────────────── -->
+  <header class="mg-topbar">
+    <a href="index.html">
+      <img class="mg-logo mg-logo--full" src="../assets/images/logo.svg" alt="Metagame">
+      <img class="mg-logo mg-logo--compact" src="../assets/frame/mobile/mg-logo-closed.svg" alt="Metagame">
+    </a>
+
+    <div class="mg-topbar-row">
+      <div class="mg-toggle mg-cut-frame" data-active="shop">
+        <div class="mg-toggle__slider"></div>
+        <button class="mg-toggle__btn mg-toggle__btn--active" data-target="shop">Shop</button>
+        <button class="mg-toggle__btn" data-target="community">Eseménynaptár</button>
+      </div>
+
+      <div class="mg-search mg-cut-frame">
+        <input type="text" placeholder="Search here...">
+        <button class="mg-search__btn" aria-label="Keresés">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BAL NAV ────────────────────────────────────────────────── -->
+  <nav class="mg-nav-left" id="mg-nav-left">
+    <div class="mg-nav-section" data-nav="shop">
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18"/><path d="M16 3v18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">TCG</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="12" cy="12" r="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Társasjáték</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="9" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Gyűjthető kártya</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Kiegészítők</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Szerepjátékok</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Wargame</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Modellezés</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Figurák</span></div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── MEGA MENU (JS tölti dinamikusan) ───────────────────────── -->
+  <div class="mg-megamenu" id="mg-megamenu"></div>
+
+  <div class="mg-frame-line mg-frame-line--right-top"><img src="../assets/frame/frame-right-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── JOBB NAV ───────────────────────────────────────────────── -->
+  <aside class="mg-nav-right">
+    <button class="mg-nav-right__btn" aria-label="Profil">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Kedvencek">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn mg-nav-right__btn--cart" aria-label="Kosár">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="16" r="1.5" fill="currentColor"/><circle cx="14" cy="16" r="1.5" fill="currentColor"/></svg>
+        <span class="mg-cart-badge" style="display:none">0</span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Értesítések">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v4l-2 2h16l-2-2V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8 16a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Helyszín">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Telefon">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+  </aside>
+
+  <!-- ── CIKK TARTALOM ───────────────────────────────────────────── -->
+  <main class="mg-content">
+    <div class="mg-article">
+
+      <div class="mg-article__main">
+
+      <!-- BAL: Tartalomjegyzék (sticky) -->
+      <aside class="mg-article__toc">
+        <button class="mg-article__toc-toggle">
+          <span>Tartalomjegyzék</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <p class="mg-article__toc-title">Tartalomjegyzék</p>
+
+        <nav class="mg-article__toc-nav">
+          <a href="#bevezeto" class="mg-article__toc-link mg-article__toc-link--active">
+            <span class="mg-article__toc-dash"></span>
+            Bevezetés – Mi az a shield?
+          </a>
+          <a href="#shield-tipusok" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Shield szintek és típusok
+          </a>
+            <a href="#bronz-ezust" class="mg-article__toc-link mg-article__toc-link--sub">
+              <span class="mg-article__toc-dash"></span>
+              Bronz és Ezüst shield
+            </a>
+            <a href="#arany-gyemant" class="mg-article__toc-link mg-article__toc-link--sub">
+              <span class="mg-article__toc-dash"></span>
+              Arany és Gyémánt shield
+            </a>
+          <a href="#pontgyujtes" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Hogyan gyűjtesz shield pontot?
+          </a>
+          <a href="#elonyok" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Mire jó a shield?
+          </a>
+          <a href="#osszegzes" class="mg-article__toc-link">
+            <span class="mg-article__toc-dash"></span>
+            Összegzés
+          </a>
+        </nav>
+      </aside>
+
+      <!-- KÖZÉP: Cikk törzs -->
+      <article class="mg-article__body">
+
+        <!-- Breadcrumb -->
+        <nav class="mg-article__breadcrumb">
+          <a href="index.html">Főoldal</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <a href="tudastar.html">Tudástár</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <span>Shield típusok</span>
+        </nav>
+
+        <!-- Cím -->
+        <!-- BACKEND: article.title -->
+        <h1 class="mg-article__title">Mit jelentenek a shield típusok nálunk?</h1>
+
+        <!-- Alcím / kivonat -->
+        <!-- BACKEND: article.excerpt -->
+        <p class="mg-article__subtitle">A shield a Metagame Klub játékos-besorolási és jelvényrendszere. Elmagyarázzuk, milyen szintek léteznek, hogyan gyűjtesz pontot, és milyen kedvezmények, előnyök járnak az egyes shieldekkel.</p>
+
+        <!-- Elválasztó -->
+        <hr class="mg-article__separator">
+
+        <!-- Meta sor -->
+        <div class="mg-article__meta">
+          <div class="mg-article__meta-author">
+            <!-- BACKEND: author.avatar -->
+            <div class="mg-article__meta-avatar">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="mg-article__meta-col">
+              <span class="mg-article__meta-label">Szerző</span>
+              <!-- BACKEND: author.name -->
+              <span class="mg-article__meta-value">Metagame Szerkesztőség</span>
+            </div>
+          </div>
+          <div class="mg-article__meta-col">
+            <span class="mg-article__meta-label">Olvasási idő</span>
+            <!-- BACKEND: article.read_time -->
+            <span class="mg-article__meta-value">5 perc</span>
+          </div>
+          <div class="mg-article__meta-col">
+            <span class="mg-article__meta-label">Megjelent</span>
+            <!-- BACKEND: article.date -->
+            <span class="mg-article__meta-value">2026. június 10.</span>
+          </div>
+        </div>
+
+        <!-- Hero kép -->
+        <div class="mg-article__hero-image">
+          <!-- BACKEND: article.image -->
+          <img src="../assets/images/chronicles/featured.jpg" alt="Metagame Klub shield rendszer">
+        </div>
+
+        <!-- ── SZEKCIÓK ──────────────────────────────────────── -->
+
+        <section class="mg-article__section" id="bevezeto">
+          <h2 class="mg-article__h2">Bevezetés – Mi az a shield?</h2>
+          <p class="mg-article__text">A shield a Metagame Klub saját játékos-besorolási és jelvényrendszere. Egyszerűen fogalmazva egy rang, amit a klubéletben való részvétellel és versenyeken elért eredményekkel lehet szerezni. Minél aktívabb és eredményesebb vagy, annál magasabb shieldet érsz el – ez pedig nem csupán presztízs kérdése, valódi előnyökkel is jár.</p>
+          <p class="mg-article__text">A shield célja, hogy elismerje a közösség elkötelezett tagjait, és kézzelfogható jutalmakkal – kedvezményekkel, korai nevezéssel és meghívásos versenyekkel – hálálja meg a részvételt. Ebben a cikkben végigvesszük az összes shield szintet, megmutatjuk, hogyan gyűjthetsz pontot, és mire válthatod be a megszerzett rangot.</p>
+        </section>
+
+        <section class="mg-article__section" id="shield-tipusok">
+          <h2 class="mg-article__h2">Shield szintek és típusok</h2>
+          <p class="mg-article__text">A rendszerben négy shield szint létezik, amelyeket a felhalmozott shield pontok alapján érhetsz el. A szintek évadonként nullázódnak, így minden szezonban új esélyed van feljebb lépni. Az aktuális shielded a klubprofilodban és a versenyeken viselt jelvényeden is látszik.</p>
+
+          <h3 class="mg-article__h3" id="bronz-ezust">Bronz és Ezüst shield</h3>
+          <p class="mg-article__text">A <strong>Bronz shield</strong> a belépő szint: automatikusan megkapod, amint regisztrálsz a klubba és részt veszel az első pontszerző eseményeden. Ez már önmagában feljogosít az alapkedvezményekre és a klubnapokon való korlátlan részvételre.</p>
+          <p class="mg-article__text">Az <strong>Ezüst shieldet</strong> a rendszeres résztvevők érik el. Ehhez a szinthez egy szezonon belül legalább 150 shield pont szükséges, amit jellemzően havi 1-2 esemény látogatásával lehet összegyűjteni. Az Ezüst shield tulajdonosai már kedvezményes nevezési díjjal indulhatnak a klubversenyeken.</p>
+
+          <h3 class="mg-article__h3" id="arany-gyemant">Arany és Gyémánt shield</h3>
+          <p class="mg-article__text">Az <strong>Arany shield</strong> a komoly versenyzők jelvénye. 400 shield pont felett jár, és jellemzően azoknak, akik nemcsak részt vesznek, hanem rendszeresen dobogós helyezéseket is szereznek a ligákban. Az Arany shielddel korai (early bird) nevezési jogot kapsz a nagyobb versenyekre.</p>
+          <p class="mg-article__text">A <strong>Gyémánt shield</strong> a legmagasabb szint, a klub legelkötelezettebb és legeredményesebb tagjainak fenntartva. 800 pont felett érhető el, és exkluzív előnyökkel jár: meghívásos, zártkörű bajnokságokon való részvétel, a legnagyobb kedvezmények és a klub döntéseibe való beleszólás lehetősége.</p>
+        </section>
+
+        <!-- Kép a cikkben -->
+        <div class="mg-article__inline-image">
+          <img src="../assets/images/chronicles/thumb-1.jpg" alt="Shield szintek a Metagame Klubban">
+          <span class="mg-article__image-caption">A négy shield szint: Bronz, Ezüst, Arany és Gyémánt</span>
+        </div>
+
+        <section class="mg-article__section" id="pontgyujtes">
+          <h2 class="mg-article__h2">Hogyan gyűjtesz shield pontot?</h2>
+          <p class="mg-article__text">Shield pontot többféleképpen is szerezhetsz – nem csak versenygyőzelmekkel. A rendszer szándékosan díjazza a rendszeres részvételt és a közösségi hozzájárulást is, hogy mindenki megtalálja a maga útját a magasabb szintekhez.</p>
+          <ul class="mg-article__list">
+            <li><strong>Eseményrészvétel:</strong> minden klubnapon vagy versenyen való megjelenésért alappont jár, függetlenül a helyezésedtől.</li>
+            <li><strong>Ligaeredmények:</strong> a ligákban elért helyezések extra pontot érnek – minél előrébb végzel, annál többet.</li>
+            <li><strong>Önkéntesség:</strong> ha bírácskodsz, segítesz egy esemény lebonyolításában vagy új játékosokat tanítasz be, azt külön pontokkal ismerjük el.</li>
+            <li><strong>Szezonális kihívások:</strong> az évad során meghirdetett feladatok teljesítése bónuszpontokat ad.</li>
+          </ul>
+          <p class="mg-article__text">A pontállásodat bármikor megnézheted a klubprofilodban, ahol azt is látod, hány pont hiányzik a következő shield szintig.</p>
+        </section>
+
+        <section class="mg-article__section" id="elonyok">
+          <h2 class="mg-article__h2">Mire jó a shield?</h2>
+          <p class="mg-article__text">A shield nem csak egy szám vagy jelvény – valódi, kézzelfogható előnyöket ad a klubéletben és a boltban egyaránt. Minél magasabb a shielded, annál több és nagyobb kedvezmény nyílik meg előtted.</p>
+          <ul class="mg-article__list">
+            <li><strong>Kedvezmények:</strong> a shield szintedtől függő bolti és nevezési kedvezmény, a Bronz 5%-ától a Gyémánt akár 20%-áig.</li>
+            <li><strong>Korai nevezés:</strong> a magasabb shieldek tulajdonosai előbb foglalhatnak helyet a limitált férőhelyű versenyekre.</li>
+            <li><strong>Meghívásos versenyek:</strong> a legmagasabb szinteken zártkörű, meghívásos bajnokságokra kaphatsz belépőt.</li>
+            <li><strong>Elismerés:</strong> a shielded látszik a klubprofilodon és a versenyeken, így a közösség is látja az elkötelezettségedet.</li>
+          </ul>
+          <p class="mg-article__text">A shield tehát egyszerre motiváció, elismerés és belépő – megéri gyűjteni a pontokat, mert minden szinttel jobb feltételekkel vehetsz részt a klub életében.</p>
+        </section>
+
+        <section class="mg-article__section" id="osszegzes">
+          <h2 class="mg-article__h2">Összegzés</h2>
+          <p class="mg-article__text">A shield rendszer a Metagame Klub gerince: elismeri az elkötelezettséget, motivál a részvételre, és valódi előnyökkel jutalmazza a legaktívabb tagokat. Akár most csatlakozol, akár régóta játszol nálunk, a Bronztól a Gyémántig vezető út mindenki előtt nyitva áll.</p>
+          <p class="mg-article__text">A legjobb módja a pontgyűjtés elkezdésének, ha eljössz a következő eseményünkre. Nézd meg az aktuális programot az <a href="events.html">eseménynaptárban</a>, és kezdd el építeni a saját shielded még ma!</p>
+        </section>
+
+        <!-- Navigáció: előző / következő -->
+        <div class="mg-article__nav-posts">
+          <a href="#" class="btn btn-light btn-sm mg-article__nav-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            Előző cikk
+          </a>
+          <a href="#" class="btn btn-outline-secondary btn-sm mg-article__nav-btn">
+            Következő cikk
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+
+      </article>
+
+      </div><!-- /.mg-article__main -->
+
+      <!-- JOBB: Kapcsolódó tartalmak (újrafelhasználható widget) -->
+      <aside class="mg-article__sidebar">
+        <div class="d-flex flex-column gap-4">
+          <h3 class="fs-4 fw-semibold" style="color:var(--color-text-muted)">Kapcsolódó</h3>
+
+          <!-- BACKEND: related_articles foreach -->
+          <div class="card mg-related__card d-flex flex-row flex-xxl-column">
+            <div class="mg-related__card-image">
+              <img src="../assets/images/chronicles/thumb-2.png" alt="Liga állások">
+            </div>
+            <div class="card-body d-flex flex-column gap-3">
+              <p class="fw-medium fs-5">Liga állások</p>
+              <p class="card-text small">Nézd meg az aktuális ligahelyezéseket és a shield pontállást</p>
+              <a href="liga-allasok.html" class="btn btn-outline-secondary">Megnézem</a>
+            </div>
+          </div>
+
+          <!-- Kapcsolódó linkek -->
+          <div class="list-group list-group-flush d-flex flex-column gap-2">
+            <a href="tudastar-klubnap.html" class="list-group-item upsell-item d-flex align-items-center gap-3 p-3 text-decoration-none">
+              <span class="btn btn-outline-secondary rounded-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">Mi az a klubnap?</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">Tudástár cikk</span>
+              </div>
+            </a>
+            <a href="liga-allasok.html" class="list-group-item upsell-item d-flex align-items-center gap-3 p-3 text-decoration-none">
+              <span class="btn btn-outline-secondary rounded-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">Liga állások</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">Aktuális helyezések</span>
+              </div>
+            </a>
+            <a href="events.html" class="list-group-item upsell-item d-flex align-items-center gap-3 p-3 text-decoration-none">
+              <span class="btn btn-outline-secondary rounded-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </span>
+              <div class="flex-grow-1 min-w-0">
+                <span class="d-block small fw-medium" style="color:var(--color-text-card)">Eseménynaptár</span>
+                <span class="d-block small" style="color:var(--color-text-muted)">Gyűjts shield pontot</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="mg-footer">
+    <div class="mg-footer__left">
+      <span class="mg-footer__brand">© metagame 2026</span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kádár utca 10.</span>
+        <span class="mg-footer__hours">H–SZ 10–18</span>
+      </span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kresz Géza utca 36.</span>
+        <span class="mg-footer__hours">H-P 16–22, SZ 10–18</span>
+      </span>
+    </div>
+    <div class="mg-footer__right">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatvédelem</a>
+      <a class="mg-footer__info-trigger" href="#">Információ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- ── MOBIL MENÜ ──────────────────────────────────────────── -->
+  <div class="mg-mobile-menu"></div>
+
+  <!-- ── MOBIL KERESŐ OVERLAY ──────────────────────────────── -->
+  <div class="mg-mobile-search-overlay"></div>
+
+  <!-- ── MOBIL DRAWER OVERLAY (kosár, profil, kapcsolat) ──── -->
+  <div class="mg-mobile-drawer"></div>
+
+  <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
+  <div class="mg-widget-search-overlay"></div>
+
+  <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
+    <div class="mg-drawer__card">
+      <div class="mg-drawer__header">
+        <h2 class="mg-drawer__title"></h2>
+        <span class="mg-drawer__subtitle"></span>
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mg-drawer__body"></div>
+      <div class="mg-drawer__footer"></div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER PANEL (slide-up) ───────────────────────────────── -->
+  <div class="mg-footer-panel offcanvas offcanvas-bottom" tabindex="-1">
+    <div class="mg-footer-panel__scroll">
+    <div class="mg-footer-panel__close">
+      <button class="mg-footer-panel__close-btn" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mg-footer-panel__features">
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div class="mg-footer-panel__feature-title">Ingyenes szállítás</div>
+        <div class="mg-footer-panel__feature-desc">Rendeléseid díjmentesen szállítjuk, hogy a vásárlás élménye zökkenőmentes legyen.</div>
+      </div>
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4h-4z"/></svg></div>
+        <div class="mg-footer-panel__feature-title">Biztonságos fizetés</div>
+        <div class="mg-footer-panel__feature-desc">Fizetési lehetőségek széles választéka, biztonságos és kényelmes online tranzakciókkal.</div>
+      </div>
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+        <div class="mg-footer-panel__feature-title">30 napos visszaküldés</div>
+        <div class="mg-footer-panel__feature-desc">30 napon belül egyszerűen visszaküldheted a terméket, gyors visszatérítéssel vagy cserével.</div>
+      </div>
+    </div>
+    <div class="mg-footer-panel__links">
+      <div class="mg-footer-panel__link-col"><h4>Vásárlás</h4><a href="#">Szállítás</a><a href="#">Fizetés</a><a href="#">Garancia</a><a href="#">Rendelés követése</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Segítség</h4><a href="#">GYIK</a><a href="#">Kapcsolat</a><a href="#">Ügyfélszolgálat</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Jogi</h4><a href="#">ÁSZF</a><a href="#">Adatvédelem</a><a href="#">Cookie</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Metagame</h4><a href="#">Rólunk</a><a href="#">Klub</a><a href="#">Események</a></div>
+    </div>
+    <div class="mg-footer-panel__contact">
+      <div class="mg-footer-panel__store">
+        <div class="mg-footer-panel__store-header"><img class="mg-footer-panel__store-logo" src="../assets/images/about/bolt.png" alt="Metagame Bolt"><span class="mg-footer-panel__store-name">Metagame Bolt</span></div>
+        <div class="mg-footer-panel__store-info">
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--bold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg><span>1132 Budapest, Kádár utca 10.</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg><span>+36-1-794-4116</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 3"/></svg><span>H–SZ 10–18</span></div>
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--highlight"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg><span>info@metagames.hu</span></div>
+        </div>
+      </div>
+      <div class="mg-footer-panel__store">
+        <div class="mg-footer-panel__store-header"><img class="mg-footer-panel__store-logo" src="../assets/images/about/klub.png" alt="Metagame Klub"><span class="mg-footer-panel__store-name">Metagame Klub</span></div>
+        <div class="mg-footer-panel__store-info">
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--bold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg><span>1132 Budapest, Kádár utca 10.</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg><span>+36-1-794-4116</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 3"/></svg><span>H–SZ 10–18</span></div>
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--highlight"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg><span>info@metagames.hu</span></div>
+        </div>
+      </div>
+      <div class="mg-footer-panel__newsletter">
+        <div class="mg-footer-panel__newsletter-title">Csatlakozz a Metagame közösséghez</div>
+        <div class="mg-footer-panel__newsletter-desc">Add meg az e-mail címed, hogy értesülhess a legfrissebb eseményekről, ajánlatokról</div>
+        <div class="mg-footer-panel__subscribe"><input type="email" placeholder="E-mail címed..."><button class="mg-footer-panel__subscribe-btn" aria-label="Feliratkozás"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></button></div>
+      </div>
+    </div>
+    <div class="mg-footer-panel__payment">
+      <div class="mg-footer-panel__secure-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Secure Payment</div>
+      <div class="mg-footer-panel__payment-logos"><span>Barion</span><span>VISA</span><span>PayPal</span><span>Mastercard</span></div>
+    </div>
+    <div class="mg-footer-panel__bottom">© 2026 Metagame — Made with ❤️ for a better gameworld.</div>
+    </div>
+  </div>
+
+</div><!-- /.mg-frame -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Frame widget -->
+<script src="js/components/frame.js"></script>
+<script src="js/components/frame-shimmer.js"></script>
+<script src="js/components/mega-menu.js"></script>
+<script src="js/components/drawer.js"></script>
+<script src="js/components/footer.js"></script>
+<script src="js/components/search-overlay.js"></script>
+<script src="js/components/mobile-menu.js"></script>
+<!-- Cikk TOC aktív állapot -->
+<script>
+$(function () {
+  mgInitMegaMenu();
+  mgInitMobileMenu();
+  mgInitMobileSearch();
+  mgInitMobileDrawer();
+  mgInitDrawer();
+  mgInitFooter();
+  $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
+    mgInitSearchOverlay();
+  });
+
+  // TOC accordion toggle (tablet/mobil)
+  $('.mg-article__toc-toggle').on('click', function () {
+    $(this).closest('.mg-article__toc').toggleClass('is-open');
+  });
+
+  var $toc = $('.mg-article__toc-link');
+  var $sections = $('section[id], h3[id]');
+  var $body = $('.mg-article__body');
+  var $content = $('.mg-content');
+
+  $content.on('scroll', function () {
+    var scrollTop = $content.scrollTop();
+    var active = null;
+
+    $sections.each(function () {
+      if ($(this).position().top - 80 <= 0) {
+        active = this.id;
+      }
+    });
+
+    if (active) {
+      $toc.removeClass('mg-article__toc-link--active');
+      $toc.filter('[href="#' + active + '"]').addClass('mg-article__toc-link--active');
+    }
+  });
+
+  $toc.on('click', function (e) {
+    e.preventDefault();
+    var target = $(this).attr('href');
+    var $target = $(target);
+    if ($target.length) {
+      var offset = $target.position().top + $content.scrollTop() - 40;
+      $content.animate({ scrollTop: offset }, 400);
+    }
+  });
+});
+</script>
+
+</body>
+</html>
