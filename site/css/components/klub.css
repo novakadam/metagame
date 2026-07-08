@@ -289,3 +289,15 @@
   .mg-klub-section-title { font-size: var(--font-size-2xl); }
   .mg-klub-feature__img { min-height: 220px; aspect-ratio: 16 / 10; }
 }
+
+/* ── GALÉRIA album-borító ─────────────────────────────────────
+   A képszám-badge a Bootstrap .ratio konténeren belül van, hogy a
+   borítókép jobb felső sarkába kerüljön. A BS `.ratio > *` szabály
+   viszont minden gyereket 100%×100%-ra nyújt – ezt a badge-nél
+   visszaállítjuk, különben a badge háttere eltakarná a képet. */
+.ratio > .badge {
+  width: auto;
+  height: auto;
+  left: auto;
+  bottom: auto;
+}
