@@ -1,0 +1,11 @@
+# A be- és kimeneti képek ne kerüljenek verziókövetésbe (csak a mappa marad)
+input/*
+output/*
+!input/.gitkeep
+!output/.gitkeep
+
+# rembg modell + Python cache
+*.onnx
+__pycache__/
+.venv/
+venv/
