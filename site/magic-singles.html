@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tudástár &amp; Krónikák – cikkek, szabályok, liga állások | Metagame</title>
-  <meta name="description" content="A Metagame tudástára: versenyszabályok, shield típusok, liga állások, Hall of Fame, bírói infók és klubélet – egy helyen, kategóriákba rendezve.">
-  <link rel="canonical" href="https://metagames.hu/tudastar">
+  <title>Magic singles – tételes laplista | Metagames</title>
+  <meta name="description" content="A Metagame teljes Magic: The Gathering single kártya kínálata tételes listában. Keresd meg a lapot, amire szükséged van, és rendelj telefonon vagy emailben.">
+  <link rel="canonical" href="https://metagames.hu/magic-singles">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Metagames">
   <meta property="og:locale" content="hu_HU">
-  <meta property="og:title" content="Tudástár &amp; Krónikák – Metagame">
-  <meta property="og:description" content="Versenyszabályok, shield típusok, liga állások, Hall of Fame és klubélet – egy helyen.">
-  <meta property="og:url" content="https://metagames.hu/tudastar">
+  <meta property="og:title" content="Magic singles – tételes laplista">
+  <meta property="og:description" content="A Metagame teljes Magic single kínálata tételes listában, mindig frissen.">
+  <meta property="og:url" content="https://metagames.hu/magic-singles">
   <meta property="og:image" content="https://metagames.hu/assets/og/og-default.jpg">
 
   <!-- Twitter/X -->
@@ -141,7 +141,7 @@
       </div>
 
       <div class="mg-search mg-cut-frame">
-        <input type="text" placeholder="Keresés a tudástárban...">
+        <input type="text" placeholder="Keresés a listában...">
         <button class="mg-search__btn" aria-label="Keresés">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
@@ -251,246 +251,67 @@
   </aside>
 
   <!-- ══════════════════════════════════════════════════════════════
-       TARTALOM – TUDÁSTÁR HUB
+       TARTALOM – MAGIC SINGLES (beágyazott, publikált Google Sheets)
        ══════════════════════════════════════════════════════════════ -->
   <main class="mg-content">
 
-    <!-- ── HERO / FEJLÉC ───────────────────────────────────────── -->
+    <!-- ── FEJLÉC ──────────────────────────────────────────────── -->
     <section class="mg-section">
-      <!-- Breadcrumb -->
       <nav aria-label="breadcrumb" class="mb-3">
         <ol class="breadcrumb mb-0">
           <li class="breadcrumb-item"><a href="index.html">Főoldal</a></li>
-          <li class="breadcrumb-item"><a href="klub.html">Klub</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Tudástár</li>
+          <li class="breadcrumb-item"><a href="tudastar.html">Tudástár</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Magic singles</li>
         </ol>
       </nav>
 
       <div class="text-center mb-4">
-        <span class="mg-klub-eyebrow">Tudástár &amp; Krónikák</span>
-        <h1 class="mg-klub-section-title">Minden, amit a játékról tudni érdemes</h1>
-        <p class="mg-klub-section-lead mx-auto">Versenyszabályok, shield típusok, liga állások, Hall of Fame és klubélet – összeszedve és kategóriákba rendezve. Válassz témát, vagy böngéssz szabadon.</p>
+        <span class="mg-klub-eyebrow">Webshop · Magic: The Gathering</span>
+        <h1 class="mg-klub-section-title">Magic singles – tételes laplista</h1>
+        <p class="mg-klub-section-lead mx-auto">A boltunk teljes Magic single kínálata egyetlen, folyamatosan frissülő listában. Keresd meg a lapot, amire szükséged van (a táblázatban a <strong>Ctrl/⌘ + F</strong> is működik), majd rendelj telefonon vagy emailben.</p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mt-3">
+          <!-- BACKEND: singles.magic_sheet_url — publikált Google Sheets -->
+          <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vReMOFa1bUjyN4IScWzpQyZ38GX_-oxYF_gPwLyFL5ub63Q_61u1eBoIDPhZYqbzBDLJ3ibIO5k9DLi/pubhtml?gid=517437724&single=true" target="_blank" rel="noopener" class="btn btn-primary d-inline-flex align-items-center gap-2">
+            Megnyitás új lapon
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+          <a href="tel:+3617944116" class="btn btn-outline-secondary d-inline-flex align-items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg>
+            Rendelés telefonon
+          </a>
+        </div>
       </div>
-
-      <!-- ── KATEGÓRIA SZŰRŐ ──────────────────────────────────────
-           Statikus demo: a data-filter chip a data-category kártyákat szűri (JS lent).
-           Élesben a szűrés backend/URL paraméter alapján is mehet. -->
-      <ul class="nav nav-pills justify-content-center flex-wrap gap-2 mb-5" id="mg-tudastar-filter" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-filter="all" type="button">Összes</button></li>
-        <li class="nav-item"><button class="nav-link" data-filter="tudastar" type="button">Tudástár</button></li>
-        <li class="nav-item"><button class="nav-link" data-filter="liga" type="button">Liga állások</button></li>
-        <li class="nav-item"><button class="nav-link" data-filter="hall-of-fame" type="button">Hall of Fame</button></li>
-        <li class="nav-item"><button class="nav-link" data-filter="biro" type="button">Bírói infók</button></li>
-        <li class="nav-item"><button class="nav-link" data-filter="klub" type="button">Klubélet</button></li>
-      </ul>
     </section>
 
-    <!-- ── CIKK GRID ───────────────────────────────────────────── -->
+    <!-- ── BEÁGYAZOTT LISTA (Google Sheets) ─────────────────────── -->
     <section class="mg-section pt-0">
-      <!-- BACKEND: articles foreach — minden kártya data-category-vel szűrhető -->
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="mg-tudastar-grid">
-
-        <!-- Tudástár: shield típusok -->
-        <div class="col d-flex mg-tudastar-item" data-category="tudastar">
-          <a href="tudastar-shield.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/chronicles/thumb-2.png" alt="Shield típusok" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-primary">Tudástár</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Shieldek</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">Mit jelentenek a shield típusok?</h3>
-              <p class="text-muted mb-0">Bronztól a gyémántig – hogyan épül fel a klub jelvény­rendszere, és mire jó a shieldek gyűjtése.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Olvasás <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Tudástár: versenyszabályok -->
-        <div class="col d-flex mg-tudastar-item" data-category="tudastar">
-          <a href="tudastar-versenyszabalyzat.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/content%20-%20placeholder/events/bangkok-thailand-april-13-2023-260nw-2290472761.webp" alt="Versenyszabályok" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-primary">Tudástár</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Magic</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">Standard versenyszabályzat – alapok</h3>
-              <p class="text-muted mb-0">Formátumok, nevezés, időkeret és a leggyakoribb szabálykérdések – kezdőknek és visszatérőknek.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Olvasás <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Liga állások -->
-        <div class="col d-flex mg-tudastar-item" data-category="liga">
-          <a href="liga-allasok.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/chronicles/featured.jpg" alt="Magic Standard Liga" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-dark">Liga állások</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Magic</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">Magic Standard Liga – tavaszi szezon</h3>
-              <p class="text-muted mb-0">Nyolc fordulós sorozat: aktuális ranglista, pontállás és a szezon szabályai egy helyen.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Állás megtekintése <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Klubélet: klubnap -->
-        <div class="col d-flex mg-tudastar-item" data-category="klub">
-          <a href="tudastar-klubnap.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/about/klub.png" alt="Klubnap" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-primary">Klubélet</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Közösség</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">Mit jelent nálunk a klubnap?</h3>
-              <p class="text-muted mb-0">Hogyan zajlik egy nyitott nap a klubban, kinek szól, és hogyan csatlakozz, ha egyedül jössz.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Olvasás <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Hall of Fame -->
-        <div class="col d-flex mg-tudastar-item" data-category="hall-of-fame">
-          <a href="tudastar-hall-of-fame.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/content%20-%20placeholder/events/hq720.jpg" alt="Hall of Fame" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-dark">Hall of Fame</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Magic</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">A klub Hall of Fame tagjai</h3>
-              <p class="text-muted mb-0">A legendás bajnokok és a legemlékezetesebb szezonok – a Metagame klub örökös dicsőségtáblája.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Olvasás <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Bírói infók -->
-        <div class="col d-flex mg-tudastar-item" data-category="biro">
-          <a href="tudastar-biro.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/content%20-%20placeholder/events/DSC00180-3c36.webp" alt="Bírói infók" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-dark">Bírói infók</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Szabályok</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">Bírói tudnivalók versenyekhez</h3>
-              <p class="text-muted mb-0">Hogyan hívj bírót, mikor jár figyelmeztetés, és mit érdemes tudni a fellebbezésről.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Olvasás <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Deck-építés kezdőknek -->
-        <div class="col d-flex mg-tudastar-item" data-category="tudastar">
-          <a href="tudastar-versenyszabalyzat.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/content%20-%20placeholder/events/bangkok-thailand-may-man-playing-magic-gathering-card-game-man-playing-magic-gathering-card-game-217638876.webp" alt="Deck-építés" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-primary">Tudástár</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Deckek</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">Deck-építés kezdőknek</h3>
-              <p class="text-muted mb-0">Mit tegyél a paklidba az első versenyed előtt – manabázis, arányok és a leggyakoribb kezdő hibák.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Olvasás <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Pokémon Liga – nyári forduló -->
-        <div class="col d-flex mg-tudastar-item" data-category="liga">
-          <a href="liga-allasok.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/chronicles/thumb-3.jpg" alt="Pokémon Liga" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-dark">Liga állások</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Pokémon</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">Pokémon Liga – nyári forduló</h3>
-              <p class="text-muted mb-0">A kezdőbarát Pokémon sorozat aktuális állása és a következő fordulók időpontjai.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Állás megtekintése <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <!-- A klub első éve -->
-        <div class="col d-flex mg-tudastar-item" data-category="klub">
-          <a href="klub-bemutato.html" class="card h-100 w-100 text-decoration-none">
-            <div class="ratio ratio-16x9">
-              <img src="../assets/images/about/bolt.png" alt="A klub bemutatása" class="card-img-top object-fit-cover">
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <div class="d-flex flex-wrap gap-2">
-                <span class="badge rounded-pill text-bg-primary">Klubélet</span>
-                <span class="badge rounded-pill border bg-transparent text-card">Bemutató</span>
-              </div>
-              <h3 class="fs-4 mb-0 text-card">Ismerd meg a klubot – bemutató</h3>
-              <p class="text-muted mb-0">Kik vagyunk, hogyan működünk, mi a házirend, és milyen a klubélet – minden egy helyen.</p>
-              <span class="small fw-medium text-gold mt-auto pt-2">Olvasás <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
-            </div>
-          </a>
-        </div>
-
+      <!-- BACKEND: singles.magic_sheet_embed_url — a publikált Google Sheets iframe forrása.
+           A ?widget=true&headers=false a tisztább, fejléc nélküli nézetet adja. -->
+      <div class="card overflow-hidden p-0">
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vReMOFa1bUjyN4IScWzpQyZ38GX_-oxYF_gPwLyFL5ub63Q_61u1eBoIDPhZYqbzBDLJ3ibIO5k9DLi/pubhtml?gid=517437724&single=true&widget=true&headers=false"
+          title="Metagame – Magic singles tételes lista"
+          loading="lazy"
+          style="width:100%; height:80vh; min-height:560px; border:0; display:block;">
+        </iframe>
       </div>
-
-      <!-- Üres állapot (szűrésnél, ha nincs találat) -->
-      <p class="text-center text-muted mt-5 d-none" id="mg-tudastar-empty">Ebben a kategóriában még nincs cikk – nézz vissza hamarosan!</p>
-
-      <!-- ── LOAD MORE ──────────────────────────────────────────── -->
-      <!-- BACKEND: load_more.count, load_more.next_url -->
-      <div class="d-flex flex-column align-items-center gap-2 mt-5" id="mg-tudastar-more">
-        <a href="?page=2" class="btn btn-secondary d-inline-flex align-items-center gap-2">
-          További cikkek betöltése
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </a>
-        <span class="small text-muted">9 / 18 cikk</span>
-      </div>
+      <p class="text-muted small text-center mt-3 mb-0">A lista élő adat a Metagame táblázatából – az árak és a készlet a bolt frissítése szerint változhatnak. Ha egy lap nem szerepel a listában, kérdezz rá bátran!</p>
     </section>
 
-    <!-- ── MAGIC SINGLES – kiemelt külső link blokk ────────────── -->
+    <!-- ── RENDELÉSI INFÓ ──────────────────────────────────────── -->
     <section class="mg-section">
-      <div class="card overflow-hidden">
-        <div class="row g-0 align-items-center">
-          <div class="col-lg-5">
-            <div class="ratio ratio-16x9 h-100">
-              <img src="../assets/images/chronicles/featured.jpg" alt="Magic singles laplista" class="object-fit-cover">
-            </div>
+      <div class="card p-4 p-lg-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-12 col-lg-8">
+            <span class="mg-klub-eyebrow">Kérdésed van?</span>
+            <h2 class="fs-3 fw-semibold text-card mb-2">Segítünk megtalálni a lapot</h2>
+            <p class="text-muted mb-0">Írd meg vagy hívd be, melyik kártyát keresed – ellenőrizzük a készletet, félretesszük, és egyeztetjük az átvételt vagy a szállítást. Nagyobb lista összeállításában is szívesen segítünk.</p>
           </div>
-          <div class="col-lg-7">
-            <div class="p-4 p-lg-5 d-flex flex-column h-100">
-              <span class="badge text-bg-primary align-self-start mb-3">Singles</span>
-              <h2 class="fs-2 fw-semibold text-card mb-2">Magic singles – online laplista</h2>
-              <p class="text-muted mb-4">Külön kártyát keresel egy paklihoz? A boltunk teljes Magic single kínálata online, kereshető listában elérhető. (Egyelőre Magic; a többi TCG hamarosan.)</p>
-              <div class="d-flex flex-wrap gap-3 mt-auto">
-                <!-- Tételes Magic single lista (beágyazott Google Sheets) -->
-                <a href="magic-singles.html" class="btn btn-primary d-inline-flex align-items-center gap-2">
-                  Magic singles megnyitása
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
-                <a href="products.html" class="btn btn-outline-secondary">Irány a webshop</a>
-              </div>
-            </div>
+          <div class="col-12 col-lg-4">
+            <ul class="list-unstyled mb-0">
+              <li class="d-flex align-items-center gap-2 mb-2"><span class="text-gold"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg></span> <a href="tel:+3617944116" class="text-card text-decoration-none">(+36) 1 794 4116</a></li>
+              <li class="d-flex align-items-center gap-2"><span class="text-gold"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 5l8 6 8-6"/></svg></span> <a href="mailto:info@metagames.hu" class="text-card text-decoration-none">info@metagames.hu</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -577,25 +398,6 @@ $(function () {
   mgInitFooter();
   $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
     mgInitSearchOverlay();
-  });
-
-  // ── Tudástár kategória-szűrő (statikus demo) ──
-  $('#mg-tudastar-filter .nav-link').on('click', function () {
-    var filter = $(this).data('filter');
-    $('#mg-tudastar-filter .nav-link').removeClass('active');
-    $(this).addClass('active');
-
-    var $items = $('#mg-tudastar-grid .mg-tudastar-item');
-    var visible = 0;
-    $items.each(function () {
-      var match = filter === 'all' || $(this).data('category') === filter;
-      $(this).toggleClass('d-none', !match);
-      if (match) visible++;
-    });
-
-    // Üres állapot + "load more" kezelése szűréskor
-    $('#mg-tudastar-empty').toggleClass('d-none', visible > 0);
-    $('#mg-tudastar-more').toggleClass('d-none', filter !== 'all');
   });
 });
 </script>
