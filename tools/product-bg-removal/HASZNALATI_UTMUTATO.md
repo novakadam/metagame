@@ -64,6 +64,27 @@ Az eszköz többféle AI-modellel is tud dolgozni. Kipróbáltunk többet, és a
 - A `--trim` kapcsoló levágja a termék körüli felesleges üres szélt, és egységes keretet ad (termékfotóhoz ajánlott).
 - A program **kihagyja** a már feldolgozott képeket. Ha egy képet újra akarsz vágni, a `--overwrite` kapcsolót add hozzá.
 
+### Webshop-kész képek egy paranccsal (méretezés + WebP)
+
+A háttér-eltávolítás mellett a program **web-optimalizált méreteket** is legyárt egyszerre – négyzetes, egységes termékkártyákhoz, modern **WebP** formátumban:
+
+```
+python remove_bg.py --trim --square --sizes 1200,600,300 --webp
+```
+
+Ez minden képből **3 méretet** készít (a fájlnév végén a mérettel), pl. `termek_1200.webp`, `termek_600.webp`, `termek_300.webp`:
+
+| Méret | Mire való |
+|---|---|
+| **1200×1200** | fő termékkép / nagyítás (retina-éles) |
+| **600×600** | termékkártya a listában/gridben |
+| **300×300** | kis előnézet / mobil |
+
+- `--square` = a terméket négyzetes vászonra igazítja, középre (így egységesek a kártyák).
+- `--sizes 1200,600,300` = a kívánt méretek px-ben (szabadon módosítható; egy méret is megadható, pl. `--sizes 1000`).
+- `--webp` = kisebb fájlméret, gyorsabb oldal (a mostani metagames.hu még JPG/PNG-t használ, ehhez képest a WebP érdemi javulás).
+- A méretarány megmarad, a program **nem nagyít fel** a forrásnál nagyobbra.
+
 ---
 
 ## 5. Telepítés – LOKÁLIS gépre (egyszeri)
@@ -166,7 +187,14 @@ python remove_bg.py --overwrite     # a már feldolgozott képeket is újravágj
 python remove_bg.py --model u2net   # gyorsabb, kisebb modell (sok képhez)
 python remove_bg.py -i <mappa> -o <mappa>   # egyedi be-/kimeneti mappa
 python remove_bg.py --alpha-matting # finomabb élek (lassabb; hajszál/áttetsző részekhez)
+python remove_bg.py --square        # négyzetes vászonra igazítás, termék középre
+python remove_bg.py --sizes 1200,600,300  # több méret egyszerre (px)
+python remove_bg.py --webp          # WebP kimenet PNG helyett
+# Webshop-kész, minden együtt:
+python remove_bg.py --trim --square --sizes 1200,600,300 --webp
 ```
+
+**Javasolt webshop-méretek** (a metagames.hu jelenlegi ~900 px-es, négyzetes, WebP nélküli gyakorlatát modernizálva): `1200` (fő kép), `600` (kártya), `300` (thumbnail) – mind WebP.
 
 ### Fájlok a csomagban
 - `remove_bg.py` – maga a program
