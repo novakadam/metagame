@@ -22,19 +22,26 @@
   background-image:
     var(--mg-tex-motif-lg),
     var(--mg-tex-motif-sm),
-    radial-gradient(ellipse at center, rgba(179, 138, 36, 0.09) 0%, transparent 65%),
+    radial-gradient(ellipse at center, rgba(18, 0, 14, 0.6) 0%, transparent 68%),
     radial-gradient(ellipse at center, rgba(133, 8, 48, 0.65) 0%, transparent 65%);
   background-repeat: no-repeat;
   background-position:
     right -180px bottom -200px,
     left -220px top 160px,
-    right -300px top -250px,
+    right -350px bottom -300px,
     left -350px bottom -300px;
   background-size:
     720px 720px,
     520px 520px,
-    1100px 800px,
+    1200px 900px,
     1200px 900px;
+}
+
+/* ── Kártyák: halvány áttetsző bordó felület — elemel a háttérről,
+   de a watermark finoman átdereng (Epicarium transzparens-panel minta) ── */
+
+.mg-texture-content .mg-product-card {
+  background: rgba(114, 10, 43, 0.22);
 }
 
 /* ── PRÓBA: arany bal él-akcent a kategória-csempéken
