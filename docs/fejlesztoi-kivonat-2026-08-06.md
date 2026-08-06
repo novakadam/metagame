@@ -89,6 +89,25 @@ email döntése alapján):
 - `.text-clamp-2` — max 2 soros szöveg ellipszissel (BS-ben nincs line-clamp)
 - `.font-body` — talpatlan betű heading tagen (a headingek Playfairre mappelve)
 
+## 10. Oszlopszám-finomítás a sidebar sávjában
+
+- 1400–1700 között (statikus szűrő mellett) 3 oszlop (`row-cols-xxl-3`),
+  ≥1700-tól custom media override ad 4-et (BS-nek nincs 1700-as töréspontja)
+- Elérhetőség-sor címkék: nowrap + ellipsis keskeny kártyán
+
+## 11. Háttér-textúra PROTOTÍPUS (külön demo-oldal) ⭐ JÓVÁHAGYÁSRA VÁR
+
+- Demo: `products-textura.html` + `css/components/bg-texture.css` — az éles
+  oldalakat NEM érinti, jóváhagyás után emeljük át
+- Rétegek: embléma-vonalmotívum watermark (data-URI SVG, oktogon + rombusz +
+  körök a logó geometriájából) · mély bordó folt bal lent + sötétedő
+  vignetta jobb lent (radial gradientek) · kártyák áttetsző bordó felülettel
+  (`rgba(114,10,43,0.22)`) · kategória-csempéken 3px arany bal él-akcent ·
+  a megamenü is kap motívumot + derengést
+- Minden inline CSS-asset (data-URI + gradient), backend-et nem érint
+- ⚠️ Megamenü: az alkategória-oszlop háttere átlátszó lett (a menü alapszínével
+  azonos volt, de kitakarta a watermarkot)
+
 ## Nyitott / következő
 
 - Epicarium (epicarium.eu) UI-elemzés + háttér-textúra javaslat a flat lila
