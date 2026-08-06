@@ -1,0 +1,32 @@
+/*
+ * bg-texture.css – Háttér-textúra PROTOTÍPUS (products-textura.html)
+ *
+ * Andris 07.17-i felvetésére: a nagy flat lila mezők megtörése halvány
+ * arany vonalgrafikával — az Epicarium világos-alapú watermark-logikája
+ * megfordítva (sötét alapon halvány arany, a saját embléma-geometriánkból:
+ * oktogon + rombusz + körök, mint a logó és a bal nav elemei).
+ *
+ * Ha a koncepció jóváhagyott, a .mg-texture-* classok bármely szekcióra
+ * ráadhatók; a motívum 1 db inline SVG (data-URI), backend-et nem érint.
+ */
+
+/* ── Fő tartalom watermark: jobb alsó nagy + bal felső kis motívum ── */
+
+.mg-texture-content {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' fill='none' stroke='%23b38a24'%3E%3Cg opacity='0.075'%3E%3Cpolygon points='300,20 498,102 580,300 498,498 300,580 102,498 20,300 102,102' stroke-width='2.5'/%3E%3Cpolygon points='300,60 470,130 540,300 470,470 300,540 130,470 60,300 130,130' stroke-width='1'/%3E%3Ccircle cx='300' cy='300' r='190' stroke-width='1'/%3E%3Ccircle cx='300' cy='300' r='90' stroke-width='2'/%3E%3Cpath d='M300 60V180M300 420v120M60 300h120M420 300h120M130 130l86 86M470 470l-86-86M470 130l-86 86M130 470l86-86' stroke-width='1'/%3E%3Crect x='230' y='230' width='140' height='140' transform='rotate(45 300 300)' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' fill='none' stroke='%23b38a24'%3E%3Cg opacity='0.055'%3E%3Cpolygon points='300,20 498,102 580,300 498,498 300,580 102,498 20,300 102,102' stroke-width='2.5'/%3E%3Ccircle cx='300' cy='300' r='190' stroke-width='1'/%3E%3Crect x='230' y='230' width='140' height='140' transform='rotate(45 300 300)' stroke-width='1.5'/%3E%3Cpath d='M300 60V180M300 420v120M60 300h120M420 300h120' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right -180px bottom -200px, left -220px top 160px;
+  background-size: 720px 720px, 520px 520px;
+}
+
+/* ── Megamenü: jobb alsó sarok-motívum ── */
+
+.mg-texture-menu {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' fill='none' stroke='%23b38a24'%3E%3Cg opacity='0.065'%3E%3Cpolygon points='300,20 498,102 580,300 498,498 300,580 102,498 20,300 102,102' stroke-width='2.5'/%3E%3Ccircle cx='300' cy='300' r='190' stroke-width='1'/%3E%3Ccircle cx='300' cy='300' r='90' stroke-width='2'/%3E%3Crect x='230' y='230' width='140' height='140' transform='rotate(45 300 300)' stroke-width='1.5'/%3E%3Cpath d='M300 60V180M300 420v120M60 300h120M420 300h120M130 130l86 86M470 470l-86-86M470 130l-86 86M130 470l86-86' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right -140px bottom -180px;
+  background-size: 560px 560px;
+}

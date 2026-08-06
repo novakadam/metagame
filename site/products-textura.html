@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- BACKEND: category.name -->
+  <title>TEXTÚRA PROTOTÍPUS – Riftbound – Metagame</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Playfair+Display+SC:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Design tokenek -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Globális komponensek -->
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/forms.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
+
+  <!-- Komponensek -->
+  <link rel="stylesheet" href="css/components/frame.css">
+  <link rel="stylesheet" href="css/components/frame-shimmer.css">
+  <link rel="stylesheet" href="css/components/mega-menu.css">
+  <link rel="stylesheet" href="css/components/drawer.css">
+  <link rel="stylesheet" href="css/components/search-overlay.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/filter-panel.css">
+  <link rel="stylesheet" href="css/components/product-card.css">
+  <link rel="stylesheet" href="css/components/product-list.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css">
+  <!-- PROTOTÍPUS: háttér-textúra (csak ezen a demo oldalon) -->
+  <link rel="stylesheet" href="css/components/bg-texture.css">
+</head>
+<body>
+
+<div class="mg-frame">
+
+  <!-- ── KERET SVG elemek ────────────────────────────────────────── -->
+  <div class="mg-frame-corner mg-frame-corner--tl"><img class="mg-frame-corner__img--desktop" src="../assets/frame/frame-corner-tl.svg" alt=""><img class="mg-frame-corner__img--tablet" src="../assets/frame/mobile/frame-corner-tl-tablet.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--tr"><img src="../assets/frame/frame-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--bl"><img src="../assets/frame/frame-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--br"><img src="../assets/frame/frame-corner-br.svg" alt=""></div>
+
+  <div class="mg-frame-line mg-frame-line--top"><img src="../assets/frame/frame-line-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--left"><img src="../assets/frame/frame-line-left.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--right-bottom"><img src="../assets/frame/frame-right-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--bottom"><img src="../assets/frame/frame-line-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── MOBIL KERET ─────────────────────────────────────────────── -->
+  <a class="mg-frame-m mg-frame-m-corner--tl" href="index.html"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt="Metagame"></a>
+  <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--right"><img src="../assets/frame/mobile/frame-m-line-right.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--bl"><img src="../assets/frame/mobile/frame-m-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--bottom"><img src="../assets/frame/mobile/frame-m-line-bottom.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--br"><img src="../assets/frame/mobile/frame-m-corner-br.svg" alt=""></div>
+  <div class="mg-frame-m-bar">
+    <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
+    <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
+    <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- ── MOBIL: Keresőmező ── -->
+  <div class="mg-mobile-search mg-cut-frame">
+    <input type="text" placeholder="Keresés..." readonly>
+    <button class="mg-mobile-search__btn" aria-label="Keresés">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── MOBIL: Hamburger gomb ── -->
+  <button class="mg-mobile-hamburger" aria-label="Menü">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ── MOBIL: Alsó bar ikonok ── -->
+  <div class="mg-mobile-bar-icons">
+    <button class="mg-mobile-bar-icons__btn" aria-label="Elérhetőségek">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn mg-mobile-bar-icons__btn--center" aria-label="Kosár">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="16" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn" aria-label="Profil">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- ── TOP BAR ────────────────────────────────────────────────── -->
+  <header class="mg-topbar">
+    <a href="index.html">
+      <img class="mg-logo mg-logo--full" src="../assets/images/logo.svg" alt="Metagame">
+      <img class="mg-logo mg-logo--compact" src="../assets/frame/mobile/mg-logo-closed.svg" alt="Metagame">
+    </a>
+
+    <div class="mg-topbar-row">
+      <div class="mg-toggle mg-cut-frame" data-active="shop">
+        <div class="mg-toggle__slider"></div>
+        <button class="mg-toggle__btn mg-toggle__btn--active" data-target="shop">Shop</button>
+        <button class="mg-toggle__btn" data-target="community">Eseménynaptár</button>
+      </div>
+
+      <div class="mg-search mg-cut-frame">
+        <input type="text" placeholder="Search here...">
+        <button class="mg-search__btn" aria-label="Keresés">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BAL NAV ────────────────────────────────────────────────── -->
+  <nav class="mg-nav-left" id="mg-nav-left">
+    <!-- BACKEND: kategóriák dinamikusan töltődnek -->
+    <div class="mg-nav-section" data-nav="shop">
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18"/><path d="M16 3v18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">TCG</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="12" cy="12" r="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Társasjáték</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="9" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Gyűjthető kártya</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Kiegészítők</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Szerepjátékok</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Wargame</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Modellezés</span></div>
+      </a>
+      <a class="mg-nav-item" href="products.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Figurák</span></div>
+      </a>
+    </div>
+
+    <div class="mg-nav-section mg-nav-section--hidden" data-nav="community">
+      <a class="mg-nav-item" href="#">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Események</span></div>
+      </a>
+      <a class="mg-nav-item" href="tudastar.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Tudástár</span></div>
+      </a>
+      <a class="mg-nav-item" href="liga.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Liga</span></div>
+      </a>
+      <a class="mg-nav-item" href="magic-singles.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Singles</span></div>
+      </a>
+      <a class="mg-nav-item" href="galeria.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Galéria</span></div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── MEGA MENU (JS tölti dinamikusan) ───────────────────────── -->
+  <div class="mg-megamenu mg-texture-menu" id="mg-megamenu"></div>
+
+  <div class="mg-frame-line mg-frame-line--right-top"><img src="../assets/frame/frame-right-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── JOBB NAV ───────────────────────────────────────────────── -->
+  <aside class="mg-nav-right">
+    <button class="mg-nav-right__btn" aria-label="Profil">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Kedvencek">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <!-- BACKEND: cart.count -->
+    <button class="mg-nav-right__btn mg-nav-right__btn--cart" aria-label="Kosár">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="16" r="1.5" fill="currentColor"/><circle cx="14" cy="16" r="1.5" fill="currentColor"/></svg>
+        <span class="mg-nav-badge is-visible">3</span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Értesítések">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v4l-2 2h16l-2-2V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8 16a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-nav-badge"></span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Helyszín">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Telefon">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+  </aside>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       TARTALOM – TERMÉK LISTA
+       ══════════════════════════════════════════════════════════════ -->
+  <main class="mg-content mg-content--product mg-texture-content">
+    <div class="container-fluid mg-product-layout p-0">
+
+      <!-- ── FILTER SIDEBAR ─────────────────────────────────────── -->
+      <!-- A szűrő panel a frame után, root szinten él (lásd lent) -->
+
+      <!-- ── PRODUCT CONTENT ────────────────────────────────────── -->
+      <div class="mg-product-content">
+
+        <!-- Breadcrumb -->
+        <!-- BACKEND: category.breadcrumb -->
+        <nav class="mg-product-breadcrumb">
+          <a href="index.html">Főoldal</a>
+          <span class="mg-product-breadcrumb__sep">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+          </span>
+          <a href="#">TCG</a>
+          <span class="mg-product-breadcrumb__sep">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+          </span>
+          <span>Riftbound</span>
+        </nav>
+
+        <!-- Header -->
+        <div class="mg-product-header">
+          <!-- BACKEND: category.title -->
+          <h1 class="mg-product-header__title">Riftbound: The league of legends</h1>
+          <!-- BACKEND: category.description -->
+          <p class="mg-product-header__desc">Explore our latest offerings with Fresh Arrivals and New Selections, featuring the trendiest products and unique finds to refresh your collection. Discover exciting styles and exclusive items that elevate your shopping experience!</p>
+        </div>
+
+        <!-- Kategória ajánló chipek (opcionális widget) -->
+        <!-- BACKEND: subcategories foreach, ha van -->
+        <div class="mg-category-chips">
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <a class="mg-category-chip" href="#">
+            <span class="mg-category-chip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </span>
+            <span class="mg-category-chip__text">
+              <span class="mg-category-chip__name">Booster csomagok</span>
+              <span class="mg-category-chip__count">458 Products Available</span>
+            </span>
+          </a>
+          <button class="mg-category-chips__more">
+            Továbbiak betöltése
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+
+        <!-- Toolbar: szűrő chipek + rendezés + nézet váltás -->
+        <div class="mg-product-toolbar">
+          <div class="mg-product-toolbar__left">
+            <button class="mg-product-toolbar__filter-btn btn btn-outline-secondary btn-sm" data-bs-toggle="offcanvas" data-bs-target=".mg-filter-panel">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 21V14"/><path d="M4 10V3"/><path d="M12 21V12"/><path d="M12 8V3"/><path d="M20 21V16"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg>
+              Szűrők
+            </button>
+
+            <!-- BACKEND: resultCount -->
+            <span class="mg-product-toolbar__count">51 termék</span>
+
+            <div class="mg-product-toolbar__chips">
+              <!-- BACKEND: activeFilters foreach – JS tölti dinamikusan -->
+              <span class="mg-filter-chip">
+                <span class="mg-filter-chip__label">Pokémon</span>
+                <button class="mg-filter-chip__close" aria-label="Szűrő eltávolítása">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                </button>
+              </span>
+              <span class="mg-filter-chip">
+                <span class="mg-filter-chip__label">Booster</span>
+                <button class="mg-filter-chip__close" aria-label="Szűrő eltávolítása">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                </button>
+              </span>
+              <span class="mg-filter-chip">
+                <span class="mg-filter-chip__label">Raktáron</span>
+                <button class="mg-filter-chip__close" aria-label="Szűrő eltávolítása">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                </button>
+              </span>
+            </div>
+
+            <a class="mg-product-toolbar__clear" href="#">összes törlése</a>
+          </div>
+
+          <div class="mg-product-toolbar__right">
+            <div class="mg-product-toolbar__sort">
+              <span class="mg-product-toolbar__sort-label">Rendezés</span>
+              <select class="mg-product-toolbar__sort-select">
+                <option>Alapértelmezett</option>
+                <option>Ár: növekvő</option>
+                <option>Ár: csökkenő</option>
+                <option>Név: A-Z</option>
+                <option>Név: Z-A</option>
+                <option>Legújabb</option>
+              </select>
+            </div>
+
+            <div class="mg-product-toolbar__quick-filters">
+              <button class="btn btn-light btn-sm">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Legújabbak elől
+              </button>
+              <button class="btn btn-secondary btn-sm">Ajánlott</button>
+            </div>
+
+            <div class="mg-product-toolbar__view">
+              <button class="mg-product-toolbar__view-btn is-active" data-view="grid" aria-label="Rácsnézet">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <rect x="0" y="0" width="7" height="7" rx="1"/>
+                  <rect x="9" y="0" width="7" height="7" rx="1"/>
+                  <rect x="0" y="9" width="7" height="7" rx="1"/>
+                  <rect x="9" y="9" width="7" height="7" rx="1"/>
+                </svg>
+              </button>
+              <button class="mg-product-toolbar__view-btn" data-view="list" aria-label="Listanézet">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <rect x="0" y="1" width="16" height="3" rx="1"/>
+                  <rect x="0" y="6.5" width="16" height="3" rx="1"/>
+                  <rect x="0" y="12" width="16" height="3" rx="1"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Termék grid — BS row-cols rács (templates/product-list.html mintája),
+             a .mg-product-grid csak JS-hook + lista nézet módosító -->
+        <!-- BACKEND: products foreach – JS tölti demo kártyákat -->
+        <div class="row gx-4 gy-5 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-3 mg-product-grid">
+          <!-- mgInitProductList() tölti demo-val -->
+        </div>
+
+        <!-- Load more -->
+        <div class="mg-product-loadmore">
+          <button class="btn btn-secondary mg-product-loadmore__btn">
+            <span class="mg-product-loadmore__btn-text">További 24 betöltése</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </button>
+          <span class="mg-product-loadmore__page">Page 1 of 10</span>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <!-- BACKEND: footer adatok -->
+  <footer class="mg-footer">
+    <div class="mg-footer__left">
+      <span class="mg-footer__brand">© metagame 2026</span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kádár utca 10.</span>
+        <span class="mg-footer__hours">H–SZ 10–18</span>
+      </span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kresz Géza utca 36.</span>
+        <span class="mg-footer__hours">H-P 16–22, SZ 10–18</span>
+      </span>
+    </div>
+    <div class="mg-footer__right">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatvédelem</a>
+      <a class="mg-footer__info-trigger" href="#">Információ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- ── MOBIL MENÜ ──────────────────────────────────────────── -->
+  <div class="mg-mobile-menu"></div>
+
+  <!-- ── MOBIL KERESŐ OVERLAY ──────────────────────────────── -->
+  <div class="mg-mobile-search-overlay"></div>
+
+  <!-- ── MOBIL DRAWER OVERLAY (kosár, profil, kapcsolat) ──── -->
+  <div class="mg-mobile-drawer"></div>
+
+  <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
+  <div class="mg-widget-search-overlay"></div>
+
+  <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
+    <div class="mg-drawer__card">
+      <div class="mg-drawer__header">
+        <h2 class="mg-drawer__title"></h2>
+        <span class="mg-drawer__subtitle"></span>
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mg-drawer__body"></div>
+      <div class="mg-drawer__footer"></div>
+    </div>
+  </div>
+
+</div><!-- /.mg-frame -->
+
+<!-- ── SZŰRŐ PANEL ─ root szinten, hogy az offcanvas fiók a nav/topbar
+     FÖLÉ kerülhessen (az .mg-content z-index:1 stacking contextjén kívül);
+     ≥1400-on abszolút pozícióval ül a tartalom bal sávjában ── -->
+<!-- offcanvas-xxl: tablet sávban (<1400) is gombról nyíló fiók, mint mobilon -->
+      <aside class="mg-filter-panel offcanvas-xxl offcanvas-start" tabindex="-1">
+
+        <div class="mg-filter-panel__header">
+          <span>Találatok szűrése</span>
+          <button class="mg-filter-panel__close" data-bs-dismiss="offcanvas" data-bs-target=".mg-filter-panel" aria-label="Bezárás">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- Ár szűrő -->
+        <div class="mg-filter-panel__section">
+          <div class="mg-filter-panel__inputs">
+            <input class="form-control form-control-sm" type="number" placeholder="Min">
+            <input class="form-control form-control-sm" type="number" placeholder="Max">
+          </div>
+
+          <div class="mg-filter-panel__chips">
+            <button class="mg-filter-panel__chip">0-5000</button>
+            <button class="mg-filter-panel__chip">5-15e</button>
+            <button class="mg-filter-panel__chip">15e+</button>
+          </div>
+
+          <div class="mg-filter-panel__slider">
+            <div class="mg-filter-panel__slider-track"></div>
+            <div class="mg-filter-panel__slider-fill"></div>
+            <div class="mg-filter-panel__slider-thumb mg-filter-panel__slider-thumb--min"></div>
+            <div class="mg-filter-panel__slider-thumb mg-filter-panel__slider-thumb--max"></div>
+          </div>
+
+          <div class="mg-filter-panel__range-labels">
+            <span>0 Ft</span>
+            <span>100 000 Ft</span>
+          </div>
+        </div>
+
+        <!-- Játék világa (márka) -->
+        <div class="mg-filter-panel__section mg-filter-panel__section--bordered">
+          <h3 class="mg-filter-panel__title">Játék világa</h3>
+
+          <!-- BACKEND: brands foreach -->
+          <label class="mg-filter-panel__checkbox is-checked">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">Pokémon</span>
+          </label>
+
+          <label class="mg-filter-panel__checkbox">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">Magic</span>
+          </label>
+
+          <label class="mg-filter-panel__checkbox is-checked">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">Riftbound</span>
+          </label>
+
+          <button class="mg-filter-panel__more">további 12</button>
+        </div>
+
+        <!-- Terméktípus -->
+        <div class="mg-filter-panel__section mg-filter-panel__section--bordered">
+          <h3 class="mg-filter-panel__title">Terméktípus</h3>
+
+          <!-- BACKEND: productTypes foreach -->
+          <label class="mg-filter-panel__checkbox is-checked">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">Booster csomag</span>
+          </label>
+
+          <label class="mg-filter-panel__checkbox">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">Booster box</span>
+          </label>
+
+          <label class="mg-filter-panel__checkbox is-checked">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">Display</span>
+          </label>
+
+          <button class="mg-filter-panel__more">további 8</button>
+        </div>
+
+        <!-- Státusz -->
+        <div class="mg-filter-panel__section">
+          <p class="mg-filter-panel__subtitle">Státusz</p>
+          <div class="mg-filter-panel__chips">
+            <button class="mg-filter-panel__chip">Raktáron</button>
+            <button class="mg-filter-panel__chip">Előrendelhető</button>
+            <button class="mg-filter-panel__chip">Újdonság</button>
+          </div>
+          <div class="mg-filter-panel__chips">
+            <button class="mg-filter-panel__chip">Akciós</button>
+            <button class="mg-filter-panel__chip">Limitált</button>
+          </div>
+        </div>
+
+        <!-- Szett -->
+        <div class="mg-filter-panel__section">
+          <h3 class="mg-filter-panel__title">Szett</h3>
+
+          <div class="mg-filter-panel__select-wrapper">
+            <select class="mg-filter-panel__select">
+              <option value="" disabled selected>Keresés...</option>
+              <!-- BACKEND: sets foreach -->
+            </select>
+          </div>
+
+          <label class="mg-filter-panel__checkbox is-checked">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">Scarlet &amp; Violet</span>
+          </label>
+
+          <label class="mg-filter-panel__checkbox">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">151</span>
+          </label>
+
+          <label class="mg-filter-panel__checkbox">
+            <span class="mg-filter-panel__checkbox-box">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7l3 3 6-6"/></svg>
+            </span>
+            <span class="mg-filter-panel__checkbox-label">Obsidian Flames</span>
+          </label>
+
+          <button class="mg-filter-panel__more">további 24</button>
+        </div>
+
+        <!-- Nyelv -->
+        <div class="mg-filter-panel__section">
+          <p class="mg-filter-panel__subtitle">Nyelv</p>
+          <div class="mg-filter-panel__select-wrapper">
+            <select class="mg-filter-panel__select">
+              <option value="" disabled selected>Any area</option>
+              <!-- BACKEND: languages foreach -->
+              <option value="en">English</option>
+              <option value="hu">Magyar</option>
+              <option value="jp">Japanese</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Foil toggle -->
+        <div class="mg-filter-panel__section">
+          <p class="mg-filter-panel__subtitle">Foil</p>
+          <div class="mg-filter-panel__toggle">
+            <button class="mg-filter-panel__toggle-option is-active">Foil</button>
+            <button class="mg-filter-panel__toggle-option">Non-foil</button>
+          </div>
+        </div>
+
+        <!-- Kiadás éve -->
+        <div class="mg-filter-panel__section mg-filter-panel__bottom-pad">
+          <p class="mg-filter-panel__subtitle">Kiadás éve</p>
+          <div class="mg-filter-panel__selects">
+            <div class="mg-filter-panel__select-wrapper">
+              <select class="mg-filter-panel__select">
+                <option value="" disabled selected>Min</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+              </select>
+            </div>
+            <div class="mg-filter-panel__select-wrapper">
+              <select class="mg-filter-panel__select">
+                <option value="" disabled selected>Max</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="mg-filter-panel__apply">
+          <button class="btn btn-secondary mg-filter-panel__apply-btn">Szűrők alkalmazása</button>
+        </div>
+
+      </aside>
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Frame widget -->
+<script src="js/components/frame.js"></script>
+<script src="js/components/frame-shimmer.js"></script>
+<!-- Mega menu -->
+<script src="js/components/mega-menu.js"></script>
+<!-- Drawer -->
+<script src="js/components/drawer.js"></script>
+<!-- Mobile menu + drawer -->
+<script src="js/components/mobile-menu.js"></script>
+<!-- Footer panel -->
+<script src="js/components/footer.js"></script>
+<!-- Search overlay -->
+<script src="js/components/search-overlay.js"></script>
+<!-- Product list komponensek -->
+<script src="js/components/filter-panel.js"></script>
+<script src="js/components/product-list.js"></script>
+
+<script>
+$(function () {
+  mgInitMegaMenu();
+  mgInitMobileMenu();
+  mgInitMobileSearch();
+  mgInitMobileDrawer();
+  mgInitDrawer();
+  mgInitFooter();
+  mgInitFilterPanel();
+  mgInitProductList();
+  mgInitFilterOverlay();
+  $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
+    mgInitSearchOverlay();
+  });
+});
+</script>
+
+</body>
+</html>
