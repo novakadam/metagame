@@ -47,39 +47,46 @@ gyűjtöttem inputot tőlük (darabszámos kategória-találatok a legördülőb
 
 ---
 
-## 2. Fejlesztőnek (Laci)
+## 2. Fejlesztőnek (Laci) — KÜLDÉSRE KÉSZ
 
-**Tárgy:** Friss build kint — változás-kivonat + 2 adatigény
+**Tárgy:** Friss build kint — változás-kivonat + kérdés az átadásról
 
 Szia Laci!
 
-Friss build ment ki a Vercelre ([LINK]), a repóban van egy pontos
-változás-kivonat is: `docs/fejlesztoi-kivonat-2026-08-06.md` — fájlonként
-összeszedve, mi markup, mi CSS, mi az, ami téged érint.
+Friss build ment ki: https://metagame-build.vercel.app/products.html
+(plusz van egy külön textúra-demo a tulajoknak: /products-textura.html —
+ezzel neked most nem kell foglalkozni, még jóváhagyásra vár).
 
-A lényeg röviden:
+Ami a mostani körben változott, dióhéjban:
 
-- **Termék grid**: BS `row-cols` rács lett (a custom CSS-grid kivezetve),
-  a kártya markup a `templates/product-card-bs.html` / `product-list.html`
-  szerint — Wicketben egyszer definiált, iterált komponens.
-- ⭐ **Adatigény #1**: a terméknév 3 mezőre bomlik — `product.system`
-  (világ/rendszer), `product.title` (max 2 sor), `product.variant`
-  (kiszerelés). A meetingen beszélt strukturális szétbontás ez.
-- ⭐ **Adatigény #2**: a megamenü „Legnépszerűbb" blokkjához kategóriánkénti
-  kiemelt/népszerű termék lista kell majd (most JS placeholder).
-- **Szűrő panel**: `offcanvas-xxl` lett — 1400 alatt gombról nyíló fiók.
-  ⚠️ Az aside DOM-ban a `.mg-frame` UTÁN, root szinten él, mert az
-  `.mg-content` (z-index:1) stacking contextje alá szorította a fiókot —
-  a Wicket oldalstruktúrában is így érdemes elhelyezni.
-- **Megamenü**: a demóban látott „elmászott betűszín" javítva (color-öröklés
-  + a JS most a template markupját generálja nav-linkekkel).
-- **Topbar fix**: a kereső-sor max-width a teljes logóval számol — az
-  összecsúszás minden köztes felbontáson megszűnt.
-- A `products-textura.html` egy **prototípus** (háttér-textúra koncepció a
-  tulajoknak) — nem kell vele foglalkoznod, jóváhagyás után szólok, és
-  akkor lesz belőle rendes komponens.
+- **Termék grid**: BS row-cols rács lett (a custom CSS-grid kivezetve), a
+  kártya markup a templates/product-card-bs.html és product-list.html
+  szerint megy — a lista nézet is row-cols váltással működik.
+- **Terméknév 3 mezőre bontva** a kártyán: product.system (világ/rendszer,
+  arany Playfair) + product.title (max 2 sor) + product.variant (kiszerelés)
+  — ⭐ ez neked adatigény, a meetingen beszélt szétbontás.
+- **Szűrő panel**: offcanvas-xxl — 1400 alatt gombról nyíló fiók, felette
+  statikus sidebar. ⚠️ Az aside DOM-ban a .mg-frame UTÁN, root szinten él
+  (stacking context miatt) — a Wicket struktúrában is így érdemes.
+- **Megamenü**: a demóban látott elmászott betűszínek javítva; a JS most a
+  template markupját generálja (nav-link + BEM). ⭐ A "Legnépszerűbb"
+  blokkhoz kategóriánkénti kiemelt termék lista kell majd (most placeholder).
+- **Topbar/logó összecsúszás** javítva minden köztes felbontáson; tablet
+  nézetben a bal ikonsor a keretvonalra került, teljes rombuszokkal.
+- Kártya-tömörítés: 100%-os nézetben kifér a teljes kártya a Kosárba gombbal.
 
-Ha bármi kérdés, hívj nyugodtan!
+A repóban van egy pontos, fájlonkénti kivonat mindenről:
+docs/fejlesztoi-kivonat-2026-08-06.md — commitok a bootstrap/main branchen.
+
+**És egy kérdés: neked hogyan a legkényelmesebb átvenni ezeket a
+változásokat?** Tudok:
+a) commitonként hivatkozni a GitHub-on (logikus bontásban vannak),
+b) a kivonat-doksit bővíteni, ha valamelyik ponthoz több kontextus kell,
+c) leülni egy rövid hívásra és végigmenni rajta képernyőmegosztással,
+d) vagy ha neked úgy jobb, template-fájlonként összefoglalni, hogy mi a
+   végleges markup, amit a Wicket-be át kell venni.
+
+Mondd, melyik működik neked, és úgy csinálom a továbbiakban is.
 
 Üdv,
 Ádám
