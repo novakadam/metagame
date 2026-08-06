@@ -32,7 +32,7 @@
        A kártya markupja a product-card-bs.html template-ben részletezve;
        Wicketben egyszer definiált, iterált komponens. -->
   <!-- BACKEND: products foreach -->
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 g-4 mb-5">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 gx-4 gy-5 mb-5">
 
     <!-- ── Kártya: teljes (új + kategória) ── -->
     <div class="col d-flex">
@@ -50,8 +50,10 @@
             <span class="mg-product-card__category-text">Ajánlott</span>
             <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>
           </div>
-          <h3>Set One:</h3>
-          <p class="fs-5 text-card">Origins Champion Deck - Viktor</p>
+          <!-- BACKEND: product.system / product.title (max 2 sor) / product.variant -->
+          <p class="mg-product-card__system">Magic: the Gathering</p>
+          <h3 class="mg-product-card__title text-clamp-2">Strixhaven: School of Mages</h3>
+          <p class="mg-product-card__subtitle">Draft Booster</p>
         </div>
         <div class="mg-product-card__content">
           <h4 class="fw-bold text-center text-white mb-0">12 358 Ft</h4>
@@ -82,8 +84,9 @@
           <img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Twilight Masquerade">
         </div>
         <div class="mg-product-card__info">
-          <h3>Twilight Masquerade</h3>
-          <p class="fs-5 text-card">Booster Display Box</p>
+          <p class="mg-product-card__system">Társasjáték</p>
+          <h3 class="mg-product-card__title text-clamp-2">Final Girl: Haunting of Creech Manor</h3>
+          <p class="mg-product-card__subtitle">Alapjáték</p>
         </div>
         <div class="mg-product-card__content">
           <h4 class="fw-bold text-center text-white mb-0">5 490 Ft</h4>
@@ -120,8 +123,9 @@
             <span class="mg-product-card__category-text">Előrendelés</span>
             <svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>
           </div>
-          <h3>Prismatic Evolutions</h3>
-          <p class="fs-5 text-card">Elite Trainer Box</p>
+          <p class="mg-product-card__system">Magic: the Gathering</p>
+          <h3 class="mg-product-card__title text-clamp-2">FINAL FANTASY – Children of Fate</h3>
+          <p class="mg-product-card__subtitle">Scene Box</p>
         </div>
         <div class="mg-product-card__content">
           <h4 class="fw-bold text-center text-white mb-0">18 990 Ft</h4>
@@ -147,8 +151,9 @@
           <img src="../assets/images/content - placeholder/product/magic-play-display.png" alt="Magic Play Display">
         </div>
         <div class="mg-product-card__info">
-          <h3>Edge of Eternities</h3>
-          <p class="fs-5 text-card">Play Booster Display</p>
+          <p class="mg-product-card__system">Társasjáték</p>
+          <h3 class="mg-product-card__title text-clamp-2">Dune: Imperium – Uprising</h3>
+          <p class="mg-product-card__subtitle">Kiegészítő</p>
         </div>
         <div class="mg-product-card__content">
           <h4 class="fw-bold text-center text-white mb-0">24 900 Ft</h4>

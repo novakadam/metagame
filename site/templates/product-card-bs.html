@@ -49,15 +49,19 @@
         </div>
       </div>
 
-      <!-- Info zóna — kategória ribbon + cím + alcím -->
-      <div class="position-relative text-center px-4 pt-4 pb-3 border-bottom border-gold">
+      <!-- Info zóna — kategória ribbon + 3 soros névbontás:
+           rendszer/világ · terméknév (max 2 sor) · kiszerelés/variáns -->
+      <div class="position-relative text-center px-3 pt-4 pb-3 border-bottom border-gold">
         <!-- Kategória — meglévő BS badge-ribbon (buttons.css) -->
         <!-- BACKEND: product.category -->
         <span class="badge badge-ribbon position-absolute top-0 start-50 translate-middle">Ajánlott</span>
-        <!-- BACKEND: product.title — h4 → Playfair, text-card -->
-        <h4 class="text-card mb-2">Set One:</h4>
-        <!-- BACKEND: product.subtitle -->
-        <p class="fs-5 text-card mb-0">Origins Champion Deck - Viktor</p>
+        <!-- BACKEND: product.system — rendszer/világ sor -->
+        <p class="h6 text-gold mb-1">Magic: the Gathering</p>
+        <!-- BACKEND: product.title — talpatlan (font-body), fehér; max 2 sor (text-clamp-2) —
+             a termék oldal __brand/__title/__subtitle hierarchiáját követi -->
+        <h4 class="font-body fw-semibold fs-5 text-white text-clamp-2 mb-1">Strixhaven: School of Mages</h4>
+        <!-- BACKEND: product.variant — kiszerelés -->
+        <p class="small fw-medium text-card mb-0">Draft Booster</p>
       </div>
 
       <!-- Ár — Playfair bold, alsó arany vonal -->
@@ -100,9 +104,10 @@
         </div>
       </div>
 
-      <div class="text-center px-4 pt-3 pb-3 border-bottom border-gold">
-        <h4 class="text-card mb-2">Twilight Masquerade</h4>
-        <p class="fs-5 text-card mb-0">Booster Display Box</p>
+      <div class="text-center px-3 pt-3 pb-3 border-bottom border-gold">
+        <p class="h6 text-gold mb-1">Társasjáték</p>
+        <h4 class="font-body fw-semibold fs-5 text-white text-clamp-2 mb-1">Final Girl: Haunting of Creech Manor</h4>
+        <p class="small fw-medium text-card mb-0">Alapjáték</p>
       </div>
 
       <h4 class="fw-bold text-center text-white py-3 mb-0 border-bottom border-gold">5 490 Ft</h4>
@@ -141,10 +146,11 @@
         </div>
       </div>
 
-      <div class="position-relative text-center px-4 pt-4 pb-3 border-bottom border-gold">
+      <div class="position-relative text-center px-3 pt-4 pb-3 border-bottom border-gold">
         <span class="badge badge-ribbon position-absolute top-0 start-50 translate-middle">Előrendelés</span>
-        <h4 class="text-card mb-2">Prismatic Evolutions</h4>
-        <p class="fs-5 text-card mb-0">Elite Trainer Box</p>
+        <p class="h6 text-gold mb-1">Magic: the Gathering</p>
+        <h4 class="font-body fw-semibold fs-5 text-white text-clamp-2 mb-1">FINAL FANTASY – Children of Fate</h4>
+        <p class="small fw-medium text-card mb-0">Scene Box</p>
       </div>
 
       <h4 class="fw-bold text-center text-white py-3 mb-0 border-bottom border-gold">18 990 Ft</h4>

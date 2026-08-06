@@ -339,6 +339,19 @@ a:hover { color: var(--color-gold-ring); }
 /* Flex min-width fix (text-truncate-hoz kell) */
 .min-w-0 { min-width: 0 !important; }
 
+/* Talpatlan betű heading tagen (terméknév) — a headingek Playfairre vannak mappelve,
+   BS-ben nincs utility a visszaváltásra */
+.font-body { font-family: var(--font-body) !important; }
+
+/* Max 2 soros szöveg ellipszissel (terméknév) — BS-ben nincs line-clamp utility */
+.text-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Összesítő blokk háttér */
 .bg-muted-mg { background: var(--color-bg-muted) !important; }
 /* Termék info panel szekció-hátterek (BS bg-* mást jelent) */

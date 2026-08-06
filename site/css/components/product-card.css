@@ -17,7 +17,7 @@
 .mg-product-card {
   --bs-card-bg: transparent;
   position: relative;
-  padding: 0 0 24px;
+  padding: 0 0 20px;
   transition: box-shadow var(--transition-base);
   overflow: visible;
   cursor: pointer;
@@ -31,7 +31,8 @@
 
 .mg-product-card__image {
   position: relative;
-  aspect-ratio: 1 / 1;
+  /* enyhén lapított képzóna, hogy a teljes kártya kiférjen laptop-magasságon */
+  aspect-ratio: 1 / 0.85;
   border-radius: 3px 3px 0 0;
   overflow: hidden;
   display: flex;
@@ -71,7 +72,9 @@
 
 .mg-product-card__info {
   position: relative;
-  padding: 28px 28px 24px;
+  /* felül: levegő a lelógó kategória-szalag alatt; oldalt: keskeny padding,
+     hogy a névnek minél szélesebb szövegdoboz jusson */
+  padding: 24px 10px 10px;
   text-align: center;
   border-bottom: 1px solid var(--color-gold);
   margin: 0;
@@ -87,6 +90,8 @@
   align-items: center;
   height: 24px;
   white-space: nowrap;
+  /* hosszú kategórianév ne lógjon ki a kártyából */
+  max-width: calc(100% - 12px);
 }
 
 .mg-product-card__category-text {
@@ -95,15 +100,21 @@
   background: var(--color-secondary);
   border-top: 1px solid var(--color-secondary);
   border-bottom: 1px solid var(--color-secondary);
-  padding: 0 8px;
+  /* Playfair optikailag mélyre ül — kisebb line-height + alsó padding
+     tolja vizuális középre a szalagban */
+  padding: 0 8px 3px;
   height: 24px;
-  display: flex;
-  align-items: center;
+  display: block;
+  line-height: 21px;
   font-family: var(--font-display);
   font-size: 15px;
   font-weight: 600;
   color: var(--color-gold);
   letter-spacing: 0.01em;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .mg-product-card__category-arrow {
@@ -120,23 +131,39 @@
   color: var(--color-secondary);
 }
 
+/* Névbontás tipográfiája — a termék oldal (product-detail.css
+   __brand/__title/__subtitle) arányait követi, lekicsinyítve:
+   világ = talpas (Playfair) kisebb · név = talpatlan nagyobb · kiszerelés = talpatlan kicsi */
+
+.mg-product-card__system {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  /* arany: a világ/rendszer sort színnel különítjük el — a termék oldal
+     __brand sorával együtt (konzisztens mindkét helyen) */
+  color: var(--color-gold);
+  margin: 0 0 4px;
+  font-feature-settings: 'salt' 1;
+}
+
 .mg-product-card h3,
 .mg-product-card .card-title,
 .mg-product-card__title {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 23px;
-  line-height: 26px;
-  color: var(--color-text-card);
-  margin: 0 0 12px;
-  letter-spacing: 0.01em;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-text);
+  margin: 0 0 4px;
 }
 
 .mg-product-card__subtitle {
   font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
   color: var(--color-text-card);
   margin: 0;
 }
@@ -149,27 +176,27 @@
 
 .mg-product-card__content h4,
 .mg-product-card__price {
-  padding: 18px 4px 24px;
+  padding: 10px 4px 10px;
   text-align: center;
   border-bottom: 0.5px solid var(--color-gold);
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 22px;
+  line-height: 28px;
   color: #fafafa;
   letter-spacing: 0.03em;
   margin: 0;
 }
 
 .mg-product-card__rows {
-  padding: 12px 6px 2px;
+  padding: 8px 6px 0;
 }
 
 .mg-product-card__row {
   display: flex;
   align-items: center;
   gap: 4px;
-  height: 36px;
+  height: 28px;
   color: var(--color-text-muted);
 }
 
