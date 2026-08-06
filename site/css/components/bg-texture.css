@@ -37,6 +37,26 @@
     1200px 900px;
 }
 
+/* ── PRÓBA: tónus-sáv a fejléc-zónán (Epicarium szekció-ritmus lilában) ──
+   Leheletnyi krém-tónus + hajszálvékony arany élek — a szekciók
+   elválnak egymástól anélkül, hogy keret vagy vonal tolakodna. */
+
+.mg-tone-band {
+  background: linear-gradient(180deg, rgba(244, 230, 201, 0.035), rgba(244, 230, 201, 0.012));
+  border-bottom: 1px solid rgba(179, 138, 36, 0.14);
+  border-radius: 4px;
+  padding: 16px 20px 20px;
+  margin: 0 -20px;
+}
+
+/* ── PRÓBA: arany bal él-akcent a kategória-csempéken
+   (Epicarium hírkártya-minta) ── */
+
+.mg-category-chip {
+  border-left: 3px solid rgba(179, 138, 36, 0.7);
+  border-radius: 0 4px 4px 0;
+}
+
 /* ── Megamenü: jobb alsó sarok-motívum + enyhe derengés ── */
 
 .mg-texture-menu {
