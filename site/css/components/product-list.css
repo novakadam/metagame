@@ -32,6 +32,15 @@
   }
 }
 
+/* ≥1700: a sidebar mellett is elfér 4 oszlop (1400–1700 között 3 —
+   row-cols-xxl-3 a markupban; BS-nek nincs 1700-as töréspontja) */
+@media (min-width: 1700px) {
+  .mg-product-grid > * {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+}
+
 .mg-product-content {
   flex: 1;
   min-width: 0;

@@ -11,7 +11,7 @@ function mgInitProductList() {
 
   // ── NÉZET VÁLTÁS ──────────────────────────────────────────
   // Az oszlopokat a BS row-cols adja; lista nézetben 1 oszlopra váltunk
-  var GRID_COLS = 'row-cols-sm-2 row-cols-lg-3 row-cols-xl-4';
+  var GRID_COLS = 'row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-3';
 
   $('.mg-product-toolbar__view-btn').on('click', function () {
     var view = $(this).data('view');
