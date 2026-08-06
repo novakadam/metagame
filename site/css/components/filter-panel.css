@@ -20,6 +20,19 @@
   gap: 24px;
 }
 
+/* ≥1400: statikus sidebar a tartalom bal sávjában. A panel DOM-ban a frame
+   UTÁN, root szinten él, hogy tablet fiókként (offcanvas-xxl) az .mg-content
+   z-index:1 stacking contextjén kívül, a nav/topbar fölé nyílhasson. */
+@media (min-width: 1400px) {
+  .mg-filter-panel {
+    position: absolute;
+    top: 180px;
+    left: 255px;
+    bottom: 50px;
+    z-index: 1;
+  }
+}
+
 .mg-filter-panel::-webkit-scrollbar {
   display: none;
 }
@@ -369,8 +382,9 @@
   display: none;
 }
 
-@media (max-width: 991.98px) {
-  .mg-filter-panel.offcanvas-lg {
+/* offcanvas-xxl: a fiók-viselkedés már tablet sávban (<1400) él */
+@media (max-width: 1399.98px) {
+  .mg-filter-panel.offcanvas-xxl {
     background: var(--color-bg);
   }
 

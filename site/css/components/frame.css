@@ -99,14 +99,16 @@
   display: none;
 }
 
-/* Toggle + search: 50px a lap tetejétől, centrált 1080px blokk */
+/* Toggle + search: 50px a lap tetejétől, centrált 1080px blokk.
+   max-width: a teljes logó (jobb széle 339px) + 20px hézag kell balra,
+   különben 1400–1610px között a sor a logóra csúszik. */
 .mg-topbar-row {
   position: absolute;
   top: 55px;
   left: calc(50% + 50px);
   transform: translateX(-50%);
   width: 1010px;
-  max-width: calc(100% - 415px);
+  max-width: calc(100% - 620px);
   display: flex;
   align-items: center;
   gap: 40px;
@@ -742,7 +744,8 @@
 
   .mg-nav-left {
     width: 70px;
-    z-index: 5;
+    /* a keretvonal (57–65px) fölé kerüljön */
+    z-index: 6;
   }
 
   .mg-nav-section {
@@ -750,11 +753,23 @@
     justify-content: space-evenly;
     padding: 0 0 0 5px;
     gap: 0;
+    /* az ikonok a bal keretcsíkra igazítva üljenek (vonal-közép ≈ 61px) */
+    transform: translateX(24px);
   }
 
   .mg-nav-item__diamond {
     width: 48px;
     height: 48px;
+  }
+
+  /* kompakt nézetben nincs label-sáv, amibe a rombusz jobb éle beleolvadna →
+     a levágott ötszög helyett teljes, szimmetrikus rombusz */
+  .mg-nav-item__diamond::before {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .mg-nav-item__diamond::after {
+    clip-path: polygon(50% 3.5%, 96.5% 50%, 50% 96.5%, 3.5% 50%);
   }
 
   .mg-nav-item__circle {
@@ -802,8 +817,10 @@
     max-width: none;
   }
 
+  /* A tablet sarok-SVG x=174-nél ér véget (ott landol a 45°-os vonal);
+     161-nél indítva az alsó vonal 13px-t kilógott balra a csatlakozásnál */
   .mg-frame-line--top {
-    left: 161px;
+    left: 174px;
   }
 
   .mg-frame-line--bottom {

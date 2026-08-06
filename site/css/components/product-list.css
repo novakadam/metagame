@@ -24,6 +24,14 @@
   min-height: 0;
 }
 
+/* ≥1400: a szűrő panel abszolút sávja (270px + 24px hézag) számára hely */
+@media (min-width: 1400px) {
+  .mg-product-layout {
+    margin-left: 294px;
+    width: calc(100% - 294px);
+  }
+}
+
 .mg-product-content {
   flex: 1;
   min-width: 0;
@@ -337,17 +345,11 @@
 }
 
 /* ── TERMÉK GRID ─────────────────────────────────────────── */
+/* Az oszlopokat a BS row-cols adja (lásd products.html + templates/product-list.html);
+   itt csak a hook-class + padding marad. */
 
 .mg-product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 56px 32px;
   padding: 8px 0 40px;
-}
-
-.mg-product-grid--list {
-  grid-template-columns: 1fr;
-  gap: 16px;
 }
 
 /* ── LISTA NÉZET KÁRTYA MÓDOSÍTÓK ────────────────────────── */
@@ -483,6 +485,11 @@
 /* ══ KÖZBÜLSŐ (toolbar kétsoros) ══════════════════════════════════ */
 
 @media (max-width: 1400px) {
+  /* a filter offcanvas-xl fiókká válik → itt jelenik meg a nyitó gomb */
+  .mg-product-toolbar__filter-btn {
+    display: inline-flex;
+  }
+
   .mg-product-toolbar {
     flex-direction: column;
     gap: 10px;
@@ -559,11 +566,6 @@
     display: none;
   }
 
-  .mg-product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px 24px;
-  }
-
   /* ── Kategória chipek: "Továbbiak" gomb ── */
 
   .mg-category-chips__more {
@@ -638,16 +640,7 @@
     display: none;
   }
 
-  .mg-product-grid {
-    grid-template-columns: 1fr;
-    gap: 40px 0;
-  }
-
   /* ── Mobil lista nézet ── */
-
-  .mg-product-grid--list {
-    gap: 28px;
-  }
 
   .mg-product-grid--list .mg-product-card {
     display: grid;
@@ -689,13 +682,21 @@
 
   .mg-product-grid--list .mg-product-card__category-text {
     font-size: 10px;
-    padding: 0 4px;
+    padding: 0 4px 2px;
     height: 16px;
+    line-height: 14px;
   }
 
   .mg-product-grid--list .mg-product-card__category-arrow {
     width: 8px;
     height: 16px;
+  }
+
+  .mg-product-grid--list .mg-product-card__system {
+    grid-column: 2;
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 15px;
   }
 
   .mg-product-grid--list .mg-product-card__title {

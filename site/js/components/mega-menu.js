@@ -85,7 +85,7 @@ function mgInitMegaMenu() {
         html += '<img class="mg-megamenu__brand-logo" src="' + b.logo + '" alt="' + b.name + '">';
       }
 
-      html += '<span class="flex-grow-1">' + b.name + '</span>';
+      html += '<span class="mg-megamenu__brand-name">' + b.name + '</span>';
       html += '<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>';
       html += '</div>';
     });
@@ -108,14 +108,15 @@ function mgInitMegaMenu() {
   }
 
   function buildSubcats(data, brandName) {
+    // Markup a templates/mega-menu.html mintája: BS nav + nav-link
     var subs = (data.subcategories && data.subcategories[brandName]) || [];
     var html = '<div class="mg-megamenu__subcats">';
     html += '<h6 class="fw-bold text-uppercase mb-4">Alkategóriák</h6>';
-    html += '<div class="mg-megamenu__subcats-list">';
+    html += '<nav class="nav flex-column gap-3">';
     subs.forEach(function (s) {
-      html += '<a href="#">' + s + '</a>';
+      html += '<a class="nav-link p-0" href="#">' + s + '</a>';
     });
-    html += '</div></div>';
+    html += '</nav></div>';
     return html;
   }
 
