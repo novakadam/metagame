@@ -181,8 +181,8 @@ var MG_DEMO_PRODUCTS = [
     category: 'Előrendelés',
     cta: 'Előrendelés',
     rows: [
-      { ok: true, label: 'Megjelenés', value: '09.20' },
-      { ok: true, label: 'Foglalás',   value: '3/50' }
+      { type: 'date', label: 'Megjelenés', value: '09.20' },
+      { type: 'res',  label: 'Foglalás',   value: '3/50' }
     ]
   },
   {
@@ -243,23 +243,34 @@ function mgCreateDemoCard() {
   if (p.isNew) cardClasses += ' mg-product-card--new';
   if (p.category) cardClasses += ' mg-product-card--has-category';
 
-  var okIcon = '<svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var noIcon = '<svg class="text-danger" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>';
+  // Sor-ikonok: készlet (pipa/X) vs. előrendelés (naptár/óra, arany) —
+  // 2026-08-12 meeting: az előrendelés-infó váljon el vizuálisan a készlettől
+  var rowIcons = {
+    ok:   '<svg class="text-success" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    no:   '<svg class="text-danger" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.5l5 5M11.5 6.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>',
+    date: '<svg class="text-gold" viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="11.5" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M2.5 7.5h13M6 2v3.5M12 2v3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>',
+    res:  '<svg class="text-gold" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M9 5.5V9l2.5 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+  };
 
   var rowsHtml = '';
   $.each(p.rows, function (i, row) {
+    var type = row.type || (row.ok ? 'ok' : 'no');
+    var valueColor = (type === 'no') ? 'text-danger' : 'text-gold';
     rowsHtml +=
       '<div class="mg-product-card__row">' +
-        '<span class="mg-product-card__row-icon">' + (row.ok ? okIcon : noIcon) + '</span>' +
+        '<span class="mg-product-card__row-icon">' + rowIcons[type] + '</span>' +
         '<span class="fs-7 fw-medium text-muted flex-grow-1">' + row.label + '</span>' +
-        '<span class="fs-7 ' + (row.ok ? 'text-gold' : 'text-danger') + '">' + row.value + '</span>' +
+        '<span class="fs-7 ' + valueColor + '">' + row.value + '</span>' +
       '</div>';
   });
+
+  // Szalag-színvariáns: Ajánlott = arany, Akciós = piros, egyéb (Előrendelés) = sötétkék alap
+  var categoryVariant = { 'Ajánlott': ' mg-product-card__category--gold', 'Akciós': ' mg-product-card__category--sale' }[p.category] || '';
 
   var categoryHtml = '';
   if (p.category) {
     categoryHtml =
-      '<div class="mg-product-card__category">' +
+      '<div class="mg-product-card__category' + categoryVariant + '">' +
         '<svg class="mg-product-card__category-arrow mg-product-card__category-arrow--left" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="12,0 12,24 0,12"/></svg>' +
         '<span class="mg-product-card__category-text">' + p.category + '</span>' +
         '<svg class="mg-product-card__category-arrow mg-product-card__category-arrow--right" width="12" height="24" viewBox="0 0 12 24" fill="currentColor"><polygon points="0,0 12,12 0,24"/></svg>' +

@@ -123,6 +123,30 @@
   flex-shrink: 0;
 }
 
+/* ── Státusz-színvariánsok (2026-08-12 meeting: a szalagok ne legyenek
+   analógok) — Ajánlott = arany, Előrendelés = sötétkék (alap),
+   Akciós = piros ── */
+
+.mg-product-card__category--gold .mg-product-card__category-text {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.mg-product-card__category--gold .mg-product-card__category-arrow {
+  color: var(--color-gold);
+}
+
+.mg-product-card__category--sale .mg-product-card__category-text {
+  background: var(--color-destructive);
+  border-color: var(--color-destructive);
+  color: #fff;
+}
+
+.mg-product-card__category--sale .mg-product-card__category-arrow {
+  color: var(--color-destructive);
+}
+
 .mg-product-card__category-arrow--left {
   color: var(--color-secondary);
 }
@@ -157,6 +181,9 @@
   line-height: 24px;
   color: var(--color-text);
   margin: 0 0 4px;
+  /* mindig 2 sornyi hely — így az ár feletti vonal minden kártyán
+     egy vonalban fut, a rövid nevű kártyákon is (2026-08-12 meeting) */
+  min-height: 48px;
 }
 
 .mg-product-card__subtitle {
@@ -281,6 +308,5 @@
   display: none;
 }
 
-.mg-product-card:not(.mg-product-card--has-category) .mg-product-card__info {
-  padding-top: 16px;
-}
+/* Badge nélküli kártyán is azonos felső padding — a sorok és a vonalak
+   minden kártyán egy magasságban futnak */
