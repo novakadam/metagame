@@ -244,7 +244,9 @@
   position: absolute;
   top: 130px;
   left: 0;
-  bottom: 43px;
+  /* a bal alsó sarok-grafika 119px magasan benyúlik (bottom:43-tól) —
+     a nav e fölött érjen véget, ne fedjék egymást (2026-08-12 screenshot) */
+  bottom: 162px;
   width: 255px;
   background: transparent;
   z-index: 1;
@@ -719,6 +721,47 @@
 @keyframes mg-ticker-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* ══ RÖVID ABLAK: a címkés nav elemei kompaktabbak, hogy ne csússzanak
+   a logóra/keretre (a 8 elem 75px-es rombuszokkal ~950px alatt túlcsordul) ══ */
+
+@media (max-height: 950px) and (min-width: 1401px) {
+  .mg-nav-item__diamond {
+    width: 58px;
+    height: 58px;
+  }
+
+  .mg-nav-item__circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mg-nav-item__circle svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mg-nav-item__bar {
+    height: 28px;
+    margin-left: -14px;
+    padding: 0 12px 0 16px;
+  }
+
+  .mg-nav-section {
+    gap: 4px;
+  }
+}
+
+@media (max-height: 790px) and (min-width: 1401px) {
+  .mg-nav-item__diamond {
+    width: 48px;
+    height: 48px;
+  }
+
+  .mg-nav-section {
+    gap: 2px;
+  }
 }
 
 /* ══ KÖZBÜLSŐ: logó + nav + keret zsugorodik ═════════════════════════ */
