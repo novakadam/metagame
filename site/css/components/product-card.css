@@ -77,6 +77,15 @@
   padding: 24px 10px 10px;
   text-align: center;
   border-bottom: 1px solid var(--color-gold);
+  /* fix magasság (2 soros címre méretezve) + flex-középre zárás:
+     rövid címnél a maradék hely felül-alul oszlik el, nem a cím és a
+     kiszerelés közé esik — a vonal így is minden kártyán egy magasságban fut */
+  height: 126px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   margin: 0;
 }
 
@@ -137,14 +146,16 @@
   color: var(--color-gold);
 }
 
+/* málna-piros: illeszkedik a bordó palettához, de kiugrik
+   (a --color-destructive narancsa idegen volt — 2026-08-12 visszajelzés) */
 .mg-product-card__category--sale .mg-product-card__category-text {
-  background: var(--color-destructive);
-  border-color: var(--color-destructive);
+  background: #C92C55;
+  border-color: #C92C55;
   color: #fff;
 }
 
 .mg-product-card__category--sale .mg-product-card__category-arrow {
-  color: var(--color-destructive);
+  color: #C92C55;
 }
 
 .mg-product-card__category-arrow--left {
@@ -168,7 +179,7 @@
   /* arany: a világ/rendszer sort színnel különítjük el — a termék oldal
      __brand sorával együtt (konzisztens mindkét helyen) */
   color: var(--color-gold);
-  margin: 0 0 4px;
+  margin: 0;
   font-feature-settings: 'salt' 1;
 }
 
@@ -180,10 +191,7 @@
   font-size: 18px;
   line-height: 24px;
   color: var(--color-text);
-  margin: 0 0 4px;
-  /* mindig 2 sornyi hely — így az ár feletti vonal minden kártyán
-     egy vonalban fut, a rövid nevű kártyákon is (2026-08-12 meeting) */
-  min-height: 48px;
+  margin: 0;
 }
 
 .mg-product-card__subtitle {

@@ -410,6 +410,9 @@
   border-bottom: none;
   text-align: left;
   flex: 1;
+  /* a grid nézet fix magasságú flex-oszlopát visszavonjuk */
+  display: block;
+  height: auto;
   min-width: 0;
 }
 
