@@ -39,11 +39,13 @@
   <link rel="stylesheet" href="css/components/footer.css">
   <link rel="stylesheet" href="css/components/search-overlay.css">
   <link rel="stylesheet" href="css/components/mobile-menu.css">
+  <!-- Háttér-textúra (embléma-motívum + színátmenetek) -->
+  <link rel="stylesheet" href="css/components/bg-texture.css">
 
   <!-- Leaflet (OpenStreetMap térkép) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
-<body>
+<body class="mg-texture-page">
 
 <div class="mg-frame">
 
@@ -287,7 +289,7 @@
   </nav>
 
   <!-- ── MEGA MENU (JS tölti dinamikusan) ───────────────────────── -->
-  <div class="mg-megamenu" id="mg-megamenu"></div>
+  <div class="mg-megamenu mg-texture-menu" id="mg-megamenu"></div>
 
   <div class="mg-frame-line mg-frame-line--right-top"><img src="../assets/frame/frame-right-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
 

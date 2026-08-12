@@ -1,5 +1,6 @@
 /*
- * bg-texture.css – Háttér-textúra PROTOTÍPUS (products-textura.html)
+ * bg-texture.css – Háttér-textúra (ÉLES: index, products, product +
+ * products-textura demo)
  *
  * Andris 07.17-i felvetésére: a nagy flat lila mezők megtörése halvány
  * arany vonalgrafikával — az Epicarium világos-alapú watermark-logikája
@@ -11,8 +12,9 @@
  *   3.   meleg arany derengés (radial gradient, jobb fent)
  *   4.   bordó folt (radial gradient, bal lent)
  *
- * Ha a koncepció jóváhagyott, a .mg-texture-* classok bármely szekcióra
- * ráadhatók; minden inline (data-URI + gradient), backend-et nem érint.
+ * Használat: <body class="mg-texture-page"> + a megamenü div-en
+ * .mg-texture-menu. Minden inline (data-URI + gradient), backend-et
+ * nem érint. Tulaj-jóváhagyás: 2026-08-12 meeting ("ez nekem tetszik").
  */
 
 /* A rétegek a .mg-frame-re kerülnek: annak teljes-oldalas, átlátszatlan
