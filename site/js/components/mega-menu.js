@@ -108,14 +108,18 @@ function mgInitMegaMenu() {
   }
 
   function buildSubcats(data, brandName) {
-    // Markup a templates/mega-menu.html mintája: BS nav + nav-link
+    // Markup a templates/mega-menu.html mintája: BS nav + nav-link.
+    // 2026-08-12 meeting: az "Alkategóriák" felirat kikerült (félrevezető volt,
+    // a hasáb a TÉMA értékkészletet listázza — csak aminek van aktív terméke),
+    // a lista teljes (nincs "továbbiak" vágás), és a végén "Összes … termék".
     var subs = (data.subcategories && data.subcategories[brandName]) || [];
     var html = '<div class="mg-megamenu__subcats">';
-    html += '<h6 class="fw-bold text-uppercase mb-4">Alkategóriák</h6>';
     html += '<nav class="nav flex-column gap-3">';
     subs.forEach(function (s) {
       html += '<a class="nav-link p-0" href="#">' + s + '</a>';
     });
+    // BACKEND: link a rendszer teljes terméklistájára
+    html += '<a class="nav-link p-0 text-gold" href="#">Összes ' + brandName + ' termék →</a>';
     html += '</nav></div>';
     return html;
   }
