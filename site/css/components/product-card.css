@@ -146,16 +146,16 @@
   color: var(--color-gold);
 }
 
-/* málna-piros: illeszkedik a bordó palettához, de kiugrik
-   (a --color-destructive narancsa idegen volt — 2026-08-12 visszajelzés) */
+/* a meglévő piros (--color-bg-card, mint a "Legújabbak elől" gomb) +
+   arany szöveg — 2026-08-12 visszajelzés */
 .mg-product-card__category--sale .mg-product-card__category-text {
-  background: #C92C55;
-  border-color: #C92C55;
-  color: #fff;
+  background: var(--color-bg-card);
+  border-color: var(--color-bg-card);
+  color: var(--color-gold);
 }
 
 .mg-product-card__category--sale .mg-product-card__category-arrow {
-  color: #C92C55;
+  color: var(--color-bg-card);
 }
 
 .mg-product-card__category-arrow--left {
