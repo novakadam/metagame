@@ -187,6 +187,12 @@
     padding-right: 0 !important;
   }
 
+  /* a container padding-ját mobilon nullázzuk (full-bleed kártya/térkép),
+     de a szöveges fejlécnek kell oldaltáv, különben kilóg a keretből */
+  .mg-contact__heading {
+    padding: 0 24px;
+  }
+
   .mg-contact__title {
     font-size: var(--font-size-2xl);
     line-height: 1.2;

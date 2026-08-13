@@ -1,0 +1,15 @@
+/*
+ * theme-sotet-demo.css – DEMO: a checkout sötétebb-lila palettája
+ * az egész oldalra húzva (Andris 08.13-i kérése, 3 fős mini-teszt
+ * visszajelzése alapján: "mute-oltabb, kevesebb vizuális zaj").
+ *
+ * Csak a *-sotet.html demo-oldalak töltik be, minden más változatlan.
+ * A színek 1:1 a checkout.css lokális tokenjei.
+ */
+
+:root {
+  --color-bg:          #140610;  /* mély szilva (checkout) */
+  --color-bg-card:     #2a101c;
+  --color-bg-muted:    #1c0810;
+  --color-bg-elevated: #381828;
+}

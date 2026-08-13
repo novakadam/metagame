@@ -5,6 +5,16 @@
  * Minden oldal betölti a tokens.css után, Bootstrap után.
  */
 
+/* ── ALAP HÁTTÉR ────────────────────────────────────────── */
+/* A body a BS fehér defaultján maradt — iOS Safari a gumiszalag-
+   görgetésnél és a toolbar-fade-nél ezt villantotta ki a keret
+   alatt/felett (Andris 08.13-i bugreport) */
+
+html,
+body {
+  background-color: var(--color-bg);
+}
+
 /* ── SECTION WRAPPER ────────────────────────────────────── */
 /* 9+ widget használja: hero, about, cta-banner, chronicles,
    testimonials, systems, contact, article, product-detail */
