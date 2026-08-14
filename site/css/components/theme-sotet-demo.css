@@ -9,7 +9,23 @@
 
 :root {
   --color-bg:          #140610;  /* mély szilva (checkout) */
-  --color-bg-card:     #2a101c;
-  --color-bg-muted:    #1c0810;
-  --color-bg-elevated: #381828;
+  /* a kártya/panel tónusok a checkoutnál egy fokkal világosabbra hangolva,
+     hogy a felületek ne olvadjanak a sötét alapba (2026-08-14 visszajelzés:
+     Világok-csempék, hír-kártyák) */
+  --color-bg-card:     #341521;
+  --color-bg-muted:    #241019;
+  --color-bg-elevated: #43202f;
+}
+
+/* Logó: enyhén tompított, hogy a sötét atmoszférába simuljon */
+.mg-logo--full,
+.mg-logo--compact {
+  filter: saturate(0.8) brightness(0.88);
+}
+
+/* Termékkártya: erősebb elválás a sötét háttértől — kicsit telítettebb
+   felület + mély vetett árnyék */
+.mg-texture-page .mg-product-card {
+  background: rgba(72, 30, 50, 0.42);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }

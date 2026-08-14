@@ -95,3 +95,13 @@ body.mg-texture-page--gradients .mg-frame {
     1200px 900px,
     1200px 900px;
 }
+
+
+/* ── A .mg-content szolid színű scroll-fade sávjai (::before/::after) a
+   színezett/texturált háttéren éles szélű dobozt rajzolnak (2026-08-14
+   visszajelzés, korábban is jelzett hiba) → texturás oldalakon kikapcsolva ── */
+
+.mg-texture-page .mg-content::before,
+.mg-texture-page .mg-content::after {
+  content: none;
+}
