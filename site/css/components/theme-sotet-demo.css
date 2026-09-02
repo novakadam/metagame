@@ -1,26 +1,64 @@
 /*
  * theme-sotet-demo.css – DEMO: a checkout sötétebb-lila palettája
- * az egész oldalra húzva (Andris 08.13-i kérése, 3 fős mini-teszt
- * visszajelzése alapján: "mute-oltabb, kevesebb vizuális zaj").
+ * az egész oldalra húzva (Andris 08.13-i kérése; 08.19-i meeting:
+ * az irány jóváhagyva — "nekem sokkal jobban tetszik a sötét").
  *
  * Csak a *-sotet.html demo-oldalak töltik be, minden más változatlan.
- * A színek 1:1 a checkout.css lokális tokenjei.
+ * Alap: a checkout.css lokális tokenjei, iteratívan hangolva.
  */
 
 :root {
   --color-bg:          #140610;  /* mély szilva (checkout) */
-  /* a kártya/panel tónusok a checkoutnál egy fokkal világosabbra hangolva,
-     hogy a felületek ne olvadjanak a sötét alapba (2026-08-14 visszajelzés:
-     Világok-csempék, hír-kártyák) */
-  --color-bg-card:     #341521;
-  --color-bg-muted:    #241019;
-  --color-bg-elevated: #43202f;
+  /* 08.19-i kör: a korábbi panel-tónus ("püspöklila") fakó volt —
+     telítettebb, borvörös irányba húzva, világosság megtartva */
+  --color-bg-card:     #3a1226;
+  --color-bg-muted:    #260c1a;
+  --color-bg-elevated: #4a1b33;
 }
 
 /* Logó: enyhén tompított, hogy a sötét atmoszférába simuljon */
 .mg-logo--full,
 .mg-logo--compact {
   filter: saturate(0.8) brightness(0.88);
+}
+
+/* ── HÁTTÉR-GRADIENTEK (08.19-i visszajelzések) ─────────────────
+   1. "Telefonon feketéig elmegy a sarok" → a körök jóval nagyobbak,
+      lágyabb átmenettel (1200x900 → 1900x1400)
+   2. A sötét vignetta a #140610 alapon feketébe vitte a sarkot ÉS ez
+      ült a termékkártyák mögött → megfordítva: a meleg bordó folt
+      került a kártyák mögé (jobbra), balra csak halvány visszfénye ── */
+
+/* Motívumos oldalak (products, product) */
+body.mg-texture-page .mg-frame {
+  background-image:
+    var(--mg-tex-motif-lg),
+    var(--mg-tex-motif-sm),
+    radial-gradient(ellipse closest-side at center, rgba(133, 8, 48, 0.6) 0%, transparent 100%),
+    radial-gradient(ellipse closest-side at center, rgba(133, 8, 48, 0.32) 0%, transparent 100%);
+  background-position:
+    right -180px bottom -200px,
+    left -220px top 160px,
+    right -350px bottom -300px,
+    left -400px bottom -350px;
+  background-size:
+    720px 720px,
+    520px 520px,
+    1900px 1400px,
+    1900px 1400px;
+}
+
+/* Csak-gradient variáns (index-sotet landing) */
+body.mg-texture-page--gradients .mg-frame {
+  background-image:
+    radial-gradient(ellipse closest-side at center, rgba(133, 8, 48, 0.6) 0%, transparent 100%),
+    radial-gradient(ellipse closest-side at center, rgba(133, 8, 48, 0.32) 0%, transparent 100%);
+  background-position:
+    right -350px bottom -300px,
+    left -400px bottom -350px;
+  background-size:
+    1900px 1400px,
+    1900px 1400px;
 }
 
 /* Termékkártya: erősebb elválás a sötét háttértől — kicsit telítettebb
