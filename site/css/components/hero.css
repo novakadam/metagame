@@ -50,7 +50,7 @@
 /* ── BAL OSZLOP (~560px) ──────────────────────────────────────── */
 
 .mg-hero__left {
-  flex: 0 1 560px;
+  flex: 1 1 560px;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -134,17 +134,13 @@
 
 .mg-hero__carousel {
   position: relative;
-  max-width: 460px;
 }
 
-/* Desktopon pontosan 2 kártya fér ki — a jobb szélen lelógó csonka kártya
+/* Desktopon mindig egész kártyák látszanak (a wrap szélességét a JS
+   igazítja a kiférő kártyaszámhoz) — a jobb szélen lelógó csonka kártya
    és a szolid színű fade-sáv (a texturált háttéren doboznak látszott)
    megszűnik (08.12-i visszajelzés: "lelógó ötöd-kártya") */
 @media (min-width: 769px) {
-  .mg-hero__cards-wrap {
-    max-width: 416px; /* 2×200px kártya + 16px gap */
-  }
-
   .mg-hero__carousel::before,
   .mg-hero__carousel::after {
     display: none;
@@ -272,7 +268,8 @@
 /* ── JOBB OSZLOP (~690px) ─────────────────────────────────────── */
 
 .mg-hero__right {
-  flex: 1;
+  flex: 0 1 440px;
+  min-width: 360px;
   position: relative;
   display: flex;
   align-items: center;

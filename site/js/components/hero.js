@@ -295,9 +295,22 @@ function mgInitHero() {
 
     /* ═══ DESKTOP: eredeti lapozás ═══ */
 
+    var $wrap = $hero.find('.mg-hero__cards-wrap');
+
     function cardW() {
       var $c = $strip.find('.mg-hero-card');
-      return $c.length ? $c.first().outerWidth() : 170;
+      return $c.length ? $c.first().outerWidth() : 200;
+    }
+
+    /* Annyi egész kártya látszódjon, amennyi kifér (min 2, max 4) —
+       a wrap pont a kártyákra vágva, nincs csonka kártya / üres sáv */
+    function calcLayout() {
+      var w = cardW();
+      var avail = $carousel.parent().width(); /* jQuery .width() = tartalom-szélesség, padding nélkül */
+      VIS = Math.max(2, Math.min(4, Math.floor((avail + GAP) / (w + GAP))));
+      /* a carousel maga vágódik a kiférő egész kártyákra, így a lapozó
+         nyíl mindig az utolsó kártya mellett ül, nincs üres sáv */
+      $carousel.css('max-width', (VIS * (w + GAP) - GAP) + 'px');
     }
 
     function renderCards() {
@@ -307,6 +320,7 @@ function mgInitHero() {
         h += cardHtml(list[i], i);
       }
       $strip.html(h);
+      calcLayout();
       scroll();
     }
 
@@ -384,5 +398,16 @@ function mgInitHero() {
     renderCards();
     renderAjanlo();
     autoTimer = setInterval(autoStep, AUTO_MS);
+
+    var resizeT;
+    $(window).on('resize', function () {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(function () {
+        calcLayout();
+        page = Math.min(page, Math.max(0, items().length - VIS));
+        if (idx < page) idx = page;
+        scroll();
+      }, 150);
+    });
   }
 }
