@@ -137,6 +137,20 @@
   max-width: 460px;
 }
 
+/* Desktopon pontosan 2 kártya fér ki — a jobb szélen lelógó csonka kártya
+   és a szolid színű fade-sáv (a texturált háttéren doboznak látszott)
+   megszűnik (08.12-i visszajelzés: "lelógó ötöd-kártya") */
+@media (min-width: 769px) {
+  .mg-hero__cards-wrap {
+    max-width: 416px; /* 2×200px kártya + 16px gap */
+  }
+
+  .mg-hero__carousel::before,
+  .mg-hero__carousel::after {
+    display: none;
+  }
+}
+
 /* Bal-jobb fade – szélső kártya eltűnik */
 .mg-hero__carousel::before,
 .mg-hero__carousel::after {
