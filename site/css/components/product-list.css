@@ -29,6 +29,16 @@
   .mg-product-layout {
     margin-left: 294px;
     width: calc(100% - 294px);
+    /* a .mg-content 48px-es gyerek-margója helyett 24px — a grid alja
+       és a szűrőpanel alja egy vonalra kerül (félúton a kettő közt) */
+    margin-bottom: 24px;
+  }
+
+  /* Görgetés-fade fent-lent, a Világok-karusszel mask-mintájával —
+     a kártyák áttetszően úsznak ki, nem éles vonalon vágódnak */
+  .mg-product-content {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 56px), transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 56px), transparent 100%);
   }
 }
 

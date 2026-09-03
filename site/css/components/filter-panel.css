@@ -28,8 +28,13 @@
     position: absolute;
     top: 180px;
     left: 255px;
-    bottom: 50px;
+    /* a grid aljával egy vonalban (korábban 50px — ráfutott az alsó
+       keretvonalra) */
+    bottom: 74px;
     z-index: 1;
+    /* alsó kiúsztatás, a grid fade-jével összhangban */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 48px), transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 48px), transparent 100%);
   }
 }
 
