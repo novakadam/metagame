@@ -134,3 +134,15 @@ body.mg-texture-page--gradients .mg-frame {
 .mg-product__gallery-thumb {
   background: radial-gradient(circle, var(--color-bg) 0%, var(--color-bg-card) 100%);
 }
+
+/* ── Kategória-csempék (terméklista teteje): a card-tónus beleolvadt a
+   tintelt háttérbe → a termékkártyák receptje (telítettebb áttetsző
+   bordó + finom árnyék), hoverre világosabb ── */
+.mg-texture-page .mg-category-chip {
+  background: rgba(72, 30, 50, 0.55);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.mg-texture-page .mg-category-chip:hover {
+  background: var(--color-bg-elevated);
+}
