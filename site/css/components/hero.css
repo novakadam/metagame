@@ -182,7 +182,7 @@
 /* Kis kártya – álló formátum */
 
 .mg-hero-card {
-  flex: 0 0 200px;
+  flex: 0 0 var(--mg-hero-card-w, 200px);
   max-width: 216px;
   border: 1.5px solid rgba(179, 138, 36, 0.2);
   border-radius: 4px;

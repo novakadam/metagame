@@ -303,11 +303,15 @@ function mgInitHero() {
     }
 
     /* Annyi egész kártya látszódjon, amennyi kifér (min 2, max 4) —
-       a wrap pont a kártyákra vágva, nincs csonka kártya / üres sáv */
+       a kártya-szélesség is rugalmas (185–216px), így pár pixelen nem
+       múlik a 3. kártya (scrollbar, keret-ráhagyások) */
+    var CARD_MIN = 185;
+    var CARD_MAX = 216;
     function calcLayout() {
-      var w = cardW();
       var avail = $carousel.parent().width(); /* jQuery .width() = tartalom-szélesség, padding nélkül */
-      VIS = Math.max(2, Math.min(4, Math.floor((avail + GAP) / (w + GAP))));
+      VIS = Math.max(2, Math.min(4, Math.floor((avail + GAP) / (CARD_MIN + GAP))));
+      var w = Math.floor(Math.min(CARD_MAX, (avail - (VIS - 1) * GAP) / VIS));
+      $carousel[0].style.setProperty('--mg-hero-card-w', w + 'px');
       /* a carousel maga vágódik a kiférő egész kártyákra, így a lapozó
          nyíl mindig az utolsó kártya mellett ül, nincs üres sáv */
       $carousel.css('max-width', (VIS * (w + GAP) - GAP) + 'px');
