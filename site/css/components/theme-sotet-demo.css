@@ -67,3 +67,37 @@ body.mg-texture-page--gradients .mg-frame {
   background: rgba(72, 30, 50, 0.42);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
+
+/* ── "Legsötétebb" felületek hangolása (2026-09-03 visszajelzés) ────
+   A #140610 teli kitöltésként elüt a bordósra tintelt háttértől.
+   Ahol a keret úgyis kijelöli → átlátszó; ahol kitöltés kell →
+   bordósabb tónus. */
+
+/* Hero tabok: a keret kijelöli, kitöltés nem kell */
+.mg-hero__tab--active {
+  background: transparent;
+}
+
+/* Szekció-címkék (KRÓNIKÁK, VILÁGOK): bordósabb kitöltés
+   (teljes átlátszóság a vágott sarkú keret-technika miatt nem megy —
+   a ::after fedi el az arany alapot) */
+.mg-section-header__label::after {
+  background: var(--color-bg-muted);
+}
+
+/* SHOP/Eseménynaptár toggle: bordósabb kitöltés */
+.mg-toggle.mg-cut-frame {
+  --cut-fill: var(--color-bg-muted);
+}
+
+/* Megamenü: bordósabb sötét panel (a muted-nál sötétebb, hogy a
+   hover/aktív állapotok láthatóak maradjanak) */
+.mg-megamenu {
+  background: #1e0a16;
+}
+
+/* Krónikák doboz: felül áttetszően olvadjon a tintelt háttérbe,
+   ne flat sötét sáv üljön rajta */
+.mg-chronicles__inner {
+  background: linear-gradient(180deg, rgba(38, 12, 26, 0) 0%, var(--color-bg-muted) 25%);
+}
