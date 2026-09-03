@@ -245,7 +245,7 @@
 .mg-product__heading {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   text-align: center;
   padding: 24px 24px;
@@ -256,8 +256,9 @@
 .mg-product__brand {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 23px;
-  line-height: 26px;
+  font-size: 20px;
+  line-height: 24px;
+  text-wrap: balance;
   letter-spacing: 0.01em;
   /* arany: a világ/rendszer sor színes elkülönítése — a termékkártya
      __system sorával konzisztensen */
@@ -270,9 +271,12 @@
   font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--font-size-3xl);
-  line-height: 36px;
+  line-height: 38px;
   color: var(--color-text);
   margin: 0 !important;
+  /* kiegyenlített sortörés — ne maradjon fél szó a második sorban */
+  text-wrap: balance;
+  max-width: 24ch;
 }
 
 .mg-product__subtitle {
