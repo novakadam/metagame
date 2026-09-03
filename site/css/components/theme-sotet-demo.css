@@ -108,12 +108,26 @@ body.mg-texture-page--gradients .mg-frame {
       → a kék zóna-szín (mint az ár-sáv és a főoldali ajánló-kártya)
    3. galéria kis képei a nagy kép bordós gradientjét kapják */
 
+/* A cím-sáv a keret tetejétől a kék ár-sávig ér (a köztes card-színű
+   csíkok eltűnnek: a panel felső paddingjét és a flex-gapet elnyeli) */
 .mg-product__heading {
   background: var(--color-bg-elevated);
+  margin-top: -36px;
+  padding-top: 36px;
 }
 
+.mg-product__info-body {
+  gap: 0;
+}
+
+.mg-product__price-section {
+  margin-bottom: 28px;
+}
+
+/* Kapcsolódó termék: átlátszó törzs — csak az arany keret rajzolja ki,
+   a tintelt háttér átszűrődik (a kék változat elvetve) */
 .mg-related__card .card-body {
-  background: var(--color-secondary);
+  background: transparent;
 }
 
 .mg-product__gallery-thumb {
