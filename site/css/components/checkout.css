@@ -1415,3 +1415,11 @@ html, body {
     padding: 12px;
   }
 }
+
+
+/* ── 09.03 meeting: a bal oldali szekció-flekkek (Vásárlói adatok,
+   Átvétel módja) világosabbak — közelítenek a sötét demo panel-
+   tónusához, a jobb oldali összegzőnél világosabbak ── */
+.mg-checkout__forms .mg-checkout__section {
+  background: #3a1226;
+}

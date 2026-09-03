@@ -659,5 +659,18 @@ $(function () {
 });
 </script>
 
+
+<script>
+/* DEMO: a Shop/Eseménynaptár toggle a sötét oldalak közt navigáljon
+   (capture fázisban elkapjuk a frame.js előtt) */
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('.mg-toggle__btn');
+  if (!btn) return;
+  var t = btn.dataset.target;
+  var onEvents = location.pathname.indexOf('events') !== -1;
+  if (t === 'community' && !onEvents) { e.stopPropagation(); e.preventDefault(); location.href = 'events-sotet.html'; }
+  if (t === 'shop' && onEvents)       { e.stopPropagation(); e.preventDefault(); location.href = 'index-sotet.html'; }
+}, true);
+</script>
 </body>
 </html>
