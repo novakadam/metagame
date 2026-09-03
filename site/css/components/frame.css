@@ -871,9 +871,12 @@
   }
 
   /* ── Topbar ── */
+  /* A toggle sose csúszhasson a kompakt logóra: a centrált sor bal széle
+     min. 140px-nél áll meg (50%+20 közép mellett ehhez 100%-240 kell),
+     a helyet a keresősáv adja le (flexben az zsugorodik) */
   .mg-topbar-row {
     left: calc(50% + 20px);
-    max-width: calc(100% - 140px);
+    max-width: calc(100% - 240px);
   }
 
   .mg-ticker {
