@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metagame – Eseménynaptár (sötét demo)</title>
+  <title>Ligák &amp; versenysorozatok – állások és szabályok | Metagame (sötét demo)</title>
+  <meta name="description" content="A Metagame klub több fordulós versenysorozatai: Magic, Pokémon, Yu-Gi-Oh! és más ligák aktuális állása, szabályai és fordulói – egy helyen.">
+  <link rel="canonical" href="https://metagames.hu/liga">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Metagames">
+  <meta property="og:locale" content="hu_HU">
+  <meta property="og:title" content="Ligák &amp; versenysorozatok – Metagame">
+  <meta property="og:description" content="Több fordulós versenysorozataink aktuális állása és szabályai egy helyen.">
+  <meta property="og:url" content="https://metagames.hu/liga">
+  <meta property="og:image" content="https://metagames.hu/assets/og/og-default.jpg">
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,16 +27,14 @@
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- FullCalendar v5 (MIT) -->
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
-
   <!-- Design tokenek -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/layout.css">
 
   <!-- Globális komponensek -->
   <link rel="stylesheet" href="css/components/buttons.css">
-  <link rel="stylesheet" href="css/components/theme-bs.css">  <link rel="stylesheet" href="css/components/forms.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
+  <link rel="stylesheet" href="css/components/forms.css">
 
   <!-- Komponensek -->
   <link rel="stylesheet" href="css/components/frame.css">
@@ -33,9 +45,8 @@
   <link rel="stylesheet" href="css/components/footer.css">
   <link rel="stylesheet" href="css/components/mobile-menu.css">
 
-  <!-- FullCalendar Metagame override -->
-  <link rel="stylesheet" href="css/components/event-calendar.css">
-
+  <!-- Klub landing (eyebrow / section-title / section-lead fejléc-stílusok) -->
+  <link rel="stylesheet" href="css/components/klub.css">
   <!-- DEMO: sötét paletta -->
   <link rel="stylesheet" href="css/components/bg-texture.css">
   <link rel="stylesheet" href="css/components/theme-sotet-demo.css">
@@ -133,7 +144,7 @@
       </div>
 
       <div class="mg-search mg-cut-frame">
-        <input type="text" placeholder="Esemény keresése...">
+        <input type="text" placeholder="Keresés a ligákban...">
         <button class="mg-search__btn" aria-label="Keresés">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
@@ -194,7 +205,7 @@
         <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div></div>
         <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Tudástár</span></div>
       </a>
-      <a class="mg-nav-item" href="liga-sotet.html">
+      <a class="mg-nav-item mg-nav-item--active" href="liga-sotet.html" aria-current="page">
         <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div></div>
         <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Liga</span></div>
       </a>
@@ -251,111 +262,186 @@
   </aside>
 
   <!-- ══════════════════════════════════════════════════════════════
-       TARTALOM – ESEMÉNYNAPTÁR
+       TARTALOM – LIGA HUB (versenysorozat lista)
        ══════════════════════════════════════════════════════════════ -->
-  <main class="mg-content mg-content--product">
-    <div class="mg-section mg-events-page">
+  <main class="mg-content">
 
-      <!-- Breadcrumb -->
-      <nav class="mg-events-breadcrumb">
-        <a href="index-sotet.html">Főoldal</a>
-        <span class="mg-events-breadcrumb__sep">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-        </span>
-        <span>Eseménynaptár</span>
+    <!-- ── FEJLÉC ──────────────────────────────────────────────── -->
+    <section class="mg-section">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index-sotet.html">Főoldal</a></li>
+          <li class="breadcrumb-item"><a href="klub-sotet.html">Klub</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Ligák</li>
+        </ol>
       </nav>
 
-      <!-- Header -->
-      <div class="mg-events-header">
-        <h1 class="mg-events-header__title">Eseménynaptár</h1>
-        <p class="mg-events-header__desc">Versenyeink, közösségi események és asztalfoglalások egy helyen. Szűrj rendszerre, vagy kattints egy eseményre a részletekért.</p>
+      <div class="text-center mb-4">
+        <span class="mg-klub-eyebrow">Ligák &amp; versenysorozatok</span>
+        <h1 class="mg-klub-section-title">Több fordulós versenysorozataink</h1>
+        <p class="mg-klub-section-lead mx-auto">Magic, Pokémon, Yu-Gi-Oh! és más ligák futnak nálunk párhuzamosan. Válaszd ki a sorozatot, és nézd meg az aktuális állást, a fordulókat és a szabályokat.</p>
       </div>
 
-      <!-- Rendszer szűrők -->
-      <!-- BACKEND: systems foreach -->
-      <div class="mg-events-filters">
-        <span class="mg-events-filters__label">Rendszer</span>
-        <button class="mg-events-filter" data-system="magic">
-          <span class="mg-events-filter__dot" style="background: #1565C0"></span>
-          Magic
-        </button>
-        <button class="mg-events-filter" data-system="pokemon">
-          <span class="mg-events-filter__dot" style="background: #E8A517"></span>
-          Pokémon
-        </button>
-        <button class="mg-events-filter" data-system="yugioh">
-          <span class="mg-events-filter__dot" style="background: #7B1FA2"></span>
-          Yu-Gi-Oh!
-        </button>
-        <button class="mg-events-filter" data-system="wargame">
-          <span class="mg-events-filter__dot" style="background: #2E7D32"></span>
-          Wargame
-        </button>
-        <button class="mg-events-filter" data-system="boardgame">
-          <span class="mg-events-filter__dot" style="background: #D84315"></span>
-          Társasjáték
-        </button>
-        <button class="mg-events-filter" data-system="dnd">
-          <span class="mg-events-filter__dot" style="background: #C62828"></span>
-          D&amp;D
-        </button>
-        <button class="mg-events-filter" data-system="lorcana">
-          <span class="mg-events-filter__dot" style="background: #00838F"></span>
-          Lorcana
-        </button>
+      <!-- ── STÁTUSZ SZŰRŐ ────────────────────────────────────────
+           A data-filter chip a data-category kártyákat szűri (JS lent). -->
+      <ul class="nav nav-pills justify-content-center flex-wrap gap-2 mb-5" id="mg-liga-filter" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-filter="all" type="button">Összes</button></li>
+        <li class="nav-item"><button class="nav-link" data-filter="aktiv" type="button">Aktív</button></li>
+        <li class="nav-item"><button class="nav-link" data-filter="hamarosan" type="button">Hamarosan</button></li>
+        <li class="nav-item"><button class="nav-link" data-filter="lezarult" type="button">Lezárult</button></li>
+      </ul>
+    </section>
+
+    <!-- ── LIGA GRID ───────────────────────────────────────────── -->
+    <section class="mg-section pt-0">
+      <!-- BACKEND: leagues foreach — minden kártya data-category-vel (státusz) szűrhető -->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="mg-liga-grid">
+
+        <!-- Magic Standard Liga (aktív) -->
+        <div class="col d-flex mg-liga-item" data-category="aktiv">
+          <a href="liga-allasok-sotet.html" class="card h-100 w-100 text-decoration-none">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/chronicles/featured.jpg" alt="Magic Standard Liga" class="card-img-top object-fit-cover">
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-primary">Aktív</span>
+                <span class="badge rounded-pill border bg-transparent text-card">Magic</span>
+              </div>
+              <h3 class="fs-4 mb-0 text-card">Magic Standard Liga – tavaszi szezon</h3>
+              <p class="text-muted mb-0">Nyolc fordulós sorozat, 32 indulóval. Az 5. forduló után – nézd meg a ranglistát és a hátralévő fordulókat.</p>
+              <div class="progress mt-1" role="progressbar" aria-label="Szezon előrehaladás" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="height:6px;">
+                <div class="progress-bar" style="width:63%;"></div>
+              </div>
+              <span class="small text-muted">5 / 8 forduló lejátszva</span>
+              <span class="small fw-medium text-gold mt-auto pt-2">Állás megtekintése <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Magic Commander Liga (aktív) -->
+        <div class="col d-flex mg-liga-item" data-category="aktiv">
+          <a href="liga-allasok-sotet.html" class="card h-100 w-100 text-decoration-none">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/chronicles/thumb-2.png" alt="Magic Commander Liga" class="card-img-top object-fit-cover">
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-primary">Aktív</span>
+                <span class="badge rounded-pill border bg-transparent text-card">Magic</span>
+              </div>
+              <h3 class="fs-4 mb-0 text-card">Commander Liga – havi pontverseny</h3>
+              <p class="text-muted mb-0">Kötetlen, többfős Commander asztalok havonta, kumulált pontozással. A legjobb nyolc a szezonzáró döntőbe jut.</p>
+              <div class="progress mt-1" role="progressbar" aria-label="Szezon előrehaladás" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height:6px;">
+                <div class="progress-bar" style="width:50%;"></div>
+              </div>
+              <span class="small text-muted">3 / 6 forduló lejátszva</span>
+              <span class="small fw-medium text-gold mt-auto pt-2">Állás megtekintése <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Pokémon Liga (aktív) -->
+        <div class="col d-flex mg-liga-item" data-category="aktiv">
+          <a href="liga-allasok-sotet.html" class="card h-100 w-100 text-decoration-none">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/chronicles/thumb-3.jpg" alt="Pokémon Liga" class="card-img-top object-fit-cover">
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-primary">Aktív</span>
+                <span class="badge rounded-pill border bg-transparent text-card">Pokémon</span>
+              </div>
+              <h3 class="fs-4 mb-0 text-card">Pokémon Liga – kezdőbarát</h3>
+              <p class="text-muted mb-0">Folyamatos, heti pontgyűjtő liga, ahol az új játékosok is bátran nevezhetnek. Havi jutalmazással.</p>
+              <div class="progress mt-1" role="progressbar" aria-label="Szezon előrehaladás" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="height:6px;">
+                <div class="progress-bar" style="width:40%;"></div>
+              </div>
+              <span class="small text-muted">folyamatos · heti forduló</span>
+              <span class="small fw-medium text-gold mt-auto pt-2">Állás megtekintése <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Yu-Gi-Oh! Bajnokság (aktív) -->
+        <div class="col d-flex mg-liga-item" data-category="aktiv">
+          <a href="liga-allasok-sotet.html" class="card h-100 w-100 text-decoration-none">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/content%20-%20placeholder/events/hq720.jpg" alt="Yu-Gi-Oh! Bajnokság" class="card-img-top object-fit-cover">
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-primary">Aktív</span>
+                <span class="badge rounded-pill border bg-transparent text-card">Yu-Gi-Oh!</span>
+              </div>
+              <h3 class="fs-4 mb-0 text-card">Yu-Gi-Oh! klubbajnokság</h3>
+              <p class="text-muted mb-0">Tíz fordulós, egész szezonon átívelő bajnokság. Most kezdődött – még bőven van esély beérni a mezőnyt.</p>
+              <div class="progress mt-1" role="progressbar" aria-label="Szezon előrehaladás" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="height:6px;">
+                <div class="progress-bar" style="width:20%;"></div>
+              </div>
+              <span class="small text-muted">2 / 10 forduló lejátszva</span>
+              <span class="small fw-medium text-gold mt-auto pt-2">Állás megtekintése <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Lorcana Liga (hamarosan) -->
+        <div class="col d-flex mg-liga-item" data-category="hamarosan">
+          <a href="#" class="card h-100 w-100 text-decoration-none">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/content%20-%20placeholder/events/bangkok-thailand-april-13-2023-260nw-2290472761.webp" alt="Lorcana Liga" class="card-img-top object-fit-cover">
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill border bg-transparent text-card">Hamarosan</span>
+                <span class="badge rounded-pill border bg-transparent text-card">Lorcana</span>
+              </div>
+              <h3 class="fs-4 mb-0 text-card">Lorcana Liga – nyári szezon</h3>
+              <p class="text-muted mb-0">Az első Lorcana ligánk hamarosan indul. Iratkozz fel az eseménynaptárban, hogy ne maradj le a nyitányról.</p>
+              <span class="small text-muted mt-1">Indulás: 2026. július</span>
+              <span class="small fw-medium text-gold mt-auto pt-2">Értesítést kérek <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Riftbound Kupa (lezárult) -->
+        <div class="col d-flex mg-liga-item" data-category="lezarult">
+          <a href="liga-allasok-sotet.html" class="card h-100 w-100 text-decoration-none">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/chronicles/thumb-1.jpg" alt="Riftbound Kupa" class="card-img-top object-fit-cover">
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge rounded-pill text-bg-dark">Lezárult</span>
+                <span class="badge rounded-pill border bg-transparent text-card">Riftbound</span>
+              </div>
+              <h3 class="fs-4 mb-0 text-card">Riftbound Kupa – téli szezon</h3>
+              <p class="text-muted mb-0">A téli szezon lezárult, 24 indulóval. Nézd meg a végeredményt és a szezon legjobb pillanatait.</p>
+              <span class="small text-muted mt-1">Lezárult · végeredmény elérhető</span>
+              <span class="small fw-medium text-gold mt-auto pt-2">Végeredmény <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </div>
+          </a>
+        </div>
+
       </div>
 
-      <!-- FullCalendar konténer -->
-      <div id="mg-calendar"></div>
+      <!-- Üres állapot (szűrésnél, ha nincs találat) -->
+      <p class="text-center text-muted mt-5 d-none" id="mg-liga-empty">Ebben az állapotban jelenleg nincs liga – nézz vissza hamarosan!</p>
+    </section>
 
-      <!-- Legenda -->
-      <div class="mg-events-legend">
-        <div class="mg-events-legend__item"><span class="mg-events-legend__dot" style="background: #1565C0"></span> Magic</div>
-        <div class="mg-events-legend__item"><span class="mg-events-legend__dot" style="background: #E8A517"></span> Pokémon</div>
-        <div class="mg-events-legend__item"><span class="mg-events-legend__dot" style="background: #7B1FA2"></span> Yu-Gi-Oh!</div>
-        <div class="mg-events-legend__item"><span class="mg-events-legend__dot" style="background: #2E7D32"></span> Wargame</div>
-        <div class="mg-events-legend__item"><span class="mg-events-legend__dot" style="background: #D84315"></span> Társasjáték</div>
-        <div class="mg-events-legend__item"><span class="mg-events-legend__dot" style="background: #C62828"></span> D&amp;D</div>
-        <div class="mg-events-legend__item"><span class="mg-events-legend__dot" style="background: #00838F"></span> Lorcana</div>
+    <!-- ── INFÓ / CTA ──────────────────────────────────────────── -->
+    <section class="mg-section">
+      <div class="card p-4 p-lg-5 text-center">
+        <h2 class="fs-3 fw-semibold text-card mb-2">Beszállnál egy ligába?</h2>
+        <p class="text-muted mb-4 mx-auto" style="max-width:40rem;">A legtöbb ligába szezon közben is be lehet kapcsolódni. Nézd meg a közelgő fordulókat az eseménynaptárban, vagy kérdezz a klub személyzetétől.</p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <a href="events-sotet.html" class="btn btn-primary">Közelgő fordulók</a>
+          <a href="tudastar-sotet.html" class="btn btn-outline-secondary">Versenyszabályok</a>
+        </div>
       </div>
+    </section>
 
-    </div>
   </main>
-
-  <!-- ── ESEMÉNY TOOLTIP (kattintásra jelenik meg) ──────────────────
-       BS-first markup (lásd templates/event-tooltip.html). A JS-hookok
-       megmaradnak: #mg-event-tooltip, .is-visible + a 6 __* class. -->
-  <div class="mg-event-tooltip card" id="mg-event-tooltip">
-    <div class="card-body p-3">
-      <div class="d-flex align-items-center gap-2 mb-2">
-        <!-- Dinamikus rendszer-szín — a JS állítja a háttérszínt -->
-        <span class="mg-event-tooltip__dot p-1 rounded-circle flex-shrink-0"></span>
-        <h6 class="mg-event-tooltip__title fw-bold mb-0"></h6>
-      </div>
-      <div class="d-flex flex-column gap-1 small">
-        <div class="d-flex justify-content-between">
-          <span class="text-muted">Időpont</span>
-          <span class="mg-event-tooltip__time"></span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="text-muted">Helyszín</span>
-          <span class="mg-event-tooltip__location"></span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="text-muted">Férőhely</span>
-          <span class="mg-event-tooltip__slots"></span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="text-muted">Részvételi díj</span>
-          <span class="mg-event-tooltip__fee"></span>
-        </div>
-      </div>
-      <div class="mt-3 text-center">
-        <!-- BACKEND: event-detail oldal — élesben ?esemeny=ID -->
-        <a href="event-detail-sotet.html" class="btn btn-outline-secondary btn-sm w-100">Részletek &amp; nevezés</a>
-      </div>
-    </div>
-  </div>
 
   <!-- ── FOOTER ─────────────────────────────────────────────────── -->
   <footer class="mg-footer">
@@ -412,9 +498,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- FullCalendar v5 (MIT) -->
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/locales/hu.js"></script>
 <!-- Frame widget -->
 <script src="js/components/frame.js"></script>
 <script src="js/components/frame-shimmer.js"></script>
@@ -428,8 +511,6 @@
 <script src="js/components/footer.js"></script>
 <!-- Search overlay -->
 <script src="js/components/search-overlay.js"></script>
-<!-- Eseménynaptár -->
-<script src="js/components/event-calendar.js"></script>
 
 <script>
 $(function () {
@@ -439,9 +520,24 @@ $(function () {
   mgInitMobileDrawer();
   mgInitDrawer();
   mgInitFooter();
-  mgInitEventCalendar();
   $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
     mgInitSearchOverlay();
+  });
+
+  // ── Liga státusz-szűrő (statikus demo) ──
+  $('#mg-liga-filter .nav-link').on('click', function () {
+    var filter = $(this).data('filter');
+    $('#mg-liga-filter .nav-link').removeClass('active');
+    $(this).addClass('active');
+
+    var $items = $('#mg-liga-grid .mg-liga-item');
+    var visible = 0;
+    $items.each(function () {
+      var match = filter === 'all' || $(this).data('category') === filter;
+      $(this).toggleClass('d-none', !match);
+      if (match) visible++;
+    });
+    $('#mg-liga-empty').toggleClass('d-none', visible > 0);
   });
 });
 </script>

@@ -14,6 +14,10 @@
   --color-bg-card:     #3a1226;
   --color-bg-muted:    #260c1a;
   --color-bg-elevated: #4a1b33;
+  /* a telített navy (#022139) az egyetlen idegen folt maradt a bordó-
+     arany világban (09.03 este visszajelzés) → tompított, sötétebb
+     tinta-kék, ami beleül a palettába, de zóna-színnek megmarad */
+  --color-secondary:   #10202e;
 }
 
 /* Logó: enyhén tompított, hogy a sötét atmoszférába simuljon */
