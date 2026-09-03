@@ -101,3 +101,21 @@ body.mg-texture-page--gradients .mg-frame {
 .mg-chronicles__inner {
   background: linear-gradient(180deg, rgba(38, 12, 26, 0) 0%, var(--color-bg-muted) 25%);
 }
+
+/* ── Termékoldal háttérszínek (2026-09-03 visszajelzés) ─────────────
+   1. cím-sáv alig vált el a paneltől → markánsabb, világosabb bordó
+   2. a kapcsolódó-termék kártya törzse a legsötétebb színnel "leugrott"
+      → a kék zóna-szín (mint az ár-sáv és a főoldali ajánló-kártya)
+   3. galéria kis képei a nagy kép bordós gradientjét kapják */
+
+.mg-product__heading {
+  background: var(--color-bg-elevated);
+}
+
+.mg-related__card .card-body {
+  background: var(--color-secondary);
+}
+
+.mg-product__gallery-thumb {
+  background: radial-gradient(circle, var(--color-bg) 0%, var(--color-bg-card) 100%);
+}
