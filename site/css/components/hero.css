@@ -125,7 +125,6 @@
   padding: 10px 20px;
   cursor: pointer;
   transition: color var(--transition-fast);
-  margin-bottom: -1.5px;
 }
 
 .mg-hero__tab:hover {
