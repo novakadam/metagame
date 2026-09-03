@@ -563,32 +563,15 @@
   margin-bottom: 48px;
 }
 
-.mg-content::before {
-  content: '';
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 32px;
-  flex-shrink: 0;
-  background: linear-gradient(to bottom, var(--color-bg) 0%, transparent 100%);
-  z-index: 2;
-  pointer-events: none;
-  margin-bottom: -32px;
-}
-
-.mg-content::after {
-  content: '';
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 32px;
-  flex-shrink: 0;
-  background: linear-gradient(to top, var(--color-bg) 0%, transparent 100%);
-  z-index: 2;
-  pointer-events: none;
-  margin-top: -32px;
+/* Görgetés-fade fent-lent: valódi átlátszó kiúsztatás CSS mask-kal —
+   a korábbi szolid színű ::before/::after sávok a tintelt/texturált
+   háttéren éles szélű dobozt rajzoltak. A terméklistán a belső
+   .mg-product-content maszkol (ott az a görgő elem), duplázás ne legyen. */
+@media (min-width: 1025px) {
+  .mg-content:not(:has(.mg-product-layout)) {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 56px), transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 56px), transparent 100%);
+  }
 }
 
 .mg-content::-webkit-scrollbar {
