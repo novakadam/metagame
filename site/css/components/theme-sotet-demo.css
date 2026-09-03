@@ -120,8 +120,9 @@ body.mg-texture-page--gradients .mg-frame {
   gap: 0;
 }
 
+/* a kék ár-blokk közvetlenül a Változatok szekcióhoz ér (nincs csík) */
 .mg-product__price-section {
-  margin-bottom: 28px;
+  margin-bottom: 0;
 }
 
 /* Kapcsolódó termék: átlátszó törzs — csak az arany keret rajzolja ki,
