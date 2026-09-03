@@ -100,6 +100,14 @@
 
 .mg-hero__tabs {
   display: flex;
+}
+
+/* Az alsó vonalat a tabok + egy flex-kitöltő rajzolja — az aktív tab
+   alatt így valódi megszakítás van, nem háttérszínnel takarunk
+   (átlátszó aktív tab-háttérrel is működik) */
+.mg-hero__tabs::after {
+  content: '';
+  flex: 1;
   border-bottom: 1.5px solid var(--color-gold);
 }
 
@@ -107,7 +115,7 @@
   position: relative;
   background: transparent;
   border: 1.5px solid transparent;
-  border-bottom: none;
+  border-bottom: 1.5px solid var(--color-gold);
   color: var(--color-text-muted);
   font-family: var(--font-display);
   font-size: var(--font-size-sm);
@@ -127,6 +135,7 @@
 .mg-hero__tab--active {
   color: var(--color-gold);
   border-color: var(--color-gold);
+  border-bottom-color: transparent;
   background: var(--color-bg);
 }
 

@@ -207,11 +207,9 @@
 
 /* ══ TABLET ═════════════════════════════════════════════════════════ */
 
-@media (max-width: 1200px) {
-  .mg-about__frame {
-    padding: 64px 48px;
-  }
-
+/* 1400 alatt már nem fér el a két kártya egymás mellett (a klub
+   szöveg-hasábja ~150px-re préselődött 1200–1400 közt) → egymás alá */
+@media (max-width: 1399.98px) {
   .mg-about-card--bolt {
     max-width: none;
     flex-basis: 100%;
@@ -225,6 +223,12 @@
   .mg-about-card--klub .mg-about-card__image {
     flex: 0 0 280px;
     max-width: 280px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .mg-about__frame {
+    padding: 64px 48px;
   }
 }
 

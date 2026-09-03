@@ -83,7 +83,9 @@
 
 .mg-section-header__label {
   position: relative;
-  background: var(--color-bg);
+  /* a kitöltést a ::after adja (vágott sarkokkal) — az alap négyszög
+     háttere tintelt/texturált oldalon sarok-háromszögként kilógna */
+  background: transparent;
   padding: 8px 20px;
   font-family: 'Playfair Display SC', var(--font-display);
   font-weight: 700;
@@ -165,30 +167,12 @@
   padding: 12px 40px 6px;
 }
 
-/* Bal-jobb fade maszkkal */
-.mg-systems-carousel::before,
-.mg-systems-carousel::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 40px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.mg-systems-carousel::before {
-  left: 0;
-  background: linear-gradient(to right, var(--color-bg), transparent);
-}
-
-.mg-systems-carousel::after {
-  right: 0;
-  background: linear-gradient(to left, var(--color-bg), transparent);
-}
-
+/* Bal-jobb kiúsztatás: valódi átlátszó fade CSS mask-kal — a szolid
+   gradient-overlay a tintelt/texturált háttéren doboznak látszott */
 .mg-brand-cards-wrap {
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
 }
 
 .mg-brand-cards {
