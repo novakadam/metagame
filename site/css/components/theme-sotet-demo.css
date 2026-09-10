@@ -154,6 +154,22 @@ body.mg-texture-page--gradients .mg-frame {
 }
 
 
+/* ── PRÓBA (09.10): színes pixel-art kategória-ikon a Wargame helyén
+   (assets/images/wargame-icon.png) — bal nav + mobil menü ── */
+.mg-nav-item__img {
+  display: block;
+  width: 88%;
+  height: auto;
+}
+
+.mg-mobile-menu__item[data-category="Wargame"] .mg-mobile-menu__item-icon {
+  background: url("../../../assets/images/wargame-icon.png") center / 30px auto no-repeat, var(--color-bg-card);
+}
+
+.mg-mobile-menu__item[data-category="Wargame"] .mg-mobile-menu__item-icon svg {
+  display: none;
+}
+
 /* ── MOBIL HÁTTÉR (09.03 meeting): a bordós átmenet mobilon teljesen
    eltűnt (a frame alsó sarkaira pozicionált körök a dokumentum aljára
    kerültek) → viewport-hoz rögzített derengés a body::before-on, a
