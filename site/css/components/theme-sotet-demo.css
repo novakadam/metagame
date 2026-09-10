@@ -157,11 +157,23 @@ body.mg-texture-page--gradients .mg-frame {
 /* ── MOBIL HÁTTÉR (09.03 meeting): a bordós átmenet mobilon teljesen
    eltűnt (a frame alsó sarkaira pozicionált körök a dokumentum aljára
    kerültek) → viewport-hoz rögzített derengés a body::before-on, a
-   frame háttere átengedi ── */
+   frame háttere átengedi.
+   09.10: a derengés eddig NEM látszott — a z-index:-1-es ::before a
+   body saját, átlátszatlan háttere ALÁ került → a body átlátszó (a
+   Safari-gumiszalaghoz a html háttere elég). + középre egy lilás
+   szilva-folt, hogy a keret belseje se legyen lapos fekete.
+   A rétegek bal/felső sarokból, vw/vh-ban pozicionálva: így a fix
+   fejléc-sáv (.mg-content::before) ugyanazzal a változóval pixelre
+   ugyanazt festi, mint a teljes képernyős réteg. ── */
 @media (max-width: 1024px) {
   body.mg-texture-page,
   body.mg-texture-page--gradients {
-    background-color: var(--color-bg);
+    background-color: transparent;
+    --mg-sotet-glow:
+      radial-gradient(ellipse closest-side at center, rgba(133, 8, 48, 0.62) 0%, transparent 100%) left 15vw top 35vh / 130vw 100vh no-repeat,
+      radial-gradient(ellipse closest-side at center, rgba(133, 8, 48, 0.42) 0%, transparent 100%) left -55vw top -25vh / 120vw 85vh no-repeat,
+      radial-gradient(ellipse closest-side at center, rgba(84, 22, 66, 0.5) 0%, transparent 100%) left -20vw top 5vh / 140vw 90vh no-repeat,
+      var(--color-bg);
   }
 
   body.mg-texture-page::before,
@@ -170,22 +182,48 @@ body.mg-texture-page--gradients .mg-frame {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background-color: var(--color-bg);
-    background-image:
-      radial-gradient(ellipse closest-side at center, rgba(133, 8, 48, 0.62) 0%, transparent 100%),
-      radial-gradient(ellipse closest-side at center, rgba(133, 8, 48, 0.42) 0%, transparent 100%);
-    background-repeat: no-repeat;
-    background-position:
-      right -45vw bottom -35vh,
-      left -55vw top -25vh;
-    background-size:
-      130vw 100vh,
-      120vw 85vh;
+    background: var(--mg-sotet-glow);
   }
 
   body.mg-texture-page .mg-frame,
   body.mg-texture-page--gradients .mg-frame {
     background-color: transparent;
     background-image: none;
+  }
+
+  /* Fejléc alatti takaró-sáv: szolid szín helyett ugyanaz a derengés,
+     mask-kal kiúsztatva (különben sötét csík a képernyő tetején) */
+  body.mg-texture-page .mg-content::before,
+  body.mg-texture-page--gradients .mg-content::before {
+    background: var(--mg-sotet-glow);
+    -webkit-mask-image: linear-gradient(to bottom, #000 48%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 48%, transparent 100%);
+  }
+}
+
+/* ── MOBIL HERO: a szolid háttérszínű elemek a derengésen dobozként
+   ültek → átlátszó / mask ── */
+@media (max-width: 768px) {
+  /* Logó a hero felső vonalán: nincs doboz, a vonal a logó szélességében
+     (266px) mask-kal szakad meg */
+  .mg-hero__logo-header {
+    background: transparent;
+  }
+
+  .mg-hero__frame::before {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(50% - 133px), transparent calc(50% - 133px), transparent calc(50% + 133px), #000 calc(50% + 133px));
+            mask-image: linear-gradient(to right, #000 calc(50% - 133px), transparent calc(50% - 133px), transparent calc(50% + 133px), #000 calc(50% + 133px));
+  }
+
+  /* Szélső kártyák kiúsztatása: szolid fade-sávok helyett mask
+     (a nyilak a carouselben ülnek, nem a wrapben → nem halványulnak) */
+  .mg-hero__carousel::before,
+  .mg-hero__carousel::after {
+    display: none;
+  }
+
+  .mg-hero__cards-wrap {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
   }
 }
