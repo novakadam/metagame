@@ -173,7 +173,7 @@ section{{display:grid;gap:20px}}
 </style>
 <div class="wrap">
 <header>
-  <span class="eyebrow">Metagame · ikonok · 5. kör</span>
+  <span class="eyebrow">Metagame · ikonok · 6. kör (09.22)</span>
   <h1>Piktogramok Andris vázlatai alapján</h1>
   <p>Egységes vonalas készlet: 24 × 24-es rács, lekerekített vonalvégek, <code>currentColor</code>. Az ikonok az oldal szövegszínét öröklik, így ugyanaz a fájl fehér a lila háttéren és arany a keretben.</p>
   <div class="controls">
