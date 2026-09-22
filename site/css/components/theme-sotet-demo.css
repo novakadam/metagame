@@ -250,18 +250,3 @@ body.mg-texture-page--gradients .mg-frame {
   width: 26px;
   height: 26px;
 }
-
-/* Sarokdísz-próba: apró arany dísz a kör és a rombusz csúcsai között
-   (fent, lent, balra — jobbra a felirat-sáv van). Andrisnak tetszett,
-   élőben kell eldönteni, nem sok-e. */
-.mg-nav-item__circle::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 58px;
-  height: 58px;
-  transform: translate(-50%, -50%);
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2058%2058%22%3E%3Cg%20transform%3D%22rotate%280%2029%2029%29%22%3E%3Cpath%20d%3D%22M29%208.399999999999999V6.199999999999999%22%20stroke%3D%22%23B38A24%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M27.8%208.600000000000001Q29%207.399999999999999%2030.2%208.600000000000001%22%20fill%3D%22none%22%20stroke%3D%22%23B38A24%22%20stroke-width%3D%22.9%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M29%202.6000000000000014L29.95%203.6999999999999993L29%204.800000000000001L28.05%203.6999999999999993Z%22%20fill%3D%22%23DAA415%22/%3E%3C/g%3E%3Cg%20transform%3D%22rotate%28180%2029%2029%29%22%3E%3Cpath%20d%3D%22M29%208.399999999999999V6.199999999999999%22%20stroke%3D%22%23B38A24%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M27.8%208.600000000000001Q29%207.399999999999999%2030.2%208.600000000000001%22%20fill%3D%22none%22%20stroke%3D%22%23B38A24%22%20stroke-width%3D%22.9%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M29%202.6000000000000014L29.95%203.6999999999999993L29%204.800000000000001L28.05%203.6999999999999993Z%22%20fill%3D%22%23DAA415%22/%3E%3C/g%3E%3Cg%20transform%3D%22rotate%28270%2029%2029%29%22%3E%3Cpath%20d%3D%22M29%208.399999999999999V6.199999999999999%22%20stroke%3D%22%23B38A24%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M27.8%208.600000000000001Q29%207.399999999999999%2030.2%208.600000000000001%22%20fill%3D%22none%22%20stroke%3D%22%23B38A24%22%20stroke-width%3D%22.9%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M29%202.6000000000000014L29.95%203.6999999999999993L29%204.800000000000001L28.05%203.6999999999999993Z%22%20fill%3D%22%23DAA415%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
-  pointer-events: none;
-}
