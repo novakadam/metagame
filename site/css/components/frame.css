@@ -296,7 +296,9 @@
   position: absolute;
   inset: 0;
   background: var(--color-gold);
-  clip-path: polygon(50.6% 0%, 80% 29.4%, 80% 70.6%, 50.6% 100%, 0% 50.6%);
+  /* a jobb vágás (77.4%) pont ott van, ahol a 45°-os él eléri a sáv
+     felső/alsó keretét (sáv: y 20–22 px) — 80%-nál 2 px arany fog lógott be */
+  clip-path: polygon(50.6% 0%, 77.4% 26.8%, 77.4% 73.2%, 50.6% 100%, 0% 50.6%);
 }
 
 .mg-nav-item__diamond::after {
@@ -304,7 +306,7 @@
   position: absolute;
   inset: 0;
   background: var(--color-bg);
-  clip-path: polygon(50.6% 3.5%, 80% 31.8%, 80% 68.2%, 50.6% 96.5%, 3.5% 50.6%);
+  clip-path: polygon(50.6% 3.5%, 77.4% 29.3%, 77.4% 70.7%, 50.6% 96.5%, 3.5% 50.6%);
   transition: background var(--transition-fast);
 }
 
