@@ -265,15 +265,9 @@ def figure():
 
 
 def helmet():
-    # 09.17: Wargame — Andris Space Marine-sisak referenciája (kapott/wargame-clipart1852711.png)
-    # alapján kézzel, szimmetrikusan: taraj, dóm, vállvért-kiszélesedés, két ferde szemlencse,
-    # háromszög szájrács. A bolter kicsiben olvashatatlan volt.
-    d = ("M9.4 2.5H14.6Q15.2 2.5 15.2 3.1V4C17.7 4.6 19.4 6.5 19.9 8.6V10.8L21.3 11.7Q22 12.1 22 12.9"
-         "V16.7Q22 17.5 21.3 18L18.3 20.5Q17.8 20.9 17.2 21L12 21.5L6.8 21Q6.2 20.9 5.7 20.5L2.7 18"
-         "Q2 17.5 2 16.7V12.9Q2 12.1 2.7 11.7L4.1 10.8V8.6C4.6 6.5 6.3 4.6 8.8 4V3.1Q8.8 2.5 9.4 2.5Z"
-         "M13.1 12.1L18.7 10.9Q18.1 12.7 15.6 13.1Q14 13.3 13.1 12.1Z"
-         "M10.9 12.1L5.3 10.9Q5.9 12.7 8.4 13.1Q10 13.3 10.9 12.1Z"
-         "M12 14.2C13.3 14.2 14.7 16.9 14.9 19.3H9.1C9.3 16.9 10.7 14.2 12 14.2Z")
+    # 09.17: Wargame — Andris Space Marine-sisak referenciája alapján kézzel,
+    # szimmetrikusan. 09.24: karcsúbb arc, kevésbé kerek vállvért.
+    d = ("M9.6 2.5H14.4Q15 2.5 15 3.1V4.1C17.1 4.8 18.6 6.6 19 8.8V11L20.2 11.9Q20.8 12.3 20.8 13V16.6Q20.8 17.3 20.2 17.8L17.6 20.3Q17.2 20.7 16.6 20.8L12 21.4L7.4 20.8Q6.8 20.7 6.4 20.3L3.8 17.8Q3.2 17.3 3.2 16.6V13Q3.2 12.3 3.8 11.9L5 11V8.8C5.4 6.6 6.9 4.8 9 4.1V3.1Q9 2.5 9.6 2.5ZM13 12.2L17.9 11.1Q17.3 12.8 15.2 13.2Q13.8 13.4 13 12.2ZM11 12.2L6.1 11.1Q6.7 12.8 8.8 13.2Q10.2 13.4 11 12.2ZM12 14.4C13.2 14.4 14.4 16.9 14.6 19.2H9.4C9.6 16.9 10.8 14.4 12 14.4Z")
     write("mg-icon-sisak", f'<path d="{d}"/>')
 
 
