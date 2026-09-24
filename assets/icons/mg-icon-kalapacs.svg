@@ -1,4 +1,4 @@
 <!-- mg-icon-kalapacs.svg – Wargame alternatíva: csatakalapács.
-     Andris ghalmaraz.jpg vázlata alapján kézzel. 09.24: a szár és a gomb tömör
-     vastag vonal, kontúr nélkül, így kicsiben sem lyukas. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.8 3.8H4.4A.6.6 0 0 0 3.8 4.4V9.6A.6.6 0 0 0 4.4 10.2H9.8Z"/><path d="M14.2 3.8C17.2 4.3 19.6 5.8 21 8.2C19.2 9.4 16.8 10.1 14.2 10.2Z"/><path d="M9.8 3.2H14.2V10.8H9.8Z"/><path d="M12 10.8V19.4" stroke-width="2.6"/><path d="M12 20.9V21" stroke-width="4" stroke-linecap="round"/></svg>
+     Andris ghalmaraz.jpg vázlata alapján kézzel: nagyobb fej, lefelé ívelő csőr,
+     egyetlen szorítógyűrű a markolaton (kettő kicsiben létraszerűen összefolyt). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.8 3.8H4.4A.6.6 0 0 0 3.8 4.4V9.6A.6.6 0 0 0 4.4 10.2H9.8Z"/><path d="M14.2 3.8C17.2 4.3 19.6 5.8 21 8.2C19.2 9.4 16.8 10.1 14.2 10.2Z"/><path d="M9.8 3.2H14.2V10.8H9.8Z"/><path d="M11.1 10.8V19.6M12.9 10.8V19.6"/><path d="M10.5 14.8H13.5"/><path d="M10.3 19.6H13.7V21.4H10.3Z"/></svg>
