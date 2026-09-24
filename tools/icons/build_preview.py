@@ -34,12 +34,12 @@ def badge(name):
 
 CATS = [
     ("kartya", "TCG"), ("tarsas", "Társasjáték"), ("gyujtheto", "Gyűjthető kártya"),
-    ("kocka", "Kiegészítők"), ("d20", "Szerepjátékok"), ("sisak", "Wargame"),
+    ("kocka", "Kiegészítők"), ("d20", "Szerepjátékok"), ("sisak", "Wargame — sisak"), ("ork", "Wargame — ork koponya"), ("kalapacs", "Wargame — csatakalapács"),
     ("ecset", "Modellezés"), ("figura", "Figurák"),
     ("kardok", "Események"), ("klub", "Klub"), ("tudastar", "Tudástár"), ("trofea", "Liga"),
     ("singles", "Singles"), ("galeria", "Galéria"),
 ]
-SHOP_N = 8  # az első 8 a Shop blokk, a többi a Közösség
+SHOP_N = 10  # az első 8 a Shop blokk, a többi a Közösség
 
 SET = [
     ("kartya", "Kártyák"), ("kocka", "Dobókocka"), ("kategoriak", "Kategóriák"), ("festek", "Festék"),
@@ -87,7 +87,9 @@ def navrow(items):
 nav = (f'<div class="navgrp"><span class="navh">Shop</span><ul class="nav">{navrow(CATS[:SHOP_N])}</ul></div>'
        f'<div class="navgrp"><span class="navh">Közösség</span><ul class="nav">{navrow(CATS[SHOP_N:])}</ul></div>')
 
-page = f'''<title>Metagame piktogramok</title>
+page = f'''<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metagame piktogramok</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display+SC:wght@700&family=Playfair+Display:wght@600;700&display=swap">
 <style>
@@ -188,7 +190,7 @@ section{{display:grid;gap:20px}}
 </header>
 
 <section>
-  <div class="sec-h"><span>Főmenü</span><h2>A 14 főmenüpont ikonja, valós méretben</h2></div>
+  <div class="sec-h"><span>Főmenü</span><h2>A főmenüpontok ikonjai, valós méretben (a Wargame-nél három jelölt)</h2></div>
   <div class="cats">{"".join(cards)}</div>
   {nav}
 </section>
