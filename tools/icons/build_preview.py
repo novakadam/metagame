@@ -43,7 +43,7 @@ SHOP_N = 8  # az első 8 a Shop blokk, a többi a Közösség
 
 SET = [
     ("kartya", "Kártyák"), ("kocka", "Dobókocka"), ("kategoriak", "Kategóriák"), ("festek", "Festék"),
-    ("pajzs", "Pajzs"), ("kard", "Kard"), ("ecset", "Ecset"), ("bolter", "Bolter"), ("sisak", "Sisak"),
+    ("pajzs", "Pajzs"), ("kard", "Kard"), ("ecset", "Ecset"), ("bolter", "Bolter"), ("sisak", "Sisak"), ("ork", "Ork koponya"), ("kalapacs", "Csatakalapács"),
     ("tarsas", "Társasjáték"), ("d20", "D20"), ("lada", "Kincsesláda"), ("kosar", "Kosár"),
     ("profil", "Profil"), ("kereses", "Keresés"), ("kedvenc", "Kedvencek"), ("ajandek", "Ajándék"),
     ("cimke", "Címke"), ("akcio", "Akció"), ("naptar", "Naptár"), ("trofea", "Trófea"),
@@ -173,7 +173,7 @@ section{{display:grid;gap:20px}}
 </style>
 <div class="wrap">
 <header>
-  <span class="eyebrow">Metagame · ikonok · 6. kör (09.22)</span>
+  <span class="eyebrow">Metagame · ikonok · 7. kör (09.24)</span>
   <h1>Piktogramok Andris vázlatai alapján</h1>
   <p>Egységes vonalas készlet: 24 × 24-es rács, lekerekített vonalvégek, <code>currentColor</code>. Az ikonok az oldal szövegszínét öröklik, így ugyanaz a fájl fehér a lila háttéren és arany a keretben.</p>
   <div class="controls">
