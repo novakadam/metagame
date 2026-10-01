@@ -291,6 +291,17 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
 .optin p { margin: 0; font-size: 14px; max-width: 38ch; }
 .optin p b { display: block; }
 .optin .ebtn { padding: 10px 14px; font-size: 13px; }
+.sgrid { display: grid; gap: 14px; }
+[data-s][hidden] { display: none !important; }
+.sblk h3 { margin: 0 0 12px; font: 700 20px/1.2 var(--f-display); color: var(--e-text); }
+.sblk p { margin: 0; font-size: 14px; }
+.sblk p + p { margin-top: 6px; color: var(--e-muted); }
+.sblk .facts { margin-top: 4px; }
+.sblk .optin { margin-top: 16px; }
+.sblk a:not(.ebtn) { color: var(--e-gold); }
+.sblk code { font: 500 12px var(--f-mono); color: var(--e-text); word-break: break-all; }
+.sblk .bigdate { margin: 0 0 14px; font-size: 34px; }
+.rules { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 14px; }
 .bigdate { font: 700 26px/1.15 var(--f-display); color: var(--e-gold); margin: 2px 0 0; }
 .ship h3 { margin: 0; font: 700 18px/1.25 var(--f-display); }
 .ship p { margin: 2px 0 0; font-size: 14px; color: var(--e-muted); }
@@ -327,9 +338,10 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
 
 <div class="page">
   <header class="intro">
-    <span class="eyebrow">Metagame · rendelési levelek · koncepció, 1. kör</span>
+    <span class="eyebrow">Metagame · rendszerlevelek · koncepció, 2. kör</span>
     <h1>Rendelési levelek, újragondolva</h1>
     <p>Csaba két mintalevele és a 09.10-i megbeszélés alapján, kiegészítve a feltételezett és javasolt levelekkel. A fenti kapcsolókkal átválthatod az átvételi helyet, a fizetési módot és a témát. A levél csak a választott helyhez és fizetéshez tartozó szöveget mutatja. A tételek példa-adatok.</p>
+    <p>A második sorban a rendelésen kívüli rövid értesítők vannak (Csaba 10.01-i listája): ez egy közös sablon, a gombokkal a változatai válthatók, példa-szöveggel. Minden levél tárgyában ott a „Metagame Kártya”.</p>
   </header>
 
   <div class="toolbar" role="group" aria-label="Nézet beállítások">
@@ -343,6 +355,14 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
         <button type="button" id="b-mail-shipped" data-val="shipped"><i class="sd sd--known"></i>Úton a csomag</button>
         <button type="button" id="b-mail-invoice" data-val="invoice"><i class="sd sd--idea"></i>Számla</button>
         <button type="button" id="b-mail-cancel" data-val="cancel"><i class="sd sd--known"></i>Törölve</button>
+      </div></div>
+    <div class="ctl ctl--mail"><span>Rövid értesítők · egy közös sablon, változatokkal</span>
+      <div class="seg seg--wrap" data-key="mail">
+        <button type="button" id="b-mail-reg" data-val="n-reg"><i class="sd sd--known"></i>Regisztráció megerősítése</button>
+        <button type="button" id="b-mail-stock" data-val="n-stock"><i class="sd sd--known"></i>Készletértesítő</button>
+        <button type="button" id="b-mail-event" data-val="n-event"><i class="sd sd--known"></i>Holnapi esemény</button>
+        <button type="button" id="b-mail-credit" data-val="n-credit"><i class="sd sd--known"></i>Kredit jóváírva</button>
+        <button type="button" id="b-mail-creditexp" data-val="n-creditexp"><i class="sd sd--known"></i>Kredit lejár</button>
       </div></div>
     <div class="ctl"><span>Átvétel</span>
       <div class="seg" data-key="loc">
@@ -360,6 +380,13 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
       <div class="seg" data-key="reason">
         <button type="button" id="b-rs-exp" data-val="expired">Lejárt az átvétel</button>
         <button type="button" id="b-rs-man" data-val="manual">Kézi törlés</button>
+        <button type="button" id="b-rs-com" data-val="common">Közös szöveg</button>
+      </div></div>
+    <div class="ctl"><span>Foglalás</span>
+      <div class="seg" data-key="evt">
+        <button type="button" id="b-evt-ev" data-val="event">Esemény</button>
+        <button type="button" id="b-evt-tb" data-val="table">Asztal</button>
+        <button type="button" id="b-evt-both" data-val="both">Mindkettő</button>
       </div></div>
     <div class="ctl"><span>Levél témája</span>
       <div class="seg" data-key="theme">
@@ -622,7 +649,7 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
               </div>
               <div class="em__body">
                 <div class="trk" data-trk="2" aria-label="Rendelés állapota"></div>
-                <h1 class="em__title">Még 2 napig várunk rád</h1>
+                <h1 class="em__title">Még 3 napig várunk rád</h1>
                 <p class="em__lead">A rendelésed még mindig a <b data-loc-name></b> pultjánál vár. Ha addig nem jutsz el, visszakerül a polcra.</p>
                 <div class="blk" data-note="2">
                   <p class="blk__lbl">Utolsó nap</p>
@@ -643,6 +670,12 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
                   <div class="items" data-var="order.items[]" data-items="Átvételre összekészítve"></div>
                   <div class="sum"><span>Összesen</span><b data-var="order.total">12 970 Ft</b></div>
                 </div>
+                <dl class="facts" data-note="6">
+                  <div><dt>Rendelésszám</dt><dd data-var="order.id">#292895</dd></div>
+                  <div><dt>Leadva</dt><dd data-var="order.createdAt">2026. 07. 27. 11:50</dd></div>
+                  <div><dt>Átvétel módja</dt><dd>Személyes átvétel</dd></div>
+                  <div><dt>Fizetés</dt><dd data-var="order.paymentMethod" data-pay-short></dd></div>
+                </dl>
               </div>
               <footer class="em__foot">
                 <nav><a href="#">Webshop</a><a href="#">Eseménynaptár</a><a href="#">Klub</a><a href="#">GYIK</a></nav>
@@ -785,6 +818,36 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
             </div>
           </article>
 
+          <!-- ═══ KÖZÖS SABLON: RÖVID ÉRTESÍTŐK (változatok a JS-ben: SHORT) ═══ -->
+          <article class="em" data-mail="short" hidden>
+            <div class="em__box">
+              <div class="em__head" data-note="2">
+                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMzE1LjY1IDg3Ljg5Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzNjMGUyYzt9LmNscy0ye2ZpbGw6dXJsKCNsaW5lYXItZ3JhZGllbnQpO30uY2xzLTN7ZmlsbDojZmZmO30uY2xzLTR7ZmlsbDojYjI4YjJlO308L3N0eWxlPjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMi44MSIgeTE9Ii00NjY4LjA3IiB4Mj0iNzIuNCIgeTI9Ii00NjYxLjIyIiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTQ2MjAuNjM3NCkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9Ii4yNCIgc3RvcC1jb2xvcj0iIzNjMGYyYyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2I0MWU0MCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJtYXN6ayI+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNTguOCwyNy40NXYuOTFjLS45Mi4wMy0xLjYzLjE1LTIuMTIuMzYtLjQ2LjE4LS43Ny41NC0uOTIsMS4wOS0uMTUuNTEtLjIzLDEuMzMtLjIzLDIuNDV2MjIuNDljMCwxLjA5LjA4LDEuOS4yMywyLjQ1LjE4LjU0LjUxLjkxLjk3LDEuMDkuNDYuMTgsMS4xNS4zLDIuMDcuMzZ2LjkxYy0uOTUtLjA2LTIuMTctLjA5LTMuNjQtLjA5LTEuNDctLjAzLTIuOTgtLjA1LTQuNTItLjA1LTEuNjYsMC0zLjIzLjAyLTQuNy4wNS0xLjQ0LDAtMi42MS4wMy0zLjUuMDl2LS45MWMxLjA0LS4wNiwxLjgzLS4xOCwyLjM1LS4zNi41NS0uMTguOTItLjU0LDEuMTEtMS4wOS4xOC0uNTQuMjgtMS4zNi4yOC0yLjQ1di0yNC4yNmwuNDYtLjA5LTExLjU3LDI5LjEyaC0uNzRsLTEyLjk5LTI5LjEydjIwLjI3YzAsMi4wMy4wOCwzLjU4LjIzLDQuNjcuMTgsMS4wNi42LDEuODMsMS4yNCwyLjMxLjY4LjQ1LDEuNzQuNzksMy4xOCwxdi45MWMtLjYxLS4wNi0xLjQxLS4wOS0yLjQtLjA5LS45OC0uMDMtMS45LS4wNS0yLjc2LS4wNS0uNjgsMC0xLjM3LjAyLTIuMDcuMDUtLjcxLDAtMS4yOS4wMy0xLjc1LjA5di0uOTFjLjk1LS4yMSwxLjY2LS41MywyLjEyLS45NS40Ni0uNDUuNzctMS4xNi45Mi0yLjEzLjE1LS45Ny4yMy0yLjMuMjMtMy45OXYtMTkuMzJjMC0xLjEyLS4wOC0xLjk0LS4yMy0yLjQ1LS4xNS0uNTQtLjQ4LS45MS0uOTctMS4wOS0uNDYtLjIxLTEuMTUtLjMzLTIuMDctLjM2di0uOTFjLjQ2LjAzLDEuMDQuMDYsMS43NS4wOS43MS4wMywxLjQuMDUsMi4wNy4wNSwxLjc4LDAsMy40OS0uMDIsNS4xMS0uMDUsMS42My0uMDMsMy4xLS4wNiw0LjQyLS4wOWw5LjEyLDIwLjIzLTEuMzgsMS41LDguNTItMjEuNTloNC4wMWMxLjU0LDAsMy4wNC0uMDIsNC41Mi0uMDUsMS40Ny0uMDMsMi42OS0uMDYsMy42NC0uMDlaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzA3LjQ4LDIwLjQ0Yy0uMTktLjItLjU3LS4zNi0uODUtLjM2SDczLjk4Yy0uMjcsMC0uNy0uMTEtLjkzLS4yNUwzOC43Ny4xYy0uMjQtLjE0LS42My0uMTQtLjg3LDBMLjUsMjEuN2MtLjI0LjE0LS40My40OC0uNDMuNzVMMCw2NS41NGMwLC4yNy4xOS42MS40My43NWwzNy4zNSwyMS40OWMuMjQuMTQuNjMuMTQuODcsMGwyOS43NS0xNy4xOGMuMjQtLjE0LjY2LS4yNS45My0uMjVoMjM5Ljg4Yy4yNywwLC42NS0uMTYuODQtLjM3bDUuMjYtNS42MmMuMTktLjIuMzQtLjU5LjM0LS44N1YyOS40OWMwLS4yNy0uMTYtLjY2LS4zNS0uODZsLTcuODItOC4xOVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMy4zNiwxOC4xOGM5LjIzLTUuMzEsMjAuNjEtNS4zMSwyOS44NCwwLDkuMjMsNS4zMSwxNC45MiwxNS4xMywxNC45MiwyNS43NnMtNS42OSwyMC40NC0xNC45MiwyNS43NmMtOS4yMyw1LjMxLTIwLjYxLDUuMzEtMjkuODQsMC05LjIzLTUuMzEtMTQuOTItMTUuMTMtMTQuOTItMjUuNzZzNS42OS0yMC40NCwxNC45Mi0yNS43NloiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Ik0zOC4yOCwxNC4yYzUuMTUsMCwxMC4zLDEuMzMsMTQuOTIsMy45OCw5LjIzLDUuMzEsMTQuOTIsMTUuMTMsMTQuOTIsMjUuNzZzLTUuNjksMjAuNDQtMTQuOTIsMjUuNzZjLTQuNjIsMi42Ni05Ljc3LDMuOTgtMTQuOTIsMy45OHMtMTAuMy0xLjMzLTE0LjkyLTMuOThjLTkuMjMtNS4zMS0xNC45Mi0xNS4xMy0xNC45Mi0yNS43NnM1LjY5LTIwLjQ0LDE0LjkyLTI1Ljc2YzQuNjItMi42Niw5Ljc3LTMuOTgsMTQuOTItMy45OE0zOC4yOCwxMi4yYy01LjU4LDAtMTEuMDgsMS40Ny0xNS45Miw0LjI1LTQuODMsMi43OC04Ljg2LDYuOC0xMS42NSwxMS42Mi0yLjc5LDQuODItNC4yNywxMC4zMS00LjI3LDE1Ljg3czEuNDgsMTEuMDUsNC4yNywxNS44N2MyLjc5LDQuODIsNi44Miw4LjgzLDExLjY1LDExLjYyLDQuODMsMi43OCwxMC4zNCw0LjI1LDE1LjkyLDQuMjVzMTEuMDgtMS40NywxNS45Mi00LjI1YzQuODMtMi43OCw4Ljg2LTYuOCwxMS42NS0xMS42MiwyLjc5LTQuODIsNC4yNy0xMC4zMSw0LjI3LTE1Ljg3cy0xLjQ4LTExLjA1LTQuMjctMTUuODdjLTIuNzktNC44Mi02LjgyLTguODMtMTEuNjUtMTEuNjItNC44My0yLjc4LTEwLjM0LTQuMjUtMTUuOTItNC4yNWgwWiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTMxLjQ3LDI4LjgzbDcuNjgsMTcuMzYsNi45MS0xNy4yM2g0LjExYzMuOTcsMCw3LjYzLS4xMSw4LjA3LS4xM3YuODVjLS44Ny4wMy0xLjUzLjE0LTIsLjM0LS40My4xNy0uNzIuNTEtLjg3LDEuMDItLjE0LjQ4LS4yMiwxLjI1LS4yMiwyLjMxdjIxLjE4YzAsMS4wMi4wNywxLjc5LjIyLDIuMzEuMTcuNTEuNDguODUuOTEsMS4wMi40My4xNywxLjA4LjI4LDEuOTUuMzR2Ljg1Yy0uOS0uMDYtMi4wNC0uMDktMy40My0uMDktMS4zOS0uMDMtMi44MS0uMDQtNC4yNS0uMDQtMS41NiwwLTMuMDQuMDEtNC40My4wNC0xLjM2LDAtMi40Ni4wMy0zLjMuMDl2LS44NWMuOTgtLjA2LDEuNzItLjE3LDIuMjEtLjM0LjUyLS4xNy44Ny0uNTEsMS4wNC0xLjAyLjE3LS41MS4yNi0xLjI4LjI2LTIuMzF2LTIxLjg0bC0xMC40NiwyNi4zMmgtLjY5bC0xMi4yNC0yNy40MnYxOS4wOWMwLDEuOTEuMDcsMy4zNy4yMiw0LjQuMTcsMSwuNTYsMS43MiwxLjE3LDIuMTguNjQuNDMsMS42My43NCwyLjk5Ljk0di44NWMtLjU4LS4wNi0xLjMzLS4wOS0yLjI2LS4wOS0uOTMtLjAzLTEuNzktLjA0LTIuNi0uMDQtLjY0LDAtMS44Ni4wMS0yLjUzLjA0LS42NywwLTEuMjEuMDMtMS42NS4wOXYtLjg1Yy45LS4yLDEuNTYtLjUsMi0uOS40My0uNDMuNzItMS4xLjg3LTIuMDFzLjIyLTIuMTYuMjItMy43NnYtMTguMTljMC0xLjA1LS4wNy0xLjgyLS4yMi0yLjMxLS4xNC0uNTEtLjQ1LS44NS0uOTEtMS4wMi0uNDMtLjItMS4wOC0uMzEtMS45NS0uMzR2LS44NWMyLjMyLjE1LDUuMDEuMTYsOC4xNi4wOS42NS0uMDEsNS0uMDksNS0uMDlaIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNOTcuOSw1OC44Yy0xLjgzLS4wOC00LjkyLS4xMy05LjI2LS4xMy02LjIsMC0xMC44NS4wNC0xMy45NS4xM3YtLjg1Yy45LS4wNiwxLjU2LS4xNywxLjk3LS4zNC40MS0uMTcuNjgtLjQ5LjgyLS45Ny4xNC0uNDguMjEtMS4yNS4yMS0yLjMzdi0xNi43NGMwLTEuMDctLjA4LTEuODUtLjIzLTIuMzMtLjE2LS40OC0uNDMtLjgtLjgyLS45Ny0uNC0uMTctMS4wNC0uMjgtMS45NC0uMzR2LS44NWMzLjEuMDgsNy43NS4xMywxMy45NS4xMywzLjk0LDAsNi43NS0uMDQsOC40MS0uMTMtLjIsMi0uMywzLjgtLjMsNS40MSwwLDEuMS4wNCwxLjk3LjEzLDIuNjJoLS45N2MtLjU2LTIuNTEtMS40Ni00LjMxLTIuNjgtNS40MS0xLjIzLTEuMS0yLjc4LTEuNjUtNC42Ny0xLjY1aC0uNTVjLS43OSwwLTEuMzUuMTQtMS42Ny40Mi0uMzIuMjgtLjQ5Ljg5LS40OSwxLjgydjkuMTNoLjk3YzEuMzUsMCwyLjQzLS40OSwzLjIzLTEuNDZzMS4zMi0yLjA2LDEuNTQtMy4yOGguOTdjLS4wOC45Ni0uMTMsMi4wOC0uMTMsMy4zOHYxLjc4YzAsMS4zOC4wOCwzLjEuMjUsNS4xNmgtLjk3Yy0uMi0xLjM1LS43Mi0yLjQ4LTEuNTYtMy4zOC0uODUtLjktMS45Ni0xLjM1LTMuMzQtMS4zNWgtLjk3djkuM2MwLC45My4xNiwxLjU0LjQ5LDEuODIuMzIuMjguODguNDIsMS42Ny40MmguOTdjMS45NywwLDMuNjEtLjYxLDQuOTItMS44NCwxLjMxLTEuMjMsMi4yNi0zLjI1LDIuODUtNi4wN2guOTdjLS4wOC43OS0uMTMsMS44LS4xMywzLjA0LDAsMS43Mi4xLDMuNjYuMyw1LjgzWiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTEzMS41MSwzOS4zNWMwLDEuNjkuMDQsMi45OS4xMywzLjg5aC0uOTdjLS43OS0zLjMzLTEuNzUtNS42OS0yLjktNy4wOC0xLjE0LTEuNC0yLjYzLTIuMDktNC40Ni0yLjA5aC0uMzh2MTkuODJjMCwxLjE4LjExLDIuMDQuMzQsMi41OC4yMy41NC42Mi45LDEuMTgsMS4xLjU2LjIsMS40OC4zMiwyLjc1LjM4di44NWMtMS41OC0uMDgtNC40Mi0uMTMtOC41NC0uMTNzLTYuODEuMDQtOC4xNi4xM3YtLjg1YzEuMjctLjA2LDIuMTgtLjE4LDIuNzUtLjM4LjU2LS4yLjk2LS41NiwxLjE4LTEuMS4yMy0uNTMuMzQtMS4zOS4zNC0yLjU4di0xOS44MmgtLjM4Yy0xLjgzLDAtMy4zMi43LTQuNDYsMi4wOS0xLjE0LDEuMzktMi4xMSwzLjc1LTIuOSw3LjA4aC0uOTdjLjA4LS45LjEzLTIuMi4xMy0zLjg5LDAtMS44My0uMS0zLjkyLS4zLTYuMjYsMi41MS4wOCw2Ljc2LjEzLDEyLjc3LjEzczEwLjU1LS4wNCwxMy4xNS0uMTNjLS4yLDIuMzQtLjMsNC40Mi0uMyw2LjI2WiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTE2Mi45Niw1Ny45NXYuODVjLTEuNDQtLjA4LTMuNTEtLjEzLTYuMjEtLjEzLTMuNDEsMC01LjkyLjA0LTcuNTIuMTN2LS44NWMuODctLjA2LDEuNTItLjIsMS45NC0uNDQuNDItLjI0LjYzLS42NC42My0xLjIxLDAtLjUxLS4xOC0xLjE0LS41NS0xLjlsLTIuMDctNC44MmgtNy45Yy0uOTYsMi4yLTEuNDQsMy45Ni0xLjQ0LDUuMjgsMCwxLjEzLjM0LDEuOTEsMS4wMSwyLjM1LjY4LjQ0LDEuNjUuNjgsMi45Mi43NHYuODVjLTIuMTEtLjA4LTMuOTYtLjEzLTUuNTQtLjEzLTEuMzIsMC0yLjQxLjA0LTMuMjUuMTN2LS44NWMuNjgtLjExLDEuMy0uNTMsMS44OC0xLjI3LjU4LS43MywxLjI1LTEuOTYsMi4wMS0zLjY4bDguNjctMTkuOTFjLjYyLjA2LDEuMDguMDgsMS40LjA4cy43Ny0uMDMsMS4zOS0uMDhsMTAuMTUsMjIuMTVjLjg1LDEuNzUsMS42OCwyLjY1LDIuNDksMi43MVpNMTQ4LjgsNDguNzRsLTMuNTktOC4yOC0zLjU5LDguMjhoNy4xOVoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xODYuNjcsMzMuMThjMS4wNy40NSwyLjI1LDEuMTQsMy41NSwyLjA3LjM3LjI4LjY1LjQyLjg1LjQyLjU0LDAsLjg5LS44NiwxLjA2LTIuNThoLjk3Yy0uMTEsMS42MS0uMTcsNC40Mi0uMTcsOC40NWgtLjk3Yy0uNDUtMi4yLTEuMTYtMy44Ni0yLjExLTQuOTktLjg1LS44Ny0xLjY3LTEuNTQtMi40Ny0yLjAxLS44LS40Ni0xLjc3LS43LTIuOS0uNy0xLjk0LDAtMy42NC41LTUuMDcsMS41LTEuNDQsMS0yLjU0LDIuNDItMy4zMiw0LjI1LS43OCwxLjgzLTEuMTYsMy45Ni0xLjE2LDYuMzgsMCw0LjMxLjY1LDcuNDgsMS45NCw5LjUxLDEuMywyLjAzLDMuMjMsMy4wNCw1Ljc5LDMuMDQuNzksMCwxLjQxLS4yNSwxLjg2LS43Ni4zOS0uNDguNTktMS4xMy41OS0xLjk0di00LjE0YzAtMS4xOC0uMS0yLjA0LS4zLTIuNTgtLjItLjU0LS41Ni0uOS0xLjA4LTEuMS0uNTItLjItMS4zNS0uMzItMi40Ny0uMzh2LS44NWMyLjAzLjA4LDQuNTguMTMsNy42NS4xMywyLjcxLDAsNC43My0uMDQsNi4wOS0uMTN2Ljg1Yy0uNTQuMDYtLjkyLjE3LTEuMTQuMzQtLjIzLjE3LS4zOC40OS0uNDcuOTctLjA4LjQ4LS4xMywxLjI1LS4xMywyLjMydjcuNTJoLS44NWMtLjE0LTEuMy0uNDktMS45NC0xLjA2LTEuOTQtLjQ4LDAtMS4yMy4yNy0yLjI0LjgtLjgyLjQyLTEuODUuODItMy4wOSwxLjE4LTEuMjQuMzctMi41OS41NS00LjA2LjU1LTMuMjEsMC01Ljk5LS41MS04LjMzLTEuNTQtMi4zNC0xLjAzLTQuMTItMi41MS01LjM1LTQuNDQtMS4yMy0xLjkzLTEuODQtNC4yNS0xLjg0LTYuOTVzLjY4LTUuMjgsMi4wMy03LjM4YzEuMzUtMi4xLDMuMjMtMy43Miw1LjY0LTQuODYsMi40MS0xLjE0LDUuMTgtMS43MSw4LjMxLTEuNzEsMS43NSwwLDMuMTYuMjMsNC4yMy42OFoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0yMjguMzgsNTcuOTV2Ljg1Yy0xLjQ0LS4wOC0zLjUxLS4xMy02LjIxLS4xMy0zLjQxLDAtNS45Mi4wNC03LjUyLjEzdi0uODVjLjg3LS4wNiwxLjUyLS4yLDEuOTQtLjQ0LjQyLS4yNC42My0uNjQuNjMtMS4yMSwwLS41MS0uMTgtMS4xNC0uNTUtMS45bC0yLjA3LTQuODJoLTcuOWMtLjk2LDIuMi0xLjQ0LDMuOTYtMS40NCw1LjI4LDAsMS4xMy4zNCwxLjkxLDEuMDEsMi4zNS42OC40NCwxLjY1LjY4LDIuOTIuNzR2Ljg1Yy0yLjExLS4wOC0zLjk2LS4xMy01LjU0LS4xMy0xLjMyLDAtMi40MS4wNC0zLjI1LjEzdi0uODVjLjY4LS4xMSwxLjMtLjUzLDEuODgtMS4yNy41OC0uNzMsMS4yNS0xLjk2LDIuMDEtMy42OGw4LjY3LTE5LjkxYy42Mi4wNiwxLjA4LjA4LDEuNC4wOHMuNzctLjAzLDEuMzktLjA4bDEwLjE1LDIyLjE1Yy44NSwxLjc1LDEuNjgsMi42NSwyLjQ5LDIuNzFaTTIxNC4yMiw0OC43NGwtMy41OS04LjI4LTMuNTksOC4yOGg3LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTI2Ni45OSwzNC4yOGMtLjQ2LjE3LS43OC40OS0uOTUuOTctLjE3LjQ4LS4yNSwxLjI1LS4yNSwyLjMzdjE2Ljc0YzAsMS4wNy4wOCwxLjg1LjI1LDIuMzMuMTcuNDguNDkuOC45NS45N3MxLjIuMjgsMi4yMi4zNHYuODVjLTEuNjMtLjA4LTMuOTktLjEzLTcuMDYtLjEzLTMuOCwwLTYuNTkuMDQtOC4zNy4xM3YtLjg1YzEuMDEtLjA2LDEuNzUtLjE3LDIuMjItLjM0LjQ2LS4xNy43OC0uNDkuOTUtLjk3LjE3LS40OC4yNS0xLjI1LjI1LTIuMzN2LTE4LjU2bC05LjM0LDIzLjI1aC0uNjhsLTkuODEtMjMuMjF2MTYuODJjMCwxLjM1LjEyLDIuMzcuMzYsMy4wNC4yNC42OC42OCwxLjE4LDEuMzMsMS41LjY1LjMyLDEuNjUuNTgsMywuNzh2Ljg1Yy0xLjM4LS4wOC0zLjEtLjEzLTUuMTYtLjEzLTEuNDksMC0yLjY2LjA0LTMuNTEuMTN2LS44NWMuOS0uMiwxLjU2LS40NiwxLjk3LS43OC40MS0uMzIuNjgtLjgyLjgyLTEuNDguMTQtLjY2LjIxLTEuNjguMjEtMy4wNnYtMTUuMDVjMC0xLjA3LS4wOC0xLjg1LS4yNS0yLjMzLS4xNy0uNDgtLjQ5LS44LS45NS0uOTctLjQ2LS4xNy0xLjItLjI4LTIuMjItLjM0di0uODVjMS44Ni4wOCw0LjcyLjEzLDguNTguMTMsMS41NSwwLDIuODUtLjA0LDMuODktLjEzbDYsMTQuMzcsNS43NS0xNC4yNWg0Ljk1YzMuMDcsMCw1LjQyLS4wNCw3LjA2LS4xM3YuODVjLTEuMDEuMDYtMS43NS4xNy0yLjIyLjM0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTI5OS43OSw1OC44Yy0xLjgzLS4wOC00LjkyLS4xMy05LjI2LS4xMy02LjIsMC0xMC44NS4wNC0xMy45NS4xM3YtLjg1Yy45LS4wNiwxLjU2LS4xNywxLjk3LS4zNC40MS0uMTcuNjgtLjQ5LjgyLS45Ny4xNC0uNDguMjEtMS4yNS4yMS0yLjMzdi0xNi43NGMwLTEuMDctLjA4LTEuODUtLjIzLTIuMzMtLjE2LS40OC0uNDMtLjgtLjgyLS45Ny0uNC0uMTctMS4wNC0uMjgtMS45NC0uMzR2LS44NWMzLjEuMDgsNy43NS4xMywxMy45NS4xMywzLjk0LDAsNi43NS0uMDQsOC40MS0uMTMtLjIsMi0uMywzLjgtLjMsNS40MSwwLDEuMS4wNCwxLjk3LjEzLDIuNjJoLS45N2MtLjU2LTIuNTEtMS40Ni00LjMxLTIuNjgtNS40MS0xLjIzLTEuMS0yLjc4LTEuNjUtNC42Ny0xLjY1aC0uNTVjLS43OSwwLTEuMzUuMTQtMS42Ny40Mi0uMzIuMjgtLjQ5Ljg5LS40OSwxLjgydjkuMTNoLjk3YzEuMzUsMCwyLjQzLS40OSwzLjIzLTEuNDZzMS4zMi0yLjA2LDEuNTQtMy4yOGguOTdjLS4wOC45Ni0uMTMsMi4wOC0uMTMsMy4zOHYxLjc4YzAsMS4zOC4wOCwzLjEuMjUsNS4xNmgtLjk3Yy0uMi0xLjM1LS43Mi0yLjQ4LTEuNTYtMy4zOC0uODUtLjktMS45Ni0xLjM1LTMuMzQtMS4zNWgtLjk3djkuM2MwLC45My4xNiwxLjU0LjQ5LDEuODIuMzIuMjguODguNDIsMS42Ny40MmguOTdjMS45NywwLDMuNjEtLjYxLDQuOTItMS44NCwxLjMxLTEuMjMsMi4yNi0zLjI1LDIuODUtNi4wN2guOTdjLS4wOC43OS0uMTMsMS44LS4xMywzLjA0LDAsMS43Mi4xLDMuNjYuMyw1LjgzWiIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTMwNS44NCwyMy40OWMtLjE5LS4yLS41Ny0uMzctLjg0LS4zN0g3NS4xM2MtLjI3LDAtLjctLjExLS45My0uMjVsLS4wOS0uMDVjLS4yNC0uMTQtLjYzLS4zNi0uODctLjVMMzkuNTYsMi45NWMtLjI0LS4xNC0uNjEtLjM1LS44My0uNDhzLS41OC0uMTMtLjgsMC0uNTkuMzQtLjgzLjQ4TDMuMzYsMjIuNDNjLS4yNC4xNC0uNjEuMzUtLjgzLjQ4cy0uNC40NC0uNC42OSwwLC42OSwwLC45NmwtLjA2LDM4Ljg2YzAsLjI3LDAsLjcxLDAsLjk2cy4xOC41Ny40LjY5LjYuMzQuODMuNDhsMzMuNjgsMTkuMzhjLjI0LjE0LjYxLjM1LjgzLjQ4cy41OC4xMy44LDAsLjU5LS4zNC44My0uNDhsMjkuNjktMTcuMTRjLjI0LS4xNC42Ni0uMjUuOTMtLjI1aDIzNi40Yy4yNywwLC42Ni0uMTYuODYtLjM1bDUuMzYtNS4xNmMuMi0uMTkuMzYtLjU3LjM2LS44NXYtMjkuNWMwLS4yNy0uMTUtLjY2LS4zNC0uODdsLTYuODctNy4zNFpNMzExLjU1LDYwLjU2YzAsLjI3LS4xNi42Ni0uMzYuODVsLTQuNDcsNC4zYy0uMi4xOS0uNTkuMzUtLjg2LjM1SDY5LjQ4Yy0uMjcsMC0uNjkuMTEtLjkzLjI1bC0yOS44OSwxNy4yNmMtLjI0LjE0LS42My4xNC0uODcsMEw0LjEsNjQuMTdjLS4yNC0uMTQtLjQzLS40Ny0uNDMtLjc1bC4wNi0zOC44NmMwLS4yNy4yLS42MS40My0uNzVMMzcuOSw0LjMzYy4yNC0uMTQuNjMtLjE0Ljg3LDBsMzMuNjgsMTkuMzhjLjI0LjE0LjQzLjI1LjQzLjI1cy4yLjExLjQzLjI1bC4yOC4xNmMuMjQuMTQuNjYuMjUuOTMuMjVoMy4yNGMuMjcsMCwuNSwwLC41LDBzLjIzLDAsLjUsMGgyMjUuNTdjLjI3LDAsLjY1LjE2Ljg0LjM3bDYuMDIsNi40M2MuMTkuMi4zNC41OS4zNC44N3YyOC4yN1oiLz48L2c+PC9zdmc+" alt="Metagame">
+                <div class="ord" data-s="head"></div>
+              </div>
+              <div class="em__body">
+                <div class="sgrid" data-note="3">
+                  <h1 class="em__title" data-s="title"></h1>
+                  <p class="em__lead" data-s="lead"></p>
+                </div>
+                <div class="sgrid" data-note="4" data-s="main"></div>
+                <div class="btns" data-note="5" data-s="btns"></div>
+                <div class="sgrid" data-note="6" data-s="after"></div>
+                <div class="tips" data-note="7" data-s="tips"></div>
+              </div>
+              <footer class="em__foot">
+                <nav><a href="#">Webshop</a><a href="#">Eseménynaptár</a><a href="#">Klub</a><a href="#">GYIK</a></nav>
+                <div class="foot-grid">
+                  <div><b>Metagame Bolt</b><a href="https://www.google.com/maps/search/?api=1&amp;query=Metagame+1132+Budapest+K%C3%A1d%C3%A1r+utca+10">1132 Budapest, Kádár utca 10.</a><span>H–Szo 10–18</span></div>
+                  <div><b>Metagame Klub</b><a href="https://www.google.com/maps/search/?api=1&amp;query=Metagame+Klub+1132+Budapest+Kresz+G%C3%A9za+utca+36">1132 Budapest, Kresz Géza utca 36.</a><span>H–P 16–22 · Szo 10–18</span></div>
+                  <div><b>Írj nekünk</b><a href="mailto:info@metagames.hu">info@metagames.hu</a><span>Gyors válaszok: <a href="#">GYIK</a></span></div>
+                </div>
+                <p>Metagame Kártya- és Társasjáték Bolt · metagames.hu</p>
+                <p data-s="why"></p>
+              </footer>
+            </div>
+          </article>
+
         </div></div>
       </div>
     </section>
@@ -809,11 +872,16 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
             <tr><td>Utalást választott</td><td><b>Díjbekérő</b>: utalási adatok és PDF egy levélben, kártyás alternatívával</td><td><span class="pill pill--guess">feltételezett</span></td></tr>
             <tr><td>Előrendelt termék beérkezett</td><td><b>Megérkezett az előrendelésed</b>: „még ne indulj el”</td><td><span class="pill pill--ok">Csaba mintájából</span></td></tr>
             <tr><td>Összekészítve (személyes átvétel)</td><td><b>Átvehető a rendelésed</b></td><td><span class="pill pill--ok">Csaba mintájából</span></td></tr>
-            <tr><td>5. nap, még nem vitték el</td><td><b>Emlékeztető</b>: „még 2 napig várunk rád”</td><td><span class="pill pill--idea">javaslat</span></td></tr>
+            <tr><td>3 nappal a félretétel vége előtt</td><td><b>Emlékeztető</b>: „még 3 napig várunk rád”, a rendelés adataival</td><td><span class="pill pill--known">létezik</span></td></tr>
             <tr><td>Futárnak átadva</td><td><b>Úton a csomagod</b>: csomagszám, követés, utánvét összege</td><td><span class="pill pill--guess">feltételezett</span></td></tr>
             <tr><td>Számla kiállítva</td><td><b>Számla</b>: PDF a saját sablonunkban, nem a számlázz.hu külön levelében</td><td><span class="pill pill--idea">javaslat</span></td></tr>
             <tr><td>Köztes állapotváltások</td><td><b>Állapotértesítők</b>: csak ha feliratkozott rájuk (a visszaigazolásban kérheti)</td><td><span class="pill pill--idea">javaslat</span></td></tr>
-            <tr><td>Lemondás, visszatérítés</td><td><b>Rendelés törölve</b>: ok és a visszautalás menete</td><td><span class="pill pill--guess">még nincs megtervezve</span></td></tr>
+            <tr><td>Lejárt az átvétel vagy kézi törlés</td><td><b>Rendelés törölve</b>: egy szöveg mindkét esetre, csak az ok sora változik</td><td><span class="pill pill--known">létezik</span></td></tr>
+            <tr><td>Regisztráció</td><td><b>Regisztráció megerősítése</b>: egy gomb, tartalék link</td><td><span class="pill pill--known">Csaba listájából · rövid sablon</span></td></tr>
+            <tr><td>Termék készletre került</td><td><b>Készletértesítő</b>: termék, „gyorsan fogy”, a feliratkozás megszűnt</td><td><span class="pill pill--known">Csaba listájából · rövid sablon</span></td></tr>
+            <tr><td>Esemény vagy asztalfoglalás előtti nap</td><td><b>Holnapi esemény</b>: esemény- és asztalblokk, leiratkozás</td><td><span class="pill pill--known">Csaba listájából · rövid sablon</span></td></tr>
+            <tr><td>Kredit jóváírása</td><td><b>Kredit jóváírva</b>: összeg, lejárat, szabályok</td><td><span class="pill pill--known">Csaba listájából · rövid sablon</span></td></tr>
+            <tr><td>7 nappal a kredit lejárata előtt</td><td><b>Kredit lejár</b>: ugyanaz, a lejárat előre véve</td><td><span class="pill pill--known">Csaba listájából · rövid sablon</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -826,6 +894,7 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
         <li>Átküldené az összes jelenlegi levélsablont? Ezek alapján a teljes folyamat megtervezhető.</li>
         <li>A számlázz.hu API-ból visszakérhető a számla PDF-je, hogy a saját levelünkben küldjük?</li>
         <li>Megoldható, hogy az előrendelési állapotlevelek opcionálisak legyenek (feliratkozással)?</li>
+        <li>A rövid értesítők egy közös sablonból mennek. Változatonként külön HTML-fájlt adunk, az FTL-tageket Laci teszi bele (10.01).</li>
         <li>Élesben táblázatos HTML és inline CSS kell. A sötét változatot Gmail- és Outlook-appban is tesztelni kell, mert ezek átszínezhetik.</li>
       </ol>
     </section>
@@ -985,15 +1054,16 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
     },
     remind: {
       status: 'known', locs: PICKUP, pays: ALL_PAYS,
-      subj: function () { return 'Még 2 napig várunk rád · #292895'; },
+      subj: function () { return 'Még 3 napig várunk rád · #292895'; },
       pre: function (l) { return 'A rendelésed a ' + l.name + ' pultjánál vár, augusztus 5-ig.'; },
-      time: '10:00', full: '2026. aug. 3., hétfő, 10:00',
+      time: '10:00', full: '2026. aug. 2., vasárnap, 10:00',
       notes: [
-        ['Ilyen levél már most is kimegy, 2–3 nappal a 7 napos félretétel vége előtt. Már a tárgyból kiderül, mennyi ideje van még.', 'Létezik · 09.17'],
+        ['Ilyen levél már most is kimegy, 3 nappal a 7 napos félretétel vége előtt. Már a tárgyból kiderül, mennyi ideje van még.', 'Csaba · 10.01'],
         ['Az utolsó nap dátuma nagyban, a zárási időponttal.', ''],
         ['Átvételi hely nyitvatartással és útvonallal.', ''],
         ['Ha nem tud jönni, írhat nekünk. Így kevesebb rendelés marad átvétel nélkül.', ''],
-        ['Emlékeztetőnek a tételek is: mi vár rá.', '']
+        ['Emlékeztetőnek a tételek is: mi vár rá.', ''],
+        ['A rendelés fontosabb adatai, ahogy Csaba kérte.', 'Csaba kérése · 10.01']
       ]
     },
     shipped: {
@@ -1029,7 +1099,8 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
     pays: function () { return state.reason === 'expired' ? ['shop'] : ALL_PAYS; },
     subj: function () { return 'Töröltük a rendelésed · #292895'; },
     pre: function (l) {
-      return state.reason === 'expired'
+      return state.reason === 'common' ? 'A rendelésed törlésre került. Az okát és a teendőket a levélben találod.'
+        : state.reason === 'expired'
         ? 'Lejárt a 7 napos félretétel, a termékek visszakerültek a polcra.'
         : 'Sajnos nem tudjuk teljesíteni. A részleteket a levélben találod.';
     },
@@ -1037,7 +1108,7 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
     notes: [
       ['A tárgyban benne van, mi történt; az előnézeti szöveg megmondja, miért.', ''],
       ['Az állapotsáv utolsó lépése piros „Törölve”. Lejáratnál végig látszik, hogy átvehető volt.', ''],
-      ['Az ok a „Törlés oka” kapcsoló szerint változik. Kézi törlésnél az ügyintéző írja be (cancel.reason), így nem kell külön e-mailt írni.', 'András kérése · 09.17'],
+      ['Az ok a „Törlés oka” kapcsoló szerint változik. A „Közös szöveg” változat mindkét esetre jó, csak az ok sora más (cancel.reason): lejáratnál a rendszer tölti ki, kézi törlésnél az ügyintéző írja be.', 'Csaba kérése · 10.01'],
       ['Visszatérítés csak akkor szerepel, ha fizetett. Lejárt átvételnél csak helyben fizetősnél fordul elő, mert a kifizetett rendeléseket nem járatják le.', 'Csaba · 09.17'],
       ['A törölt tételek listája.', ''],
       ['Egy kattintással újrarendelhet, vagy továbbmehet a webshopba.', 'Javaslat'],
@@ -1045,15 +1116,163 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
     ]
   };
 
+  // ═══ RÖVID ÉRTESÍTŐK: egy sablon, változatonként csak a tartalom más ═══
+  var PROD = { name: 'Riftbound: Origins – Champion Deck (Jinx)', price: '8 990 Ft' };
+  var KLUB_URL = 'https://www.google.com/maps/search/?api=1&query=Metagame+Klub+1132+Budapest+Kresz+G%C3%A9za+utca+36';
+  function facts(rows) {
+    return '<dl class="facts">' + rows.map(function (r) { return '<div><dt>' + r[0] + '</dt><dd' + (r[2] ? ' data-var="' + r[2] + '"' : '') + '>' + r[1] + '</dd></div>'; }).join('') + '</dl>';
+  }
+  function tips(list) {
+    return list.concat([['Kérdésed van?', 'Nézd meg a <a href="#">GYIK-et</a>, vagy írj: <a href="#">info@metagames.hu</a>']])
+      .map(function (t) { return '<div class="tip"><b>' + t[0] + '</b><span>' + t[1] + '</span></div>'; }).join('');
+  }
+  function btn(txt, fillBtn, v) { return '<a class="ebtn' + (fillBtn ? ' ebtn--fill' : '') + '" href="#"' + (v ? ' data-var="' + v + '"' : '') + '>' + txt + '</a>'; }
+  var CREDIT_RULES = '<div class="blk sblk"><p class="blk__lbl">Jó tudni</p><ul class="rules">' +
+    '<li>Elköltheted személyesen a boltban és a klubban, vagy a webshopban.</li>' +
+    '<li>Részletekben is felhasználhatod, a maradék a lejáratig megmarad.</li>' +
+    '<li>Lejárat után a kredit elvész, ezért kompenzáció nem jár.</li>' +
+    '<li>Készpénzre nem váltható.</li></ul></div>';
+  var EVT_BLK = '<div class="blk sblk"><p class="blk__lbl">Esemény</p><h3 data-var="event.name">Riftbound liga – 3. forduló</h3>' +
+    facts([['Kezdés', '2026. okt. 15., csütörtök, 18:00', 'event.start'], ['Helyszín', '<a href="' + KLUB_URL + '" target="_blank" rel="noopener">Metagame Klub, Kresz Géza u. 36.</a>', 'event.location'],
+           ['Nevezési díj', '2 000 Ft, a helyszínen', 'event.fee'], ['Jelentkezésed', 'Megerősítve · 14/16 hely', 'event.slots']]) +
+    '<div class="optin"><p><b>Mégsem tudsz jönni?</b>Iratkozz le, hogy más kerülhessen a helyedre a várólistáról.</p>' + btn('Leiratkozom', false, 'event.unsubscribeUrl') + '</div></div>';
+  var TBL_BLK = '<div class="blk sblk"><p class="blk__lbl">Asztalfoglalás</p><h3 data-var="table.name">2 asztal · Wargame</h3>' +
+    facts([['Időpont', '2026. okt. 15., csütörtök, 16:00–22:00', 'table.time'], ['Helyszín', '<a href="' + KLUB_URL + '" target="_blank" rel="noopener">Metagame Klub, Kresz Géza u. 36.</a>', 'table.location'],
+           ['Díj', '1 500 Ft / asztal, a helyszínen (példa)', 'table.fee'], ['Foglalásszám', 'AF-1042', 'table.id']]) +
+    '<div class="optin"><p><b>Mégsem kell az asztal?</b>Mondd le a foglalást, hogy más foglalhassa az asztalt.</p>' + btn('Foglalás lemondása', false, 'table.cancelUrl') + '</div></div>';
+  function creditBlk(lbl, extra) {
+    return '<div class="blk sblk"><p class="blk__lbl">' + lbl + '</p><p class="bigdate" data-var="credit.amount">5 000 Ft</p>' +
+      facts([['Jogcím', 'Liga-nyeremény, 3. forduló (példa)', 'credit.note'], ['Lejárat', '2027. január 31., vasárnap', 'credit.expiresAt']].concat(extra)) + '</div>';
+  }
+
+  var SHORT = {
+    'n-reg': function () { return {
+      head: 'Regisztráció', status: 'list',
+      subj: 'Erősítsd meg a regisztrációd', pre: 'Egy kattintás, és kész a Metagame-fiókod.',
+      time: '18:42', full: '2026. okt. 1., csütörtök, 18:42',
+      title: 'Már csak egy kattintás, <span data-var="customer.firstName">Csaba</span>!',
+      lead: 'Erősítsd meg az e-mail-címed, és kész a Metagame-fiókod. Utána rendelhetsz, jelentkezhetsz eseményekre, és itt látod a krediteidet is.',
+      main: '',
+      btns: btn('Regisztráció megerősítése', true, 'account.confirmUrl'),
+      after: '<div class="blk sblk"><p class="blk__lbl">Nem működik a gomb?</p><p>Másold be ezt a címet a böngésződbe:</p><p><code data-var="account.confirmUrl">https://www.metagames.hu/megerosites?k=8f3a2c91d4</code></p>' +
+             '<p>A link 48 óráig érvényes (példa). Ha nem te regisztráltál, hagyd figyelmen kívül ezt a levelet, a fiók nem jön létre.</p></div>',
+      tips: tips([['Mire jó a fiók?', 'A rendeléseid, jelentkezéseid és krediteid egy helyen.'], ['Készletfigyelés', 'Kérhetsz értesítést, ha egy termék újra elérhető.']]),
+      why: 'Ezt a levelet azért kaptad, mert ezzel a címmel regisztráltak a metagames.hu-n.',
+      notes: [
+        [1, 'A tárgyban és az előnézetben is a teendő: egy kattintás.', ''],
+        [2, 'Ugyanaz a fejléc, mint a rendelési leveleken; jobb oldalt a levél típusa a rendelésszám helyén.', 'Közös sablon'],
+        [3, 'Cím és egy mondat: mit kell csinálni, és mit kap érte.', ''],
+        [5, 'Egyetlen gomb, a megerősítő link.', 'Csaba listája · 10.01'],
+        [6, 'Tartalék link, ha a gomb nem működik, és mi a teendő, ha nem ő regisztrált. Az érvényesség ideje példa, Lacitól kell megtudni.', ''],
+        [7, 'Tudnivalók: a sablonban mindig 3 blokk, az utolsó a kérdésekhez.', 'Közös sablon']
+      ] }; },
+
+    'n-stock': function () { return {
+      head: 'Készletfigyelő', status: 'list',
+      subj: 'Újra kapható: ' + PROD.name, pre: 'Megérkezett, amire vártál. Gyorsan fogy, érdemes sietni.',
+      time: '09:12', full: '2026. okt. 6., kedd, 09:12',
+      title: 'Újra kapható, amire vártál',
+      lead: 'Szia <b data-var="customer.firstName">Csaba</b>! Készletre került a termék, amire értesítést kértél.',
+      main: '<div class="blk sblk"><div class="items"><div class="it"><img src="' + IMG1 + '" alt=""><div><div class="nm" data-var="product.name">' + PROD.name + '</div><div class="st">Készleten</div></div><div class="pr" data-var="product.price">' + PROD.price + '</div></div></div></div>' +
+            '<div class="warn"><strong>Gyorsan fogy</strong><p>Ebből általában kevés érkezik, és többen is várnak rá. Ha kell, ne halaszd, félretenni nem tudjuk.</p></div>',
+      btns: btn('Megnézem a terméket', true, 'product.url') + btn('Kosárba teszem', false, 'product.addToCartUrl'),
+      after: '<div class="blk sblk"><p class="blk__lbl">A feliratkozásod megszűnt</p><p>Ez volt az értesítés erre a termékre. Ha legközelebb is szóljunk, iratkozz fel újra a termékoldalon.</p></div>',
+      tips: tips([['Elfogyott, mire odaértél?', 'Iratkozz fel újra, és a következő szállítmánynál szólunk.'], ['Előrendelés', 'Ha a termék előrendelhető, így biztosan jut belőle.']]),
+      why: 'Ezt a levelet azért kaptad, mert a termékoldalon értesítést kértél.',
+      notes: [
+        [1, 'A tárgyban a termék neve, így a listában rögtön látszik, mi jött meg.', ''],
+        [2, 'Közös fejléc, a típus: Készletfigyelő.', 'Közös sablon'],
+        [3, 'Rövid cím és egy mondat.', ''],
+        [4, 'A termék képpel és árral, alatta kiemelve, hogy gyorsan fogy: sokszor elfogy, mire a vevő megnézi.', 'Csaba listája · 10.01'],
+        [5, 'Két gomb: termékoldal, vagy egyből a kosár, hogy rövidebb legyen az út.', 'Javaslat'],
+        [6, 'Kimondjuk, hogy a feliratkozás megszűnt, és újra kell kérni.', 'Csaba listája · 10.01'],
+        [7, 'Tudnivalók, ha elfogyott, mire odaért.', '']
+      ] }; },
+
+    'n-event': function () {
+      var e = state.evt, ev = e !== 'table', tb = e !== 'event';
+      return {
+        head: e === 'table' ? 'Asztalfoglalás' : e === 'event' ? 'Esemény' : 'Holnap', status: 'list',
+        subj: e === 'event' ? 'Holnap: Riftbound liga, 3. forduló' : e === 'table' ? 'Holnap: asztalfoglalásod a Klubban' : 'Holnap: liga és asztalfoglalás a Klubban',
+        pre: e === 'event' ? 'Okt. 15., csütörtök 18:00 · Metagame Klub. Ha nem tudsz jönni, iratkozz le.'
+           : e === 'table' ? 'Okt. 15., csütörtök 16:00–22:00 · 2 asztal. Ha nem kell, mondd le.'
+           : 'Asztalod 16:00-tól, a liga 18:00-tól. Ha valami változott, a levélben lemondhatod.',
+        time: '10:00', full: '2026. okt. 14., szerda, 10:00',
+        title: e === 'table' ? 'Holnap vár az asztalod' : 'Holnap találkozunk!',
+        lead: 'Szia <b data-var="customer.firstName">Csaba</b>! ' + (e === 'event' ? 'Holnap lesz az esemény, amire jelentkeztél.' : e === 'table' ? 'Holnapra asztalt foglaltál a Klubban.' : 'Holnap jössz a Klubba: eseményre jelentkeztél, és asztalt is foglaltál.'),
+        main: (tb ? TBL_BLK : '') + (ev ? EVT_BLK : ''),
+        btns: '<a class="ebtn ebtn--fill" href="' + KLUB_URL + '" target="_blank" rel="noopener">Útvonal a Klubhoz</a>' + btn('Eseménynaptár', false),
+        after: '',
+        tips: tips([['Változott valami?', 'Az esemény oldalán mindig a friss infót látod.'], ['Késel?', 'Írj nekünk, és megmondjuk, tartható-e a helyed.']]),
+        why: e === 'table' ? 'Ezt a levelet azért kaptad, mert asztalt foglaltál a Metagame Klubban.' : e === 'event' ? 'Ezt a levelet azért kaptad, mert jelentkeztél erre az eseményre.' : 'Ezt a levelet azért kaptad, mert holnapra eseményre jelentkeztél és asztalt foglaltál.',
+        notes: [
+          [1, 'A tárgyban az esemény neve, az előnézetben az időpont, a hely és a teendő.', ''],
+          [2, 'Közös fejléc, a típus a foglalás szerint változik.', 'Közös sablon'],
+          [3, 'A cím és a bevezető a „Foglalás” kapcsoló szerint változik.', ''],
+          [4, 'Az esemény és az asztalfoglalás ugyanolyan blokk, ugyanazzal a megfogalmazással („Mégsem…?”) és a lemondás gombjával. Ha mindkettő van, egymás alatt, időrendben. Válts a „Foglalás” kapcsolóval!', 'Csaba listája · 10.01'],
+          [5, 'Útvonal és eseménynaptár.', ''],
+          [7, 'Tudnivalók.', '']
+        ] };
+    },
+
+    'n-credit': function () { return {
+      head: 'Kredit', status: 'list',
+      subj: 'Kreditet írtunk jóvá: 5 000 Ft', pre: '2027. január 31-ig költheted el a boltban, a klubban vagy a webshopban.',
+      time: '19:30', full: '2026. okt. 8., csütörtök, 19:30',
+      title: 'Kreditet kaptál!',
+      lead: 'Szia <b data-var="customer.firstName">Csaba</b>! Jóváírtunk neked kreditet, amivel vásárláskor fizethetsz.',
+      main: creditBlk('Jóváírt kredit', [['Jóváírva', '2026. okt. 8.', 'credit.createdAt'], ['Teljes egyenleged', '7 500 Ft', 'customer.creditBalance']]),
+      btns: btn('Vásárolok a webshopban', true) + btn('Krediteim', false, 'customer.creditsUrl'),
+      after: CREDIT_RULES,
+      tips: tips([['Személyesen', 'A pultnál szólj, hogy kreditből fizetnél.'], ['A webshopban', 'A pénztárban választhatod a kreditet fizetési módként (példa).']]),
+      why: 'Ezt a levelet azért kaptad, mert kreditet írtunk jóvá a fiókodban.',
+      notes: [
+        [1, 'A tárgyban az összeg, az előnézetben a lejárat és hogy hol költhető.', ''],
+        [2, 'Közös fejléc, a típus: Kredit.', 'Közös sablon'],
+        [3, 'Rövid cím és egy mondat.', ''],
+        [4, 'Az összeg nagyban, mellette a jogcím, a lejárat és a teljes egyenleg.', 'Csaba listája · 10.01'],
+        [5, 'Vásárlás vagy a krediteim oldal.', ''],
+        [6, 'A szabályok röviden: hol költhető, lejárat után nincs kompenzáció, készpénzre nem váltható. A „részletekben is” sort Csabáéknak kell megerősíteniük.', 'Csaba listája · 10.01'],
+        [7, 'Hogyan fizethet kreditből személyesen és a webshopban.', '']
+      ] }; },
+
+    'n-creditexp': function () { return {
+      head: 'Kredit', status: 'list',
+      subj: '7 nap múlva lejár a kredited: 5 000 Ft', pre: 'Január 31-ig költheted el, utána elvész.',
+      time: '10:00', full: '2027. jan. 24., vasárnap, 10:00',
+      title: '7 nap múlva lejár a kredited',
+      lead: 'Szia <b data-var="customer.firstName">Csaba</b>! Van még fel nem használt kredited. <b>Január 31-ig</b> költheted el, utána elvész.',
+      main: creditBlk('Lejáró kredit', [['Teljes egyenleged', '5 000 Ft', 'customer.creditBalance']]),
+      btns: btn('Vásárolok a webshopban', true) + btn('Krediteim', false, 'customer.creditsUrl'),
+      after: CREDIT_RULES,
+      tips: tips([['Személyesen', 'A pultnál szólj, hogy kreditből fizetnél.'], ['Több kredited van?', 'Mindig a hamarabb lejárót használjuk fel először (példa).']]),
+      why: 'Ezt a levelet azért kaptad, mert lejáró kredit van a fiókodban.',
+      notes: [
+        [1, 'A tárgyban a „7 nap” és az összeg, így nem sikkad el.', ''],
+        [2, 'Közös fejléc, a típus: Kredit.', 'Közös sablon'],
+        [3, 'A lejárat dátuma már a bevezetőben kiemelve.', ''],
+        [4, 'Ugyanaz a kreditblokk, mint a jóváírásnál, csak a lejárat került előre.', 'Csaba listája · 10.01'],
+        [6, 'Ugyanazok a szabályok, mint a jóváíró levélben.', 'Csaba listája · 10.01'],
+        [7, 'Tudnivalók. A „hamarabb lejárót használjuk” szabály feltételezés.', '']
+      ] }; }
+  };
+  Object.keys(SHORT).forEach(function (k) {
+    MAIL[k] = { status: 'list', short: true, locs: [], pays: [],
+      subj: function () { return SHORT[k]().subj; }, pre: function () { return SHORT[k]().pre; },
+      get time() { return SHORT[k]().time; }, get full() { return SHORT[k]().full; },
+      get notes() { return SHORT[k]().notes; } };
+  });
+
   var STATUS_TXT = {
     ok: 'Csaba mintájából újragondolva.',
     known: 'Létező levél: Csabáék már küldenek ilyet, de a mintáját még nem láttuk.',
     guess: 'Feltételezett levél: a valós sablont még nem láttuk, a szokásos webshop-gyakorlatra épül.',
-    idea: 'Javaslat: ilyen levél most nincs, új ötlet.'
+    idea: 'Javaslat: ilyen levél most nincs, új ötlet.',
+    list: 'Csaba 10.01-i listájából: ilyen levél van vagy kell, a mintáját nem láttuk. Közös sablon, a fenti gombokkal válthatók a változatai.'
   };
-  var DOT = { known: 'sd--known', ok: 'sd--ok', guess: 'sd--guess', idea: 'sd--idea' };
+  var DOT = { list: 'sd--known', known: 'sd--known', ok: 'sd--ok', guess: 'sd--guess', idea: 'sd--idea' };
 
-  var state = { mail: 'ready', loc: 'klub', pay: 'shop', reason: 'expired', theme: 'dark', device: 'desktop' };
+  var state = { mail: 'ready', loc: 'klub', pay: 'shop', reason: 'common', evt: 'both', theme: 'dark', device: 'desktop' };
   try { var saved = JSON.parse(localStorage.getItem('mg-mail-state') || 'null'); if (saved) Object.assign(state, saved); } catch (e) {}
   if (!MAIL[state.mail]) state.mail = 'ready';
 
@@ -1104,11 +1323,11 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
         var v = b.getAttribute('data-val');
         b.setAttribute('aria-pressed', String(v === eff));
         b.disabled = (key === 'loc' && locs.indexOf(v) < 0) || (key === 'pay' && pays.indexOf(v) < 0) ||
-          (key === 'reason' && state.mail !== 'cancel');
+          (key === 'reason' && state.mail !== 'cancel') || (key === 'evt' && state.mail !== 'n-event');
       });
     });
 
-    var art = document.querySelector('[data-mail="' + state.mail + '"]');
+    var art = document.querySelector('[data-mail="' + (m.short ? 'short' : state.mail) + '"]');
     $$('[data-mail]').forEach(function (a) {
       a.hidden = a !== art;
       a.classList.toggle('em--light', state.theme === 'light');
@@ -1137,7 +1356,7 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
     $$('[data-trk]', art).forEach(function (e) {
       var kind = e.getAttribute('data-trk'), now, labels, cancel = kind === 'cancel';
       if (cancel) {
-        labels = state.reason === 'expired' ? ['Leadva', 'Összekészítve', 'Átvehető', 'Törölve'] : ['Leadva', 'Feldolgozás', 'Törölve'];
+        labels = state.reason === 'expired' ? ['Leadva', 'Összekészítve', 'Átvehető', 'Törölve'] : state.reason === 'common' ? ['Leadva', 'Feldolgozás', 'Törölve'] : ['Leadva', 'Feldolgozás', 'Törölve'];
         now = labels.length - 1;
       } else {
         now = +kind;
@@ -1150,13 +1369,17 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
       }).join(''));
     });
     $$('[data-cancel-lead]', art).forEach(function (e) {
-      e.innerHTML = state.reason === 'expired'
+      e.innerHTML = state.reason === 'common'
+        ? 'Szia <b data-var="customer.firstName">Csaba</b>! A <b data-var="order.id">#292895</b> számú rendelésedet töröltük. Lent megtalálod, miért, és mi a teendő.'
+        : state.reason === 'expired'
         ? '7 napig vártunk rád a <b>' + (l ? l.name : '') + '</b> pultjánál, de nem jutottál el érte, ezért a termékek visszakerültek a polcra.'
         : 'Sajnáljuk, de a <b data-var="order.id">#292895</b> számú rendelésedet nem tudjuk teljesíteni, ezért töröltük.';
     });
     $$('[data-cancel-reason]', art).forEach(function (e) {
       e.className = 'blk reason';
-      fill(e, state.reason === 'expired'
+      fill(e, state.reason === 'common'
+        ? '<p class="blk__lbl">Miért töröltük?</p><p data-var="cancel.reason"><b>Lejárt az átvételi idő: 2026. augusztus 5.</b></p><p>Ha tévedésnek gondolod, írj nekünk, és megnézzük, félre tudjuk-e tenni újra.</p>'
+        : state.reason === 'expired'
         ? '<p class="blk__lbl">Miért töröltük?</p><p>Lejárt az átvételi idő: <b data-var="order.holdUntil">2026. augusztus 5.</b></p><p>Két nappal a határidő előtt emlékeztetőt is küldtünk.</p>'
         : '<p class="blk__lbl">Miért töröltük?</p><p data-var="cancel.reason"><b>A kiadó nem tudta leszállítani a terméket.</b></p><p>Ezt a szöveget az ügyintéző írja be törléskor (példa).</p>');
     });
@@ -1168,7 +1391,14 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
       fill(e, '<p><b class="t">' + p[0] + '</b>' + p[1] + '</p><span class="tag tag--' + p[3] + '">' + p[2] + '</span>');
     });
 
-    var subj = m.subj();
+    if (m.short) {
+      var v = SHORT[state.mail]();
+      ['head', 'title', 'lead', 'why'].forEach(function (k) { $$('[data-s="' + k + '"]', art).forEach(function (e) { e.innerHTML = v[k]; }); });
+      ['main', 'btns', 'after', 'tips'].forEach(function (k) {
+        $$('[data-s="' + k + '"]', art).forEach(function (e) { fill(e, v[k]); e.hidden = !v[k]; });
+      });
+    }
+    var subj = 'Metagame Kártya · ' + m.subj();
     document.getElementById('inbox-subj').textContent = subj;
     document.getElementById('inbox-pre').textContent = m.pre(l);
     document.getElementById('inbox-time').textContent = m.time;
@@ -1177,7 +1407,8 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
     document.getElementById('viewport').classList.toggle('is-mobile', state.device === 'mobile');
 
     var limits = [];
-    if (state.mail === 'cancel') limits.push(state.reason === 'expired' ? 'lejáratkor most is automatikusan kimegy; kézi törlésnél még nem, ezért kell az új változat' : 'kézi törlésnél még nem megy ki, ez az új változat');
+    if (m.short) {}
+    else if (state.mail === 'cancel') limits.push(state.reason === 'common' ? 'lejáratkor és kézi törléskor is ez menne ki' : state.reason === 'expired' ? 'lejáratkor most is automatikusan kimegy; kézi törlésnél még nem, ezért kell az új változat' : 'kézi törlésnél még nem megy ki, ez az új változat');
     else if (locs.length === 1) limits.push('csak futáros szállításnál megy ki');
     else if (locs.indexOf('futar') < 0) limits.push('csak személyes átvételnél megy ki');
     if (state.mail !== 'cancel' && pays.length === 1) limits.push('csak átutalásos fizetésnél megy ki');
@@ -1185,14 +1416,15 @@ h1 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); line-heig
       (limits.length ? ' Ez a levél ' + limits.join(', ') + '.' : '') + '</span>';
 
     document.getElementById('notes').innerHTML = m.notes.map(function (n, i) {
-      return '<li tabindex="0" data-n="' + (i + 1) + '"><span class="n">' + (i + 1) + '</span><span>' + n[0] + (n[1] ? '<span class="who">' + n[1] + '</span>' : '') + '</span></li>';
+      if (typeof n[0] === 'number') { var num = n[0]; n = n.slice(1); } else num = i + 1;
+      return '<li tabindex="0" data-n="' + num + '"><span class="n">' + num + '</span><span>' + n[0] + (n[1] ? '<span class="who">' + n[1] + '</span>' : '') + '</span></li>';
     }).join('');
 
     try { localStorage.setItem('mg-mail-state', JSON.stringify(state)); } catch (e) {}
   }
 
   function hot(n, on) {
-    var art = document.querySelector('[data-mail="' + state.mail + '"]');
+    var art = document.querySelector('[data-mail="' + (MAIL[state.mail].short ? 'short' : state.mail) + '"]');
     var targets = $$('[data-note="' + n + '"]', art);
     if (n === '1') targets = targets.concat($$('.msghead [data-note="1"], [data-hot1]'));
     targets.forEach(function (el) { el.classList.toggle('is-hot', on); });
