@@ -88,12 +88,17 @@ footer{color:var(--text-muted);font-size:13px}
 <header>
   <span class="eyebrow">Metagame · térkép · frissítve: <span id="updated"></span></span>
   <h1>Minden, amit csinálunk, egy helyen</h1>
-  <p>A demók és anyagok linkjei, a hátralévő feladatok, a nyitott kérdések és az eddigi döntések. Ezt a lapot frissítem, amikor valami elkészül vagy eldől.</p>
+  <p>A demók és anyagok linkjei, alattuk a hátralévő feladatok, a nyitott kérdések és az eddigi döntések. Ezt a lapot frissítem, amikor valami elkészül vagy eldől.</p>
 </header>
 
 <nav class="toc" aria-label="Tartalom">
-  <a href="#allapot">Állapot</a><a href="#feladatok">Feladatok</a><a href="#kerdesek">Nyitott kérdések</a><a href="#linkek">Linkek</a><a href="#dontesek">Döntések</a>
+  <a href="#linkek">Linkek</a><a href="#allapot">Állapot</a><a href="#feladatok">Feladatok</a><a href="#kerdesek">Nyitott kérdések</a><a href="#dontesek">Döntések</a>
 </nav>
+
+<section id="linkek">
+  <div class="sec-h"><span>Demók és anyagok</span><h2>Linkek</h2><p>A sötét dizájn az alap, a világos változatok a régebbi állapotot mutatják.</p></div>
+  <div class="links" id="links"></div>
+</section>
 
 <section id="allapot">
   <div class="sec-h"><span>Hol tartunk</span><h2>Állapot</h2></div>
@@ -111,11 +116,6 @@ footer{color:var(--text-muted);font-size:13px}
     <thead><tr><th>Téma</th><th>Kérdés</th><th>Kitől</th></tr></thead>
     <tbody id="questions"></tbody>
   </table>
-</section>
-
-<section id="linkek">
-  <div class="sec-h"><span>Demók és anyagok</span><h2>Linkek</h2><p>A sötét dizájn az alap, a világos változatok a régebbi állapotot mutatják.</p></div>
-  <div class="links" id="links"></div>
 </section>
 
 <section id="dontesek">
