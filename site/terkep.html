@@ -40,18 +40,35 @@ section{display:grid;gap:18px}
 .st b{font:700 11px/1.3 var(--sc);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ring)}
 .st p{margin:0;color:var(--text-muted)}
 
-/* feladatok */
-.tasks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.task{background:var(--sidebar);border:1px solid var(--muted);border-left:3px solid var(--todo);padding:14px 18px;display:grid;gap:6px}
-.task[data-state="var"]{border-left-color:var(--wait)}
-.task[data-state="kesz"]{border-left-color:var(--ok)}
-.task .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
-.task p{margin:0;color:var(--text-muted)}
-.pill{font:700 10.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:5px 8px;border:1px solid currentColor;white-space:nowrap}
-.pill.todo{color:var(--todo)} .pill.var{color:var(--wait)} .pill.kesz{color:var(--ok)}
-.who{font:600 12px/1 var(--body);color:var(--text-muted)}
-.blocked{font-size:13.5px}
+/* feladatok: kanban */
+.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:start}
+@media (max-width:1000px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.board{grid-template-columns:1fr}}
+.col{background:color-mix(in srgb,var(--sidebar) 70%,transparent);border:1px solid var(--muted);display:grid;grid-template-rows:auto 1fr;min-width:0}
+.col[data-col="sprint"]{border-color:var(--gold)}
+.col-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:12px 14px;border-bottom:1px solid var(--muted)}
+.col-h b{font:700 12px/1.2 var(--sc);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ring)}
+.col-h small{color:var(--text-muted);font:600 12px/1 var(--body);font-variant-numeric:tabular-nums}
+.col-list{list-style:none;margin:0;padding:10px;display:grid;gap:8px;align-content:start;min-height:90px}
+.card{position:relative;background:var(--sidebar);border:1px solid var(--muted);border-left:3px solid var(--todo);padding:11px 12px 11px 30px;display:grid;gap:5px;cursor:grab;user-select:none}
+.col[data-col="sprint"] .card{border-left-color:var(--gold-ring)}
+.col[data-col="feedback"] .card{border-left-color:var(--wait)}
+.col[data-col="done"] .card{border-left-color:var(--ok)}
+.col[data-col="done"] .card h3{color:var(--text-muted)}
+.card h3{font-size:15.5px}
+.card p{margin:0;color:var(--text-muted);font-size:13.5px;line-height:1.45}
+.card .who{font:600 12px/1.2 var(--body);color:var(--gold-ring)}
+.card .tag{justify-self:start;font:700 10px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:4px 6px;border:1px solid currentColor;color:var(--todo)}
+.blocked{font-size:12.5px!important}
 .blocked::before{content:"Vár: ";color:var(--wait);font-weight:700}
+.grip{position:absolute;left:0;top:0;bottom:0;width:24px;display:grid;place-items:center;color:var(--text-muted);opacity:.55;touch-action:none;cursor:grab;font-size:14px;letter-spacing:-2px}
+.card:hover .grip{opacity:1}
+.card.placeholder{opacity:.35;outline:1px dashed var(--gold)}
+.ghost{position:fixed;z-index:50;pointer-events:none;margin:0;box-shadow:0 14px 34px rgba(0,0,0,.5);transform:rotate(1.5deg);cursor:grabbing}
+.col.over{background:color-mix(in srgb,var(--card) 35%,transparent)}
+.board-note{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;color:var(--text-muted);font-size:13px}
+.board-note button{font:600 12px/1 var(--body);color:var(--text);background:transparent;border:1px solid var(--gold);padding:7px 10px;cursor:pointer}
+.board-note button[hidden]{display:none}
 
 /* kérdések */
 .qs{width:100%;border-collapse:collapse;background:var(--sidebar)}
@@ -106,8 +123,9 @@ footer{color:var(--text-muted);font-size:13px}
 </section>
 
 <section id="feladatok">
-  <div class="sec-h"><span>Hátralévő</span><h2>Feladatok</h2><p>A go-live januárban várható. A képszerkesztő és az offline anyagok a go-live utánra kerültek.</p></div>
-  <ul class="tasks" id="tasks"></ul>
+  <div class="sec-h"><span>Kanban</span><h2>Feladatok</h2><p>A heti sprint az, amin ezen a héten dolgozunk. A go-live januárban várható, a képszerkesztő és az offline anyagok utána jönnek.</p></div>
+  <div class="board" id="board"></div>
+  <div class="board-note"><span>A kártyák húzhatók. Az átrendezés ebben a böngészőben marad meg, a közös állapotot a meeting után frissítem.</span><button type="button" id="reset" hidden>Vissza a közös állapotra</button></div>
 </section>
 
 <section id="kerdesek">
@@ -137,14 +155,31 @@ const STATUS = [
   { t: "Go-live", d: "Januárra tervezve. Utána jöhet a képszerkesztő és az offline anyagok." },
 ];
 
-// state: "todo" | "var" (vár valamire) | "kesz"
+// Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
+const BOARD_VERSION = "2026-10-07b";
+const COLUMNS = [
+  { id: "backlog", title: "Backlog" },
+  { id: "sprint", title: "Heti sprint", sub: "10.08–10.14." },
+  { id: "feedback", title: "Visszajelzés alatt" },
+  { id: "done", title: "Kész" },
+];
 const TASKS = [
-  { state: "var", title: "A sötét dizájn átnézése a UAT-on", who: "Ádám", detail: "A webshop grid, és Laci új elemei: drawer, profil, kosárpanel, lábléc, gyártószűrő-chip. Ami eltér, azt javítom vagy leírom Lacinak.", blocked: "a UAT kirakása (most 503-mal áll)" },
-  { state: "var", title: "Levelek éles HTML-je, változatonként külön fájlban", who: "Ádám", detail: "Táblázatos HTML, inline CSS, Gmailben és Outlookban is jól kell kinéznie. Az FTL-tageket Laci teszi bele.", blocked: "a példák megerősítése (lásd a nyitott kérdéseket)" },
-  { state: "todo", title: "Piktogramok átadása Lacinak", who: "Ádám + Laci", detail: "Az SVG-k és a használat megbeszélése: hova kerülnek a menün kívül." },
-  { state: "todo", title: "Levelek tesztje Gmailben és Outlookban", who: "Csaba, Andris", detail: "Ha valami szétesik, javítom." },
-  { state: "todo", title: "Élesítés kísérése", who: "mindenki", detail: "Januárban. Az éles visszajelzések javítása." },
-  { state: "kesz", title: "Térkép-oldal az összes demóval és a nyitott kérdésekkel", who: "Ádám", detail: "Ez a lap." },
+  // heti sprint
+  { id: "uat", col: "sprint", title: "A sötét dizájn átnézése a UAT-on", who: "Ádám", detail: "A webshop grid, és Laci új elemei: drawer, profil, kosárpanel, lábléc, gyártószűrő-chip. Ami eltér, azt javítom vagy leírom Lacinak.", blocked: "a UAT kirakása (most 503-mal áll)" },
+  { id: "pikto", col: "sprint", title: "Piktogramok átadása Lacinak", who: "Ádám + Laci", detail: "Az SVG-k és a használat megbeszélése: hova kerülnek a menün kívül." },
+  // backlog
+  { id: "levelek-html", col: "backlog", title: "Levelek éles HTML-je, változatonként külön fájlban", who: "Ádám", detail: "Táblázatos HTML, inline CSS. Az FTL-tageket Laci teszi bele.", blocked: "a példák megerősítése" },
+  { id: "levelek-teszt", col: "backlog", title: "Levelek tesztje Gmailben és Outlookban", who: "Csaba, Andris", detail: "Ha valami szétesik, javítom." },
+  { id: "kepszerk", col: "backlog", title: "Képszerkesztő app", who: "Ádám, Laci", detail: "A termékfotók hátterének eltávolítása és a szükséges méretek legyártása. Első lépés az asztali változat, utána Lacival, hogy a szerveren is fusson-e.", tag: "go-live után" },
+  { id: "elesites", col: "backlog", title: "Élesítés kísérése", who: "mindenki", detail: "Januárban. Az éles visszajelzések javítása." },
+  { id: "offline", col: "backlog", title: "Offline anyagok (plakát, roll-up, bolti sablonok)", who: "Ádám", detail: "A sötét arculattal.", tag: "go-live után" },
+  // visszajelzés alatt
+  { id: "sotet", col: "feedback", title: "Sötét dizájn a UAT-ágban", who: "Laci", detail: "Bent van a v13-ux-ben, a grid javítva. Kirakás után közösen nézzük meg." },
+  { id: "levelek-koncepcio", col: "feedback", title: "Levelek: 8 rendelési levél és 5 rövid értesítő", who: "Csaba, Andris", detail: "A példák feltételezéseit kell megerősíteni (48 órás link, kredit részletekben, asztal díja)." },
+  // kész
+  { id: "terkep", col: "done", title: "Térkép oldal", who: "Ádám", detail: "Ez a lap: linkek, feladatok, kérdések, döntések." },
+  { id: "rovid", col: "done", title: "Rövid értesítők közös sablonja", who: "Ádám", detail: "Regisztráció, készletértesítő, holnapi esemény, kredit jóváírva, kredit lejár." },
+  { id: "wargame", col: "done", title: "Wargame ikon: sisak", who: "Ádám", detail: "A sötét demo menüjében él." },
 ];
 
 const QUESTIONS = [
@@ -219,17 +254,10 @@ const DECISIONS = [
 // --- kirajzolás ---
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const url = f => /^https?:/.test(f) ? f : BASE + f;
-const label = { todo: "teendő", var: "vár", kesz: "kész" };
 
 document.getElementById("updated").textContent = UPDATED;
 document.getElementById("status").innerHTML = STATUS.map(s =>
   `<div class="st"><b>${esc(s.t)}</b><p>${esc(s.d)}</p></div>`).join("");
-document.getElementById("tasks").innerHTML = TASKS.map(t => `
-  <li class="task" data-state="${t.state}">
-    <div class="top"><span class="pill ${t.state}">${label[t.state]}</span><h3>${esc(t.title)}</h3><span class="who">${esc(t.who)}</span></div>
-    ${t.detail ? `<p>${esc(t.detail)}</p>` : ""}
-    ${t.blocked ? `<p class="blocked">${esc(t.blocked)}</p>` : ""}
-  </li>`).join("");
 document.getElementById("questions").innerHTML = QUESTIONS.map(q =>
   `<tr><td>${esc(q.topic)}</td><td>${esc(q.q)}</td><td>${esc(q.who)}</td></tr>`).join("");
 document.getElementById("links").innerHTML = LINKS.map(g => `
@@ -238,6 +266,102 @@ document.getElementById("links").innerHTML = LINKS.map(g => `
   </ul></div>`).join("");
 document.getElementById("decisions").innerHTML = DECISIONS.map(d =>
   `<li><time>${esc(d.date)}</time><span>${esc(d.text)}</span></li>`).join("");
+
+// --- kanban ---
+const KEY = "mg-terkep-board";
+const board = document.getElementById("board");
+const resetBtn = document.getElementById("reset");
+const byId = Object.fromEntries(TASKS.map(t => [t.id, t]));
+
+function load() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (saved && saved.v === BOARD_VERSION) return saved.cols;
+  } catch (e) {}
+  return null;
+}
+function save() {
+  const cols = {};
+  board.querySelectorAll(".col").forEach(c => cols[c.dataset.col] = [...c.querySelectorAll(".card")].map(k => k.dataset.id));
+  try { localStorage.setItem(KEY, JSON.stringify({ v: BOARD_VERSION, cols })); } catch (e) {}
+  resetBtn.hidden = false;
+}
+function cardHtml(t) {
+  return `<li class="card" data-id="${t.id}">
+    <span class="grip" aria-hidden="true">⋮⋮</span>
+    <h3>${esc(t.title)}</h3>
+    <span class="who">${esc(t.who)}</span>
+    ${t.detail ? `<p>${esc(t.detail)}</p>` : ""}
+    ${t.blocked ? `<p class="blocked">${esc(t.blocked)}</p>` : ""}
+    ${t.tag ? `<span class="tag">${esc(t.tag)}</span>` : ""}
+  </li>`;
+}
+function render() {
+  const saved = load();
+  const placed = new Set();
+  const lists = {};
+  COLUMNS.forEach(c => {
+    lists[c.id] = (saved && saved[c.id] || []).filter(id => byId[id] && !placed.has(id) && placed.add(id));
+  });
+  TASKS.forEach(t => { if (!placed.has(t.id)) lists[t.col].push(t.id); });
+  board.innerHTML = COLUMNS.map(c => `
+    <div class="col" data-col="${c.id}">
+      <div class="col-h"><b>${esc(c.title)}</b><small>${c.sub ? esc(c.sub) + " · " : ""}<span class="n">${lists[c.id].length}</span></small></div>
+      <ul class="col-list">${lists[c.id].map(id => cardHtml(byId[id])).join("")}</ul>
+    </div>`).join("");
+  resetBtn.hidden = !saved;
+}
+function counts() {
+  board.querySelectorAll(".col").forEach(c => c.querySelector(".n").textContent = c.querySelectorAll(".card").length);
+}
+resetBtn.addEventListener("click", () => { try { localStorage.removeItem(KEY); } catch (e) {} render(); });
+render();
+
+// Húzás egérrel a teljes kártyán, érintéssel a bal oldali fogantyún (hogy a görgetés megmaradjon).
+let pending = null, drag = null;
+board.addEventListener("pointerdown", e => {
+  const card = e.target.closest(".card");
+  if (!card || e.button !== 0) return;
+  if (e.pointerType !== "mouse" && !e.target.closest(".grip")) return;
+  pending = { card, x: e.clientX, y: e.clientY, id: e.pointerId };
+});
+window.addEventListener("pointermove", e => {
+  if (pending && !drag && Math.hypot(e.clientX - pending.x, e.clientY - pending.y) > 5) {
+    const r = pending.card.getBoundingClientRect();
+    const ghost = pending.card.cloneNode(true);
+    ghost.classList.add("ghost");
+    ghost.style.width = r.width + "px";
+    document.body.appendChild(ghost);
+    pending.card.classList.add("placeholder");
+    drag = { card: pending.card, ghost, dx: pending.x - r.left, dy: pending.y - r.top };
+  }
+  if (!drag) return;
+  e.preventDefault();
+  drag.ghost.style.left = e.clientX - drag.dx + "px";
+  drag.ghost.style.top = e.clientY - drag.dy + "px";
+  const list = document.elementFromPoint(e.clientX, e.clientY)?.closest(".col")?.querySelector(".col-list");
+  board.querySelectorAll(".col.over").forEach(c => c.classList.remove("over"));
+  if (!list) return;
+  list.parentElement.classList.add("over");
+  const next = [...list.querySelectorAll(".card:not(.placeholder)")].find(c => {
+    const r = c.getBoundingClientRect(); return e.clientY < r.top + r.height / 2;
+  });
+  if (next) list.insertBefore(drag.card, next); else list.appendChild(drag.card);
+  if (e.clientY < 60) window.scrollBy(0, -12);
+  else if (e.clientY > innerHeight - 60) window.scrollBy(0, 12);
+}, { passive: false });
+function endDrag() {
+  if (drag) {
+    drag.ghost.remove();
+    drag.card.classList.remove("placeholder");
+    board.querySelectorAll(".col.over").forEach(c => c.classList.remove("over"));
+    counts();
+    save();
+  }
+  pending = drag = null;
+}
+window.addEventListener("pointerup", endDrag);
+window.addEventListener("pointercancel", endDrag);
 </script>
 </body>
 </html>
