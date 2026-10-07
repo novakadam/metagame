@@ -149,14 +149,14 @@ footer{color:var(--text-muted);font-size:13px}
 const UPDATED = "2026.10.07.";
 
 const STATUS = [
-  { t: "Sötét dizájn", d: "Átadva Lacinak a design-sotet-2026-09-24 branchen, 09.25-én bekerült a UAT-ágba. A webshop grid javítása is megvan, a UAT-on még nem látszik." },
+  { t: "Sötét dizájn", d: "Átadva Lacinak a design-sotet-2026-09-24 branchen, 09.25-én bekerült a UAT-ágba. 10.07-től a UAT-on is él, a bejelentkezéssel és a kosár-drawerrel együtt." },
   { t: "Levelek", d: "A koncepció kész: 8 rendelési levél és a rövid értesítők közös sablonja 5 változattal. Következő lépés a változatonkénti éles HTML." },
   { t: "Piktogramok", d: "A kategória-ikonok elkészültek, a Wargame ikonja a sisak. Az átadás Lacinak van hátra." },
   { t: "Go-live", d: "Januárra tervezve. Utána jöhet a képszerkesztő és az offline anyagok." },
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-10-07b";
+const BOARD_VERSION = "2026-10-07c";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "10.08–10.14." },
@@ -165,7 +165,7 @@ const COLUMNS = [
 ];
 const TASKS = [
   // heti sprint
-  { id: "uat", col: "sprint", title: "A sötét dizájn átnézése a UAT-on", who: "Ádám", detail: "A webshop grid, és Laci új elemei: drawer, profil, kosárpanel, lábléc, gyártószűrő-chip. Ami eltér, azt javítom vagy leírom Lacinak.", blocked: "a UAT kirakása (most 503-mal áll)" },
+  { id: "uat", col: "sprint", title: "A sötét dizájn átnézése a UAT-on", who: "Ádám", detail: "A webshop grid, és Laci új elemei: drawer, profil, kosárpanel, lábléc, gyártószűrő-chip. Ami eltér, azt javítom vagy leírom Lacinak." },
   { id: "pikto", col: "sprint", title: "Piktogramok átadása Lacinak", who: "Ádám + Laci", detail: "Az SVG-k és a használat megbeszélése: hova kerülnek a menün kívül." },
   // backlog
   { id: "levelek-html", col: "backlog", title: "Levelek éles HTML-je, változatonként külön fájlban", who: "Ádám", detail: "Táblázatos HTML, inline CSS. Az FTL-tageket Laci teszi bele.", blocked: "a példák megerősítése" },
@@ -174,7 +174,7 @@ const TASKS = [
   { id: "elesites", col: "backlog", title: "Élesítés kísérése", who: "mindenki", detail: "Januárban. Az éles visszajelzések javítása." },
   { id: "offline", col: "backlog", title: "Offline anyagok (plakát, roll-up, bolti sablonok)", who: "Ádám", detail: "A sötét arculattal.", tag: "go-live után" },
   // visszajelzés alatt
-  { id: "sotet", col: "feedback", title: "Sötét dizájn a UAT-ágban", who: "Laci", detail: "Bent van a v13-ux-ben, a grid javítva. Kirakás után közösen nézzük meg." },
+  { id: "sotet", col: "feedback", title: "Sötét dizájn a UAT-ágban", who: "Laci", detail: "10.07-től a UAT-on él. Laci szerint van még pár glitch, ezeket az átnézés után összeszedjük." },
   { id: "levelek-koncepcio", col: "feedback", title: "Levelek: 8 rendelési levél és 5 rövid értesítő", who: "Csaba, Andris", detail: "A példák feltételezéseit kell megerősíteni (48 órás link, kredit részletekben, asztal díja)." },
   // kész
   { id: "terkep", col: "done", title: "Térkép oldal", who: "Ádám", detail: "Ez a lap: linkek, feladatok, kérdések, döntések." },
@@ -183,7 +183,6 @@ const TASKS = [
 ];
 
 const QUESTIONS = [
-  { topic: "UAT", q: "Mikor kerül ki a sötét dizájn a UAT-ra? Most 503-mal áll.", who: "Laci" },
   { topic: "Levelek", q: "A példákban szereplő feltételezések jók-e: 48 órás fizetési link, kredit részletekben, az asztal díja.", who: "Csaba, Andris" },
   { topic: "Levelek", q: "A többi rendszerlevél sablonja és a mezőlista (milyen adat kerül egy-egy levélbe).", who: "Laci" },
   { topic: "Levelek", q: "Kézi törléskor most nem megy levél. Kell-e?", who: "Laci, Andris" },
@@ -231,13 +230,14 @@ const LINKS = [
     ["Mobil keret", "mobile-preview.html"],
   ]},
   { group: "Fejlesztés", items: [
-    ["UAT (Laci tesztszervere)", "https://uat.metagames.hu/", null, "itt lesz élőben a sötét dizájn"],
+    ["UAT (Laci tesztszervere)", "https://uat.metagames.hu/", null, "itt él a sötét dizájn"],
     ["Az átvezetés branche a GitLabon", "https://issues.tracktime.hu/metagame/metagame-web/-/tree/design-sotet-2026-09-24", null, "leírás és tesztlista a DESIGN-SOTET-2026-09-24.md-ben"],
     ["A mostani éles oldal", "https://www.metagames.hu/"],
   ]},
 ];
 
 const DECISIONS = [
+  { date: "10.07", text: "A sötét dizájn kikerült a UAT-ra (uat.metagames.hu), a bejelentkezéssel és a kosár-drawerrel együtt." },
   { date: "10.01", text: "A Wargame ikonja a sisak. A kalapács és az ork koponya alternatívaként megmarad." },
   { date: "10.01", text: "A levelekből változatonként külön HTML-fájl készül, az FTL-tageket Laci teszi bele." },
   { date: "10.01", text: "A nem rendeléshez kötött levelek (regisztráció, készletértesítő, holnapi esemény, kredit jóváírva, kredit lejár) egy közös rövid sablont kapnak." },
