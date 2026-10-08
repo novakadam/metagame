@@ -1170,6 +1170,17 @@
     pointer-events: none;
   }
 
+  /* Ha van ticker (50–78px), a takarás érjen le alá, különben görgetéskor a tartalom
+     átlátszik a ticker szövege mögött (10.08) */
+  body:has(.mg-ticker) .mg-content { padding-top: 96px; }
+  body:has(.mg-ticker) .mg-content::before {
+    height: 108px;
+    background: linear-gradient(to bottom,
+      var(--color-bg) 0%,
+      var(--color-bg) 76%,
+      transparent 100%);
+  }
+
   /* Widget slotok full-bleed (saját belső paddinget kezelnek) */
   .mg-content > [class*="mg-widget"] {
     margin-left: -32px;
