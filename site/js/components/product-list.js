@@ -98,7 +98,7 @@ function mgInitProductList() {
   // ── KÁRTYA KATTINTÁS → TERMÉK OLDAL ───────────────────────
   $(document).on('click', '.mg-product-card', function (e) {
     if ($(e.target).closest('.btn.rounded-circle, .mg-product-card__cta').length) return;
-    window.location.href = 'product.html';
+    window.location.href = 'product-sotet.html';
   });
 
   // ── KATEGÓRIA CHIPEK PROGRESSZÍV MEGJELENÍTÉS ─────────────
@@ -303,7 +303,7 @@ function mgCreateDemoCard() {
         '</div>' +
 
         '<div class="mg-product-card__cta">' +
-          '<a class="btn btn-primary" href="product.html">' + (p.cta || 'Kosárba') + '</a>' +
+          '<a class="btn btn-primary" href="product-sotet.html">' + (p.cta || 'Kosárba') + '</a>' +
         '</div>' +
 
       '</div>' +

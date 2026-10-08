@@ -343,7 +343,7 @@ function mgBuildFavBody() {
       '<div class="mg-drawer-cart__price-row">' +
         '<span class="fw-semibold fs-5 text-card">' + item.price + '</span>' +
         '<div class="mg-drawer-fav__actions">' +
-          '<a href="product.html" class="btn btn-secondary btn-sm">Megnézem</a>' +
+          '<a href="product-sotet.html" class="btn btn-secondary btn-sm">Megnézem</a>' +
           '<button class="btn mg-btn--icon mg-drawer-fav__remove" aria-label="Eltávolítás">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M4 6h12M8 6V4h4v2M6 6v10a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6"/></svg>' +
           '</button>' +
@@ -357,7 +357,7 @@ function mgBuildFavBody() {
 
 function mgBuildFavFooter() {
   return '<div class="mg-drawer-cart__actions">' +
-    '<a href="products.html" class="btn btn-outline-secondary w-100 justify-content-center">Böngéssz tovább</a>' +
+    '<a href="products-sotet.html" class="btn btn-outline-secondary w-100 justify-content-center">Böngéssz tovább</a>' +
   '</div>';
 }
 
@@ -450,7 +450,7 @@ function mgInitDrawer() {
     }
   });
 
-  // URL hash → auto-open (pl. index.html#profile)
+  // URL hash → auto-open (pl. index-sotet.html#profile)
   var hashType = location.hash.replace('#', '');
   if (hashType && drawerMap.indexOf(hashType) !== -1) {
     setTimeout(function () { openDrawer(hashType); }, 300);

@@ -113,7 +113,7 @@ footer{color:var(--text-muted);font-size:13px}
 </nav>
 
 <section id="linkek">
-  <div class="sec-h"><span>Demók és anyagok</span><h2>Linkek</h2><p>A sötét dizájn az alap, a világos változatok a régebbi állapotot mutatják.</p></div>
+  <div class="sec-h"><span>Demók és anyagok</span><h2>Linkek</h2><p>Minden demó a sötét dizájnt mutatja.</p></div>
   <div class="links" id="links"></div>
 </section>
 
@@ -146,7 +146,7 @@ footer{color:var(--text-muted);font-size:13px}
 
 <script>
 // A térkép tartalma. Ezt bővítjük, amikor új oldal, feladat, döntés vagy kérdés jön.
-const UPDATED = "2026.10.07.";
+const UPDATED = "2026.10.08.";
 
 const STATUS = [
   { t: "Sötét dizájn", d: "Átadva Lacinak a design-sotet-2026-09-24 branchen, 09.25-én bekerült a UAT-ágba. 10.07-től a UAT-on is él, a bejelentkezéssel és a kosár-drawerrel együtt." },
@@ -193,33 +193,33 @@ const QUESTIONS = [
 ];
 
 const BASE = "https://metagame-build.vercel.app/";
-// [cím, sötét fájl, világos fájl (opcionális), megjegyzés]
+// [cím, fájl, második változat (opcionális), megjegyzés]
 const LINKS = [
   { group: "Webshop", items: [
-    ["Kezdőlap", "index-sotet.html", "index.html"],
-    ["Terméklista", "products-sotet.html", "products.html", "szűrőpanellel"],
-    ["Termékoldal", "product-sotet.html", "product.html"],
+    ["Kezdőlap", "index-sotet.html", null],
+    ["Terméklista", "products-sotet.html", null, "szűrőpanellel"],
+    ["Termékoldal", "product-sotet.html", null],
     ["Pénztár", "checkout.html"],
     ["Sikeres rendelés", "success.html"],
-    ["Magic singles", "magic-singles-sotet.html", "magic-singles.html", "tételes laplista"],
+    ["Magic singles", "magic-singles-sotet.html", null, "tételes laplista"],
   ]},
   { group: "Közösség", items: [
-    ["Eseménynaptár", "events-sotet.html", "events.html"],
-    ["Esemény oldala", "event-detail-sotet.html", "event-detail.html"],
-    ["Klub", "klub-sotet.html", "klub.html"],
-    ["Klub bemutató", "klub-bemutato-sotet.html", "klub-bemutato.html"],
-    ["Ligák", "liga-sotet.html", "liga.html"],
-    ["Liga állása", "liga-allasok-sotet.html", "liga-allasok.html"],
-    ["Galéria", "galeria-sotet.html", "galeria.html"],
-    ["Galéria album", "galeria-album-sotet.html", "galeria-album.html"],
+    ["Eseménynaptár", "events-sotet.html", null],
+    ["Esemény oldala", "event-detail-sotet.html", null],
+    ["Klub", "klub-sotet.html", null],
+    ["Klub bemutató", "klub-bemutato-sotet.html", null],
+    ["Ligák", "liga-sotet.html", null],
+    ["Liga állása", "liga-allasok-sotet.html", null],
+    ["Galéria", "galeria-sotet.html", null],
+    ["Galéria album", "galeria-album-sotet.html", null],
   ]},
   { group: "Tudástár", items: [
-    ["Tudástár és Krónikák", "tudastar-sotet.html", "tudastar.html"],
-    ["Bírói tudnivalók", "tudastar-biro-sotet.html", "tudastar-biro.html"],
-    ["Hall of Fame", "tudastar-hall-of-fame-sotet.html", "tudastar-hall-of-fame.html"],
-    ["Klubnap", "tudastar-klubnap-sotet.html", "tudastar-klubnap.html"],
-    ["Shield típusok", "tudastar-shield-sotet.html", "tudastar-shield.html"],
-    ["Versenyszabályzat", "tudastar-versenyszabalyzat-sotet.html", "tudastar-versenyszabalyzat.html"],
+    ["Tudástár és Krónikák", "tudastar-sotet.html", null],
+    ["Bírói tudnivalók", "tudastar-biro-sotet.html", null],
+    ["Hall of Fame", "tudastar-hall-of-fame-sotet.html", null],
+    ["Klubnap", "tudastar-klubnap-sotet.html", null],
+    ["Shield típusok", "tudastar-shield-sotet.html", null],
+    ["Versenyszabályzat", "tudastar-versenyszabalyzat-sotet.html", null],
     ["Cikk", "article.html"],
   ]},
   { group: "Anyagok", items: [
@@ -237,6 +237,7 @@ const LINKS = [
 ];
 
 const DECISIONS = [
+  { date: "10.08", text: "A sötét dizájn a végleges. A világos demó-oldalak lekerültek, archívumként megmaradnak a repóban (archiv/vilagos), a régi linkek a sötét változatra visznek." },
   { date: "10.07", text: "A sötét dizájn kikerült a UAT-ra (uat.metagames.hu), a bejelentkezéssel és a kosár-drawerrel együtt." },
   { date: "10.01", text: "A Wargame ikonja a sisak. A kalapács és az ork koponya alternatívaként megmarad." },
   { date: "10.01", text: "A levelekből változatonként külön HTML-fájl készül, az FTL-tageket Laci teszi bele." },

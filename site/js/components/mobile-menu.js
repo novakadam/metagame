@@ -176,7 +176,7 @@ function mgInitMobileMenu() {
     html += chevronLeft(20) + '<span>' + brandName + '</span></button>';
 
     subs.forEach(function(sub) {
-      html += '<a class="mg-mobile-menu__subcat" href="products.html">' + sub + '</a>';
+      html += '<a class="mg-mobile-menu__subcat" href="products-sotet.html">' + sub + '</a>';
     });
 
     html += buildPopularHtml(data.popular);

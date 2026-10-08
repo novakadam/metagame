@@ -69,7 +69,7 @@ function mgRenderResults(items, query) {
       }
 
       /* BACKEND: product.url */
-      html += '<a href="product.html" class="mg-search-panel__item">' +
+      html += '<a href="product-sotet.html" class="mg-search-panel__item">' +
         '<div class="mg-search-panel__item-img"><img src="' + p.img + '" alt="' + p.name + '"></div>' +
         '<div class="mg-search-panel__item-info">' +
           '<span class="mg-search-panel__item-name">' + mgHighlight(p.name, query) + '</span>' +
@@ -256,7 +256,7 @@ function mgInitMobileSearch() {
     html += '<div class="mg-mobile-search-overlay__section-title">Ajánlott termékek</div>';
     html += '<div class="mg-mobile-search-overlay__featured">';
     mgMobileSearchFeatured.forEach(function(p) {
-      html += '<a class="mg-mobile-search-overlay__featured-card" href="product.html">';
+      html += '<a class="mg-mobile-search-overlay__featured-card" href="product-sotet.html">';
       html += '<img src="' + p.img + '" alt="' + p.name + '">';
       html += '<span class="mg-mobile-search-overlay__featured-name">' + p.name + '</span>';
       html += '<span class="mg-mobile-search-overlay__featured-price">' + p.price + '</span>';
@@ -273,7 +273,7 @@ function mgInitMobileSearch() {
       html += '<div>';
       html += '<h3 class="mg-mobile-search-overlay__group-title">' + cat + '</h3>';
       data.groups[cat].forEach(function(p) {
-        html += '<a class="mg-mobile-search-overlay__item" href="product.html">';
+        html += '<a class="mg-mobile-search-overlay__item" href="product-sotet.html">';
         html += '<div class="mg-mobile-search-overlay__item-img"><img src="' + p.img + '" alt="' + p.name + '"></div>';
         html += '<div class="mg-mobile-search-overlay__item-info">';
         html += '<span class="mg-mobile-search-overlay__item-name">' + mgHighlight(p.name, query) + '</span>';

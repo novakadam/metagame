@@ -1,0 +1,104 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/index-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/event-detail.html",
+      "destination": "/event-detail-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/events.html",
+      "destination": "/events-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/galeria-album.html",
+      "destination": "/galeria-album-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/galeria.html",
+      "destination": "/galeria-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "destination": "/index-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/klub-bemutato.html",
+      "destination": "/klub-bemutato-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/klub.html",
+      "destination": "/klub-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/liga-allasok.html",
+      "destination": "/liga-allasok-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/liga.html",
+      "destination": "/liga-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/magic-singles.html",
+      "destination": "/magic-singles-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/product.html",
+      "destination": "/product-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/products.html",
+      "destination": "/products-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/tudastar-biro.html",
+      "destination": "/tudastar-biro-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/tudastar-hall-of-fame.html",
+      "destination": "/tudastar-hall-of-fame-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/tudastar-klubnap.html",
+      "destination": "/tudastar-klubnap-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/tudastar-shield.html",
+      "destination": "/tudastar-shield-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/tudastar-versenyszabalyzat.html",
+      "destination": "/tudastar-versenyszabalyzat-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/tudastar.html",
+      "destination": "/tudastar-sotet.html",
+      "permanent": false
+    },
+    {
+      "source": "/products-textura.html",
+      "destination": "/products-sotet.html",
+      "permanent": false
+    }
+  ]
+}

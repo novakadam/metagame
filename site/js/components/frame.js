@@ -33,8 +33,8 @@ $(function () {
 
     // Shop / Eseménynaptár közti navigáció (prototípus — élesben BACKEND/router)
     var onEvents = window.location.pathname.indexOf('events') !== -1;
-    if (target === 'community' && !onEvents) { window.location.href = 'events.html'; return; }
-    if (target === 'shop' && onEvents)       { window.location.href = 'index.html';  return; }
+    if (target === 'community' && !onEvents) { window.location.href = 'events-sotet.html'; return; }
+    if (target === 'shop' && onEvents)       { window.location.href = 'index-sotet.html';  return; }
 
     $toggle.attr('data-active', target);
 
