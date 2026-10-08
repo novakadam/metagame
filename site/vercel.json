@@ -99,6 +99,11 @@
       "source": "/products-textura.html",
       "destination": "/products-sotet.html",
       "permanent": false
+    },
+    {
+      "source": "/article.html",
+      "destination": "/article-sotet.html",
+      "permanent": false
     }
   ]
 }
