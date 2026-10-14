@@ -49,6 +49,8 @@
   --bs-btn-hover-border-color: var(--color-bg);
   --bs-btn-active-color: var(--color-bg);
   --bs-btn-active-border-color: var(--color-bg);
+  --bs-btn-disabled-color: var(--color-bg);
+  --bs-btn-disabled-border-color: var(--color-bg);
 
   text-transform: uppercase;
   letter-spacing: 0.06em;

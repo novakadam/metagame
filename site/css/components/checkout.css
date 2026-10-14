@@ -582,10 +582,6 @@ html, body {
 
 /* ── TRUST BADGES ───────────────────────────────────────── */
 
-.mg-checkout__trust {
-  gap: 12px;
-}
-
 .mg-checkout__trust-item {
   display: flex;
   align-items: center;
@@ -627,6 +623,7 @@ html, body {
 .mg-checkout__sidebar {
   position: sticky;
   top: 32px;
+  align-self: flex-start; /* különben a sor magasságáig nyúlik, és nincs hol ragadnia */
 }
 
 /* ── RENDELÉS ÖSSZESÍTŐ ─────────────────────────────────── */
@@ -1286,10 +1283,6 @@ html, body {
   }
 
   /* ── Trust badges ── */
-  .mg-checkout__trust {
-    gap: 8px;
-  }
-
   .mg-checkout__trust-item {
     padding: 12px;
   }

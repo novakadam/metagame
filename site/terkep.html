@@ -169,11 +169,12 @@ const SINCE = [
   { date: "10.08", text: "A nálunk lévő javítások a design-sotet-javitas-2026-10-08 branchen: levágott szekció-címkék és kilógó vélemények, kereső-overlay aloldalon, „Keresés...”, sötét süti-ablak, mobilon a ticker háttere. Laci azóta beolvasztotta a v13-ux-be." },
   { date: "10.08", text: "A cikk-oldal sötét változata. A világos demó-oldalak archívumba kerültek, a régi linkek a sötétre visznek." },
   { date: "10.08", text: "Javaslat a képszerkesztő ütemezésére, mert a sötét háttéren nagyon kilógnak a fehér hátterű, eltérő vágású termékképek." },
+  { date: "10.14", text: "Az új pénztár átnézése a UAT-on. A pénztár a régi Bootstrap 4-et töltötte be, ezért natívak voltak a jelölőnégyzetek, és nem ragadt az összesítő. A javítások a design-penztar-javitas-2026-10-14 branchen: ragadó összesítő, a bizalmi sáv egy sorban, a letiltott Fizetés gomb kék kerete le, és külön commitban a Bootstrap 5 a pénztáron. A demó is megkapta ugyanezeket." },
   { date: "10.13", text: "Laci, 10.11 óta: új pénztár oldal a UAT-ágban (szállítás és fizetés, Foxpost és GLS csomagpont, céges adatok, ÁSZF-pipa, bejelentkezés a pénztárban, új sikeres rendelés oldal)." },
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-10-14a";
+const BOARD_VERSION = "2026-10-14b";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "10.15–10.21." },
@@ -183,7 +184,7 @@ const COLUMNS = [
 const TASKS = [
   // heti sprint
   { id: "laci-uat", col: "sprint", title: "A UAT-átnézés Laci oldali pontjai", who: "Laci", detail: "Szűrőpanel: offcanvas-xxl és a position-relative le (laptopon szétcsúszott grid, mobilon üres hely a lista fölött). bootstrap.Offcanvas hiba (nem nyílik a kosár és a profil drawer). Uuid a kártyák kategória-sávjában. Krónikák: Klub/Bolt címke és dátumformátum. Kategória-ikonok, --gradients osztály, Leaflet a CSP-ben, maradék demo-linkek." },
-  { id: "penztar", col: "sprint", title: "Az új pénztár átnézése a UAT-on", who: "Ádám", detail: "Laci 10.11–13. között építette. Összevetés a pénztár-demóval, asztalon és mobilon, a javítások külön branchen." },
+  { id: "penztar", col: "feedback", title: "Pénztár: javítások beolvasztása", who: "Laci", detail: "A design-penztar-javitas-2026-10-14 branchen, két commitban. Az első CSS (ragadó összesítő, bizalmi sáv, letiltott gomb). A második a Bootstrap 5 a MinimalPublicPage-en, a céges blokk lenyitásához data-bs-toggle. Mobilon még át kell nézni." },
   { id: "pikto", col: "sprint", title: "Piktogramok átadása Lacinak", who: "Ádám + Laci", detail: "Az SVG-k és a használat megbeszélése: hova kerülnek a menün kívül." },
   // backlog
   { id: "levelek-html", col: "backlog", title: "Levelek éles HTML-je, változatonként külön fájlban", who: "Ádám", detail: "Táblázatos HTML, inline CSS. Az FTL-tageket Laci teszi bele.", blocked: "a példák megerősítése" },
@@ -212,6 +213,8 @@ const QUESTIONS = [
   { topic: "Mobil", q: "Androidon az alsó 3 gomb a rendszer-navigáció fölött ül. Kellene róla egy képernyőkép.", who: "Csaba" },
   { topic: "Tartalom", q: "A UAT kezdőlapján üres a hero-karusszel és a vélemények blokk, a ticker júniusi, a hero-cím angol, a láblécből hiányzik a nyitvatartás. Ezek adatai honnan jönnek, ki tölti fel?", who: "Laci, Andris" },
   { topic: "Krónikák", q: "A hírek Klub/Bolt címkéje melyik adatból jön a backendben?", who: "Laci" },
+  { topic: "Pénztár", q: "A Fizetési mód blokk üres, amíg nincs átvételi mód kiválasztva. Kerüljön bele egy sor, hogy előbb azt kell választani? És a kosárban meg az összesítőben „Ingyenes” a szállítás, mielőtt bármit választott volna a vevő.", who: "Laci, Andris" },
+  { topic: "Termékkártya", q: "A kedvenc gomb bordó háttere: a kártya sarkáról lelógó helyzetével van a gond, vagy a színével?", who: "Andris, Csaba" },
   { topic: "Képek", q: "A képszerkesztő első lépése (csomagolás és próba a saját gépen) mehet-e már most, a go-live előtt?", who: "Andris, Csaba" },
   { topic: "Képek", q: "A kezdőlap bolt-képe vízjeles stock, élesítés előtt saját fotó kell helyette.", who: "Andris" },
 ];
@@ -255,6 +258,7 @@ const LINKS = [
   ]},
   { group: "Fejlesztés", items: [
     ["UAT (Laci tesztszervere)", "https://uat.metagames.hu/", null, "itt él a sötét dizájn"],
+    ["A pénztár javításai (10.14)", "https://issues.tracktime.hu/metagame/metagame-web/-/tree/design-penztar-javitas-2026-10-14", null, "Bootstrap 5 a pénztáron + CSS"],
     ["A 10.08-i javítások branche", "https://issues.tracktime.hu/metagame/metagame-web/-/tree/design-sotet-javitas-2026-10-08", null, "a UAT-átnézés javításai"],
     ["Az átvezetés branche a GitLabon", "https://issues.tracktime.hu/metagame/metagame-web/-/tree/design-sotet-2026-09-24", null, "leírás és tesztlista a DESIGN-SOTET-2026-09-24.md-ben"],
     ["A mostani éles oldal", "https://www.metagames.hu/"],
