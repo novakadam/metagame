@@ -109,7 +109,7 @@ footer{color:var(--text-muted);font-size:13px}
 </header>
 
 <nav class="toc" aria-label="Tartalom">
-  <a href="#linkek">Linkek</a><a href="#allapot">Állapot</a><a href="#feladatok">Feladatok</a><a href="#kerdesek">Nyitott kérdések</a><a href="#dontesek">Döntések</a>
+  <a href="#linkek">Linkek</a><a href="#allapot">Állapot</a><a href="#azota">Az előző meeting óta</a><a href="#feladatok">Feladatok</a><a href="#kerdesek">Nyitott kérdések</a><a href="#dontesek">Döntések</a>
 </nav>
 
 <section id="linkek">
@@ -120,6 +120,11 @@ footer{color:var(--text-muted);font-size:13px}
 <section id="allapot">
   <div class="sec-h"><span>Hol tartunk</span><h2>Állapot</h2></div>
   <div class="status" id="status"></div>
+</section>
+
+<section id="azota">
+  <div class="sec-h"><span>10.01. óta</span><h2>Az előző meeting óta</h2><p>A 10.08-i meeting elmaradt, ezért a 10.01-i óta készült dolgok vannak itt.</p></div>
+  <ol class="dec" id="since"></ol>
 </section>
 
 <section id="feladatok">
@@ -146,26 +151,39 @@ footer{color:var(--text-muted);font-size:13px}
 
 <script>
 // A térkép tartalma. Ezt bővítjük, amikor új oldal, feladat, döntés vagy kérdés jön.
-const UPDATED = "2026.10.08.";
+const UPDATED = "2026.10.14.";
 
 const STATUS = [
-  { t: "Sötét dizájn", d: "Átadva Lacinak a design-sotet-2026-09-24 branchen, 09.25-én bekerült a UAT-ágba. 10.07-től a UAT-on is él, a bejelentkezéssel és a kosár-drawerrel együtt. 10.08-án végignéztük, a javítások a design-sotet-javitas-2026-10-08 branchen várják a beolvasztást." },
+  { t: "Sötét dizájn", d: "Átadva Lacinak a design-sotet-2026-09-24 branchen, 09.25-én bekerült a UAT-ágba. 10.07-től a UAT-on is él, a bejelentkezéssel és a kosár-drawerrel együtt. A 10.08-i átnézés javításait Laci beolvasztotta, azóta az új pénztáron dolgozik." },
   { t: "Levelek", d: "A koncepció kész: 8 rendelési levél és a rövid értesítők közös sablonja 5 változattal. Következő lépés a változatonkénti éles HTML." },
   { t: "Piktogramok", d: "A kategória-ikonok elkészültek, a Wargame ikonja a sisak. Az átadás Lacinak van hátra." },
   { t: "Go-live", d: "Januárra tervezve. Utána jöhet a képszerkesztő és az offline anyagok." },
 ];
 
+// Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
+const SINCE = [
+  { date: "10.01", text: "A rövid értesítők közös sablonja 5 változattal (regisztráció, készletértesítő, holnapi esemény, kredit jóváírva, kredit lejár), Csaba listája alapján." },
+  { date: "10.07", text: "Elkészült ez a térkép: linkek, állapot, feladatok kanbanon, nyitott kérdések, döntések." },
+  { date: "10.07", text: "A sötét dizájn kikerült a UAT-ra, a bejelentkezéssel és a kosár-drawerrel együtt." },
+  { date: "10.08", text: "A UAT átnézése asztalon és mobilon, a demóval összevetve. A talált hibák listája Lacinak levélben ment ki." },
+  { date: "10.08", text: "A nálunk lévő javítások a design-sotet-javitas-2026-10-08 branchen: levágott szekció-címkék és kilógó vélemények, kereső-overlay aloldalon, „Keresés...”, sötét süti-ablak, mobilon a ticker háttere. Laci azóta beolvasztotta a v13-ux-be." },
+  { date: "10.08", text: "A cikk-oldal sötét változata. A világos demó-oldalak archívumba kerültek, a régi linkek a sötétre visznek." },
+  { date: "10.08", text: "Javaslat a képszerkesztő ütemezésére, mert a sötét háttéren nagyon kilógnak a fehér hátterű, eltérő vágású termékképek." },
+  { date: "10.13", text: "Laci, 10.11 óta: új pénztár oldal a UAT-ágban (szállítás és fizetés, Foxpost és GLS csomagpont, céges adatok, ÁSZF-pipa, bejelentkezés a pénztárban, új sikeres rendelés oldal)." },
+];
+
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-10-08a";
+const BOARD_VERSION = "2026-10-14a";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
-  { id: "sprint", title: "Heti sprint", sub: "10.08–10.14." },
+  { id: "sprint", title: "Heti sprint", sub: "10.15–10.21." },
   { id: "feedback", title: "Visszajelzés alatt" },
   { id: "done", title: "Kész" },
 ];
 const TASKS = [
   // heti sprint
   { id: "laci-uat", col: "sprint", title: "A UAT-átnézés Laci oldali pontjai", who: "Laci", detail: "Szűrőpanel: offcanvas-xxl és a position-relative le (laptopon szétcsúszott grid, mobilon üres hely a lista fölött). bootstrap.Offcanvas hiba (nem nyílik a kosár és a profil drawer). Uuid a kártyák kategória-sávjában. Krónikák: Klub/Bolt címke és dátumformátum. Kategória-ikonok, --gradients osztály, Leaflet a CSP-ben, maradék demo-linkek." },
+  { id: "penztar", col: "sprint", title: "Az új pénztár átnézése a UAT-on", who: "Ádám", detail: "Laci 10.11–13. között építette. Összevetés a pénztár-demóval, asztalon és mobilon, a javítások külön branchen." },
   { id: "pikto", col: "sprint", title: "Piktogramok átadása Lacinak", who: "Ádám + Laci", detail: "Az SVG-k és a használat megbeszélése: hova kerülnek a menün kívül." },
   // backlog
   { id: "levelek-html", col: "backlog", title: "Levelek éles HTML-je, változatonként külön fájlban", who: "Ádám", detail: "Táblázatos HTML, inline CSS. Az FTL-tageket Laci teszi bele.", blocked: "a példák megerősítése" },
@@ -175,7 +193,7 @@ const TASKS = [
   { id: "elesites", col: "backlog", title: "Élesítés kísérése", who: "mindenki", detail: "Januárban. Az éles visszajelzések javítása." },
   { id: "offline", col: "backlog", title: "Offline anyagok (plakát, roll-up, bolti sablonok)", who: "Ádám", detail: "A sötét arculattal.", tag: "go-live után" },
   // visszajelzés alatt
-  { id: "sotet", col: "feedback", title: "Sötét dizájn: javítások beolvasztása", who: "Laci", detail: "A design-sotet-javitas-2026-10-08 branchen: levágott szekció-címkék és kilógó vélemények, kereső-overlay aloldalon, „Keresés...”, sötét süti-ablak, mobilon a ticker háttere. A v13-ux mostani állapotából ágazik, ütközés nélkül beolvasztható." },
+  { id: "sotet", col: "done", title: "Sötét dizájn: javítások beolvasztása", who: "Laci", detail: "A design-sotet-javitas-2026-10-08 branchen: levágott szekció-címkék és kilógó vélemények, kereső-overlay aloldalon, „Keresés...”, sötét süti-ablak, mobilon a ticker háttere. Beolvasztva a v13-ux-be." },
   { id: "levelek-koncepcio", col: "feedback", title: "Levelek: 8 rendelési levél és 5 rövid értesítő", who: "Csaba, Andris", detail: "A példák feltételezéseit kell megerősíteni (48 órás link, kredit részletekben, asztal díja)." },
   // kész
   { id: "uat", col: "done", title: "A sötét dizájn átnézése a UAT-on", who: "Ádám", detail: "Asztalon és mobilon, a demóval összevetve. Ami nálunk volt, javítva, a többi Laci listáján." },
@@ -194,6 +212,7 @@ const QUESTIONS = [
   { topic: "Mobil", q: "Androidon az alsó 3 gomb a rendszer-navigáció fölött ül. Kellene róla egy képernyőkép.", who: "Csaba" },
   { topic: "Tartalom", q: "A UAT kezdőlapján üres a hero-karusszel és a vélemények blokk, a ticker júniusi, a hero-cím angol, a láblécből hiányzik a nyitvatartás. Ezek adatai honnan jönnek, ki tölti fel?", who: "Laci, Andris" },
   { topic: "Krónikák", q: "A hírek Klub/Bolt címkéje melyik adatból jön a backendben?", who: "Laci" },
+  { topic: "Képek", q: "A képszerkesztő első lépése (csomagolás és próba a saját gépen) mehet-e már most, a go-live előtt?", who: "Andris, Csaba" },
   { topic: "Képek", q: "A kezdőlap bolt-képe vízjeles stock, élesítés előtt saját fotó kell helyette.", who: "Andris" },
 ];
 
@@ -243,6 +262,7 @@ const LINKS = [
 ];
 
 const DECISIONS = [
+  { date: "10.13", text: "A 10.08-i dizájn-javítások bekerültek a UAT-ágba (v13-ux)." },
   { date: "10.08", text: "A dizájn-javítások külön branchen mennek Lacinak (design-sotet-javitas-2026-10-08), a v13-ux-be ő olvasztja be." },
   { date: "10.08", text: "A sötét dizájn a végleges. A világos demó-oldalak lekerültek, archívumként megmaradnak a repóban (archiv/vilagos), a régi linkek a sötét változatra visznek." },
   { date: "10.07", text: "A sötét dizájn kikerült a UAT-ra (uat.metagames.hu), a bejelentkezéssel és a kosár-drawerrel együtt." },
@@ -272,6 +292,8 @@ document.getElementById("links").innerHTML = LINKS.map(g => `
   <div class="lg"><h3>${esc(g.group)}</h3><ul>${g.items.map(([t, a, b, note]) => `
     <li><span class="pair"><a href="${url(a)}">${esc(t)}</a>${b ? `<a class="alt" href="${url(b)}">világos</a>` : ""}</span>${note ? `<small>${esc(note)}</small>` : ""}</li>`).join("")}
   </ul></div>`).join("");
+document.getElementById("since").innerHTML = SINCE.map(d =>
+  `<li><time>${esc(d.date)}</time><span>${esc(d.text)}</span></li>`).join("");
 document.getElementById("decisions").innerHTML = DECISIONS.map(d =>
   `<li><time>${esc(d.date)}</time><span>${esc(d.text)}</span></li>`).join("");
 
