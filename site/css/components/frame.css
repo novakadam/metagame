@@ -679,7 +679,9 @@
   right: 55px;
   height: 30px;
   overflow: hidden;
-  z-index: 6;
+  /* a tartalom (1) fölött, de a kereső lenyíló panelje (3) alatt — 6-on
+     átfutott a „Népszerű keresések” során (10.15) */
+  z-index: 2;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 }
