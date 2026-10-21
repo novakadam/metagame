@@ -35,6 +35,8 @@
     /* alsó kiúsztatás, a grid fade-jével összhangban */
     -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 48px), transparent 100%);
             mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 48px), transparent 100%);
+    /* görgetés végén az utolsó szűrő a 48px-es fade fölött álljon meg */
+    padding-bottom: 48px;
   }
 }
 

@@ -574,6 +574,14 @@
     -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 56px), transparent 100%);
             mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 56px), transparent 100%);
   }
+
+  /* Az utolsó elem 48px-es margója kisebb, mint az 56px-es alsó fade,
+     a lap alja (pl. cikk-lapozó) görgetés végén is kiúszott. A ::after
+     +32px-et ad hozzá, így a tartalom alja a fade fölött áll meg. */
+  .mg-content:not(:has(.mg-product-layout))::after {
+    content: "";
+    flex: 0 0 32px;
+  }
 }
 
 .mg-content::-webkit-scrollbar {

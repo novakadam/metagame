@@ -21,6 +21,9 @@
   align-items: flex-start;
   width: 100%;
   min-height: 100%;
+  /* a .mg-content görgő flex-oszlopában ne nyomódjon a sáv magasságára:
+     akkor a tartalma kilóg, és az alja a fade-be csúszik */
+  flex-shrink: 0;
 }
 
 /* ── BREADCRUMB ──────────────────────────────────────────── */
