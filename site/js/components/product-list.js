@@ -202,6 +202,7 @@ var MG_DEMO_PRODUCTS = [
     variant: 'Kiegészítő',
     img: '../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png',
     price: '18 990 Ft',
+    oldPrice: '23 490 Ft',
     category: 'Akciós',
     rows: [
       { ok: true,  label: 'Üzletben elérhető', value: '5' },
@@ -298,7 +299,8 @@ function mgCreateDemoCard() {
         '</div>' +
 
         '<div class="mg-product-card__content">' +
-          '<h4 class="fw-bold text-center text-white mb-0">' + p.price + '</h4>' +
+          '<h4 class="fw-bold text-center text-white mb-0">' + p.price +
+            (p.oldPrice ? ' <s class="mg-product-card__price-old">' + p.oldPrice + '</s>' : '') + '</h4>' +
           '<div class="mg-product-card__rows">' + rowsHtml + '</div>' +
         '</div>' +
 

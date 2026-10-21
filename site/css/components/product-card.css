@@ -223,6 +223,40 @@
   margin: 0;
 }
 
+/* Akciós ár: a régi ár egy sorban, az új után, kisebben és áthúzva (a
+   termékoldal __price-old mintája). Így nem ad plusz sort, minden kártya
+   egyforma magas marad. Laci PricePanel-je két div-et ad az h4-be (.h3 /
+   .h5 BS-osztállyal): a méretüket itt az h4-é írja felül. */
+.mg-product-card__content h4 {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 8px;
+}
+
+.mg-product-card__content h4 > div {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  /* a PricePanel .text-warning-je BS-ben !important — a kártyán az ár fehér */
+  color: inherit !important;
+  margin: 0;
+}
+
+.mg-product-card__content h4 > .text-decoration-line-through,
+.mg-product-card__price-old {
+  order: 1;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  /* kis sormagasság: az alapvonal-igazítás így nem nyújtja meg a sort */
+  line-height: 16px;
+  letter-spacing: 0;
+  color: var(--color-text-muted) !important;
+  text-decoration: line-through;
+}
+
 .mg-product-card__rows {
   padding: 8px 6px 0;
 }
