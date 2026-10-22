@@ -149,8 +149,10 @@ html, body {
 
 /* ── FŐ TARTALOM (kétoszlopos) ──────────────────────────── */
 
-/* BS container-xl kezeli a max-width-et és a margin: 0 auto-t */
+/* BS container-xl adja a margin: 0 auto-t. A max-width 1140: a pénztárnak nem kell
+   a container-xl teljes 1320-as szélessége (10.15). */
 .mg-checkout__main {
+  max-width: 1140px;
   position: relative;
   z-index: 1;
   padding-top: 32px;

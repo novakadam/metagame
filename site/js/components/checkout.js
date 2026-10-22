@@ -56,16 +56,15 @@ function mgRenderSummaryItems() {
 
 function mgRenderSummaryTotals() {
   var c = mgCheckoutCalc();
-  var shipText = c.shipping === 0
-    ? '<span class="text-success">Ingyenes</span>'
-    : '<span>' + mgFormatPrice(c.shipping) + '</span>';
+  var shipText = c.shipping === 0 ? 'Ingyenes' : mgFormatPrice(c.shipping);
 
-  return '<div class="d-flex justify-content-between small text-muted mb-3"><span>Részösszeg</span><span class="text-card">' + mgFormatPrice(c.subtotal) + '</span></div>' +
-    '<div class="d-flex justify-content-between small text-muted mb-3"><span>Szállítás</span>' + shipText + '</div>' +
-    '<hr class="my-3" style="opacity:0.3;">' +
-    '<div class="d-flex align-items-center justify-content-between">' +
-      '<span class="small text-muted">Végösszeg</span>' +
-      '<span class="fs-2 fw-bold text-gold font-monospace">' + mgFormatPrice(c.total) + '</span>' +
+  /* Ugyanaz a markup, mint Laci közös kosár-komponensében (CartPanel.html), 10.15 */
+  return '<div class="d-flex justify-content-between text-muted mb-2"><span>Részösszeg</span><span>' + mgFormatPrice(c.subtotal) + '</span></div>' +
+    '<div class="d-flex justify-content-between text-muted mb-3"><span>Szállítási költség</span><span>' + shipText + '</span></div>' +
+    '<hr class="opacity-25 my-2">' +
+    '<div class="d-flex align-items-center justify-content-between mt-3">' +
+      '<div class="fw-semibold text-card">Teljes összeg:</div>' +
+      '<div class="fs-2 fw-bold text-gold font-monospace">' + mgFormatPrice(c.total) + '</div>' +
     '</div>';
 }
 
