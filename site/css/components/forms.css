@@ -134,6 +134,36 @@ textarea.form-control {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
 }
 
+/* ── KAPCSOLÓ (form-switch) ──────────────────────────────── */
+/* A fenti checkbox-szabály a kapcsolóra is ráülne (négyzet + pipa),
+   ezért a .form-switch saját formát kap: sötét sín, arany bekapcsolva (10.15) */
+
+.form-switch .form-check-input[type="checkbox"] {
+  width: 40px;
+  height: 22px;
+  margin: 0;
+  border: 1.5px solid var(--color-border-muted);
+  border-radius: 2em;
+  background-color: var(--color-bg);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23D8CBAF'/%3e%3c/svg%3e");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: background-position var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.form-switch .form-check-input[type="checkbox"]:checked {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23140610'/%3e%3c/svg%3e");
+  background-position: right center;
+}
+
+.form-switch .form-check-input[type="checkbox"]:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .form-check-label {
   font-family: var(--font-body);
   font-size: var(--font-size-base);

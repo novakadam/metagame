@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiókom – Metagame (sötét demo)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Playfair+Display+SC:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FullCalendar v5 (MIT) -->
+
+  <!-- Design tokenek -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Globális komponensek -->
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">  <link rel="stylesheet" href="css/components/forms.css?v=20261029">
+
+  <!-- Komponensek -->
+  <link rel="stylesheet" href="css/components/frame.css?v=20261029">
+  <link rel="stylesheet" href="css/components/frame-shimmer.css?v=20261029">
+  <link rel="stylesheet" href="css/components/mega-menu.css">
+  <link rel="stylesheet" href="css/components/drawer.css">
+  <link rel="stylesheet" href="css/components/search-overlay.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css">
+
+  <!-- FullCalendar Metagame override -->
+  <!-- DEMO: sötét paletta -->
+  <link rel="stylesheet" href="css/components/product-card.css">
+  <link rel="stylesheet" href="css/components/profile.css?v=20261029">
+  <link rel="stylesheet" href="css/components/bg-texture.css">
+  <link rel="stylesheet" href="css/components/theme-sotet-demo.css?v=20260922b">
+</head>
+<body class="mg-texture-page--gradients">
+
+<div class="mg-frame">
+
+  <!-- ── KERET SVG elemek ────────────────────────────────────────── -->
+  <div class="mg-frame-corner mg-frame-corner--tl"><img class="mg-frame-corner__img--desktop" src="../assets/frame/frame-corner-tl.svg" alt=""><img class="mg-frame-corner__img--tablet" src="../assets/frame/mobile/frame-corner-tl-tablet.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--tr"><img src="../assets/frame/frame-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--bl"><img src="../assets/frame/frame-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--br"><img src="../assets/frame/frame-corner-br.svg" alt=""></div>
+
+  <div class="mg-frame-line mg-frame-line--top"><img src="../assets/frame/frame-line-top.svg?v=20261029" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--left"><img src="../assets/frame/frame-line-left.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--right-bottom"><img src="../assets/frame/frame-right-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--bottom"><img src="../assets/frame/frame-line-bottom.svg?v=20261029" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── MOBIL KERET ─────────────────────────────────────────────── -->
+  <a class="mg-frame-m mg-frame-m-corner--tl" href="index-sotet.html"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt="Metagame"></a>
+  <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--right"><img src="../assets/frame/mobile/frame-m-line-right.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--bl"><img src="../assets/frame/mobile/frame-m-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--bottom"><img src="../assets/frame/mobile/frame-m-line-bottom.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--br"><img src="../assets/frame/mobile/frame-m-corner-br.svg" alt=""></div>
+  <div class="mg-frame-m-bar">
+    <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
+    <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
+    <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- ── MOBIL: Keresőmező ── -->
+  <div class="mg-mobile-search mg-cut-frame">
+    <input type="text" placeholder="Keresés..." readonly>
+    <button class="mg-mobile-search__btn" aria-label="Keresés">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── MOBIL: Hamburger gomb ── -->
+  <button class="mg-mobile-hamburger" aria-label="Menü">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ── MOBIL: Alsó bar ikonok ── -->
+  <div class="mg-mobile-bar-icons">
+    <button class="mg-mobile-bar-icons__btn" aria-label="Elérhetőségek">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn mg-mobile-bar-icons__btn--center" aria-label="Kosár">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="16" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn" aria-label="Profil">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- ── TOP BAR ────────────────────────────────────────────────── -->
+  <header class="mg-topbar">
+    <a href="index-sotet.html">
+      <img class="mg-logo mg-logo--full" src="../assets/images/logo.svg" alt="Metagame">
+      <img class="mg-logo mg-logo--compact" src="../assets/frame/mobile/mg-logo-closed.svg" alt="Metagame">
+    </a>
+
+    <div class="mg-topbar-row">
+      <div class="mg-toggle mg-cut-frame" data-active="community">
+        <div class="mg-toggle__slider"></div>
+        <button class="mg-toggle__btn mg-toggle__btn--active" data-target="shop">Shop</button>
+        <button class="mg-toggle__btn" data-target="community">Eseménynaptár</button>
+      </div>
+
+      <div class="mg-search mg-cut-frame">
+        <input type="text" placeholder="Keresés...">
+        <button class="mg-search__btn" aria-label="Keresés">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BAL NAV ────────────────────────────────────────────────── -->
+  <nav class="mg-nav-left" id="mg-nav-left">
+    <div class="mg-nav-section mg-nav-section--hidden" data-nav="shop">
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18"/><path d="M16 3v18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">TCG</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="12" cy="12" r="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Társasjáték</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="9" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Gyűjthető kártya</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Kiegészítők</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Szerepjátékok</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Wargame</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Modellezés</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond">
+          <div class="mg-nav-item__circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          </div>
+        </div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">További termékek</span></div>
+      </a>
+    </div>
+
+    <div class="mg-nav-section" data-nav="community">
+      <a class="mg-nav-item" href="events-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Események</span></div>
+      </a>
+      <a class="mg-nav-item" href="klub-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 0 12 0V3H6v6z"/><path d="M6 4H3v2a3 3 0 0 0 3 3"/><path d="M18 4h3v2a3 3 0 0 1-3 3"/><path d="M9 21h6"/><path d="M12 15v6"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Klub</span></div>
+      </a>
+      <a class="mg-nav-item" href="tudastar-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Tudástár</span></div>
+      </a>
+      <a class="mg-nav-item" href="liga-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Liga</span></div>
+      </a>
+      <a class="mg-nav-item" href="magic-singles-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Singles</span></div>
+      </a>
+      <a class="mg-nav-item" href="galeria-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Galéria</span></div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── MEGA MENU ──────────────────────────────────────────────── -->
+  <div class="mg-megamenu" id="mg-megamenu"></div>
+
+  <div class="mg-frame-line mg-frame-line--right-top"><img src="../assets/frame/frame-right-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── JOBB NAV ───────────────────────────────────────────────── -->
+  <aside class="mg-nav-right">
+    <button class="mg-nav-right__btn" aria-label="Profil">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Kedvencek">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn mg-nav-right__btn--cart" aria-label="Kosár">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="16" r="1.5" fill="currentColor"/><circle cx="14" cy="16" r="1.5" fill="currentColor"/></svg>
+        <span class="mg-nav-badge"></span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Értesítések">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v4l-2 2h16l-2-2V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8 16a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-nav-badge"></span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Helyszín">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Telefon">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+  </aside>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       TARTALOM – ESEMÉNYNAPTÁR
+       ══════════════════════════════════════════════════════════════ -->
+  <main class="mg-content mg-content--product">
+    <div class="container py-4 mg-profile">
+
+      <!-- Breadcrumb — BS standard -->
+      <nav class="mb-4">
+        <ol class="breadcrumb small mb-0">
+          <li class="breadcrumb-item"><a href="index-sotet.html">Főoldal</a></li>
+          <li class="breadcrumb-item"><a href="#rendelesek">Fiókom</a></li>
+          <li class="breadcrumb-item active mg-profile__crumb" aria-current="page">Rendeléseim</li>
+        </ol>
+      </nav>
+
+      <!-- Fejléc: név, e-mail, kredit -->
+      <!-- BACKEND: customer.fullName, customer.email, customer.creditBalance -->
+      <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+        <div class="mg-drawer-profile__user-avatar">ÁN</div>
+        <div class="me-auto">
+          <h1 class="h3 mb-0">Novák Ádám</h1>
+          <div class="small text-muted">novak.adam@metagame.hu</div>
+        </div>
+        <a href="#kredit" class="mg-profile__credit-chip text-decoration-none">
+          <span class="small text-muted">Kredited</span>
+          <span class="fw-bold text-gold">1 867 Ft</span>
+        </a>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- ── ALMENÜ ────────────────────────────────────── -->
+        <!-- Mobilon vízszintesen görgethető sor, asztalon bal oldali lista -->
+        <div class="col-lg-3">
+          <nav class="mg-profile__nav" aria-label="Fiók menü">
+            <a class="mg-profile__nav-item" href="#rendelesek" data-view="rendelesek">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 8h16"/></svg>
+              <span>Rendeléseim</span>
+            </a>
+            <a class="mg-profile__nav-item" href="#kedvencek" data-view="kedvencek">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z"/></svg>
+              <span>Kedvencek</span>
+            </a>
+            <a class="mg-profile__nav-item" href="#kredit" data-view="kredit">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="10" cy="10" r="7.5"/><path d="M12.5 7.5c-.5-.9-1.5-1.3-2.5-1.3-1.4 0-2.5.8-2.5 1.9 0 2.6 5 1.3 5 3.9 0 1.1-1.1 1.9-2.5 1.9-1 0-2-.4-2.5-1.3M10 5v1.2M10 13.8V15" stroke-linecap="round"/></svg>
+              <span>Kreditek</span>
+            </a>
+            <a class="mg-profile__nav-item" href="#adatok" data-view="adatok">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="10" cy="7" r="4"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke-linecap="round"/></svg>
+              <span>Személyes adatok</span>
+            </a>
+            <a class="mg-profile__nav-item" href="#ertesitesek" data-view="ertesitesek">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M10 2a6 6 0 0 0-6 6v4l-2 2h16l-2-2V8a6 6 0 0 0-6-6z"/><path d="M8 16a2 2 0 0 0 4 0"/></svg>
+              <span>Értesítések</span>
+            </a>
+            <a class="mg-profile__nav-item mg-profile__nav-item--logout" href="index-sotet.html">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M7 2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><path d="M14 15l5-5-5-5"/><path d="M19 10H7"/></svg>
+              <span>Kijelentkezés</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- ── TARTALOM ──────────────────────────────────── -->
+        <div class="col-lg-9">
+
+          <!-- ═══ RENDELÉSEIM ═══ -->
+          <section class="mg-profile__view" data-view="rendelesek">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+              <h2 class="h4 mb-0">Rendeléseim</h2>
+              <!-- BACKEND: szűrés állapot szerint -->
+              <select class="form-select w-auto" aria-label="Szűrés állapot szerint">
+                <option>Minden rendelés</option>
+                <option>Folyamatban</option>
+                <option>Teljesítve</option>
+                <option>Törölve</option>
+              </select>
+            </div>
+            <!-- BACKEND: customer.orders (legújabb elöl), lapozva 10-esével -->
+            <div class="list-group mg-profile__orders"></div>
+            <nav class="mt-4" aria-label="Lapozás">
+              <ul class="pagination pagination-sm justify-content-center mb-0">
+                <li class="page-item disabled"><span class="page-link">‹</span></li>
+                <li class="page-item active"><span class="page-link">1</span></li>
+                <li class="page-item"><a class="page-link" href="#rendelesek">2</a></li>
+                <li class="page-item"><a class="page-link" href="#rendelesek">›</a></li>
+              </ul>
+            </nav>
+          </section>
+
+          <!-- ═══ RENDELÉS RÉSZLETEI ═══ -->
+          <section class="mg-profile__view" data-view="rendeles"></section>
+
+          <!-- ═══ KEDVENCEK ═══ -->
+          <section class="mg-profile__view" data-view="kedvencek">
+            <div class="d-flex flex-wrap align-items-baseline justify-content-between gap-3 mb-4">
+              <h2 class="h4 mb-0">Kedvencek</h2>
+              <span class="small text-muted">6 termék · ha újra raktárra kerül, szólunk</span>
+            </div>
+            <!-- BACKEND: customer.wishlist (a régi Kívánságlista) — ugyanaz a kártya, mint a terméklistán -->
+            <div class="row gx-4 gy-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 mg-product-grid mg-profile__favs"></div>
+          </section>
+
+          <!-- ═══ KREDITEK ═══ -->
+          <section class="mg-profile__view" data-view="kredit">
+            <h2 class="h4 mb-3">Kreditek</h2>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <div class="mg-profile__card h-100">
+                  <div class="small text-muted mb-1">Felhasználható</div>
+                  <!-- BACKEND: customer.creditBalance -->
+                  <div class="fs-1 fw-bold text-gold font-monospace lh-1 mb-2">1 867 Ft</div>
+                  <p class="small text-muted mb-0">1 kredit = 1 Ft. A pénztárban váltod be, a teljes összeget vagy annak egy részét.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mg-profile__card h-100">
+                  <div class="small text-muted mb-2">Hamarosan lejár</div>
+                  <!-- BACKEND: credit.items lejárat szerint (minden jóváírás 60 napig él) -->
+                  <ul class="list-unstyled mb-0 mg-profile__expiring">
+                    <li class="d-flex justify-content-between"><span>1 000 Ft</span><span class="text-warning">2026. dec. 14.</span></li>
+                    <li class="d-flex justify-content-between"><span>867 Ft</span><span class="text-muted">2027. jan. 9.</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="h5 mb-3">Egyenlegtörténet</h3>
+            <!-- BACKEND: credit.history — dátum, változás, ok, megjegyzés / rendelés -->
+            <div class="list-group mg-profile__history"></div>
+            <nav class="mt-4" aria-label="Lapozás">
+              <ul class="pagination pagination-sm justify-content-center mb-0">
+                <li class="page-item disabled"><span class="page-link">‹</span></li>
+                <li class="page-item active"><span class="page-link">1</span></li>
+                <li class="page-item"><a class="page-link" href="#kredit">2</a></li>
+                <li class="page-item"><a class="page-link" href="#kredit">3</a></li>
+                <li class="page-item"><a class="page-link" href="#kredit">›</a></li>
+              </ul>
+            </nav>
+          </section>
+
+          <!-- ═══ SZEMÉLYES ADATOK ═══ -->
+          <section class="mg-profile__view" data-view="adatok">
+            <h2 class="h4 mb-3">Személyes adatok</h2>
+
+            <form class="mg-profile__card mb-4" onsubmit="return false;">
+              <h3 class="h5 mb-3">Elérhetőség</h3>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="pVez">Vezetéknév</label>
+                  <input class="form-control" id="pVez" value="Novák">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="pKer">Keresztnév</label>
+                  <input class="form-control" id="pKer" value="Ádám">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="pMail">E-mail cím</label>
+                  <!-- BACKEND: e-mail csere megerősítő levéllel -->
+                  <div class="input-group">
+                    <input class="form-control" id="pMail" value="novak.adam@metagame.hu" readonly>
+                    <button class="btn btn-outline-secondary" type="button">Módosítás</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="pTel">Telefonszám</label>
+                  <input class="form-control" id="pTel" type="tel" value="+36 70 123 4567">
+                </div>
+              </div>
+              <div class="mt-4"><button class="btn btn-secondary" type="submit">Mentés</button></div>
+            </form>
+
+            <form class="mg-profile__card mb-4" onsubmit="return false;">
+              <h3 class="h5 mb-3">Szállítási és számlázási cím</h3>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label" for="pIrsz">Irányítószám</label>
+                  <input class="form-control" id="pIrsz" value="1132">
+                </div>
+                <div class="col-md-9">
+                  <label class="form-label" for="pVaros">Város</label>
+                  <input class="form-control" id="pVaros" value="Budapest">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="pUtca">Utca, házszám</label>
+                  <input class="form-control" id="pUtca" value="Kádár utca 10.">
+                </div>
+              </div>
+              <label class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" checked data-bs-toggle="collapse" data-bs-target="#pSzamlCim">
+                <span class="form-check-label">A számlázási cím ugyanez</span>
+              </label>
+              <div class="collapse" id="pSzamlCim">
+                <div class="row g-3 pt-3">
+                  <div class="col-12">
+                    <label class="form-label" for="pSzNev">Számlázási név / cégnév</label>
+                    <input class="form-control" id="pSzNev" placeholder="Kovács Kft.">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="pAdo">Adószám</label>
+                    <input class="form-control" id="pAdo" placeholder="12345678-1-42">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="pSzCim">Cím</label>
+                    <input class="form-control" id="pSzCim" placeholder="1132 Budapest, …">
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4"><button class="btn btn-secondary" type="submit">Mentés</button></div>
+            </form>
+
+            <form class="mg-profile__card" onsubmit="return false;">
+              <h3 class="h5 mb-3">Jelszó módosítása</h3>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label" for="pPw0">Jelenlegi jelszó</label>
+                  <input class="form-control" id="pPw0" type="password" autocomplete="current-password">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="pPw1">Új jelszó</label>
+                  <input class="form-control" id="pPw1" type="password" autocomplete="new-password">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="pPw2">Új jelszó újra</label>
+                  <input class="form-control" id="pPw2" type="password" autocomplete="new-password">
+                </div>
+              </div>
+              <div class="mt-4 d-flex flex-wrap align-items-center gap-3">
+                <button class="btn btn-secondary" type="submit">Jelszó módosítása</button>
+                <!-- BACKEND: Google / Facebook belépésnél nincs saját jelszó → ez a blokk helyett „Google-fiókkal lépsz be” -->
+                <span class="small text-muted">Ha Google- vagy Facebook-fiókkal lépsz be, itt nincs teendőd.</span>
+              </div>
+            </form>
+          </section>
+
+          <!-- ═══ ÉRTESÍTÉSEK ═══ -->
+          <section class="mg-profile__view" data-view="ertesitesek">
+            <h2 class="h4 mb-1">Értesítések</h2>
+            <p class="text-muted mb-4">E-mailben küldjük. Itt választod ki, miről kérsz levelet.</p>
+
+            <form class="mg-profile__card mb-4" onsubmit="return false;">
+              <!-- BACKEND: customer.notificationPrefs — minden kapcsoló egy-egy levéltípus -->
+              <div class="mg-profile__pref">
+                <div>
+                  <div class="fw-semibold">Rendeléseid állapota</div>
+                  <div class="small text-muted">Visszaigazolás, átvehető, feladtuk, számla. Ezeket mindig elküldjük.</div>
+                </div>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" checked disabled aria-label="Rendeléseid állapota"></div>
+              </div>
+              <div class="mg-profile__pref">
+                <div>
+                  <div class="fw-semibold">Előrendelt termék megérkezett</div>
+                  <div class="small text-muted">Amikor az előrendelésed raktárra kerül.</div>
+                </div>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" checked aria-label="Előrendelt termék megérkezett"></div>
+              </div>
+              <div class="mg-profile__pref">
+                <div>
+                  <div class="fw-semibold">Készletértesítő</div>
+                  <div class="small text-muted">Ha egy kedvenced vagy figyelt terméked újra kapható.</div>
+                </div>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" checked aria-label="Készletértesítő"></div>
+              </div>
+              <div class="mg-profile__pref">
+                <div>
+                  <div class="fw-semibold">Kredit</div>
+                  <div class="small text-muted">Jóváírás, és 7 nappal a lejárat előtt egy emlékeztető.</div>
+                </div>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" checked aria-label="Kredit"></div>
+              </div>
+              <div class="mg-profile__pref">
+                <div>
+                  <div class="fw-semibold">Eseményeid</div>
+                  <div class="small text-muted">Emlékeztető az esemény előtti napon, amire jelentkeztél.</div>
+                </div>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" checked aria-label="Eseményeid"></div>
+              </div>
+              <div class="mg-profile__pref">
+                <div>
+                  <div class="fw-semibold">Hírlevél</div>
+                  <!-- BACKEND: Mailchimp feliratkozás állapota; innen és a levél aljáról is le lehet iratkozni -->
+                  <div class="small text-muted">Újdonságok, akciók, versenyek. Bármikor leiratkozhatsz, itt vagy a levél alján.</div>
+                </div>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" aria-label="Hírlevél"></div>
+              </div>
+            </form>
+
+            <div class="mg-profile__card">
+              <h3 class="h5 mb-1">Ami érdekel</h3>
+              <p class="small text-muted mb-3">Ezekből a játékokból szólunk, ha új termék vagy verseny jön.</p>
+              <!-- BACKEND: rendszer-feliratkozások (még specifikálni kell, 10.15) -->
+              <div class="d-flex flex-wrap gap-2 mg-profile__systems">
+                <input type="checkbox" class="btn-check" id="sys1" checked><label class="btn btn-outline-secondary btn-sm" for="sys1">Magic: the Gathering</label>
+                <input type="checkbox" class="btn-check" id="sys2"><label class="btn btn-outline-secondary btn-sm" for="sys2">Pokémon</label>
+                <input type="checkbox" class="btn-check" id="sys3" checked><label class="btn btn-outline-secondary btn-sm" for="sys3">Riftbound</label>
+                <input type="checkbox" class="btn-check" id="sys4"><label class="btn btn-outline-secondary btn-sm" for="sys4">Star Wars Unlimited</label>
+                <input type="checkbox" class="btn-check" id="sys5"><label class="btn btn-outline-secondary btn-sm" for="sys5">Lorcana</label>
+                <input type="checkbox" class="btn-check" id="sys6"><label class="btn btn-outline-secondary btn-sm" for="sys6">One Piece</label>
+                <input type="checkbox" class="btn-check" id="sys7"><label class="btn btn-outline-secondary btn-sm" for="sys7">Warhammer</label>
+                <input type="checkbox" class="btn-check" id="sys8"><label class="btn btn-outline-secondary btn-sm" for="sys8">Társasjátékok</label>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="mg-footer">
+    <div class="mg-footer__left">
+      <span class="mg-footer__brand">© metagame 2026</span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kádár utca 10.</span>
+        <span class="mg-footer__hours">H–SZ 10–18</span>
+      </span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kresz Géza utca 36.</span>
+        <span class="mg-footer__hours">H-P 16–22, SZ 10–18</span>
+      </span>
+    </div>
+    <div class="mg-footer__right">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatvédelem</a>
+      <a class="mg-footer__info-trigger" href="#">Információ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- ── MOBIL MENÜ ──────────────────────────────────────────── -->
+  <div class="mg-mobile-menu"></div>
+
+  <!-- ── MOBIL KERESŐ OVERLAY ──────────────────────────────── -->
+  <div class="mg-mobile-search-overlay"></div>
+
+  <!-- ── MOBIL DRAWER OVERLAY ────────────────────────────────── -->
+  <div class="mg-mobile-drawer"></div>
+
+  <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
+  <div class="mg-widget-search-overlay"></div>
+
+  <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
+    <div class="mg-drawer__card">
+      <div class="mg-drawer__header">
+        <h2 class="mg-drawer__title"></h2>
+        <span class="mg-drawer__subtitle"></span>
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mg-drawer__body"></div>
+      <div class="mg-drawer__footer"></div>
+    </div>
+  </div>
+
+</div><!-- /.mg-frame -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FullCalendar v5 (MIT) -->
+<!-- Frame widget -->
+<script src="js/components/frame.js"></script>
+<script src="js/components/frame-shimmer.js"></script>
+<!-- Mega menu -->
+<script src="js/components/mega-menu.js"></script>
+<!-- Drawer -->
+<script src="js/components/drawer.js"></script>
+<!-- Mobile menu + drawer -->
+<script src="js/components/mobile-menu.js"></script>
+<!-- Footer panel -->
+<script src="js/components/footer.js"></script>
+<!-- Search overlay -->
+<script src="js/components/search-overlay.js"></script>
+<script src="js/components/product-list.js"></script>
+<script src="js/components/profile.js?v=20261029"></script>
+<!-- Eseménynaptár -->
+
+<script>
+$(function () {
+  mgInitMegaMenu();
+  mgInitMobileMenu();
+  mgInitMobileSearch();
+  mgInitMobileDrawer();
+  mgInitDrawer();
+  mgInitFooter();
+  mgInitProfile();
+  $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
+    mgInitSearchOverlay();
+  });
+});
+</script>
+
+
+<script>
+/* DEMO: a Shop/Eseménynaptár toggle a sötét oldalak közt navigáljon
+   (capture fázisban elkapjuk a frame.js előtt) */
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('.mg-toggle__btn');
+  if (!btn) return;
+  var t = btn.dataset.target;
+  var onEvents = location.pathname.indexOf('events') !== -1;
+  if (t === 'community' && !onEvents) { e.stopPropagation(); e.preventDefault(); location.href = 'events-sotet.html'; }
+  if (t === 'shop' && onEvents)       { e.stopPropagation(); e.preventDefault(); location.href = 'index-sotet.html'; }
+}, true);
+</script>
+<script src="js/components/icons-sotet-demo.js?v=20261001a"></script>
+</body>
+</html>

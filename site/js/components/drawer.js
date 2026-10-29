@@ -59,7 +59,7 @@ var mgDrawerContents = {
           '</div>' +
         '</div>' +
 
-        '<div class="mg-drawer-profile__stats">' +
+        '<div class="mg-drawer-profile__stats">' + /* a számok a profil megfelelő nézetére visznek */
           '<div class="mg-drawer-profile__stat">' +
             '<span class="fs-4 fw-bold text-gold">12</span>' +
             '<span class="fs-7 text-uppercase text-muted">Rendelés</span>' +
@@ -69,35 +69,35 @@ var mgDrawerContents = {
             '<span class="fs-7 text-uppercase text-muted">Kedvenc</span>' +
           '</div>' +
           '<div class="mg-drawer-profile__stat">' +
-            '<span class="fs-4 fw-bold text-gold">2 340</span>' +
-            '<span class="fs-7 text-uppercase text-muted">Pont</span>' +
+            '<span class="fs-4 fw-bold text-gold">1 867</span>' +
+            '<span class="fs-7 text-uppercase text-muted">Kredit</span>' +
           '</div>' +
         '</div>' +
 
         '<nav class="mg-drawer-profile__menu">' +
-          '<a class="mg-drawer-profile__menu-item" href="#">' +
+          '<a class="mg-drawer-profile__menu-item" href="profil-sotet.html#rendelesek">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 8h16"/></svg>' +
             '<span>Rendeléseim</span>' +
             '<svg class="mg-drawer-profile__menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg>' +
           '</a>' +
-          '<a class="mg-drawer-profile__menu-item" href="#">' +
+          '<a class="mg-drawer-profile__menu-item" href="profil-sotet.html#kedvencek">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z"/></svg>' +
             '<span>Kedvencek</span>' +
             '<svg class="mg-drawer-profile__menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg>' +
           '</a>' +
-          '<a class="mg-drawer-profile__menu-item" href="#">' +
+          '<a class="mg-drawer-profile__menu-item" href="profil-sotet.html#adatok">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="10" cy="7" r="4"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke-linecap="round"/></svg>' +
             '<span>Személyes adatok</span>' +
             '<svg class="mg-drawer-profile__menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg>' +
           '</a>' +
-          '<a class="mg-drawer-profile__menu-item" href="#">' +
+          '<a class="mg-drawer-profile__menu-item" href="profil-sotet.html#ertesitesek">' +
             '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M10 2a6 6 0 0 0-6 6v4l-2 2h16l-2-2V8a6 6 0 0 0-6-6z"/><path d="M8 16a2 2 0 0 0 4 0"/></svg>' +
             '<span>Értesítési beállítások</span>' +
             '<svg class="mg-drawer-profile__menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg>' +
           '</a>' +
-          '<a class="mg-drawer-profile__menu-item" href="#">' +
-            '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 13l10 5 10-5"/></svg>' +
-            '<span>Hűségprogram</span>' +
+          '<a class="mg-drawer-profile__menu-item" href="profil-sotet.html#kredit">' +
+            '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="10" cy="10" r="7.5"/><path d="M12.5 7.5c-.5-.9-1.5-1.3-2.5-1.3-1.4 0-2.5.8-2.5 1.9 0 2.6 5 1.3 5 3.9 0 1.1-1.1 1.9-2.5 1.9-1 0-2-.4-2.5-1.3M10 5v1.2M10 13.8V15" stroke-linecap="round"/></svg>' +
+            '<span>Kreditek</span>' +
             '<svg class="mg-drawer-profile__menu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg>' +
           '</a>' +
         '</nav>' +
