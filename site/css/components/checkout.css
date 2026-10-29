@@ -160,6 +160,49 @@ html, body {
 }
 
 
+/* ── KUPON ÉS KREDIT (10.15) ─────────────────────────────── */
+/* Két doboz egymás mellett, a fizetési mód választóinak hátterével.
+   Beváltás után a form helyén egy sor: összeg + visszavonás. */
+
+.mg-checkout__discount {
+  padding: 16px;
+  background: var(--color-bg-muted);
+}
+
+/* A levonások zöldje: a BS success (#198754) a sötét háttéren alig olvasható,
+   ugyanaz a zöld, mint az átvételi módok „Ingyenes” felirata */
+.mg-checkout {
+  --bs-success-rgb: 34, 197, 94;
+}
+
+/* a beírt kód nagybetűs, a példa-szöveg nem */
+.mg-checkout__discount .text-uppercase::placeholder {
+  text-transform: none;
+}
+
+.mg-checkout__discount .input-group .btn {
+  padding-inline: 16px;
+}
+
+/* az invalid-feedback az input-group testvére, ezért a BS ~ szelektora nem éri el */
+.mg-checkout__discount-form.is-invalid .invalid-feedback {
+  display: block;
+}
+
+.mg-checkout__discount-applied {
+  align-items: center;
+  gap: 12px;
+  min-height: 44px; /* = a form-control magassága, ne ugorjon a doboz */
+  flex-wrap: wrap;
+}
+
+/* tétel ára beváltás után: új ár, mellette áthúzva a régi */
+.mg-checkout__item-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
 /* ── BAL OSZLOP (formok) ────────────────────────────────── */
 
 .mg-checkout__forms {

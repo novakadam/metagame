@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/components/buttons.css">
   <link rel="stylesheet" href="css/components/forms.css">
   <link rel="stylesheet" href="css/components/theme-bs.css">
-  <link rel="stylesheet" href="css/components/checkout.css?v=20261022">
+  <link rel="stylesheet" href="css/components/checkout.css?v=20261029">
 </head>
 <body>
 
@@ -313,6 +313,61 @@
         </div>
       </section>
 
+      <!-- 4. KUPON ÉS KREDIT ───────────────────────────── -->
+      <!-- A kredit beváltása súlyozottan csökkenti a tételek árát (nem egy tétel lesz ingyenes),
+           1 kredit = 1 Ft, 60 napig él. A levonás a termékekre megy, a szállításra nem (10.15). -->
+      <section class="mg-checkout__section">
+        <div class="mg-checkout__section-header">
+          <h2 class="mg-checkout__section-title">Kupon és kredit</h2>
+        </div>
+
+        <div class="row g-3">
+          <!-- Kupon -->
+          <div class="col-md-6">
+            <div class="mg-checkout__discount h-100">
+              <label class="form-label" for="couponCode">Kuponkód</label>
+              <!-- BACKEND: coupon.apply(code) → érvényes / lejárt / nem érvényes -->
+              <div class="mg-checkout__discount-form" data-discount="coupon">
+                <div class="input-group">
+                  <input class="form-control text-uppercase" id="couponCode" type="text" placeholder="pl. METAGAME10" autocomplete="off">
+                  <button class="btn btn-outline-secondary" type="button" data-action="coupon-apply">Bevált</button>
+                </div>
+                <div class="invalid-feedback">Ez a kupon nem érvényes, vagy már lejárt.</div>
+              </div>
+              <div class="mg-checkout__discount-applied d-none" data-discount="coupon">
+                <span class="badge border border-success text-success mg-checkout__coupon-code"></span>
+                <span class="text-success fw-semibold mg-checkout__coupon-amount"></span>
+                <button type="button" class="btn btn-link btn-sm p-0 ms-auto" data-action="coupon-remove">Eltávolítás</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kredit (csak bejelentkezve; vendégként a bejelentkezés linkje) -->
+          <div class="col-md-6">
+            <div class="mg-checkout__discount h-100">
+              <div class="d-flex justify-content-between align-items-baseline gap-2">
+                <label class="form-label" for="creditAmount">Kredit</label>
+                <!-- BACKEND: customer.creditBalance, customer.creditExpiresAt (a legkorábban lejáró tétel) -->
+                <span class="small text-muted">Egyenleged: <span class="text-card fw-semibold mg-checkout__credit-balance">1 867 Ft</span></span>
+              </div>
+              <div class="mg-checkout__discount-form" data-discount="credit">
+                <div class="input-group">
+                  <input class="form-control" id="creditAmount" type="number" inputmode="numeric" min="1" step="1" placeholder="Összeg">
+                  <button class="btn btn-outline-secondary" type="button" data-action="credit-all">Mind</button>
+                  <button class="btn btn-outline-secondary" type="button" data-action="credit-apply">Bevált</button>
+                </div>
+                <div class="form-text">1 kredit = 1 Ft. A legkorábbi kredited 2026. dec. 14-én jár le.</div>
+              </div>
+              <div class="mg-checkout__discount-applied d-none" data-discount="credit">
+                <span class="text-success fw-semibold mg-checkout__credit-amount"></span>
+                <span class="small text-muted mg-checkout__credit-rest"></span>
+                <button type="button" class="btn btn-link btn-sm p-0 ms-auto" data-action="credit-remove">Visszavonás</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- 4. TRUST BADGES ────────────────────────────────── -->
       <div class="mg-checkout__trust row g-2 g-lg-3">
         <div class="col-md-4">
@@ -443,7 +498,7 @@
 <!-- JS -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/components/checkout.js?v=20261022"></script>
+<script src="js/components/checkout.js?v=20261029"></script>
 <script>
   $(function () {
     mgInitCheckout();
