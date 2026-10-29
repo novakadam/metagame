@@ -38,6 +38,12 @@
   --bs-body-font-family: 'Manrope', system-ui, sans-serif;
   --bs-heading-font-family: 'Playfair Display', Georgia, serif;
 
+  /* ── BS SZÖVEGSZÍN ─────────────────────── */
+  /* Ahol egy komponens nem ad saját színt (pl. az esemény-oldal h1-e),
+     ott se a BS sötétszürkéje (#212529) jöjjön a sötét háttéren (10.15). */
+  --bs-body-color: var(--color-text);
+  --bs-body-color-rgb: 244, 240, 221;
+
   /* ── BS BORDER OVERRIDE ────────────────── */
   /* A csupasz `border` utility és a komponens fallbackok
      (table, modal stb.) a theme arany keretszínét kapják
