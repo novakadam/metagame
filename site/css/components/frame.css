@@ -59,7 +59,11 @@
   display: none;
 }
 
-/* Vonalak: div pozicionálja, img belül tölti ki */
+/* Vonalak: div pozicionálja, img belül tölti ki.
+   A vonal-képek egész CSS-pixelre kerülnek, a sarkok sínjei viszont fél pixelen
+   ülnek, ezért a finom igazítás az SVG-ben van (felső: a vékony sín y=1,
+   alsó: viewBox -0.55 eltolás). Így 100–125% nagyításon is 0,2 px alatt
+   marad az illesztés a sarkoknál (10.15, mérve 2 / 2,2 / 2,5 DPR-en). */
 
 .mg-frame-line img {
   display: block;
@@ -68,11 +72,11 @@
   object-fit: fill;
 }
 
-.mg-frame-line--top          { top: 37.5px;  left: 541px;  right: 346px;  height: 41px; }
+.mg-frame-line--top          { top: 37px;    left: 541px;  right: 346px;  height: 41.5px; }
 .mg-frame-line--left         { left: 57px;   width: 8px;   top: 198px;    bottom: 162px; }
 .mg-frame-line--right-top    { right: 12px;  width: 20px;  top: 134px;    height: 330px; }
 .mg-frame-line--right-bottom { right: 12px;  width: 8px;   top: 464px;    bottom: 162px; }
-.mg-frame-line--bottom       { bottom: 43px; left: 258px;  right: 202px;  height: 8px; }
+.mg-frame-line--bottom       { bottom: 43.5px; left: 258px; right: 202px;  height: 9px; }
 
 /* ── TOP BAR ────────────────────────────────────────────────────── */
 

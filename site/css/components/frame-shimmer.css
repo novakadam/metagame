@@ -95,6 +95,14 @@
   background-image: url('../../../assets/frame/frame-line-left-glow.svg');
 }
 
+/* Kompakt nézetben (≤1400) a bal felső sarok a tabletes SVG-re vált, ehhez a saját
+   fénycsík tartozik. Az asztali glow a rejtett logó-panel körvonalán futott (10.15). */
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .mg-frame-corner--tl::after {
+    background-image: url('../../../assets/frame/mobile/frame-corner-tl-tablet-glow.svg');
+  }
+}
+
 /* ── AKTÍV ANIMÁCIÓ (.mg-shimmer-run – JS vezérelt) ────── */
 
 .mg-shimmer-run .mg-frame-corner--tl::after,
