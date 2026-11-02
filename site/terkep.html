@@ -151,22 +151,29 @@ footer{color:var(--text-muted);font-size:13px}
 
 <script>
 // A térkép tartalma. Ezt bővítjük, amikor új oldal, feladat, döntés vagy kérdés jön.
-const UPDATED = "2026.10.15.";
+const UPDATED = "2026.11.02.";
 
 const STATUS = [
   { t: "Sötét dizájn", d: "Átadva Lacinak a design-sotet-2026-09-24 branchen, 09.25-én bekerült a UAT-ágba. 10.07-től a UAT-on is él, a bejelentkezéssel és a kosár-drawerrel együtt. A 10.08-i átnézés javításait Laci beolvasztotta, azóta az új pénztáron dolgozik." },
   { t: "Levelek", d: "A koncepció kész: 8 rendelési levél és a rövid értesítők közös sablonja 5 változattal. Következő lépés a változatonkénti éles HTML." },
   { t: "Piktogramok", d: "A kategória-ikonok elkészültek, a Wargame ikonja a sisak. Az átadás Lacinak van hátra." },
-  { t: "Pénztár", d: "Laci megépítette, a UAT-on kattintható, a finisálás folyik. A dizájn-javítások a design-penztar-javitas-2026-10-14 branchen várnak. Következik a kredit-beváltás és a kupon." },
+  { t: "Pénztár", d: "Laci megépítette, a UAT-on kattintható, a finisálás folyik. A dizájn-javítások, a kupon és a kredit beváltásának stílusa a design-javitasok-2026-10-21 branchen várnak (a 10.14-i pénztár-javításokkal együtt). A demóban kész a kupon- és kredit-beváltás." },
+  { t: "Profil", d: "A részletes profiloldal elkészült a demóban: rendelések, rendelés-részlet, kedvencek, kreditek, adatok, értesítések. Visszajelzésre vár." },
   { t: "Go-live", d: "Januárra tervezve. Utána jöhet a képszerkesztő és az offline anyagok." },
 ];
 
 // Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
 const SINCE = [
+  { date: "10.21", text: "A lap alja nem vész el a fade alatt (szűrőpanel, cikk- és liga-oldalak, termékoldal). Akciós kártyán a régi ár egy sorban az új mellett. A hírsáv a kereső lenyíló panelje alatt fut." },
+  { date: "10.22", text: "Pénztár: a konténer 1140 széles marad Bootstrap 5 alatt is, az összesítő Laci közös kosár-komponense szerint. A PayPal kikerült a láblécből." },
+  { date: "10.29", text: "Kupon és kredit beváltása a pénztár-demóban, a kedvezmény arányosan oszlik el a tételeken. Saját kapcsoló-stílus." },
+  { date: "10.29", text: "Profil részletes oldal a demóban: rendelések, rendelés-részlet állapot-idővonallal, kedvencek, kreditek, adatok, értesítések." },
+  { date: "10.29", text: "A keret vonalai pontosan illeszkednek a sarkokhoz 100–125%-os nagyításon és tableten is. Az esemény-oldal címe fehér." },
+  { date: "11.02", text: "Minden javítás egy branchen Lacinak: design-javitasok-2026-10-21, a v13-ux legfrissebb állapotára illesztve." },
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-10-15a";
+const BOARD_VERSION = "2026-11-02a";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "10.15–10.28." },
@@ -175,14 +182,14 @@ const COLUMNS = [
 ];
 const TASKS = [
   // heti sprint (a következő meeting 10.29-én)
-  { id: "szuro-padding", col: "sprint", title: "Szűrőpanel és listák alja: padding", who: "Ádám", detail: "A szűrőpanel alja levágódik, a UAT-on a szöveg el is tűnik. Ugyanez a liga- és a cikkoldalak alján." },
-  { id: "akcios-kartya", col: "sprint", title: "Akciós termékkártya: egységes magasság", who: "Ádám", detail: "Az áthúzott ár egy plusz sort ad, ettől a kártya magasabb lesz. Minden kártya kapja meg ezt a helyet, mintha mindegyiken lenne kedvezmény. Mobilon is ellenőrizni." },
-  { id: "ticker", col: "sprint", title: "A hírsáv átlóg a lenyíló elemeken", who: "Ádám", detail: "Megnyitáskor a ticker rácsúszik, alatta kell futnia. A demóban is így van." },
-  { id: "penztar-fin", col: "sprint", title: "Pénztár: konténer, betűtípusok, PayPal", who: "Ádám", detail: "A konténer szélessége legyen Laciéval egyforma. A Fizetés gomb és az árak betűtípusa eltér, a demót frissíteni kell. A PayPal ikon kikerül, mert nincs PayPal. Laci egy komponensbe vonta a kosár-drawer és a pénztár tétellistáját, ez maradhat." },
-  { id: "kredit", col: "sprint", title: "Kredit-beváltás és kupon a pénztárban", who: "Ádám", detail: "Mennyi kreditet használ fel (mindet, vagy szabadon beírva), és a kosárban más színnel a beváltott kredit. 1 kredit = 1 Ft, 60 napig él. A kupon mező is kell. Andris küld képernyőképeket, és kérek egy teszt-fiókot kredittel." },
-  { id: "profil", col: "sprint", title: "Profil részletes oldal", who: "Ádám", detail: "A profil menüpontjai külön aloldalakra visznek: rendelések listája és egy rendelés részletei, kedvencek, profiladatok, kreditegyenleg és -történet, értesítési beállítások. A mostani éles profil tartalmát kell az új dizájnra hozni." },
-  { id: "zoom", col: "sprint", title: "Landing: keret és fény nagyításnál", who: "Ádám", detail: "110–125%-os nagyításnál a keret vonalai nem találkoznak, néhol látszik alatta a logó, a fény körbefutva a rejtett panelre megy. Az illesztések javíthatók, mindent valószínűleg nem lehet." },
-  { id: "esemeny-cim", col: "sprint", title: "Esemény leírásában a cím fehér legyen", who: "Ádám", detail: "Az eseménynaptár esemény-oldalán." },
+  { id: "szuro-padding", col: "done", title: "Szűrőpanel és listák alja: padding", who: "Ádám", detail: "A szűrőpanel alja levágódik, a UAT-on a szöveg el is tűnik. Ugyanez a liga- és a cikkoldalak alján." },
+  { id: "akcios-kartya", col: "done", title: "Akciós termékkártya: egységes magasság", who: "Ádám", detail: "Az áthúzott ár egy plusz sort ad, ettől a kártya magasabb lesz. Minden kártya kapja meg ezt a helyet, mintha mindegyiken lenne kedvezmény. Mobilon is ellenőrizni." },
+  { id: "ticker", col: "done", title: "A hírsáv átlóg a lenyíló elemeken", who: "Ádám", detail: "Megnyitáskor a ticker rácsúszik, alatta kell futnia. A demóban is így van." },
+  { id: "penztar-fin", col: "done", title: "Pénztár: konténer, betűtípusok, PayPal", who: "Ádám", detail: "A konténer szélessége legyen Laciéval egyforma. A Fizetés gomb és az árak betűtípusa eltér, a demót frissíteni kell. A PayPal ikon kikerül, mert nincs PayPal. Laci egy komponensbe vonta a kosár-drawer és a pénztár tétellistáját, ez maradhat." },
+  { id: "kredit", col: "done", title: "Kredit-beváltás és kupon a pénztárban", who: "Ádám", detail: "Mennyi kreditet használ fel (mindet, vagy szabadon beírva), és a kosárban más színnel a beváltott kredit. 1 kredit = 1 Ft, 60 napig él. A kupon mező is kell. Andris küld képernyőképeket, és kérek egy teszt-fiókot kredittel." },
+  { id: "profil", col: "feedback", title: "Profil részletes oldal", who: "Ádám", detail: "A profil menüpontjai külön aloldalakra visznek: rendelések listája és egy rendelés részletei, kedvencek, profiladatok, kreditegyenleg és -történet, értesítési beállítások. A mostani éles profil tartalmát kell az új dizájnra hozni." },
+  { id: "zoom", col: "done", title: "Landing: keret és fény nagyításnál", who: "Ádám", detail: "110–125%-os nagyításnál a keret vonalai nem találkoznak, néhol látszik alatta a logó, a fény körbefutva a rejtett panelre megy. Az illesztések javíthatók, mindent valószínűleg nem lehet." },
+  { id: "esemeny-cim", col: "done", title: "Esemény leírásában a cím fehér legyen", who: "Ádám", detail: "Az eseménynaptár esemény-oldalán." },
   { id: "kepszerk", col: "sprint", title: "Képszerkesztő script, képméretezéssel", who: "Ádám", detail: "A háttér-eltávolítás mellé a szükséges képméretek legyártása. A scriptet megosztom, a képeket Andrisék cserélik. Laci nem kell hozzá." },
   { id: "laci-penztar", col: "sprint", title: "Pénztár finisálása", who: "Laci", detail: "Laci szerint ma estére kint lesz. Utána még egyszer átnézem, mobilon is." },
   { id: "laci-24", col: "sprint", title: "„További 24 betöltése”: maradjon a görgetési pozíció", who: "Laci", detail: "Most az oldal aljára dob, a demóban a helyén marad." },
@@ -203,7 +210,7 @@ const TASKS = [
   { id: "elesites", col: "backlog", title: "Élesítés kísérése", who: "mindenki", detail: "Januárban. Az éles visszajelzések javítása." },
   { id: "offline", col: "backlog", title: "Offline anyagok (plakát, roll-up, bolti sablonok)", who: "Ádám", detail: "A sötét arculattal.", tag: "go-live után" },
   // visszajelzés alatt
-  { id: "penztar", col: "feedback", title: "Pénztár: javítások beolvasztása", who: "Laci", detail: "A design-penztar-javitas-2026-10-14 branchen, két commitban: CSS (ragadó összesítő, bizalmi sáv, letiltott gomb) és Bootstrap 5 a MinimalPublicPage-en. A mai pénztáros tételekkel együtt küldöm." },
+  { id: "penztar", col: "feedback", title: "Dizájn-javítások beolvasztása", who: "Laci", detail: "A design-javitasok-2026-10-21 branchen, 13 commit: a 10.14-i pénztár-javítások, a 10.21-i és 10.22-i javítások, a kupon és kredit stílusa, a kapcsoló, a keret illesztése. A v13-ux 10.30-i állapotára illesztve." },
   { id: "levelek-koncepcio", col: "feedback", title: "Levelek: 8 rendelési levél és 5 rövid értesítő", who: "Csaba, Andris", detail: "A példák feltételezéseit kell megerősíteni (48 órás link, kredit részletekben, asztal díja)." },
   // kész
   { id: "laci-uat", col: "done", title: "A 10.08-i UAT-lista Laci oldali pontjai", who: "Laci", detail: "A kategória-sáv és a drawerek rendben, a dizájn-javítások beolvasztva." },
@@ -238,6 +245,7 @@ const LINKS = [
     ["Termékoldal", "product-sotet.html", null],
     ["Pénztár", "checkout.html"],
     ["Sikeres rendelés", "success.html"],
+    ["Profil", "profil-sotet.html", null, "rendelések, kedvencek, kreditek, beállítások"],
     ["Magic singles", "magic-singles-sotet.html", null, "tételes laplista"],
   ]},
   { group: "Közösség", items: [
@@ -268,7 +276,7 @@ const LINKS = [
   ]},
   { group: "Fejlesztés", items: [
     ["UAT (Laci tesztszervere)", "https://uat.metagames.hu/", null, "itt él a sötét dizájn"],
-    ["A pénztár javításai (10.14)", "https://issues.tracktime.hu/metagame/metagame-web/-/tree/design-penztar-javitas-2026-10-14", null, "Bootstrap 5 a pénztáron + CSS"],
+    ["A javítások branche (10.21–10.29)", "https://issues.tracktime.hu/metagame/metagame-web/-/tree/design-javitasok-2026-10-21", null, "a 10.14-i pénztár-javításokkal együtt"],
     ["A 10.08-i javítások branche", "https://issues.tracktime.hu/metagame/metagame-web/-/tree/design-sotet-javitas-2026-10-08", null, "a UAT-átnézés javításai"],
     ["Az átvezetés branche a GitLabon", "https://issues.tracktime.hu/metagame/metagame-web/-/tree/design-sotet-2026-09-24", null, "leírás és tesztlista a DESIGN-SOTET-2026-09-24.md-ben"],
     ["A mostani éles oldal", "https://www.metagames.hu/"],
