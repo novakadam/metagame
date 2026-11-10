@@ -31,10 +31,14 @@ $(function () {
     var target  = $btn.data('target');
     var $toggle = $btn.closest('.mg-toggle');
 
-    // Shop / Eseménynaptár közti navigáció (prototípus — élesben BACKEND/router)
-    var onEvents = window.location.pathname.indexOf('events') !== -1;
-    if (target === 'community' && !onEvents) { window.location.href = 'events-sotet.html'; return; }
-    if (target === 'shop' && onEvents)       { window.location.href = 'index-sotet.html';  return; }
+    // Shop / Eseménynaptár közti navigáció (prototípus — élesben BACKEND/router):
+    // a másik oldalra váltás a nyitóoldalára visz (Shop → kezdőlap, Eseménynaptár → események).
+    var pageMode = $toggle.data('page-mode') || $toggle.attr('data-active');
+    $toggle.data('page-mode', pageMode);
+    if (target !== pageMode) {
+      window.location.href = target === 'community' ? 'events-sotet.html' : 'index-sotet.html';
+      return;
+    }
 
     $toggle.attr('data-active', target);
 

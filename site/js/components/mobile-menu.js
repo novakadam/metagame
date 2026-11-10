@@ -61,21 +61,38 @@ function mgInitMobileMenu() {
   var currentCategory = null;
   var currentBrand = null;
   var currentMode = 'shop';
+  var startMode = 'shop';
 
-  var communityCategories = [
-    {
-      name: 'Események',
-      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>'
-    },
-    {
-      name: 'Krónikák',
-      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>'
-    },
-    {
-      name: 'Közösség',
-      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>'
-    }
-  ];
+  // A menüpontok az asztali bal menüből jönnek (.mg-nav-section), így a mobil és az asztali
+  // menü mindig ugyanaz. A Shop / Eseménynaptár felirat is az asztali toggle-ből jön.
+  var $deskToggle = $('.mg-toggle').first();
+  if ($deskToggle.attr('data-active') === 'community') currentMode = startMode = 'community';
+
+  function navItems(mode) {
+    var items = [];
+    $('.mg-nav-section[data-nav="' + mode + '"] .mg-nav-item').each(function () {
+      var $a = $(this);
+      items.push({
+        name: $.trim($a.find('.mg-nav-item__label').text()),
+        href: $a.attr('href') || '#',
+        icon: $a.find('.mg-nav-item__circle').html() || '',
+        active: $a.hasClass('mg-nav-item--active')
+      });
+    });
+    return items;
+  }
+
+  function toggleLabel(mode, fallback) {
+    var t = $.trim($deskToggle.find('.mg-toggle__btn[data-target="' + mode + '"]').text());
+    return t || fallback;
+  }
+
+  // Minden szint tetején egy "Összes …" sor: a felirat és a nyíl is a következő szintre visz,
+  // a teljes listát ez a sor adja (11.03-i meeting).
+  function allRow(name) {
+    // BACKEND: link a kategória / rendszer teljes terméklistájára
+    return '<a class="mg-mobile-menu__subcat mg-mobile-menu__all" href="products-sotet.html">Összes ' + name + ' termék</a>';
+  }
 
   function chevronRight(size) {
     return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>';
@@ -109,17 +126,24 @@ function mgInitMobileMenu() {
   }
 
   function renderLevel1() {
-    var cats = currentMode === 'shop' ? mgMobileMenuData.categories : communityCategories;
+    var cats = navItems(currentMode);
+    // tartalék, ha az oldalon nincs asztali bal menü
+    if (!cats.length && currentMode === 'shop') cats = mgMobileMenuData.categories;
     var html = '';
     cats.forEach(function(cat) {
       var hasSubmenu = currentMode === 'shop' && mgMegaMenuData[cat.name];
-      html += '<div class="mg-mobile-menu__item" data-category="' + cat.name + '">';
+      var cls = 'mg-mobile-menu__item' + (cat.active ? ' is-active' : '');
+      if (hasSubmenu) {
+        html += '<div class="' + cls + '" data-category="' + cat.name + '">';
+      } else {
+        html += '<a class="' + cls + '" href="' + (cat.href || 'products-sotet.html') + '">';
+      }
       html += '<div class="mg-mobile-menu__item-icon">' + cat.icon + '</div>';
       html += '<span class="mg-mobile-menu__item-label">' + cat.name + '</span>';
       if (hasSubmenu) {
         html += '<span class="mg-mobile-menu__item-arrow">' + chevronRight(20) + '</span>';
       }
-      html += '</div>';
+      html += hasSubmenu ? '</div>' : '</a>';
     });
 
     html += '<div class="mg-mobile-menu__footer-links">';
@@ -142,10 +166,16 @@ function mgInitMobileMenu() {
 
     var html = '<button class="mg-mobile-menu__back" data-action="back-to-1">';
     html += chevronLeft(20) + '<span>' + categoryName + '</span></button>';
+    html += allRow(categoryName);
 
     if (data.brands) {
       data.brands.forEach(function(b) {
-        html += '<div class="mg-mobile-menu__brand" data-brand="' + b.name + '">';
+        var subs = data.subcategories && data.subcategories[b.name];
+        var hasSubs = !!(subs && subs.length);
+        // amelyik rendszernek nincs alszintje (és a Továbbiak), az rögtön a terméklistára visz
+        html += hasSubs
+          ? '<div class="mg-mobile-menu__brand" data-brand="' + b.name + '">'
+          : '<a class="mg-mobile-menu__brand" href="products-sotet.html">';
         if (b.logo) {
           html += '<img class="mg-mobile-menu__brand-logo" src="' + b.logo + '" alt="' + b.name + '">';
         } else if (b.more) {
@@ -155,10 +185,10 @@ function mgInitMobileMenu() {
           html += '<div class="mg-mobile-menu__brand-logo" style="display:flex;align-items:center;justify-content:center;background:rgba(179,138,36,0.1);font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--color-gold);">' + b.name.charAt(0) + '</div>';
         }
         html += '<span class="mg-mobile-menu__brand-name">' + b.name + '</span>';
-        if (!b.more) {
+        if (hasSubs) {
           html += '<span class="mg-mobile-menu__brand-arrow">' + chevronRight(20) + '</span>';
         }
-        html += '</div>';
+        html += hasSubs ? '</div>' : '</a>';
       });
     }
 
@@ -174,6 +204,7 @@ function mgInitMobileMenu() {
 
     var html = '<button class="mg-mobile-menu__back" data-action="back-to-2">';
     html += chevronLeft(20) + '<span>' + brandName + '</span></button>';
+    html += allRow(brandName);
 
     subs.forEach(function(sub) {
       html += '<a class="mg-mobile-menu__subcat" href="products-sotet.html">' + sub + '</a>';
@@ -204,8 +235,8 @@ function mgInitMobileMenu() {
     html += '<div class="mg-mobile-menu__toggle">';
     html += '<div class="mg-mobile-menu__toggle-inner">';
     html += '<div class="mg-mobile-menu__slider"></div>';
-    html += '<button class="mg-mobile-menu__toggle-btn is-active" data-target="shop">Shop</button>';
-    html += '<button class="mg-mobile-menu__toggle-btn" data-target="community">Klub</button>';
+    html += '<button class="mg-mobile-menu__toggle-btn' + (currentMode === 'shop' ? ' is-active' : '') + '" data-target="shop">' + toggleLabel('shop', 'Shop') + '</button>';
+    html += '<button class="mg-mobile-menu__toggle-btn' + (currentMode === 'community' ? ' is-active' : '') + '" data-target="community">' + toggleLabel('community', 'Eseménynaptár') + '</button>';
     html += '</div></div>';
     html += '<button class="mg-mobile-menu__close">' + closeSvg() + '</button>';
     html += '</div>';
@@ -244,10 +275,12 @@ function mgInitMobileMenu() {
     $('body').removeClass('mg-mobile-menu-open');
     currentCategory = null;
     currentBrand = null;
-    currentMode = 'shop';
+    currentMode = startMode;
   }
 
   function bindEvents() {
+    // minden nyitáskor újraépül a menü, ezért a delegált kezelőket előbb levesszük, különben halmozódnak
+    $menu.off('click');
     $menu.find('.mg-mobile-menu__close').on('click', closeMenu);
 
     $menu.find('.mg-mobile-menu__toggle-btn').on('click', function() {
@@ -261,14 +294,14 @@ function mgInitMobileMenu() {
       currentBrand = null;
     });
 
-    $menu.on('click', '.mg-mobile-menu__item', function() {
+    $menu.on('click', '.mg-mobile-menu__item[data-category]', function() {
       currentCategory = $(this).data('category');
       var $lv2 = $menu.find('[data-level="2"]');
       $lv2.html(renderLevel2(currentCategory));
       setLevel(2);
     });
 
-    $menu.on('click', '.mg-mobile-menu__brand', function() {
+    $menu.on('click', '.mg-mobile-menu__brand[data-brand]', function() {
       var brandName = $(this).data('brand');
       var data = mgMegaMenuData[currentCategory];
       var brandObj = null;

@@ -763,3 +763,23 @@ body.mg-mobile-drawer-open {
 }
 
 } /* @media end */
+
+/* ── Aktuális oldal és „Összes …” sor (11.03) ── */
+
+.mg-mobile-menu__item.is-active .mg-mobile-menu__item-label {
+  color: var(--color-gold);
+}
+
+.mg-mobile-menu__item.is-active .mg-mobile-menu__item-icon {
+  color: var(--color-gold);
+}
+
+/* a rendszer / kategória teljes listája: arany, mint az asztali megamenü „Összes … termék →” linkje */
+.mg-mobile-menu__all {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.mg-mobile-menu__all::after {
+  content: " →";
+}

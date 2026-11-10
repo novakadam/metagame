@@ -119,10 +119,10 @@
     </a>
 
     <div class="mg-topbar-row">
-      <div class="mg-toggle mg-cut-frame" data-active="shop">
+      <div class="mg-toggle mg-cut-frame" data-active="community">
         <div class="mg-toggle__slider"></div>
-        <button class="mg-toggle__btn mg-toggle__btn--active" data-target="shop">Shop</button>
-        <button class="mg-toggle__btn" data-target="community">Eseménynaptár</button>
+        <button class="mg-toggle__btn" data-target="shop">Shop</button>
+        <button class="mg-toggle__btn mg-toggle__btn--active" data-target="community">Eseménynaptár</button>
       </div>
 
       <div class="mg-search mg-cut-frame">
@@ -139,7 +139,7 @@
 
   <!-- ── BAL NAV ────────────────────────────────────────────────── -->
   <nav class="mg-nav-left" id="mg-nav-left">
-    <div class="mg-nav-section" data-nav="shop">
+    <div class="mg-nav-section mg-nav-section--hidden" data-nav="shop">
       <a class="mg-nav-item" href="products-sotet.html">
         <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18"/><path d="M16 3v18"/></svg></div></div>
         <div class="mg-nav-item__bar"><span class="mg-nav-item__label">TCG</span></div>
@@ -175,6 +175,38 @@
           </div>
         </div>
         <div class="mg-nav-item__bar"><span class="mg-nav-item__label">További termékek</span></div>
+      </a>
+    </div>
+
+    <!-- Eseménynaptár nézet (toggle után). A mobilmenü is ebből a listából épül. -->
+    <div class="mg-nav-section" data-nav="community">
+      <a class="mg-nav-item" href="events-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Események</span></div>
+      </a>
+      <a class="mg-nav-item" href="klub-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 0 12 0V3H6v6z"/><path d="M6 4H3v2a3 3 0 0 0 3 3"/><path d="M18 4h3v2a3 3 0 0 1-3 3"/><path d="M9 21h6"/><path d="M12 15v6"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Klub</span></div>
+      </a>
+      <a class="mg-nav-item" href="index-sotet.html#kronikak">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Krónikák</span></div>
+      </a>
+      <a class="mg-nav-item mg-nav-item--active" href="tudastar-sotet.html" aria-current="page">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Tudástár</span></div>
+      </a>
+      <a class="mg-nav-item" href="liga-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Liga</span></div>
+      </a>
+      <a class="mg-nav-item" href="magic-singles-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Singles</span></div>
+      </a>
+      <a class="mg-nav-item" href="galeria-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Galéria</span></div>
       </a>
     </div>
   </nav>
