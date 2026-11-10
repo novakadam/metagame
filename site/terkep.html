@@ -159,7 +159,7 @@ const STATUS = [
   { t: "Piktogramok", d: "A kategória-ikonok elkészültek, a Wargame ikonja a sisak. Az átadás Lacinak van hátra." },
   { t: "Pénztár", d: "Laci megépítette, a UAT-on kattintható, a finisálás folyik. A dizájn-javítások, a kupon és a kredit beváltásának stílusa a design-javitasok-2026-10-21 branchen várnak (a 10.14-i pénztár-javításokkal együtt). A demóban kész a kupon- és kredit-beváltás." },
   { t: "Profil", d: "A részletes profiloldal elkészült a demóban: rendelések, rendelés-részlet, kedvencek, kreditek, adatok, értesítések. A 11.03-i meetingen átnéztük, rendben van." },
-  { t: "Menü", d: "Asztalon és mobilon ugyanaz a menü. Az Eseménynaptár hét pontja: Események, Klub, Krónikák, Tudástár, Liga, Singles, Galéria. Mobilon minden szint tetején ott az Összes … sor. A főmenü nevén még gondolkodunk." },
+  { t: "Menü", d: "Asztalon és mobilon ugyanaz a menü. Az Eseménynaptár hét pontja: Események, Klub, Krónikák, Tudástár, Liga, Singles, Galéria. Mobilon minden szint tetején ott az Összes … sor. A Krónikák saját lista-oldalt kapott. A főmenü nevén még gondolkodunk." },
   { t: "Termékoldal", d: "Átdolgozás előtt. Javaslat készül egy társas, egy TCG és egy kiegészítő példáján, utána jön a mobil változat." },
   { t: "Go-live", d: "Januárra tervezve. Utána jöhet a képszerkesztő és az offline anyagok." },
 ];
@@ -172,11 +172,12 @@ const SINCE = [
   { date: "11.10", text: "Termékoldal mobilon: a lenyíló blokkok a lap aljára kerültek, a TCG címke nem lóg rá a rendszer nevére." },
   { date: "11.10", text: "Breadcrumb mobilon: csak az előző szint látszik, egy sorban, vissza-nyíllal. Ez javaslat, visszajelzést várok rá." },
   { date: "11.10", text: "Asztali kereső: a lenyíló panel vonala a keret vonalára ül. A hírsáv megáll, ha fölé visszük az egeret." },
+  { date: "11.10", text: "Krónikák: saját lista-oldal a híreknek. Felül a kezdőlapi blokk (kiemelt cikk és három friss), alatta a korábbi hírek. Szűrni lehet típusra (megjelenés, beszámoló, bolt, klub) és játékra. A menüpont, a kezdőlap További hírek gombja és a cikk breadcrumbja is ide visz." },
   { date: "11.10", text: "Mobil keret: nincs sötét rés a kereső mellett, és az oldalvonalak nem ugranak görgetéskor." },
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-10a";
+const BOARD_VERSION = "2026-11-10b";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.03–11.11." },
@@ -189,6 +190,7 @@ const TASKS = [
   { id: "menu-osszes", col: "done", title: "Mobilmenü: Összes … sor", who: "Ádám", detail: "Bármire kattintva a következő szint jön, a teljes listát a szint tetején lévő Összes … termék sor adja." },
   { id: "pd-mobil-hibak", col: "done", title: "Termékoldal mobilon: blokkok sorrendje, TCG címke", who: "Ádám", detail: "A Product Details és a többi lenyíló a lap tetején volt, a TCG címke rálógott a rendszer nevére." },
   { id: "breadcrumb", col: "feedback", title: "Breadcrumb mobilon", who: "Andris, Csaba", detail: "Javaslat: mobilon csak az előző szint látszik, egy sorban, balra, vissza-nyíllal. Asztalon a teljes út marad. A termékoldalon és a terméklistán is így." },
+  { id: "kronikak", col: "feedback", title: "Krónikák lista-oldal", who: "Andris, Csaba", detail: "A kezdőlapi blokkra épül: kiemelt cikk és három friss, alatta a korábbi hírek kártyákon, lapozással. Szűrő típusra és játékra. Élesben a szűrés URL-paraméter legyen, hogy linkelhető." },
   { id: "kereso-2px", col: "done", title: "Asztali kereső: a panel vonala a kerettel egy vonalban", who: "Ádám", detail: "Nyitáskor kb. 3 pixelt ugrott a vonal." },
   { id: "hirsav-hover", col: "done", title: "A hírsáv álljon meg, ha fölé visszük az egeret", who: "Ádám", detail: "A demóban eddig nem állt meg." },
   { id: "mobil-keret", col: "feedback", title: "Mobil keret: rés a kereső mellett, ugrás görgetéskor", who: "Andris", detail: "A kereső melletti sötét rés megszűnt. Az oldalvonalak most a teljes képernyő-magasságra szólnak, így elvileg nem ugranak, amikor a böngésző címsora összecsukódik. Androidon kérlek nézd meg." },
@@ -242,8 +244,7 @@ const TASKS = [
 ];
 
 const QUESTIONS = [
-  { topic: "Menü", q: "Mi legyen a második főmenü neve az Eseménynaptár helyett? Felmerült a Klub, az Info és a Közösség.", who: "Andris" },
-  { topic: "Krónikák", q: "Kell-e külön lista-oldal a Krónikáknak (híreknek)? Most a menüpont a kezdőlap Krónikák blokkjára visz.", who: "Andris, Laci" },
+  { topic: "Menü", q: "Mi legyen a második főmenü neve az Eseménynaptár helyett? Javaslat: Shop és Klub, a menün belüli Klub pont pedig Klubház lesz, hogy ne legyen kétszer ugyanaz a szó. Ha a Klub túl szűk, a Közösség a tartalék.", who: "Andris, Csaba" },
   { topic: "Breadcrumb", q: "Mobilon csak az előző szint látszik vissza-linkként. Így jó, vagy kell a teljes út rövidítve?", who: "Andris, Csaba" },
   { topic: "Termékkártya", q: "Minden termékkártyán ott a kedvenc szív. Maradjon, és mérjük, mennyien használják?", who: "Andris" },
   { topic: "Termékoldal", q: "Nagyítható legyen-e a termékkép kattintásra?", who: "Andris, Csaba" },
@@ -278,6 +279,7 @@ const LINKS = [
     ["Klub bemutató", "klub-bemutato-sotet.html", null],
     ["Ligák", "liga-sotet.html", null],
     ["Liga állása", "liga-allasok-sotet.html", null],
+    ["Krónikák", "kronikak-sotet.html", null, "hírek, szűrővel"],
     ["Galéria", "galeria-sotet.html", null],
     ["Galéria album", "galeria-album-sotet.html", null],
   ]},
@@ -307,6 +309,7 @@ const LINKS = [
 ];
 
 const DECISIONS = [
+  { date: "11.10", text: "A Krónikák (a hírek) saját lista-oldalt kapnak, a kezdőlapi blokk szerkezetére építve." },
   { date: "11.03", text: "Az Eseménynaptár menüje: Események, Klub, Krónikák, Tudástár, Liga, Singles, Galéria. A Krónikák (a hírek) a Tudástár fölé kerülnek, a Tudástárból kikerül a Krónikák szó." },
   { date: "11.03", text: "Asztalon és mobilon ugyanaz a menü. Mobilon bármire kattintva a következő szint jön, és lesz egy Összes … sor." },
   { date: "11.03", text: "A termékoldalon a készlet darabszáma marad, nem átfutási idő. A vevői interjúkban ez erősen kijött." },
