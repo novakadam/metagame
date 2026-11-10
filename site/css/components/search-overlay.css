@@ -24,10 +24,13 @@
 /* A panel teteje a topbar-row elemek magasságában indul,    */
 /* de alattuk (z-index: 3 < topbar: 5). A felső border       */
 /* átfut mögöttük, a tartalom padding-top-pal lejjebb indul. */
+/* 11.03: a felső border a keret sínjére ül (77,5px, a sarkok */
+/* és a felső vonal is ott fut), nem a keresőmező felezőjére  */
+/* (73,5px) — különben nyitáskor kb. 3px-et ugrott a vonal.   */
 
 .mg-search-panel {
   position: absolute;
-  top: 74px;
+  top: 76.75px;
   left: 0;
   right: 0;
   margin-left: auto;

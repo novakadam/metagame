@@ -91,6 +91,14 @@
   height: 197px;
   background: transparent;
   z-index: 5;
+  /* az átlátszó doboz a hírsávot is takarja (top 110px): az egér csak a benne
+     lévő elemeken (logó, toggle, kereső) álljon meg, különben a hírsáv
+     hoverre nem tud megállni (11.03) */
+  pointer-events: none;
+}
+
+.mg-topbar > * {
+  pointer-events: auto;
 }
 
 /* Logo: 315px széles, 24px balról, 30px fentről */
@@ -964,6 +972,19 @@
 
   .mg-frame-m-line--right {
     top: 184px; right: 0; bottom: 115px; width: 15px;
+  }
+
+  /* Görgetésnél a mobilböngésző címsora összecsukódik, a látható magasság nő, és a
+     bottom-hoz kötött oldalvonal csak utólag nyúlik utána: egy pillanatra kb. egy centi
+     hiányzott a keretből (11.03, Android). A vonal a nagy viewport (lvh) magasságára
+     szól, így a címsor alatt is megvan; amíg a címsor látszik, a lelógó vége az alsó
+     sarok és a sáv alá esik. */
+  @supports (height: 100lvh) {
+    .mg-frame-m-line--left,
+    .mg-frame-m-line--right {
+      bottom: auto;
+      height: calc(100lvh - 184px - 115px);
+    }
   }
 
   .mg-frame-m-line--bottom {

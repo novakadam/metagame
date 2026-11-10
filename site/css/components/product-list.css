@@ -765,3 +765,38 @@
     padding: 8px 0 40px;
   }
 }
+
+/* ── BREADCRUMB MOBILON: csak az előző szint, vissza-linkként (11.03) ──
+   ugyanaz a minta, mint a termékoldalon (product-detail.css) */
+@media (max-width: 768px) {
+  .mg-product-breadcrumb {
+    justify-content: flex-start;
+    align-self: stretch;
+  }
+
+  .mg-product-breadcrumb > .mg-product-breadcrumb__sep,
+  .mg-product-breadcrumb > span:not(.mg-product-breadcrumb__sep),
+  .mg-product-breadcrumb > a:not(:last-of-type) {
+    display: none;
+  }
+
+  .mg-product-breadcrumb > a:last-of-type {
+    position: relative;
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mg-product-breadcrumb > a:last-of-type::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 18l-6-6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 18l-6-6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+}
