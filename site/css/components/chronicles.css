@@ -344,7 +344,15 @@ a.mg-chronicle-item:hover .mg-chronicle-item__read {
     gap: 24px;
   }
 
+  /* a bélyegkép a szöveg mellett marad (eddig 200px-es szövegszélesség alatt alá tört) */
   .mg-chronicle-item {
+    gap: 12px;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+
+  .mg-chronicle-item__text {
+    min-width: 0;
     gap: 12px;
   }
 

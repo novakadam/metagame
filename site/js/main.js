@@ -25,9 +25,6 @@ $(function () {
     $el.load(w.src, function () {
       if (!$el.children().length) $el.addClass('mg-widget--empty');
       if (w.init) w.init();
-      // A menü Krónikák pontja ide mutat (index-sotet.html#kronikak); a widget utólag töltődik,
-      // ezért a böngésző magától nem tud odagörgetni.
-      if (location.hash && $el.is(location.hash)) $el[0].scrollIntoView({ block: 'start' });
     });
   });
 
