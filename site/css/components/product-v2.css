@@ -1,0 +1,226 @@
+/*
+ * product-v2.css – a termékoldal új elrendezése (11.10, a Szellemlovas-minta alapján)
+ *
+ * A product-detail.css-re épül, csak a body.mg-pd2 oldalakon (termek-*-sotet.html).
+ * Bal hasáb: képek, alatta a kevésbé fontos adatok (Adatok, Címkék).
+ * Közép: döntés – tény-címkék, ár, készlet, kiszállítás, kosár, termékelőnyök, rövid leírás.
+ * Jobb: Ehhez még jól jön. Alul teljes szélességben a részletes leírás.
+ */
+
+/* ── BREADCRUMB: asztalon is egy sor, a termék neve vágódik ── */
+.mg-pd2 .mg-product__breadcrumb {
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+.mg-pd2 .mg-product__breadcrumb a { flex-shrink: 0; }
+.mg-pd2 .mg-product__breadcrumb span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── BAL HASÁB ──────────────────────────────────────────────── */
+.mg-pd2 .mg-product__left { gap: 32px; }
+
+.mg-pd2 .mg-product__gallery-main { position: relative; }
+
+/* Nyelv: zászló a kép sarkában (a meetingen kérték) */
+.mg-pd2__flag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+.mg-pd2__flag svg { width: 100%; height: 100%; display: block; }
+
+/* Nagyítás gomb a kép sarkában */
+.mg-pd2__zoom {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 40px;
+  height: 40px;
+}
+
+/* Adatok + Címkék: keretes blokk, halkabb mint a középső panel */
+.mg-pd2__block {
+  border: 1px solid var(--color-border-muted);
+  padding: 20px 24px;
+  background: rgba(38, 12, 26, 0.55);
+}
+.mg-pd2__block-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+.mg-pd2__data { margin: 0; }
+.mg-pd2__data > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: var(--font-size-sm);
+}
+.mg-pd2__data > div:last-child { border-bottom: 0; }
+.mg-pd2__data dt { font-weight: 500; color: var(--color-text-muted); }
+.mg-pd2__data dd { margin: 0; font-weight: 600; color: var(--color-text); }
+.mg-pd2__data a { color: var(--color-gold); text-decoration: none; }
+
+/* ── KÖZÉP: tény-címkék ─────────────────────────────────────── */
+.mg-pd2__facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+}
+.mg-pd2__fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.18);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+.mg-pd2__fact svg { width: 16px; height: 16px; color: var(--color-gold); flex-shrink: 0; }
+.mg-pd2__fact-flag { width: 18px; height: 12px; border-radius: 2px; overflow: hidden; display: inline-flex; }
+.mg-pd2__fact-flag svg { width: 100%; height: 100%; color: inherit; }
+
+/* ── KÉSZLET: soronként, a darabszám jobbra (eddig a hosszú nevek egymásra csúsztak) ── */
+.mg-pd2 .mg-product__stock {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: 4px 16px;
+}
+.mg-pd2 .mg-product__stock-item {
+  flex: none;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mg-pd2 .mg-product__stock-item:last-child { border-bottom: 0; }
+.mg-pd2 .mg-product__stock-label { flex: 1; min-width: 0; font-size: var(--font-size-sm); }
+.mg-pd2 .mg-product__stock-label small { color: var(--color-text-muted); opacity: 0.75; font-weight: 400; }
+.mg-pd2 .mg-product__stock-count { font-size: var(--font-size-sm); font-weight: 600; white-space: nowrap; }
+
+/* ── KISZÁLLÍTÁS ─────────────────────────────────────────────── */
+.mg-pd2__shipping {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 24px;
+  padding: 16px;
+  border: 1px solid var(--color-gold);
+  border-radius: 8px;
+  background: rgba(16, 32, 46, 0.6);
+}
+.mg-pd2__ship-row { display: flex; gap: 12px; align-items: flex-start; }
+.mg-pd2__ship-row svg { width: 24px; height: 24px; color: var(--color-gold); flex-shrink: 0; margin-top: 2px; }
+.mg-pd2__ship-main { font-weight: 600; color: var(--color-text); line-height: 1.35; }
+.mg-pd2__ship-main strong { color: #4ade80; }
+.mg-pd2__ship-sub { font-size: var(--font-size-sm); color: var(--color-text-muted); line-height: 1.35; }
+
+/* Előrendelés: a kiszállítás helyett a megjelenés napja (arany) */
+.mg-pd2__shipping--pre .mg-pd2__ship-main strong { color: var(--color-gold); }
+
+/* ── TERMÉKELŐNYÖK ───────────────────────────────────────────── */
+.mg-pd2__benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mg-pd2__benefits li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: var(--font-size-sm);
+  line-height: 1.45;
+  color: var(--color-text);
+}
+.mg-pd2__benefits svg { width: 18px; height: 18px; color: var(--color-gold); flex-shrink: 0; margin-top: 1px; }
+.mg-pd2__benefits a { color: var(--color-gold); }
+
+/* ── RÖVID LEÍRÁS ────────────────────────────────────────────── */
+.mg-pd2__lead {
+  margin: 0 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border-muted);
+}
+.mg-pd2__lead p {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+.mg-pd2__lead a { color: var(--color-gold); font-weight: 500; font-size: var(--font-size-sm); text-decoration: none; }
+.mg-pd2__lead a:hover { text-decoration: underline; }
+
+/* ── VÁLTOZATOK: szöveges gombok (nyelv, kiszerelés, szín) ───── */
+.mg-pd2__options { display: flex; flex-wrap: wrap; gap: 8px; }
+.mg-pd2__option {
+  padding: 6px 12px;
+  border: 1px solid var(--color-border-muted);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+.mg-pd2__option.is-active { border-color: var(--color-gold); color: var(--color-text); background: rgba(212, 175, 55, 0.12); }
+.mg-pd2__swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; outline: 1px solid var(--color-border-muted); padding: 0; }
+.mg-pd2__swatch.is-active { border-color: var(--color-bg); outline: 2px solid var(--color-gold); }
+
+/* ── ALUL: RÉSZLETES LEÍRÁS ──────────────────────────────────── */
+.mg-pd2__details {
+  border: 1px solid var(--color-gold);
+  background: var(--color-bg-card);
+  padding: 32px;
+  margin-bottom: 32px;
+  scroll-margin-top: 120px;
+}
+.mg-pd2__details h2 { font-family: var(--font-display); font-size: var(--font-size-2xl); color: var(--color-text); }
+.mg-pd2__details h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin-top: 24px; }
+.mg-pd2__details p, .mg-pd2__details li { color: var(--color-text-muted); line-height: 1.65; }
+.mg-pd2__details .accordion { margin-top: 24px; }
+
+/* ── TABLET / MOBIL: a display:contents lánc sorrendje az új blokkokkal ── */
+@media (max-width: 1024px) {
+  .mg-pd2 .mg-product__badge        { order: 1; }
+  .mg-pd2 .mg-product__heading      { order: 2; }
+  .mg-pd2 .mg-product__gallery      { order: 3; }
+  .mg-pd2 .mg-pd2__facts            { order: 4; padding: 16px 16px 0; }
+  .mg-pd2 .mg-product__price-section{ order: 5; }
+  .mg-pd2 .mg-product__variants     { order: 6; }
+  .mg-pd2 .mg-pd2__shipping         { order: 7; margin: 16px; }
+  .mg-pd2 .mg-product__cart-row     { order: 8; padding: 0 16px; }
+  .mg-pd2 .mg-pd2__benefits         { order: 9; padding: 16px; }
+  .mg-pd2 .mg-pd2__lead             { order: 10; margin: 0 16px 16px; }
+  .mg-pd2 .mg-pd2__block            { order: 11; margin: 0 16px 16px; }
+  .mg-pd2 .mg-pd2__details          { margin: 16px; padding: 20px; }
+}
+
+@media (max-width: 768px) {
+  .mg-pd2__data > div { grid-template-columns: 100px 1fr; }
+  .mg-pd2__flag { width: 36px; height: 36px; top: 12px; right: 12px; }
+}
+
+/* ── KOSÁR SOR: a mennyiség fix szélességű, a gomb kitölti a maradékot ── */
+.mg-pd2 .mg-product__qty { flex: 0 0 112px; }
+.mg-pd2 .mg-product__add-to-cart { flex: 1 1 auto; white-space: nowrap; }

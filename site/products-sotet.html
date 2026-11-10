@@ -768,7 +768,7 @@
 <script src="js/components/search-overlay.js"></script>
 <!-- Product list komponensek -->
 <script src="js/components/filter-panel.js"></script>
-<script src="js/components/product-list.js"></script>
+<script src="js/components/product-list.js?v=20261110"></script>
 
 <script>
 $(function () {
@@ -785,11 +785,7 @@ $(function () {
   /* DEMO: a kártya-kattintás a sötét termékoldalra vigyen */
   $(document).off('click', '.mg-product-card').on('click', '.mg-product-card', function (e) {
     if ($(e.target).closest('.btn.rounded-circle, .mg-product-card__cta').length) return;
-    window.location.href = 'product-sotet.html';
-  });
-  $(document).on('click', 'a[href="product-sotet.html"]', function (e) {
-    e.preventDefault();
-    window.location.href = 'product-sotet.html';
+    window.location.href = $(this).data('url') || 'product-sotet.html';
   });
   $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
     mgInitSearchOverlay();

@@ -98,7 +98,8 @@ function mgInitProductList() {
   // ── KÁRTYA KATTINTÁS → TERMÉK OLDAL ───────────────────────
   $(document).on('click', '.mg-product-card', function (e) {
     if ($(e.target).closest('.btn.rounded-circle, .mg-product-card__cta').length) return;
-    window.location.href = 'product-sotet.html';
+    // DEMO: az új elrendezésű termékoldalak (termek-*-sotet.html) a saját termékükről nyílnak
+    window.location.href = $(this).data('url') || 'product-sotet.html';
   });
 
   // ── KATEGÓRIA CHIPEK PROGRESSZÍV MEGJELENÍTÉS ─────────────
@@ -187,10 +188,11 @@ var MG_DEMO_PRODUCTS = [
   },
   {
     system: 'Társasjáték',
-    title: 'Final Girl: Haunting of Creech Manor',
+    title: 'Catan telepesei',
     variant: 'Alapjáték',
-    img: '../assets/images/content - placeholder/product/riftbound-deck-transparent.png',
-    price: '12 490 Ft',
+    img: '../assets/images/content - placeholder/product/tarsas-doboz.svg',
+    price: '14 990 Ft',
+    url: 'termek-tarsas-sotet.html',
     rows: [
       { ok: true, label: 'Üzletben elérhető', value: '3' },
       { ok: true, label: 'Klubban elérhető',  value: '1' }
@@ -210,26 +212,30 @@ var MG_DEMO_PRODUCTS = [
     ]
   },
   {
-    system: 'RPG kiegészítő',
-    title: 'Kocka – RPG Diceset',
-    variant: 'Blue/White',
-    img: '../assets/images/content - placeholder/product/riftbound-deck-transparent.png',
-    price: '4 490 Ft',
+    system: 'Kártyavédő',
+    title: 'Dragon Shield Matte Sleeves – Jet',
+    variant: '100 db · standard méret',
+    img: '../assets/images/content - placeholder/product/sleeve-csomag.svg',
+    price: '4 290 Ft',
+    url: 'termek-kiegeszito-sotet.html',
     rows: [
       { ok: true, label: 'Üzletben elérhető', value: '25+' }
     ]
   },
   {
     system: 'Riftbound',
-    title: 'Set One: Origins Champion Deck – Viktor',
-    variant: 'The League of Legends Deck',
+    title: 'Origins Booster Display',
+    variant: '24 booster · angol nyelvű',
     img: '../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png',
-    price: '12 358 Ft',
+    price: '42 990 Ft',
+    oldPrice: '47 990 Ft',
     isNew: true,
-    category: 'Ajánlott',
+    category: 'Előrendelés',
+    cta: 'Előrendelés',
+    url: 'termek-tcg-sotet.html',
     rows: [
-      { ok: true,  label: 'Üzletben elérhető', value: '10+' },
-      { ok: false, label: 'Klubban nincs',     value: '0db' }
+      { type: 'date', label: 'Megjelenés', value: '11.21' },
+      { type: 'res',  label: 'Foglalás',   value: '12/40' }
     ]
   }
 ];
@@ -280,7 +286,7 @@ function mgCreateDemoCard() {
 
   return $(
     '<div class="col d-flex">' +
-      '<div class="' + cardClasses + '">' +
+      '<div class="' + cardClasses + '" data-url="' + (p.url || 'product-sotet.html') + '">' +
 
         (p.isNew ? '<span class="badge badge-octagon position-absolute">új</span>' : '') +
         '<button class="btn btn-outline-secondary rounded-circle position-absolute" aria-label="Kedvencekhez">' +
@@ -305,7 +311,7 @@ function mgCreateDemoCard() {
         '</div>' +
 
         '<div class="mg-product-card__cta">' +
-          '<a class="btn btn-primary" href="product-sotet.html">' + (p.cta || 'Kosárba') + '</a>' +
+          '<a class="btn btn-primary" href="' + (p.url || 'product-sotet.html') + '">' + (p.cta || 'Kosárba') + '</a>' +
         '</div>' +
 
       '</div>' +

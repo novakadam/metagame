@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Képhelyőrző: kártyavédő (sleeve) csomag (a valódi termékfotó kerül a helyére) -->
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f2937"/><stop offset="1" stop-color="#030712"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e5c26b"/><stop offset="1" stop-color="#a47b22"/></linearGradient>
+  </defs>
+  <rect x="112" y="62" width="176" height="276" rx="14" fill="#0b0f19" transform="translate(14 10)" opacity="0.5"/>
+  <rect x="112" y="62" width="176" height="276" rx="14" fill="url(#b)" stroke="url(#g)" stroke-width="4"/>
+  <path d="M200 112 l34 20 v40 l-34 20 l-34 -20 v-40 z" fill="none" stroke="url(#g)" stroke-width="5"/>
+  <path d="M200 132 l17 10 v20 l-17 10 l-17 -10 v-20 z" fill="url(#g)"/>
+  <text x="200" y="232" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#f3e6c4" text-anchor="middle" letter-spacing="2">MATTE</text>
+  <text x="200" y="258" font-family="Arial, sans-serif" font-size="13" fill="#bfa36a" text-anchor="middle" letter-spacing="1">100 SLEEVES</text>
+  <rect x="140" y="282" width="120" height="30" rx="15" fill="url(#g)"/>
+  <text x="200" y="302" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#111" text-anchor="middle">63,5 × 88 mm</text>
+</svg>

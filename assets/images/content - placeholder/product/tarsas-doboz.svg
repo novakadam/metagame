@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Képhelyőrző: társasjáték-doboz (a valódi termékfotó kerül a helyére) -->
+  <defs>
+    <linearGradient id="f" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c2410c"/><stop offset="1" stop-color="#7c2d12"/></linearGradient>
+    <linearGradient id="s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5b1f0a"/><stop offset="1" stop-color="#431407"/></linearGradient>
+    <linearGradient id="t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ea7a3c"/><stop offset="1" stop-color="#c2410c"/></linearGradient>
+  </defs>
+  <path d="M70 120 L250 80 L340 120 L160 160 Z" fill="url(#t)"/>
+  <path d="M70 120 L160 160 L160 330 L70 290 Z" fill="url(#s)"/>
+  <path d="M160 160 L340 120 L340 290 L160 330 Z" fill="url(#f)"/>
+  <g transform="matrix(1,-0.222,0,1,160,160)">
+    <rect x="16" y="20" width="148" height="130" rx="6" fill="#fde68a" opacity="0.9"/>
+    <polygon points="90,40 130,62 130,106 90,128 50,106 50,62" fill="#16a34a"/>
+    <polygon points="90,62 112,74 112,98 90,110 68,98 68,74" fill="#facc15"/>
+    <rect x="30" y="134" width="120" height="10" rx="3" fill="#7c2d12" opacity="0.5"/>
+  </g>
+  <text x="250" y="300" transform="rotate(-12.5 250 300)" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#fff7ed" text-anchor="middle">CATAN</text>
+</svg>
