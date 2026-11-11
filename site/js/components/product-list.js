@@ -190,7 +190,7 @@ var MG_DEMO_PRODUCTS = [
     system: 'Társasjáték',
     title: 'Catan telepesei',
     variant: 'Alapjáték',
-    img: '../assets/images/content - placeholder/product/tarsas-doboz.svg',
+    img: '../assets/images/content - placeholder/product/catan-doboz.webp',
     price: '14 990 Ft',
     url: 'termek-tarsas-sotet.html',
     rows: [

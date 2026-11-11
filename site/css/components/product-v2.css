@@ -76,26 +76,47 @@
 .mg-pd2__data a { color: var(--color-gold); text-decoration: none; }
 
 /* ── KÖZÉP: tény-címkék ─────────────────────────────────────── */
+/* A cím-sáv és a címkék egy blokk: nincs köztük sötét vonal, a címkék
+   a cím-sáv színén ülnek, alattuk levegő a kék ár-sávig (11.11) */
+.mg-pd2 .mg-product__heading { border-bottom: 0; }
 .mg-pd2__facts {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  padding: 0 18px;
+  padding: 0 18px 24px;
+  background: #40162c;
 }
+/* Letört sarkú címke: a .mg-cut-frame mintája kisebb vágással; a két réteg
+   a címke mögé kerül (isolation), így a szöveg és az ikon felül marad */
 .mg-pd2__fact {
+  --fact-cut: 7px;
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
-  border: 1px solid var(--color-border-muted);
-  border-radius: var(--radius-pill);
-  background: rgba(0, 0, 0, 0.18);
+  padding: 5px 14px;
   font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text);
   white-space: nowrap;
 }
+.mg-pd2__fact::before,
+.mg-pd2__fact::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  clip-path: polygon(
+    var(--fact-cut) 0, calc(100% - var(--fact-cut)) 0,
+    100% var(--fact-cut), 100% calc(100% - var(--fact-cut)),
+    calc(100% - var(--fact-cut)) 100%, var(--fact-cut) 100%,
+    0 calc(100% - var(--fact-cut)), 0 var(--fact-cut)
+  );
+}
+.mg-pd2__fact::before { inset: 0; background: var(--color-border-muted); }
+.mg-pd2__fact::after { inset: 1px; background: #2e0f20; }
 .mg-pd2__fact svg { width: 16px; height: 16px; color: var(--color-gold); flex-shrink: 0; }
 .mg-pd2__fact-flag { width: 18px; height: 12px; border-radius: 2px; overflow: hidden; display: inline-flex; }
 .mg-pd2__fact-flag svg { width: 100%; height: 100%; color: inherit; }
@@ -118,16 +139,17 @@
 .mg-pd2 .mg-product__stock-count { font-size: var(--font-size-sm); font-weight: 600; white-space: nowrap; }
 
 /* ── KISZÁLLÍTÁS ─────────────────────────────────────────────── */
+/* Letört sarok: a .mg-cut-frame utility rajzolja (a HTML-ben), átlátszatlan
+   kitöltéssel, különben az arany alsó réteg átütne */
 .mg-pd2__shipping {
+  --cut-fill: #211a2b;
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin: 0 24px;
   padding: 16px;
-  border: 1px solid var(--color-gold);
-  border-radius: 8px;
-  background: rgba(16, 32, 46, 0.6);
 }
+.mg-pd2__shipping > * { position: relative; z-index: 2; }
 .mg-pd2__ship-row { display: flex; gap: 12px; align-items: flex-start; }
 .mg-pd2__ship-row svg { width: 24px; height: 24px; color: var(--color-gold); flex-shrink: 0; margin-top: 2px; }
 .mg-pd2__ship-main { font-weight: 600; color: var(--color-text); line-height: 1.35; }
@@ -138,23 +160,34 @@
 .mg-pd2__shipping--pre .mg-pd2__ship-main strong { color: var(--color-gold); }
 
 /* ── TERMÉKELŐNYÖK ───────────────────────────────────────────── */
+/* Feltűnőbb (11.11): nagyobb betű, az ikon letört sarkú arany mezőben,
+   a lényeg (<strong>) arannyal kiemelve */
 .mg-pd2__benefits {
   list-style: none;
   margin: 0;
   padding: 0 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .mg-pd2__benefits li {
   display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: var(--font-size-sm);
-  line-height: 1.45;
+  gap: 12px;
+  align-items: center;
+  font-size: var(--font-size-base);
+  line-height: 1.4;
   color: var(--color-text);
 }
-.mg-pd2__benefits svg { width: 18px; height: 18px; color: var(--color-gold); flex-shrink: 0; margin-top: 1px; }
+.mg-pd2__benefits svg {
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  flex-shrink: 0;
+  color: var(--color-gold);
+  background: rgba(179, 138, 36, 0.16);
+  clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
+}
+.mg-pd2__benefits strong { color: var(--color-gold); font-weight: 600; }
 .mg-pd2__benefits a { color: var(--color-gold); }
 
 /* ── RÖVID LEÍRÁS ────────────────────────────────────────────── */
@@ -173,6 +206,14 @@
 .mg-pd2__lead a:hover { text-decoration: underline; }
 
 /* ── VÁLTOZATOK: szöveges gombok (nyelv, kiszerelés, szín) ───── */
+/* Felirat + gombok soronként, a feliratok egy oszlopban (11.11: a Nyelv
+   eddig a kiszerelés-gombok mellé csúszott) */
+.mg-pd2 .mg-product__variants {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px 16px;
+}
 .mg-pd2__options { display: flex; flex-wrap: wrap; gap: 8px; }
 .mg-pd2__option {
   padding: 6px 12px;
@@ -205,7 +246,7 @@
   .mg-pd2 .mg-product__badge        { order: 1; }
   .mg-pd2 .mg-product__heading      { order: 2; }
   .mg-pd2 .mg-product__gallery      { order: 3; }
-  .mg-pd2 .mg-pd2__facts            { order: 4; padding: 16px 16px 0; }
+  .mg-pd2 .mg-pd2__facts            { order: 4; padding: 16px; background: none; }
   .mg-pd2 .mg-product__price-section{ order: 5; }
   .mg-pd2 .mg-product__variants     { order: 6; }
   .mg-pd2 .mg-pd2__shipping         { order: 7; margin: 16px; }
@@ -217,6 +258,8 @@
 }
 
 @media (max-width: 768px) {
+  .mg-pd2 .mg-product__variants { grid-template-columns: 1fr; gap: 8px; }
+  .mg-pd2 .mg-product__variants-label:not(:first-child) { margin-top: 8px; }
   .mg-pd2__data > div { grid-template-columns: 100px 1fr; }
   .mg-pd2__flag { width: 36px; height: 36px; top: 12px; right: 12px; }
 }
