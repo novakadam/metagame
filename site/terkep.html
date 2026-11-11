@@ -178,7 +178,7 @@ const SINCE = [
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-10c";
+const BOARD_VERSION = "2026-11-11";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.03–11.11." },
@@ -245,7 +245,6 @@ const TASKS = [
 ];
 
 const QUESTIONS = [
-  { topic: "Menü", q: "Mi legyen a második főmenü neve az Eseménynaptár helyett? Javaslat: Shop és Klub, a menün belüli Klub pont pedig Klubház lesz, hogy ne legyen kétszer ugyanaz a szó. Ha a Klub túl szűk, a Közösség a tartalék.", who: "Andris, Csaba" },
   { topic: "Breadcrumb", q: "Mobilon csak az előző szint látszik vissza-linkként. Így jó, vagy kell a teljes út rövidítve?", who: "Andris, Csaba" },
   { topic: "Termékkártya", q: "Minden termékkártyán ott a kedvenc szív. Maradjon, és mérjük, mennyien használják?", who: "Andris" },
   { topic: "Termékoldal", q: "Nagyítható legyen-e a termékkép kattintásra? A demóban a nagyító gombbal már az.", who: "Andris, Csaba" },
@@ -314,6 +313,7 @@ const LINKS = [
 ];
 
 const DECISIONS = [
+  { date: "11.11", text: "A második főmenü neve Klub lesz (Shop és Klub), a menün belüli korábbi Klub pont neve Klubhelyiség." },
   { date: "11.10", text: "A Krónikák (a hírek) saját lista-oldalt kapnak, a kezdőlapi blokk szerkezetére építve." },
   { date: "11.03", text: "Az Eseménynaptár menüje: Események, Klub, Krónikák, Tudástár, Liga, Singles, Galéria. A Krónikák (a hírek) a Tudástár fölé kerülnek, a Tudástárból kikerül a Krónikák szó." },
   { date: "11.03", text: "Asztalon és mobilon ugyanaz a menü. Mobilon bármire kattintva a következő szint jön, és lesz egy Összes … sor." },

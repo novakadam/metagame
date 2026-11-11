@@ -48,7 +48,7 @@ var mgMobileMenuData = {
     },
     {
       title: 'Metagame',
-      links: ['Rólunk', 'Klub', 'Események']
+      links: ['Rólunk', 'Klubhelyiség', 'Események']
     }
   ]
 };
@@ -64,7 +64,7 @@ function mgInitMobileMenu() {
   var startMode = 'shop';
 
   // A menüpontok az asztali bal menüből jönnek (.mg-nav-section), így a mobil és az asztali
-  // menü mindig ugyanaz. A Shop / Eseménynaptár felirat is az asztali toggle-ből jön.
+  // menü mindig ugyanaz. A Shop / Klub felirat is az asztali toggle-ből jön.
   var $deskToggle = $('.mg-toggle').first();
   if ($deskToggle.attr('data-active') === 'community') currentMode = startMode = 'community';
 
@@ -236,7 +236,7 @@ function mgInitMobileMenu() {
     html += '<div class="mg-mobile-menu__toggle-inner">';
     html += '<div class="mg-mobile-menu__slider"></div>';
     html += '<button class="mg-mobile-menu__toggle-btn' + (currentMode === 'shop' ? ' is-active' : '') + '" data-target="shop">' + toggleLabel('shop', 'Shop') + '</button>';
-    html += '<button class="mg-mobile-menu__toggle-btn' + (currentMode === 'community' ? ' is-active' : '') + '" data-target="community">' + toggleLabel('community', 'Eseménynaptár') + '</button>';
+    html += '<button class="mg-mobile-menu__toggle-btn' + (currentMode === 'community' ? ' is-active' : '') + '" data-target="community">' + toggleLabel('community', 'Klub') + '</button>';
     html += '</div></div>';
     html += '<button class="mg-mobile-menu__close">' + closeSvg() + '</button>';
     html += '</div>';
