@@ -151,54 +151,58 @@ footer{color:var(--text-muted);font-size:13px}
 
 <script>
 // A térkép tartalma. Ezt bővítjük, amikor új oldal, feladat, döntés vagy kérdés jön.
-const UPDATED = "2026.11.10.";
+const UPDATED = "2026.11.11.";
 
 const STATUS = [
   { t: "Sötét dizájn", d: "Átadva Lacinak a design-sotet-2026-09-24 branchen, 09.25-én bekerült a UAT-ágba. 10.07-től a UAT-on is él, a bejelentkezéssel és a kosár-drawerrel együtt. A 10.08-i átnézés javításait Laci beolvasztotta, azóta az új pénztáron dolgozik." },
   { t: "Levelek", d: "A koncepció kész: 8 rendelési levél és a rövid értesítők közös sablonja 5 változattal. Következő lépés a változatonkénti éles HTML." },
   { t: "Piktogramok", d: "A kategória-ikonok elkészültek, a Wargame ikonja a sisak. Az átadás Lacinak van hátra." },
   { t: "Pénztár", d: "Laci megépítette, a UAT-on kattintható, a finisálás folyik. A dizájn-javítások, a kupon és a kredit beváltásának stílusa a design-javitasok-2026-10-21 branchen várnak (a 10.14-i pénztár-javításokkal együtt). A demóban kész a kupon- és kredit-beváltás." },
-  { t: "Profil", d: "A részletes profiloldal elkészült a demóban: rendelések, rendelés-részlet, kedvencek, kreditek, adatok, értesítések. A 11.03-i meetingen átnéztük, rendben van." },
-  { t: "Menü", d: "Asztalon és mobilon ugyanaz a menü. Az Eseménynaptár hét pontja: Események, Klub, Krónikák, Tudástár, Liga, Singles, Galéria. Mobilon minden szint tetején ott az Összes … sor. A Krónikák saját lista-oldalt kapott. A főmenü nevén még gondolkodunk." },
-  { t: "Termékoldal", d: "Az új elrendezés demóban kész három példán (társas, TCG előrendelés, kiegészítő), a Szellemlovas-minta alapján. A terméklistáról is nyílnak. Visszajelzés után jön a régi oldal cseréje és Lacinak az átadás." },
-  { t: "Go-live", d: "Januárra tervezve. Utána jöhet a képszerkesztő és az offline anyagok." },
+  { t: "Profil", d: "A demóban kész. Laci most vezeti át a UAT-ra: a bal oldali almenü, a kedvencek panel és a rendeléseim lista a demó szerinti elrendezésben jön." },
+  { t: "Menü", d: "A főmenü Shop és Klub. A Klub pontjai: Események, Klubhelyiség, Krónikák, Tudástár, Liga, Singles, Galéria. Mobilon minden szint tetején ott az Összes … sor, asztalon a szintek kattinthatók. A második szinten a Legnépszerűbb blokk helyett egy típus és egy téma oszlop jöhet." },
+  { t: "Termékoldal", d: "Két változat lesz. A go-live változatban nincs változatválasztó és Ehhez még jól jön, a jobb oszlopba a kiszállítás és átvétel kerül, a Kosárba gomb az első képernyőn látszik. A változatválasztó (kiszerelés, nyelv, szín képpel) és az ajánló a go-live után jön, külön branchen." },
+  { t: "Go-live", d: "Januárban. Addig csak a meglévő üzleti logika megy ki, új funkció a go-live után. Utána jöhet a képszerkesztő és az offline anyagok." },
 ];
 
 // Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
 const SINCE = [
-  { date: "11.03", text: "A UAT-on a 10.30-i frissítés óta nem nyílt a lábléc Információ panelje. A javítás a design-javitasok-2026-10-21 branchen van, Laci olvasztja be." },
-  { date: "11.10", text: "Egy menü asztalon és mobilon. Az Eseménynaptár 7 ponttal, a Krónikák a Tudástár fölött. A Tudástár aloldalai és a liga-állás is az Eseménynaptár nézetben nyílnak." },
-  { date: "11.10", text: "Mobilmenü: bármire kattintva a következő szint jön, minden szint tetején Összes … termék sor." },
-  { date: "11.10", text: "Termékoldal mobilon: a lenyíló blokkok a lap aljára kerültek, a TCG címke nem lóg rá a rendszer nevére." },
-  { date: "11.10", text: "Breadcrumb mobilon: csak az előző szint látszik, egy sorban, vissza-nyíllal. Ez javaslat, visszajelzést várok rá." },
-  { date: "11.10", text: "Asztali kereső: a lenyíló panel vonala a keret vonalára ül. A hírsáv megáll, ha fölé visszük az egeret." },
-  { date: "11.10", text: "Krónikák: saját lista-oldal a híreknek. Felül a kezdőlapi blokk (kiemelt cikk és három friss), alatta a korábbi hírek. Szűrni lehet típusra (megjelenés, beszámoló, bolt, klub) és játékra. A menüpont, a kezdőlap További hírek gombja és a cikk breadcrumbja is ide visz." },
-  { date: "11.10", text: "Termékoldal, új elrendezés három példán. Balra a képek, alattuk az Adatok és a Címkék. Középen a tény-címkék (nyelv zászlóval, játékosszám, idő, kor, illetve méret vagy tartalom), az ár, a készlet helyenként, a várható kiszállítás dátummal, a kosár, a termékelőnyök és a rövid leírás. Jobbra az Ehhez még jól jön, alul teljes szélességben a részletes leírás. A képek nagyíthatók." },
-  { date: "11.10", text: "Mobil keret: nincs sötét rés a kereső mellett, és az oldalvonalak nem ugranak görgetéskor." },
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-11";
+const BOARD_VERSION = "2026-11-11b";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
-  { id: "sprint", title: "Heti sprint", sub: "11.03–11.11." },
+  { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
   { id: "feedback", title: "Visszajelzés alatt" },
   { id: "done", title: "Kész" },
 ];
 const TASKS = [
-  // heti sprint (a következő meeting 11.11-én)
+  // heti sprint (a következő meeting 11.18-án)
+  { id: "pd-golive", col: "sprint", title: "Termékoldal: go-live változat", who: "Ádám", detail: "Változatválasztó és Ehhez még jól jön nélkül. A jobb oszlopba a kiszállítás és átvétel doboza kerül, a Kosárba gomb az első képernyőn legyen. A Specifikáció lenyíló kimarad, az Adatok tábla elég. Ezt kapja meg Laci." },
+  { id: "pd-valtozat", col: "sprint", title: "Termékoldal: változatválasztó a go-live utánra", who: "Ádám", detail: "Kiszerelés, nyelv és szín: a kapcsolt termék kis képe és neve, kattintásra a másik termék oldala nyílik. Most csak a dizájn készül el, Laci külön branchen fejleszti." },
+  { id: "sablonok", col: "sprint", title: "A demó-sablonok feltöltése Lacinak", who: "Ádám", detail: "A termékoldal go-live változatával és a mai javításokkal együtt." },
+  { id: "validacio", col: "sprint", title: "Űrlapok: hibaüzenet a mező alatt", who: "Ádám", detail: "Regisztráció és pénztár, a Bootstrap validációs stílusával. Az ÁSZF-pipa hiányát is ki kell írni." },
+  { id: "nulla-talalat", col: "sprint", title: "Üres lista és 0 találat üzenete", who: "Ádám", detail: "Egyértelmű szöveg, ha egy lista vagy keresés üres." },
+  { id: "kosar-jelzes", col: "sprint", title: "Kosárba tétel visszajelzése", who: "Ádám", detail: "A mostani felugró üzenet nem ott jelenik meg, ahová nézünk. Jobb felül, vagy a kosár ikonján." },
+  { id: "menu-tipus-tema", col: "sprint", title: "Menü második szintje: típus és téma oszlop", who: "Ádám, Laci", detail: "A Legnépszerűbb blokk helyett. A téma súlyozható az adminban, így a felső elemek sorrendje állítható." },
+  { id: "laci-profil", col: "sprint", title: "Profil a demó szerint", who: "Laci", detail: "Bal oldali almenü, kedvencek panel, a rendeléseim lista a demó elrendezésével. A paraméteres URL-nél a bal panel ne váltson át, a számlázási cím jelenjen meg." },
+  { id: "laci-slug", col: "sprint", title: "Linkek: slug az azonosító helyett", who: "Laci", detail: "Most azonosító kerül a linkbe, ettől rossz nevek és levágott terméknevek látszanak a UAT-on." },
+  { id: "laci-kereso", col: "sprint", title: "Kereső apróságok", who: "Laci", detail: "Mobilon a kiválasztott találat vigyen a termékre. Az ajánlott termékek száma igazodjon a sorhoz, a többi rejtve." },
+  { id: "laci-hirsav", col: "sprint", title: "Hírsáv: folyamatos futás, kattintható címek", who: "Laci", detail: "Most a végén visszaugrik az elejére, és a címekre nem lehet kattintani." },
+  { id: "laci-penztar2", col: "sprint", title: "Pénztár és regisztráció apróságai", who: "Laci", detail: "A pénztárból a regisztráció ne vigyen el az oldalról. A darabszám kézzel is írható legyen, és frissítse az összeget. A kupon és a kredit dizájnja átvezetve." },
+  { id: "laci-mobilmenu", col: "sprint", title: "Mobilmenü az Összes … sorral", who: "Laci", detail: "A demó szerint. Asztalon a szintek kattinthatók maradnak." },
   { id: "menu", col: "done", title: "Egy menü asztalon és mobilon", who: "Ádám", detail: "A UAT, a mobilos és az asztali demó más-más menüt mutatott. Most mindenhol ugyanaz, a mobilmenü az asztaliból épül." },
   { id: "menu-osszes", col: "done", title: "Mobilmenü: Összes … sor", who: "Ádám", detail: "Bármire kattintva a következő szint jön, a teljes listát a szint tetején lévő Összes … termék sor adja." },
   { id: "pd-mobil-hibak", col: "done", title: "Termékoldal mobilon: blokkok sorrendje, TCG címke", who: "Ádám", detail: "A Product Details és a többi lenyíló a lap tetején volt, a TCG címke rálógott a rendszer nevére." },
   { id: "breadcrumb", col: "feedback", title: "Breadcrumb mobilon", who: "Andris, Csaba", detail: "Javaslat: mobilon csak az előző szint látszik, egy sorban, balra, vissza-nyíllal. Asztalon a teljes út marad. A termékoldalon és a terméklistán is így." },
-  { id: "kronikak", col: "feedback", title: "Krónikák lista-oldal", who: "Andris, Csaba", detail: "A kezdőlapi blokkra épül: kiemelt cikk és három friss, alatta a korábbi hírek kártyákon, lapozással. Szűrő típusra és játékra. Élesben a szűrés URL-paraméter legyen, hogy linkelhető." },
+  { id: "kronikak", col: "done", title: "Krónikák lista-oldal", who: "Ádám", detail: "A 11.11-i meetingen átnéztük, a Klub menüben a Klubhelyiség alatt. Élesben a szűrés URL-paraméter legyen, hogy linkelhető." },
   { id: "kereso-2px", col: "done", title: "Asztali kereső: a panel vonala a kerettel egy vonalban", who: "Ádám", detail: "Nyitáskor kb. 3 pixelt ugrott a vonal." },
   { id: "hirsav-hover", col: "done", title: "A hírsáv álljon meg, ha fölé visszük az egeret", who: "Ádám", detail: "A demóban eddig nem állt meg." },
   { id: "mobil-keret", col: "feedback", title: "Mobil keret: rés a kereső mellett, ugrás görgetéskor", who: "Andris", detail: "A kereső melletti sötét rés megszűnt. Az oldalvonalak most a teljes képernyő-magasságra szólnak, így elvileg nem ugranak, amikor a böngésző címsora összecsukódik. Androidon kérlek nézd meg." },
-  { id: "termekoldal", col: "feedback", title: "Termékoldal-javaslat", who: "Andris, Csaba", detail: "Egy társas, egy TCG és egy kiegészítő példáján. A jellemzők a leírás fölé, a készletértesítő alá. Termékelőnyök egy sorban (15 év a piacon, 30 napos visszaküldés, gyors szállítás). Vásárlásra ösztönző blokk: mikorra kapja meg, milyen garancia. Nyelv zászlóval. A lenyílók kategóriánként eltérhetnek. Kész a demóban: társas, TCG, kiegészítő. A termékelőnyök szövege javaslat, kérlek nézzétek át, mi igaz belőle (pl. kipróbálható példány a klubban, release-est előrendelőknek)." },
+  { id: "termekoldal", col: "done", title: "Termékoldal-javaslat", who: "Ádám", detail: "Három példán (társas, TCG, kiegészítő). A 11.11-i meetingen az irány elfogadva: kiemelt jellemzők felül, ár és készlet, kiszállítás, termékelőnyök, balra az Adatok, alul a részletes leírás." },
   { id: "termekoldal-mobil", col: "backlog", title: "Termékoldal mobilon", who: "Ádám", detail: "A javaslat elfogadása után." },
   { id: "rendszerlogok", col: "sprint", title: "Rendszerlogók a menübe", who: "Ádám", detail: "A fő rendszerek logóiból egy-egy változat, ami a menü méretében is jól működik.", blocked: "Andris feltölti a logókat" },
-  { id: "osszefoglalo", col: "sprint", title: "Összefoglaló a 11.03-i meetingről", who: "Ádám", detail: "Ez a térkép-frissítés, plusz egy rövid levél." },
+  { id: "osszefoglalo", col: "done", title: "Összefoglaló a 11.03-i meetingről", who: "Ádám", detail: "Térkép-frissítés." },
   { id: "laci-footer", col: "feedback", title: "Lábléc a UAT-on", who: "Laci", detail: "A 10.30-i frissítés óta a main.js nem töltődik be, ezért az Információ panel nem nyílt. A javítás a design-javitasok-2026-10-21 branchen van." },
   { id: "laci-kategoriakep", col: "sprint", title: "Admin: kategóriakép cseréje", who: "Laci", detail: "Kép kiválasztása után mentéskor eltűnik az ablak, a régi kép marad." },
   { id: "laci-uat-mobil", col: "sprint", title: "UAT mobil: üres hely a kategória- és termékoldal tetején", who: "Laci", detail: "Kb. 1–1,5 képernyőnyi, kategóriától függetlenül." },
@@ -213,11 +217,15 @@ const TASKS = [
   { id: "zoom", col: "done", title: "Landing: keret és fény nagyításnál", who: "Ádám", detail: "110–125%-os nagyításnál a keret vonalai nem találkoznak, néhol látszik alatta a logó, a fény körbefutva a rejtett panelre megy. Az illesztések javíthatók, mindent valószínűleg nem lehet." },
   { id: "esemeny-cim", col: "done", title: "Esemény leírásában a cím fehér legyen", who: "Ádám", detail: "Az eseménynaptár esemény-oldalán." },
   { id: "kepszerk", col: "sprint", title: "Képszerkesztő script, képméretezéssel", who: "Ádám", detail: "A háttér-eltávolítás mellé a szükséges képméretek legyártása. A scriptet megosztom, a képeket Andrisék cserélik. Laci nem kell hozzá." },
+  { id: "laci-drawer", col: "done", title: "Egy drawer asztalon és mobilon", who: "Laci", detail: "A Bootstrap drawerével, a kosár komponense közös a pénztárral." },
   { id: "laci-penztar", col: "done", title: "Pénztár finisálása", who: "Laci", detail: "Laci szerint ma estére kint lesz. Utána még egyszer átnézem, mobilon is." },
   { id: "laci-24", col: "done", title: "„További 24 betöltése”: maradjon a görgetési pozíció", who: "Laci", detail: "A terméklista végtelen görgetést kapott (10.27)." },
   { id: "andris-kredit", col: "sprint", title: "Kredit-képernyőképek és teszt-kredit", who: "Andris", detail: "A mostani beváltás és egyenleg képei, és kredit a teszt-fiókomra." },
   { id: "atnezes", col: "sprint", title: "A levelek és az eseménynaptár oldalainak átnézése", who: "Andris, Csaba", detail: "A következő meetingig." },
   // backlog
+  { id: "legnepszerubb", col: "backlog", title: "Legnépszerűbb termékek a menüben", who: "Laci", detail: "Egy lekérdezés a leggyakrabban vásárolt termékekre. A dizájn megvan.", tag: "go-live után" },
+  { id: "ajanlo", col: "backlog", title: "Ehhez még jól jön: termékajánló logika", who: "Laci, Andris", detail: "Termékenként vagy rendszerenként kapcsolt ajánlatok. A modellezés még nyitott.", tag: "go-live után" },
+  { id: "kereso-osszes", col: "backlog", title: "Kereső: összes találat egy listában", who: "Laci", detail: "A keresett szóra az összes termék, balra kategóriaszűrővel. Most kategóriánként 5 találat jön.", blocked: "Andris és Csaba döntése" },
   { id: "nyitvatartas", col: "backlog", title: "Nyitvatartás a Google Maps API-ból", who: "Laci, Andris", detail: "Amíg nincs meg, a nyitvatartás nem kerül ki az oldalra. Andris előkészíti a Google-fiók oldalát." },
   { id: "ticker-tartalom", col: "backlog", title: "A hírsáv tartalma a Krónikákból", who: "Laci", detail: "Hírt vagy Krónikát ki lehet tűzni a sávba, a címe kattintható. Külön admin nem kell." },
   { id: "footer", col: "backlog", title: "Lábléc: rendeléskövetés és jogi linkek", who: "Laci", detail: "A Rendelés követése a Rendeléseimre visz. A süti, garancia és hasonló linkek az ÁSZF vagy az adatvédelem megfelelő bekezdésére ugranak." },
@@ -247,7 +255,10 @@ const TASKS = [
 const QUESTIONS = [
   { topic: "Breadcrumb", q: "Mobilon csak az előző szint látszik vissza-linkként. Így jó, vagy kell a teljes út rövidítve?", who: "Andris, Csaba" },
   { topic: "Termékkártya", q: "Minden termékkártyán ott a kedvenc szív. Maradjon, és mérjük, mennyien használják?", who: "Andris" },
-  { topic: "Termékoldal", q: "Nagyítható legyen-e a termékkép kattintásra? A demóban a nagyító gombbal már az.", who: "Andris, Csaba" },
+  { topic: "Kereső", q: "Kilistázhassa-e a kereső az összes találatot egy szóra, kategóriaszűrővel? Korábban kérés volt, hogy ne lehessen, szerintünk viszont kellene.", who: "Andris, Csaba" },
+  { topic: "Pénztár", q: "Az Elfogadom bepipálása után módosíthatók maradjanak-e a mezők (most letiltja őket)? Szerintem maradhatnak.", who: "Andris" },
+  { topic: "Termékoldal", q: "Kerüljön-e ajándékutalvány a jobb oszlopba, kis dobozban?", who: "Andris" },
+  { topic: "Galéria", q: "Mi kerüljön a Galériába, ha nem tudjuk eseményenként frissen tartani? Javaslat: néhány állandó kép a klubról.", who: "Andris" },
   { topic: "Termékoldal", q: "Mi a rendelési határidő és az ingyenes szállítás határa? A demóban 14 óra szerepel, a határ még nincs kiírva.", who: "Andris" },
   { topic: "Értesítések", q: "Milyen eseményekre menjen email, és mi jelenjen meg a harang alatt? Feliratkozás témára vagy játékra (pl. Riftbound), előrendelés megérkezése, kredit lejárata.", who: "Andris, Csaba" },
   { topic: "Versenyek", q: "A liga- és versenyeredmények táblázata: automatikusan töltött cikk, Google Sheets, vagy kézi feltöltés? Megéri-e fejleszteni.", who: "Andris, Póker" },
@@ -313,6 +324,13 @@ const LINKS = [
 ];
 
 const DECISIONS = [
+  { date: "11.11", text: "A go-live januárban lesz. Addig csak a meglévő üzleti logika megy ki, új funkció a go-live után, külön branchen." },
+  { date: "11.11", text: "A termékoldal változatválasztója a go-live után jön. Minden változat külön termék marad, a választó a másik termék oldalára visz. A háttérben egy közös sorozat-azonosító köti össze őket. A dizájn most elkészül." },
+  { date: "11.11", text: "Az Ehhez még jól jön a go-live változatból kimarad, a helyére a kiszállítás és átvétel doboza kerül a jobb oszlopba." },
+  { date: "11.11", text: "A termékoldalon a Kosárba gomb az első képernyőn legyen. A Specifikáció lenyíló kimarad, az Adatok tábla elég. A képnagyítás marad." },
+  { date: "11.11", text: "Mobilon a menü minden szintje az Összes … sorral nyílik, asztalon a szintek kattinthatók. A Legnépszerűbb blokk a go-live után jön." },
+  { date: "11.11", text: "Az űrlapok hibaüzenete a mező alatt jelenik meg. A darabszám kézzel is beírható." },
+  { date: "11.11", text: "A következő meeting 11.18-án, szerdán 10-kor lesz." },
   { date: "11.11", text: "A második főmenü neve Klub lesz (Shop és Klub), a menün belüli korábbi Klub pont neve Klubhelyiség." },
   { date: "11.10", text: "A Krónikák (a hírek) saját lista-oldalt kapnak, a kezdőlapi blokk szerkezetére építve." },
   { date: "11.03", text: "Az Eseménynaptár menüje: Események, Klub, Krónikák, Tudástár, Liga, Singles, Galéria. A Krónikák (a hírek) a Tudástár fölé kerülnek, a Tudástárból kikerül a Krónikák szó." },
