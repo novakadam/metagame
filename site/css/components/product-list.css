@@ -45,7 +45,8 @@
 /* ≥1700: a sidebar mellett is elfér 4 oszlop (1400–1700 között 3 —
    row-cols-xxl-3 a markupban; BS-nek nincs 1700-as töréspontja) */
 @media (min-width: 1700px) {
-  .mg-product-grid > * {
+  /* listanézetben nem: ott egy oszlop (11.11: asztalon négy keskeny oszlopra esett szét) */
+  .mg-product-grid:not(.mg-product-grid--list) > * {
     flex: 0 0 auto;
     width: 25%;
   }
@@ -373,6 +374,11 @@
 
 /* ── LISTA NÉZET KÁRTYA MÓDOSÍTÓK ────────────────────────── */
 
+/* listanézetben a sorok közti térköz kisebb, mint rácsban */
+.mg-product-grid--list {
+  --bs-gutter-y: 1.25rem;
+}
+
 .mg-product-grid--list .mg-product-card {
   flex-direction: row;
   padding: 16px;
@@ -477,6 +483,33 @@
   position: static;
   transform: none;
   flex-shrink: 0;
+}
+
+/* Keskeny listakártya asztalon (szűrőpanel mellett, kb. 1000 px alatt): a készletsorok
+   az ár alá kerülnek, hogy a terméknévnek maradjon hely (11.11) */
+.mg-product-grid--list > .col {
+  container-type: inline-size;
+}
+
+@media (min-width: 769px) {
+  @container (max-width: 1000px) {
+    .mg-product-grid--list .mg-product-card__info {
+      min-width: 180px;
+    }
+
+    .mg-product-grid--list .mg-product-card__content {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex-shrink: 1;
+    }
+
+    .mg-product-grid--list .mg-product-card__rows {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+  }
 }
 
 /* ── LOAD MORE ───────────────────────────────────────────── */
