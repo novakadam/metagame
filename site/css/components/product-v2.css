@@ -311,3 +311,23 @@
 /* ── KOSÁR SOR: a mennyiség fix szélességű, a gomb kitölti a maradékot ── */
 .mg-pd2 .mg-product__qty { flex: 0 0 112px; }
 .mg-pd2 .mg-product__add-to-cart { flex: 1 1 auto; white-space: nowrap; }
+
+/* ── GO-LIVE VÁLTOZATOK (11.11): nincs változatválasztó és Ehhez még jól jön,
+   a Kosárba közvetlenül az ár és a készlet alatt ── */
+@media (min-width: 1025px) {
+  .mg-pd2--golive .mg-product__info-content > .mg-product__cart-row { margin-top: -4px; }
+}
+
+/* A: ajánló-karusszel a jobb oszlopban, Megnézem gombbal */
+.mg-pd2__rec-nav { width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+.mg-pd2__recs .carousel-indicators [data-bs-target] { width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-gold); }
+
+/* B: kiszállítás és termékelőnyök a jobb oszlopban */
+.mg-pd2__side .mg-pd2__shipping { margin: 0; }
+.mg-pd2__benefits--side { padding: 0; }
+
+@media (max-width: 1024px) {
+  .mg-pd2--golive .mg-product__cart-row { order: 6; margin-top: 16px; flex-wrap: nowrap; }
+  .mg-pd2--golive .mg-product__qty { flex: 0 0 96px; }
+  .mg-pd2--golive .mg-product__wishlist-btn { flex: 0 0 auto; }
+}

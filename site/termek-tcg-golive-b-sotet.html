@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Origins Booster Display – go-live B (sötét demo)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Playfair+Display+SC:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Design tokenek -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Komponensek -->
+  <link rel="stylesheet" href="css/components/frame.css?v=20261110">
+  <link rel="stylesheet" href="css/components/frame-shimmer.css?v=20261029">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/theme-bs.css">
+  <link rel="stylesheet" href="css/components/product-detail.css?v=20261110">
+  <link rel="stylesheet" href="css/components/product-v2.css?v=20261111c">
+  <link rel="stylesheet" href="css/components/related-products.css">
+  <link rel="stylesheet" href="css/components/drawer.css">
+  <link rel="stylesheet" href="css/components/search-overlay.css?v=20261110">
+  <link rel="stylesheet" href="css/components/mega-menu.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/mobile-menu.css?v=20261110">
+  <!-- Háttér-textúra (embléma-motívum + színátmenetek) -->
+  <link rel="stylesheet" href="css/components/bg-texture.css">
+
+  <!-- DEMO: sötét paletta -->
+  <link rel="stylesheet" href="css/components/theme-sotet-demo.css?v=20261110">
+</head>
+<body class="mg-texture-page">
+
+<div class="mg-frame">
+
+  <!-- ── KERET SVG elemek ────────────────────────────────────────── -->
+  <div class="mg-frame-corner mg-frame-corner--tl"><img class="mg-frame-corner__img--desktop" src="../assets/frame/frame-corner-tl.svg" alt=""><img class="mg-frame-corner__img--tablet" src="../assets/frame/mobile/frame-corner-tl-tablet.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--tr"><img src="../assets/frame/frame-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--bl"><img src="../assets/frame/frame-corner-bl.svg?v=20261029b" alt=""></div>
+  <div class="mg-frame-corner mg-frame-corner--br"><img src="../assets/frame/frame-corner-br.svg?v=20261029b" alt=""></div>
+
+  <div class="mg-frame-line mg-frame-line--top"><img src="../assets/frame/frame-line-top.svg?v=20261029" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--left"><img src="../assets/frame/frame-line-left.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--right-bottom"><img src="../assets/frame/frame-right-bottom.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+  <div class="mg-frame-line mg-frame-line--bottom"><img src="../assets/frame/frame-line-bottom.svg?v=20261029b" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── MOBIL KERET ─────────────────────────────────────────────── -->
+  <a class="mg-frame-m mg-frame-m-corner--tl" href="index-sotet.html"><img src="../assets/frame/mobile/frame-m-corner-tl.svg" alt="Metagame"></a>
+  <div class="mg-frame-m mg-frame-m-line--top"><img src="../assets/frame/mobile/frame-m-line-top.svg?v=20261110" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--tr"><img src="../assets/frame/mobile/frame-m-corner-tr.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--left"><img src="../assets/frame/mobile/frame-m-line-left.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--right"><img src="../assets/frame/mobile/frame-m-line-right.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--bl"><img src="../assets/frame/mobile/frame-m-corner-bl.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-line--bottom"><img src="../assets/frame/mobile/frame-m-line-bottom.svg" alt=""></div>
+  <div class="mg-frame-m mg-frame-m-corner--br"><img src="../assets/frame/mobile/frame-m-corner-br.svg" alt=""></div>
+  <div class="mg-frame-m-bar">
+    <div class="mg-frame-m-bar__left"><img src="../assets/frame/mobile/frame-m-bar-left.svg" alt=""></div>
+    <div class="mg-frame-m-bar__center"><img src="../assets/frame/mobile/frame-m-bar-center.svg" alt=""></div>
+    <div class="mg-frame-m-bar__right"><img src="../assets/frame/mobile/frame-m-bar-right.svg" alt=""></div>
+  </div>
+
+  <!-- ── MOBIL: Keresőmező ── -->
+  <div class="mg-mobile-search mg-cut-frame">
+    <input type="text" placeholder="Keresés..." readonly>
+    <button class="mg-mobile-search__btn" aria-label="Keresés">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── MOBIL: Hamburger gomb ── -->
+  <button class="mg-mobile-hamburger" aria-label="Menü">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ── MOBIL: Alsó bar ikonok ── -->
+  <div class="mg-mobile-bar-icons">
+    <button class="mg-mobile-bar-icons__btn" aria-label="Elérhetőségek">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn mg-mobile-bar-icons__btn--center" aria-label="Kosár">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="16" r="1.5" fill="currentColor"/>
+          <circle cx="14" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+    </button>
+    <button class="mg-mobile-bar-icons__btn" aria-label="Profil">
+      <div class="mg-mobile-bar-icons__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- ── TOP BAR ────────────────────────────────────────────────── -->
+  <header class="mg-topbar">
+    <a href="index-sotet.html">
+      <img class="mg-logo mg-logo--full" src="../assets/images/logo.svg" alt="Metagame">
+      <img class="mg-logo mg-logo--compact" src="../assets/frame/mobile/mg-logo-closed.svg" alt="Metagame">
+    </a>
+
+    <div class="mg-topbar-row">
+      <div class="mg-toggle mg-cut-frame" data-active="shop">
+        <div class="mg-toggle__slider"></div>
+        <button class="mg-toggle__btn mg-toggle__btn--active" data-target="shop">Shop</button>
+        <button class="mg-toggle__btn" data-target="community">Klub</button>
+      </div>
+
+      <div class="mg-search mg-cut-frame">
+        <input type="text" placeholder="Keresés...">
+        <button class="mg-search__btn" aria-label="Keresés">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BAL NAV ────────────────────────────────────────────────── -->
+  <nav class="mg-nav-left" id="mg-nav-left">
+    <div class="mg-nav-section" data-nav="shop">
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18"/><path d="M16 3v18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">TCG</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="12" cy="12" r="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Társasjáték</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="9" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Gyűjthető kártya</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Kiegészítők</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Szerepjátékok</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Wargame</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Modellezés</span></div>
+      </a>
+      <a class="mg-nav-item" href="products-sotet.html">
+        <div class="mg-nav-item__diamond">
+          <div class="mg-nav-item__circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          </div>
+        </div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">További termékek</span></div>
+      </a>
+    </div>
+
+    <!-- Eseménynaptár nézet (toggle után). A mobilmenü is ebből a listából épül. -->
+    <div class="mg-nav-section mg-nav-section--hidden" data-nav="community">
+      <a class="mg-nav-item" href="events-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Események</span></div>
+      </a>
+      <a class="mg-nav-item" href="klub-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 0 12 0V3H6v6z"/><path d="M6 4H3v2a3 3 0 0 0 3 3"/><path d="M18 4h3v2a3 3 0 0 1-3 3"/><path d="M9 21h6"/><path d="M12 15v6"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Klubhelyiség</span></div>
+      </a>
+      <a class="mg-nav-item" href="kronikak-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Krónikák</span></div>
+      </a>
+      <a class="mg-nav-item" href="tudastar-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Tudástár</span></div>
+      </a>
+      <a class="mg-nav-item" href="liga-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Liga</span></div>
+      </a>
+      <a class="mg-nav-item" href="magic-singles-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Singles</span></div>
+      </a>
+      <a class="mg-nav-item" href="galeria-sotet.html">
+        <div class="mg-nav-item__diamond"><div class="mg-nav-item__circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div></div>
+        <div class="mg-nav-item__bar"><span class="mg-nav-item__label">Galéria</span></div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── MEGA MENU (JS tölti dinamikusan) ───────────────────────── -->
+  <div class="mg-megamenu mg-texture-menu" id="mg-megamenu"></div>
+
+  <div class="mg-frame-line mg-frame-line--right-top"><img src="../assets/frame/frame-right-top.svg" alt="" style="display:block; width:100%; height:100%; object-fit:fill;"></div>
+
+  <!-- ── JOBB NAV ───────────────────────────────────────────────── -->
+  <aside class="mg-nav-right">
+    <button class="mg-nav-right__btn" aria-label="Profil">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Kedvencek">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn mg-nav-right__btn--cart" aria-label="Kosár">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.5 10h9l2-7H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="16" r="1.5" fill="currentColor"/><circle cx="14" cy="16" r="1.5" fill="currentColor"/></svg>
+        <span class="mg-cart-badge" style="display:none">0</span>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Értesítések">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6v4l-2 2h16l-2-2V8a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><path d="M8 16a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Helyszín">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+    <button class="mg-nav-right__btn" aria-label="Telefon">
+      <div class="mg-nav-right__btn-inner">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+    </button>
+  </aside>
+
+  <!-- ── TERMÉK TARTALOM (új elrendezés, 11.10) ─────────────────────
+       GO-LIVE B (11.11): nincs változatválasztó és Ehhez még jól jön, a Kosárba közvetlenül az ár alatt. Jobb: kiszállítás + termékelőnyök.
+       Alul teljes szélességben a részletes leírás. Stílus: css/components/product-v2.css -->
+  <main class="mg-content mg-pd2 mg-pd2--golive mg-pd2--golive-b">
+    <div class="mg-product__layout">
+
+      <div class="container-xxl mg-product__main">
+
+        <!-- Breadcrumb -->
+        <nav class="mg-product__breadcrumb">
+          <a href="products-sotet.html">Gyűjtögetős kártyajátékok</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <a href="products-sotet.html">Riftbound: League of Legends TCG</a>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          <!-- BACKEND: product.breadcrumb_title -->
+          <span>Origins Booster Display</span>
+        </nav>
+
+        <div class="mg-product__body">
+
+        <!-- ── BAL: KÉPEK + ADATOK + CÍMKÉK ──────────────────── -->
+        <div class="mg-product__left">
+
+          <div class="mg-product__gallery">
+            <div class="mg-product__gallery-main">
+              <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Origins Booster Display">
+              <span class="mg-pd2__flag" title="Angol nyelvű"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#00247d"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#cf142b" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6"/></svg></span>
+              <button type="button" class="btn btn-outline-secondary rounded-circle mg-pd2__zoom d-flex align-items-center justify-content-center p-0" data-bs-toggle="modal" data-bs-target="#mg-pd2-zoom" aria-label="Kép nagyítása"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg></button>
+            </div>
+            <div class="mg-product__gallery-thumbs">
+              <div class="mg-product__gallery-thumb is-active"><img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Origins Booster Display – 1. kép"></div>
+              <div class="mg-product__gallery-thumb"><img src="../assets/images/content - placeholder/product/riftbound-deck-transparent.png" alt="Origins Booster Display – 2. kép"></div>
+              <div class="mg-product__gallery-thumb"><img src="../assets/images/content - placeholder/events/hq720.jpg" alt="Origins Booster Display – 3. kép"></div>
+            </div>
+          </div>
+
+          <!-- BACKEND: product.attributes (kategóriánként más mezők) -->
+          <section class="mg-pd2__block">
+            <h2 class="mg-pd2__block-title">Adatok</h2>
+            <dl class="mg-pd2__data">
+              <div><dt>Kiadó</dt><dd>Riot Games</dd></div>
+              <div><dt>Játék</dt><dd><a href="products-sotet.html">Riftbound TCG</a></dd></div>
+              <div><dt>Nyelv</dt><dd>angol</dd></div>
+              <div><dt>Megjelenés</dt><dd>2026. november 21.</dd></div>
+              <div><dt>Kiadás</dt><dd>Origins (Set One)</dd></div>
+              <div><dt>Cikkszám</dt><dd>MG-RB-00412</dd></div>
+            </dl>
+          </section>
+
+          <!-- BACKEND: product.tags — mindegyik a szűrt terméklistára visz -->
+          <section class="mg-pd2__block">
+            <h2 class="mg-pd2__block-title">Címkék</h2>
+            <div class="d-flex flex-wrap gap-2"><a href="products-sotet.html" class="badge rounded-pill border bg-transparent text-card fw-medium text-decoration-none">Riftbound</a><a href="products-sotet.html" class="badge rounded-pill border bg-transparent text-card fw-medium text-decoration-none">Booster display</a><a href="products-sotet.html" class="badge rounded-pill border bg-transparent text-card fw-medium text-decoration-none">Előrendelés</a><a href="products-sotet.html" class="badge rounded-pill border bg-transparent text-card fw-medium text-decoration-none">Draft</a><a href="products-sotet.html" class="badge rounded-pill border bg-transparent text-card fw-medium text-decoration-none">Angol nyelvű</a></div>
+          </section>
+
+        </div>
+
+        <!-- ── KÖZÉP: DÖNTÉS ──────────────────────────────────── -->
+        <div class="mg-product__info">
+
+          <div class="mg-product__badge">
+            <span class="mg-product__badge-end"><svg viewBox="0 0 24 24" fill="none"><path d="M24 0L24 24L0 12L24 0Z" fill="var(--color-gold)"/></svg></span>
+            <span class="mg-product__badge-text">TCG</span>
+            <span class="mg-product__badge-end"><svg viewBox="0 0 24 24" fill="none"><path d="M0 0L0 24L24 12L0 0Z" fill="var(--color-gold)"/></svg></span>
+          </div>
+
+          <div class="mg-product__info-body">
+
+            <div class="mg-product__heading">
+              <p class="mg-product__brand">Riftbound &bull; League of Legends</p>
+              <h1 class="mg-product__title">Origins Booster Display</h1>
+              <p class="mg-product__subtitle">24 booster &bull; angol nyelvű</p>
+            </div>
+
+            <!-- Tény-címkék — BACKEND: kategóriánként más mezők (társas: nyelv, játékos, idő, kor;
+                 TCG: nyelv, tartalom, megjelenés; kiegészítő: méret, darab, mihez jó) -->
+            <div class="mg-pd2__facts">
+              <span class="mg-pd2__fact"><span class="mg-pd2__fact-flag"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#00247d"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#cf142b" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6"/></svg></span>Angol nyelvű</span>
+              <span class="mg-pd2__fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>24 booster</span>
+              <span class="mg-pd2__fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="16" rx="2"/><path d="M7 2h13a2 2 0 0 1 2 2v14"/></svg>14 lap / booster</span>
+              <span class="mg-pd2__fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Megjelenés: 2026.11.21.</span>
+            </div>
+
+            <div class="mg-product__price-section">
+              <div class="mg-product__price-row">
+                <span class="mg-product__price">42 990 Ft</span>
+                <span class="mg-product__price-old">47 990 Ft</span>
+                <span class="mg-product__price-discount">-10%</span>
+              </div>
+              <!-- Készlet helyenként, darabszámmal (11.03-i döntés) -->
+              <div class="mg-product__stock">
+                <div class="mg-product__stock-item">
+                  <svg class="mg-product__stock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                  <span class="mg-product__stock-label">Online raktár</span>
+                  <span class="mg-product__stock-count text-gold">előrendelhető</span>
+                </div>
+                <div class="mg-product__stock-item">
+                  <svg class="mg-product__stock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a8 8 0 0 0-8 8c0 5.33 8 12 8 12s8-6.67 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span class="mg-product__stock-label">Metagame Bolt</span>
+                  <span class="mg-product__stock-count text-gold">megjelenéskor</span>
+                </div>
+                <div class="mg-product__stock-item">
+                  <svg class="mg-product__stock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a8 8 0 0 0-8 8c0 5.33 8 12 8 12s8-6.67 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span class="mg-product__stock-label">Metagame Klub</span>
+                  <span class="mg-product__stock-count text-gold">megjelenéskor</span>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="mg-product__info-content">
+            <div class="mg-product__cart-row">
+              <div class="mg-product__qty">
+                <button class="mg-product__qty-btn" data-action="minus"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h8"/></svg></button>
+                <input class="mg-product__qty-input" type="number" value="1" min="1" max="99" aria-label="Mennyiség">
+                <button class="mg-product__qty-btn" data-action="plus"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 3v8M3 7h8"/></svg></button>
+              </div>
+              <button class="btn btn-secondary mg-product__add-to-cart">Előrendelem</button>
+              <button class="mg-product__wishlist-btn" aria-label="Kedvencekhez"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 16.5S2 11.5 2 6.5A4 4 0 0 1 10 4.5a4 4 0 0 1 8 2c0 5-8 10-8 10z" stroke="currentColor" stroke-width="1.5"/></svg></button>
+            </div>
+
+            <!-- B: a kiszállítás és a termékelőnyök 1400 px fölött a jobb oszlopban, alatta itt (ugyanaz a blokk kétszer, a backend egy partialból renderelheti) -->
+            <!-- Kiszállítás — BACKEND: a dátum a rendelési határidőből és a futár napjaiból számolva -->
+            <div class="mg-cut-frame mg-pd2__shipping mg-pd2__shipping--pre d-xxl-none">
+              <div class="mg-pd2__ship-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><div><div class="mg-pd2__ship-main">Megjelenik: <strong>2026.11.21. (péntek)</strong></div><div class="mg-pd2__ship-sub">Az előrendelést aznap postázzuk, a boltban nyitástól átveheted.</div></div></div>
+            </div>
+
+            <!-- Termékelőnyök — BACKEND: közös lista + kategóriánként 1-2 saját sor -->
+            <ul class="mg-pd2__benefits d-xxl-none">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span>Előrendelésnél <strong>a megjelenés napján postázzuk</strong>, vagy aznap átveheted a boltban.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Megjelenés napján <strong>release-est a klubban</strong>, előrendelőknek fenntartott hellyel.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-15-6.7L3 13"/></svg><span>Bontatlan displayre <strong>30 napos visszaküldés</strong>.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a2.5 2.5 0 0 0-2.5-1.5c-1.4 0-2.5.8-2.5 2s1.1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2a2.5 2.5 0 0 1-2.5-1.5M12 6.5v1.5M12 16v1.5"/></svg><span>Minden vásárlás után <strong>kreditet kapsz</strong>, a következőnél beválthatod.</span></li>
+            </ul>
+
+
+
+
+
+            <!-- Kiemelt rövid leírás — BACKEND: product.short_description -->
+            <div class="mg-pd2__lead">
+              <p>A Riftbound első nagy kiadása: 24 booster, mindegyikben 14 lap, köztük legalább egy ritka. A League of Legends bajnokai most asztalra kerülnek.</p>
+              <p>Egy display jó alap a draftoláshoz, és ha a teljes készletet gyűjtöd, ebből indulj.</p>
+              <a href="#reszletes-leiras">Részletes leírás ↓</a>
+            </div>
+
+          </div>
+        </div>
+
+        </div><!-- /.mg-product__body -->
+
+        <!-- ── ALUL: RÉSZLETES LEÍRÁS (teljes szélesség) ─────────── -->
+        <section class="mg-pd2__details" id="reszletes-leiras">
+          <!-- BACKEND: product.description (szerkesztőből) -->
+          <h2>Részletes leírás</h2>
+          <h3>Mit kapsz egy displayben?</h3>
+          <p>24 lezárt booster csomagot, csomagonként 14 lappal. Minden csomagban van legalább egy ritka vagy magasabb ritkaságú lap, és a foil lapok is véletlenszerűen kerülnek bele.</p>
+          <p>A display a draft-esteken is az alap: egy nyolcfős draft három csomagot használ fejenként. Ha a klubban játszanál, figyeld az Események oldalt.</p>
+          <h3>Előrendelés</h3>
+          <p>Az előrendelt displayeket a megjelenés napján adjuk postára, illetve aznap nyitástól átveheted a boltban. Ha a gyártó kevesebbet szállít, az előrendelések sorrendjében osztjuk el, erről emailben szólunk.</p>
+
+          <div class="accordion" id="pd2-acc">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pd2-ship">Szállítás és átvétel</button></h2>
+              <div id="pd2-ship" class="accordion-collapse collapse" data-bs-parent="#pd2-acc"><div class="accordion-body">Házhozszállítás és csomagpont országosan, személyes átvétel a Metagame Boltban és a Klubban. A pontos díjakat és határidőket a pénztárban látod.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pd2-return">Visszaküldés és garancia</button></h2>
+              <div id="pd2-return" class="accordion-collapse collapse" data-bs-parent="#pd2-acc"><div class="accordion-body">Bontatlan terméket 30 napon belül visszaveszünk. Kinyitott booster csomagra a visszaküldés nem vonatkozik.</div></div>
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /.mg-product__main -->
+
+      <!-- JOBB (go-live B): KISZÁLLÍTÁS + TERMÉKELŐNYÖK — 1400 px alatt ezek a középső hasábban vannak -->
+      <aside class="mg-product__sidebar d-none d-xxl-block">
+          <div class="d-flex flex-column gap-4 mg-pd2__side">
+            <!-- Kiszállítás — BACKEND: a dátum a rendelési határidőből és a futár napjaiból számolva -->
+            <div class="mg-cut-frame mg-pd2__shipping mg-pd2__shipping--side mg-pd2__shipping--pre">
+              <div class="mg-pd2__ship-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><div><div class="mg-pd2__ship-main">Megjelenik: <strong>2026.11.21. (péntek)</strong></div><div class="mg-pd2__ship-sub">Az előrendelést aznap postázzuk, a boltban nyitástól átveheted.</div></div></div>
+            </div>
+            <h3 class="fs-4 fw-semibold text-muted mb-0 mt-2">Miért nálunk?</h3>
+            <!-- Termékelőnyök — BACKEND: közös lista + kategóriánként 1-2 saját sor -->
+            <ul class="mg-pd2__benefits mg-pd2__benefits--side">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span>Előrendelésnél <strong>a megjelenés napján postázzuk</strong>, vagy aznap átveheted a boltban.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Megjelenés napján <strong>release-est a klubban</strong>, előrendelőknek fenntartott hellyel.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-15-6.7L3 13"/></svg><span>Bontatlan displayre <strong>30 napos visszaküldés</strong>.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a2.5 2.5 0 0 0-2.5-1.5c-1.4 0-2.5.8-2.5 2s1.1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2a2.5 2.5 0 0 1-2.5-1.5M12 6.5v1.5M12 16v1.5"/></svg><span>Minden vásárlás után <strong>kreditet kapsz</strong>, a következőnél beválthatod.</span></li>
+            </ul>
+          </div>
+      </aside>
+
+    </div><!-- /.mg-product__layout -->
+  </main>
+
+  <!-- Képnagyítás (nyitott kérdés: kell-e — demóként itt van) -->
+  <div class="modal fade" id="mg-pd2-zoom" tabindex="-1" aria-label="Origins Booster Display nagyítva" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content bg-transparent border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto mb-2" data-bs-dismiss="modal" aria-label="Bezárás"></button>
+        <img src="../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png" alt="Origins Booster Display" class="img-fluid mx-auto" style="max-height:80vh" data-mg-zoom-img>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="mg-footer">
+    <div class="mg-footer__left">
+      <span class="mg-footer__brand">© metagame 2026</span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kádár utca 10.</span>
+        <span class="mg-footer__hours">H–SZ 10–18</span>
+      </span>
+      <span class="mg-footer__location">
+        <svg class="mg-footer__pin" width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span class="mg-footer__address">1132 Budapest, Kresz Géza utca 36.</span>
+        <span class="mg-footer__hours">H-P 16–22, SZ 10–18</span>
+      </span>
+    </div>
+    <div class="mg-footer__right">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatvédelem</a>
+      <a class="mg-footer__info-trigger" href="#">Információ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- ── KERESŐ OVERLAY ────────────────────────────────────────── -->
+  <div class="mg-widget-search-overlay"></div>
+
+  <!-- ── DRAWER (right-side) ─────────────────────────────────── -->
+  <div class="mg-drawer offcanvas offcanvas-end" tabindex="-1">
+    <div class="mg-drawer__card">
+      <div class="mg-drawer__header">
+        <h2 class="mg-drawer__title"></h2>
+        <span class="mg-drawer__subtitle"></span>
+        <button class="mg-drawer__close" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mg-drawer__body"></div>
+      <div class="mg-drawer__footer"></div>
+    </div>
+  </div>
+
+  <!-- ── MOBIL MENÜ ──────────────────────────────────────────── -->
+  <div class="mg-mobile-menu"></div>
+
+  <!-- ── MOBIL KERESŐ OVERLAY ──────────────────────────────── -->
+  <div class="mg-mobile-search-overlay"></div>
+
+  <!-- ── MOBIL DRAWER OVERLAY (kosár, profil, kapcsolat) ──── -->
+  <div class="mg-mobile-drawer"></div>
+
+  <!-- ── FOOTER PANEL (slide-up) ───────────────────────────────── -->
+  <div class="mg-footer-panel offcanvas offcanvas-bottom" tabindex="-1">
+    <div class="mg-footer-panel__scroll">
+    <div class="mg-footer-panel__close">
+      <button class="mg-footer-panel__close-btn" data-bs-dismiss="offcanvas" aria-label="Bezárás">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mg-footer-panel__features">
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="mg-footer-panel__feature-title">Ingyenes szállítás</div>
+        <div class="mg-footer-panel__feature-desc">Rendeléseid díjmentesen szállítjuk, hogy a vásárlás élménye zökkenőmentes legyen.</div>
+      </div>
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4h-4z"/></svg>
+        </div>
+        <div class="mg-footer-panel__feature-title">Biztonságos fizetés</div>
+        <div class="mg-footer-panel__feature-desc">Fizetési lehetőségek széles választéka, biztonságos és kényelmes online tranzakciókkal.</div>
+      </div>
+      <div class="mg-footer-panel__feature">
+        <div class="mg-footer-panel__feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <div class="mg-footer-panel__feature-title">30 napos visszaküldés</div>
+        <div class="mg-footer-panel__feature-desc">30 napon belül egyszerűen visszaküldheted a terméket, gyors visszatérítéssel vagy cserével.</div>
+      </div>
+    </div>
+    <div class="mg-footer-panel__links">
+      <div class="mg-footer-panel__link-col"><h4>Vásárlás</h4><a href="#">Szállítás</a><a href="#">Fizetés</a><a href="#">Garancia</a><a href="#">Rendelés követése</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Segítség</h4><a href="#">GYIK</a><a href="#">Kapcsolat</a><a href="#">Ügyfélszolgálat</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Jogi</h4><a href="#">ÁSZF</a><a href="#">Adatvédelem</a><a href="#">Cookie</a></div>
+      <div class="mg-footer-panel__link-col"><h4>Metagame</h4><a href="#">Rólunk</a><a href="#">Klubhelyiség</a><a href="#">Események</a></div>
+    </div>
+    <div class="mg-footer-panel__contact">
+      <div class="mg-footer-panel__store">
+        <div class="mg-footer-panel__store-header"><img class="mg-footer-panel__store-logo" src="../assets/images/about/bolt.png" alt="Metagame Bolt"><span class="mg-footer-panel__store-name">Metagame Bolt</span></div>
+        <div class="mg-footer-panel__store-info">
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--bold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg><span>1132 Budapest, Kádár utca 10.</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg><span>+36-1-794-4116</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 3"/></svg><span>H–SZ 10–18</span></div>
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--highlight"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg><span>info@metagames.hu</span></div>
+        </div>
+      </div>
+      <div class="mg-footer-panel__store">
+        <div class="mg-footer-panel__store-header"><img class="mg-footer-panel__store-logo" src="../assets/images/about/klub.png" alt="Metagame Klub"><span class="mg-footer-panel__store-name">Metagame Klub</span></div>
+        <div class="mg-footer-panel__store-info">
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--bold"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2a6 6 0 0 0-6 6c0 4 6 10 6 10s6-6 6-10a6 6 0 0 0-6-6z"/><circle cx="10" cy="8" r="2"/></svg><span>1132 Budapest, Kádár utca 10.</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 2h4l2 4-2 2a10 10 0 0 0 4 4l2-2 4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 4a2 2 0 0 1 2-2z"/></svg><span>+36-1-794-4116</span></div>
+          <div class="mg-footer-panel__info-row"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 3"/></svg><span>H–SZ 10–18</span></div>
+          <div class="mg-footer-panel__info-row mg-footer-panel__info-row--highlight"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 4l8 6 8-6"/></svg><span>info@metagames.hu</span></div>
+        </div>
+      </div>
+      <div class="mg-footer-panel__newsletter">
+        <div class="mg-footer-panel__newsletter-title">Csatlakozz a Metagame közösséghez</div>
+        <div class="mg-footer-panel__newsletter-desc">Add meg az e-mail címed, hogy értesülhess a legfrissebb eseményekről, ajánlatokról</div>
+        <div class="mg-footer-panel__subscribe"><input type="email" placeholder="E-mail címed..."><button class="mg-footer-panel__subscribe-btn" aria-label="Feliratkozás"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></button></div>
+      </div>
+    </div>
+    <div class="mg-footer-panel__payment">
+      <div class="mg-footer-panel__secure-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Secure Payment</div>
+      <div class="mg-footer-panel__payment-logos"><span>Barion</span><span>VISA</span><span>Mastercard</span></div>
+    </div>
+    <div class="mg-footer-panel__bottom">© 2026 Metagame — Made with ❤️ for a better gameworld.</div>
+    </div>
+  </div>
+
+</div><!-- /.mg-frame -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Frame widget -->
+<script src="js/components/frame.js?v=20261110"></script>
+<script src="js/components/frame-shimmer.js"></script>
+<!-- Product detail JS -->
+<script src="js/components/product-detail.js"></script>
+<script src="js/components/mega-menu.js"></script>
+<script src="js/components/drawer.js"></script>
+<script src="js/components/mobile-menu.js?v=20261111"></script>
+<script src="js/components/footer.js"></script>
+<script src="js/components/search-overlay.js"></script>
+<script>
+$(function () {
+  mgInitProductDetail();
+  mgInitMegaMenu();
+  mgInitMobileMenu();
+  mgInitMobileSearch();
+  mgInitMobileDrawer();
+  mgInitDrawer();
+  mgInitFooter();
+  $('.mg-widget-search-overlay').load('widgets/search-overlay.html', function () {
+    mgInitSearchOverlay();
+  });
+});
+</script>
+
+
+<script>
+/* product-v2: nagyítás a kiválasztott képpel, sleeve-szín neve, várható kiszállítás dátuma (demo) */
+$(function () {
+  $('.mg-pd2__zoom').on('click', function () {
+    $('[data-mg-zoom-img]').attr('src', $('.mg-product__gallery-main > img').attr('src'));
+  });
+  $('.mg-pd2__option, .mg-pd2__swatch').on('click', function () {
+    $(this).addClass('is-active').siblings().removeClass('is-active');
+    if ($(this).data('name')) $('[data-swatch-name]').text($(this).data('name'));
+  });
+  // BACKEND: szerveroldalon számolva. Demo: 14 óráig holnap, utána holnapután, hétvégét átugorva.
+  var d = new Date(), napok = ['vasárnap','hétfő','kedd','szerda','csütörtök','péntek','szombat'];
+  d.setDate(d.getDate() + (d.getHours() < 14 ? 1 : 2));
+  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
+  var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
+  $('[data-mg-ship-date]').text(d.getFullYear() + '.' + p2(d.getMonth() + 1) + '.' + p2(d.getDate()) + '. (' + napok[d.getDay()] + ')');
+  if (new Date().getHours() >= 14) $('[data-mg-ship-sub]').text('A 14 óra után leadott rendelés másnap indul · házhoz szállítással vagy csomagpontra');
+});
+</script>
+
+<script>
+/* DEMO: a Shop/Eseménynaptár toggle a sötét oldalak közt navigáljon
+   (capture fázisban elkapjuk a frame.js előtt) */
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('.mg-toggle__btn');
+  if (!btn) return;
+  var t = btn.dataset.target;
+  var onEvents = location.pathname.indexOf('events') !== -1;
+  if (t === 'community' && !onEvents) { e.stopPropagation(); e.preventDefault(); location.href = 'events-sotet.html'; }
+  if (t === 'shop' && onEvents)       { e.stopPropagation(); e.preventDefault(); location.href = 'index-sotet.html'; }
+}, true);
+</script>
+<script src="js/components/icons-sotet-demo.js?v=20261111"></script>
+</body>
+</html>

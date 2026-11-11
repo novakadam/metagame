@@ -166,10 +166,11 @@ const STATUS = [
 
 // Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
 const SINCE = [
+  { date: "11.11", text: "Termékoldal go-live változat két verzióban, mindhárom példán. A Kosárba gomb az ár alatt, változatválasztó és Specifikáció nélkül. A-ban jobbra ajánló-karusszel Megnézem gombbal, B-ben a kiszállítás és a termékelőnyök." },
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-11b";
+const BOARD_VERSION = "2026-11-11c";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
@@ -178,7 +179,7 @@ const COLUMNS = [
 ];
 const TASKS = [
   // heti sprint (a következő meeting 11.18-án)
-  { id: "pd-golive", col: "sprint", title: "Termékoldal: go-live változat", who: "Ádám", detail: "Változatválasztó és Ehhez még jól jön nélkül. A jobb oszlopba a kiszállítás és átvétel doboza kerül, a Kosárba gomb az első képernyőn legyen. A Specifikáció lenyíló kimarad, az Adatok tábla elég. Ezt kapja meg Laci." },
+  { id: "pd-golive", col: "feedback", title: "Termékoldal: go-live változat, A és B", who: "Andris, Csaba", detail: "Változatválasztó és Ehhez még jól jön nélkül, a Kosárba közvetlenül az ár és a készlet alatt, a Specifikáció lenyíló kimaradt. A: jobbra ajánló-karusszel az admin Karusszel listájából, Kosárba helyett Megnézem gombbal. B: jobbra a kiszállítás és a termékelőnyök. Melyik legyen?" },
   { id: "pd-valtozat", col: "sprint", title: "Termékoldal: változatválasztó a go-live utánra", who: "Ádám", detail: "Kiszerelés, nyelv és szín: a kapcsolt termék kis képe és neve, kattintásra a másik termék oldala nyílik. Most csak a dizájn készül el, Laci külön branchen fejleszti." },
   { id: "sablonok", col: "sprint", title: "A demó-sablonok feltöltése Lacinak", who: "Ádám", detail: "A termékoldal go-live változatával és a mai javításokkal együtt." },
   { id: "validacio", col: "sprint", title: "Űrlapok: hibaüzenet a mező alatt", who: "Ádám", detail: "Regisztráció és pénztár, a Bootstrap validációs stílusával. Az ÁSZF-pipa hiányát is ki kell írni." },
@@ -257,6 +258,7 @@ const QUESTIONS = [
   { topic: "Termékkártya", q: "Minden termékkártyán ott a kedvenc szív. Maradjon, és mérjük, mennyien használják?", who: "Andris" },
   { topic: "Kereső", q: "Kilistázhassa-e a kereső az összes találatot egy szóra, kategóriaszűrővel? Korábban kérés volt, hogy ne lehessen, szerintünk viszont kellene.", who: "Andris, Csaba" },
   { topic: "Pénztár", q: "Az Elfogadom bepipálása után módosíthatók maradjanak-e a mezők (most letiltja őket)? Szerintem maradhatnak.", who: "Andris" },
+  { topic: "Termékoldal", q: "A go-live termékoldal jobb oszlopa: ajánló-karusszel (A) vagy kiszállítás és termékelőnyök (B)?", who: "Andris, Csaba" },
   { topic: "Termékoldal", q: "Kerüljön-e ajándékutalvány a jobb oszlopba, kis dobozban?", who: "Andris" },
   { topic: "Galéria", q: "Mi kerüljön a Galériába, ha nem tudjuk eseményenként frissen tartani? Javaslat: néhány állandó kép a klubról.", who: "Andris" },
   { topic: "Termékoldal", q: "Mi a rendelési határidő és az ingyenes szállítás határa? A demóban 14 óra szerepel, a határ még nincs kiírva.", who: "Andris" },
@@ -278,9 +280,15 @@ const LINKS = [
   { group: "Webshop", items: [
     ["Kezdőlap", "index-sotet.html", null],
     ["Terméklista", "products-sotet.html", null, "szűrőpanellel"],
-    ["Termékoldal – új: társas", "termek-tarsas-sotet.html", null, "képek balra, döntés középen"],
-    ["Termékoldal – új: TCG", "termek-tcg-sotet.html", null, "előrendelés, nyelv és kiszerelés"],
-    ["Termékoldal – új: kiegészítő", "termek-kiegeszito-sotet.html", null, "méret, szín"],
+    ["Termékoldal go-live A: társas", "termek-tarsas-golive-a-sotet.html", null, "jobbra ajánló-karusszel, Megnézem gombbal"],
+    ["Termékoldal go-live A: TCG", "termek-tcg-golive-a-sotet.html", null, "előrendelés"],
+    ["Termékoldal go-live A: kiegészítő", "termek-kiegeszito-golive-a-sotet.html", null],
+    ["Termékoldal go-live B: társas", "termek-tarsas-golive-b-sotet.html", null, "jobbra kiszállítás és termékelőnyök"],
+    ["Termékoldal go-live B: TCG", "termek-tcg-golive-b-sotet.html", null, "előrendelés"],
+    ["Termékoldal go-live B: kiegészítő", "termek-kiegeszito-golive-b-sotet.html", null],
+    ["Termékoldal go-live után: társas", "termek-tarsas-sotet.html", null, "Ehhez még jól jön"],
+    ["Termékoldal go-live után: TCG", "termek-tcg-sotet.html", null, "kiszerelés- és nyelvválasztó"],
+    ["Termékoldal go-live után: kiegészítő", "termek-kiegeszito-sotet.html", null, "színválasztó"],
     ["Termékoldal – régi", "product-sotet.html", null],
     ["Pénztár", "checkout.html"],
     ["Sikeres rendelés", "success.html"],
