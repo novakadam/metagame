@@ -121,6 +121,9 @@
 .mg-pd2__fact-flag { width: 18px; height: 12px; border-radius: 2px; overflow: hidden; display: inline-flex; }
 .mg-pd2__fact-flag svg { width: 100%; height: 100%; color: inherit; }
 
+/* ── ÁR: középre, a cím-blokk tengelyére (11.11) ── */
+.mg-pd2 .mg-product__price-row { justify-content: center; }
+
 /* ── KÉSZLET: soronként, a darabszám jobbra (eddig a hosszú nevek egymásra csúsztak) ── */
 .mg-pd2 .mg-product__stock {
   flex-direction: column;
@@ -206,25 +209,66 @@
 .mg-pd2__lead a:hover { text-decoration: underline; }
 
 /* ── VÁLTOZATOK: szöveges gombok (nyelv, kiszerelés, szín) ───── */
-/* Felirat + gombok soronként, a feliratok egy oszlopban (11.11: a Nyelv
-   eddig a kiszerelés-gombok mellé csúszott) */
+/* Kompakt változatválasztó (11.11): kis felirat a sáv fölött, a gombok
+   egy összefüggő, letört sarkú sávban (szegmens), egyenlő szélességgel */
 .mg-pd2 .mg-product__variants {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  padding: 16px 24px 20px;
 }
-.mg-pd2__options { display: flex; flex-wrap: wrap; gap: 8px; }
+.mg-pd2 .mg-product__variants-label {
+  font-size: var(--font-size-xs, 12px);
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  width: auto;
+}
+.mg-pd2 .mg-product__variants-label:not(:first-child) { margin-top: 8px; }
+.mg-pd2 .mg-product__variants-label .text-muted { text-transform: none; letter-spacing: 0; color: var(--color-text) !important; }
+.mg-pd2__options {
+  --seg-cut: 7px;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  padding: 1px;
+  clip-path: polygon(var(--seg-cut) 0, calc(100% - var(--seg-cut)) 0, 100% var(--seg-cut), 100% calc(100% - var(--seg-cut)), calc(100% - var(--seg-cut)) 100%, var(--seg-cut) 100%, 0 calc(100% - var(--seg-cut)), 0 var(--seg-cut));
+}
+.mg-pd2__options::before,
+.mg-pd2__options::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  clip-path: inherit;
+}
+.mg-pd2__options::before { inset: 0; background: var(--color-border-muted); }
+.mg-pd2__options::after { inset: 1px; background: #2a0e1d; }
+.mg-pd2__option + .mg-pd2__option { border-left: 1px solid var(--color-border-muted) !important; }
+.mg-pd2__options:has(.mg-pd2__swatch) { padding: 0; gap: 8px; clip-path: none; flex-wrap: wrap; }
+.mg-pd2__options:has(.mg-pd2__swatch)::before,
+.mg-pd2__options:has(.mg-pd2__swatch)::after { content: none; }
 .mg-pd2__option {
-  padding: 6px 12px;
-  border: 1px solid var(--color-border-muted);
-  border-radius: 6px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 7px 8px;
+  border: 0;
+  border-radius: 0;
   background: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   font-weight: 500;
 }
-.mg-pd2__option.is-active { border-color: var(--color-gold); color: var(--color-text); background: rgba(212, 175, 55, 0.12); }
+.mg-pd2__option:hover { color: var(--color-text); }
+.mg-pd2__option.is-active { color: var(--color-bg); background: var(--color-gold); font-weight: 600; }
 .mg-pd2__swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; outline: 1px solid var(--color-border-muted); padding: 0; }
 .mg-pd2__swatch.is-active { border-color: var(--color-bg); outline: 2px solid var(--color-gold); }
 
@@ -258,8 +302,8 @@
 }
 
 @media (max-width: 768px) {
-  .mg-pd2 .mg-product__variants { grid-template-columns: 1fr; gap: 8px; }
-  .mg-pd2 .mg-product__variants-label:not(:first-child) { margin-top: 8px; }
+  .mg-pd2 .mg-product__variants { padding: 16px; box-sizing: border-box; }
+  .mg-pd2__option { flex: 1 1 0; padding: 6px; font-size: 13px; line-height: 1.25; white-space: normal; overflow: visible; }
   .mg-pd2__data > div { grid-template-columns: 100px 1fr; }
   .mg-pd2__flag { width: 36px; height: 36px; top: 12px; right: 12px; }
 }
