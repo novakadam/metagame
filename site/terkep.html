@@ -173,7 +173,7 @@ const SINCE = [
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-18a";
+const BOARD_VERSION = "2026-11-18b";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
@@ -188,7 +188,7 @@ const TASKS = [
   { id: "validacio", col: "done", title: "Űrlapok: hibaüzenet a mező alatt", who: "Ádám", detail: "Pénztár: a kötelező mezők alatt a hibaüzenet (Bootstrap is-invalid + invalid-feedback), ÁSZF-pipa a Fizetés gomb fölött, hibánál a gomb fölött egy összesítő sor is. Ugyanez a minta jó a regisztrációhoz." },
   { id: "nulla-talalat", col: "done", title: "Üres lista és 0 találat üzenete", who: "Ádám", detail: "Terméklista: üzenet és Szűrők törlése gomb, ha a szűrésnek nincs találata (demó: products-sotet.html?ures). Kereső: asztalon és mobilon ugyanaz a szöveg, a keresett szóval." },
   { id: "kosar-jelzes", col: "done", title: "Kosárba tétel visszajelzése", who: "Ádám", detail: "A kosár ikonja alatt jelenik meg (mobilon az alsó sáv kosara fölött): a termék képe és neve, Kosár és Pénztár gomb, 4 másodperc után eltűnik. Közben a kosár száma felugrik." },
-  { id: "menu-tipus-tema", col: "sprint", title: "Menü második szintje: típus és téma oszlop", who: "Ádám, Laci", detail: "A Legnépszerűbb blokk helyett. A téma súlyozható az adminban, így a felső elemek sorrendje állítható." },
+  { id: "menu-tipus-tema", col: "sprint", title: "Menü második szintje: típus és téma oszlop", who: "Ádám, Laci", detail: "A rendszer oszlopa marad, a Legnépszerűbb helyére két oszlop jön, saját címmel: Típus (pl. Booster, Display) és Téma. A témából sok van, ezért csak az első néhány látszik (a téma az adminban súlyozható, így a sorrend állítható), alatta Összes … sor. A dizájnt Andrisékkal még egyeztetjük." },
   { id: "laci-profil", col: "sprint", title: "Profil a demó szerint", who: "Laci", detail: "Bal oldali almenü, kedvencek panel, a rendeléseim lista a demó elrendezésével. A paraméteres URL-nél a bal panel ne váltson át, a számlázási cím jelenjen meg." },
   { id: "laci-slug", col: "sprint", title: "Linkek: slug az azonosító helyett", who: "Laci", detail: "Most azonosító kerül a linkbe, ettől rossz nevek és levágott terméknevek látszanak a UAT-on." },
   { id: "laci-kereso", col: "sprint", title: "Kereső apróságok", who: "Laci, Ádám", detail: "Mobilon a kiválasztott találat vigyen a termékre. Az ajánlott termékek száma igazodjon a sorhoz, a többi rejtve." },
@@ -229,7 +229,7 @@ const TASKS = [
   // a 11.11-i meetingről, utólag az átiratból
   { id: "laci-fizetes", col: "sprint", title: "A fizetést indító oldal átvezetése", who: "Laci", detail: "Még nincs átvezetve az új dizájnra, és most nem működik." },
   { id: "laci-profil2", col: "sprint", title: "Profil: jelszóváltoztatás, kredit, külön komponens", who: "Laci", detail: "A jelszóváltoztató panel kikerül a profilba. A kredit kiírása a személyes adatoknál javítva. A profil a drawertől külön komponens legyen." },
-  { id: "laci-rendeles", col: "sprint", title: "Rendelés részletei a demó szerint", who: "Laci", detail: "Felugró ablakban, a demó nézetével. Adminként látszó mezők (problémás, admin komment) szebben. Ide jöhet a számla és a csomagkövetés is." },
+  { id: "laci-rendeles", col: "sprint", title: "Rendelés részletei a demó szerint", who: "Laci", detail: "A demóban kész nézet szerint, ahogy a profilban megterveztük (Lacinál most még felugró ablakban van). Az adminként látszó mezők (problémás, admin komment) szebben. Ide jöhet a számla és a csomagkövetés is." },
   { id: "laci-adatok", col: "sprint", title: "Termékoldal: üres Adatok tábla rejtése", who: "Laci", detail: "Ha egy terméknél nincs adat, a tábla ne jelenjen meg." },
   { id: "laci-singles", col: "sprint", title: "Magic Singles tartalma a demóból", who: "Laci", detail: "A statikus tartalom átvétele, és a menüpont, ha a menü kész." },
   { id: "laci-riftbound", col: "sprint", title: "Riftbound és fordítási hiba", who: "Laci", detail: "Az azonosítók miatt rossz név és fordítás jelenik meg." },
