@@ -166,6 +166,7 @@ const STATUS = [
 
 // Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
 const SINCE = [
+  { date: "11.18", text: "Termékoldal go-live C és D, mindhárom példán: jobbra csak a Miért nálunk, a várható kiszállítás a Kosárba teszem alatt, a címkék kikerültek. C-ben a részletes leírás a középső hasábban, D-ben alul, két hasáb szélesen." },
   { date: "11.18", text: "Menü go-live változat: Típus és Téma oszlop a Legnépszerűbb helyén. Az eredeti menü elmentve a go-live utánra." },
   { date: "11.18", text: "A 0 találat ikonja egy kocka, ami 1-et dobott: Kritikus kudarc!" },
   { date: "11.18", text: "Termékoldal: a jobb oszlop teteje egy vonalban a breadcrumb vonalával." },
@@ -176,7 +177,7 @@ const SINCE = [
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-18d";
+const BOARD_VERSION = "2026-11-18e";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
@@ -273,6 +274,7 @@ const TASKS = [
 ];
 
 const QUESTIONS = [
+  { topic: "Termékoldal", q: "A go-live termékoldalon a részletes leírás a középső hasábban legyen (C), vagy alul, két hasáb szélesen (D)?", who: "Andris" },
   { topic: "Termékoldal", q: "Melyik 3-4 kiemelt jellemző kerüljön a termékoldal tetejére, terméktípusonként (társas, TCG, kiegészítő)?", who: "Andris" },
   { topic: "Pénztár", q: "A darabszám kézzel is beírható legyen, vagy csak a plusz-mínusz gombokkal? A jegyzetben mindkettő szerepel.", who: "Laci, Andris" },
   { topic: "Breadcrumb", q: "Mobilon csak az előző szint látszik vissza-linkként. Így jó, vagy kell a teljes út rövidítve?", who: "Andris, Csaba" },
@@ -309,6 +311,12 @@ const LINKS = [
     ["Termékoldal go-live B: társas", "termek-tarsas-golive-b-sotet.html", null, "jobbra kiszállítás és termékelőnyök"],
     ["Termékoldal go-live B: TCG", "termek-tcg-golive-b-sotet.html", null, "előrendelés"],
     ["Termékoldal go-live B: kiegészítő", "termek-kiegeszito-golive-b-sotet.html", null],
+    ["Termékoldal go-live C: társas", "termek-tarsas-golive-c-sotet.html", null, "jobbra csak a Miért nálunk, kiszállítás a Kosárba alatt, címkék nélkül, a leírás középen"],
+    ["Termékoldal go-live C: TCG", "termek-tcg-golive-c-sotet.html", null, "előrendelés"],
+    ["Termékoldal go-live C: kiegészítő", "termek-kiegeszito-golive-c-sotet.html", null],
+    ["Termékoldal go-live D: társas", "termek-tarsas-golive-d-sotet.html", null, "mint a C, de a leírás alul, két hasáb szélesen"],
+    ["Termékoldal go-live D: TCG", "termek-tcg-golive-d-sotet.html", null, "előrendelés"],
+    ["Termékoldal go-live D: kiegészítő", "termek-kiegeszito-golive-d-sotet.html", null],
     ["Termékoldal go-live után: társas", "termek-tarsas-sotet.html", null, "Ehhez még jól jön"],
     ["Termékoldal go-live után: TCG", "termek-tcg-sotet.html", null, "kiszerelés- és nyelvválasztó"],
     ["Termékoldal go-live után: kiegészítő", "termek-kiegeszito-sotet.html", null, "színválasztó"],
