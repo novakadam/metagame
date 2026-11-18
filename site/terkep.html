@@ -166,7 +166,7 @@ const STATUS = [
 
 // Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
 const SINCE = [
-  { date: "11.18", text: "Termékoldal go-live E: mint a D, de jobbra felül az Ehhez még jól jön (legfeljebb 4 termék, nagy képes kártya nélkül), alatta a Miért nálunk." },
+  { date: "11.18", text: "Termékoldal go-live E: mint a C, de jobbra felül az Ehhez még jól jön (legfeljebb 4 termék, nagy képes kártya nélkül), alatta a Miért nálunk." },
   { date: "11.18", text: "Termékoldal go-live C és D, mindhárom példán: jobbra csak a Miért nálunk, a várható kiszállítás a Kosárba teszem alatt, a címkék kikerültek. C-ben a részletes leírás a középső hasábban, D-ben alul, két hasáb szélesen." },
   { date: "11.18", text: "Menü go-live változat: Típus és Téma oszlop a Legnépszerűbb helyén. Az eredeti menü elmentve a go-live utánra." },
   { date: "11.18", text: "A 0 találat ikonja egy kocka, ami 1-et dobott: Kritikus kudarc!" },
@@ -178,7 +178,7 @@ const SINCE = [
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-18f";
+const BOARD_VERSION = "2026-11-18g";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
@@ -275,7 +275,7 @@ const TASKS = [
 ];
 
 const QUESTIONS = [
-  { topic: "Termékoldal", q: "A go-live termékoldalon a részletes leírás a középső hasábban legyen (C), vagy alul, két hasáb szélesen (D)? És kerüljön-e jobbra felülre az Ehhez még jól jön (E)?", who: "Andris" },
+  { topic: "Termékoldal", q: "A go-live termékoldal jobb oszlopának tetejére kerüljön-e az Ehhez még jól jön (E), vagy maradjon csak a Miért nálunk (C)?", who: "Andris" },
   { topic: "Termékoldal", q: "Melyik 3-4 kiemelt jellemző kerüljön a termékoldal tetejére, terméktípusonként (társas, TCG, kiegészítő)?", who: "Andris" },
   { topic: "Pénztár", q: "A darabszám kézzel is beírható legyen, vagy csak a plusz-mínusz gombokkal? A jegyzetben mindkettő szerepel.", who: "Laci, Andris" },
   { topic: "Breadcrumb", q: "Mobilon csak az előző szint látszik vissza-linkként. Így jó, vagy kell a teljes út rövidítve?", who: "Andris, Csaba" },
@@ -312,13 +312,13 @@ const LINKS = [
     ["Termékoldal go-live B: társas", "termek-tarsas-golive-b-sotet.html", null, "jobbra kiszállítás és termékelőnyök"],
     ["Termékoldal go-live B: TCG", "termek-tcg-golive-b-sotet.html", null, "előrendelés"],
     ["Termékoldal go-live B: kiegészítő", "termek-kiegeszito-golive-b-sotet.html", null],
-    ["Termékoldal go-live C: társas", "termek-tarsas-golive-c-sotet.html", null, "jobbra csak a Miért nálunk, kiszállítás a Kosárba alatt, címkék nélkül, a leírás középen"],
+    ["Termékoldal go-live C: társas", "termek-tarsas-golive-c-sotet.html", null, "a befutó: jobbra csak a Miért nálunk, kiszállítás a Kosárba alatt, a leírás középen; rövid leírás, címkék és lenyílók nélkül"],
     ["Termékoldal go-live C: TCG", "termek-tcg-golive-c-sotet.html", null, "előrendelés"],
     ["Termékoldal go-live C: kiegészítő", "termek-kiegeszito-golive-c-sotet.html", null],
     ["Termékoldal go-live D: társas", "termek-tarsas-golive-d-sotet.html", null, "mint a C, de a leírás alul, két hasáb szélesen"],
     ["Termékoldal go-live D: TCG", "termek-tcg-golive-d-sotet.html", null, "előrendelés"],
     ["Termékoldal go-live D: kiegészítő", "termek-kiegeszito-golive-d-sotet.html", null],
-    ["Termékoldal go-live E: társas", "termek-tarsas-golive-e-sotet.html", null, "mint a D, jobbra felül Ehhez még jól jön (max. 4 termék), alatta a Miért nálunk"],
+    ["Termékoldal go-live E: társas", "termek-tarsas-golive-e-sotet.html", null, "mint a C, és jobbra felül Ehhez még jól jön (max. 4 termék), alatta a Miért nálunk"],
     ["Termékoldal go-live E: TCG", "termek-tcg-golive-e-sotet.html", null, "előrendelés"],
     ["Termékoldal go-live E: kiegészítő", "termek-kiegeszito-golive-e-sotet.html", null],
     ["Termékoldal go-live után: társas", "termek-tarsas-sotet.html", null, "Ehhez még jól jön"],
@@ -367,6 +367,7 @@ const LINKS = [
 ];
 
 const DECISIONS = [
+  { date: "11.18", text: "A go-live termékoldal a C változat: a részletes leírás a középső hasábban, jobbra a Miért nálunk, a várható kiszállítás a Kosárba teszem alatt. Nincs rövid leírás, címkék, és Szállítás, illetve Garancia lenyíló." },
   { date: "11.11", text: "A menüben a Legnépszerűbb blokk helyén egyelőre nincs semmi, a menü tartalma beljebb kerül. A kereső admin-karusszele nem kerül a menübe." },
   { date: "11.11", text: "Az értesítések most nem készülnek el, a go-live után térünk vissza rájuk." },
   { date: "11.11", text: "A go-live januárban lesz. Addig csak a meglévő üzleti logika megy ki, új funkció a go-live után, külön branchen." },
