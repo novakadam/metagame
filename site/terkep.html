@@ -160,8 +160,8 @@ const STATUS = [
   { t: "Pénztár", d: "Laci megépítette, a UAT-on kattintható, a finisálás folyik. A dizájn-javítások, a kupon és a kredit beváltásának stílusa a design-javitasok-2026-10-21 branchen várnak (a 10.14-i pénztár-javításokkal együtt). A demóban kész a kupon- és kredit-beváltás." },
   { t: "Profil", d: "A demóban kész. Laci most vezeti át a UAT-ra: a bal oldali almenü, a kedvencek panel és a rendeléseim lista a demó szerinti elrendezésben jön." },
   { t: "Menü", d: "A főmenü Shop és Klub. A Klub pontjai: Események, Klubhelyiség, Krónikák, Tudástár, Liga, Singles, Galéria. Mobilon minden szint tetején ott az Összes … sor, asztalon a szintek kattinthatók. A második szinten a Legnépszerűbb blokk helyett egy típus és egy téma oszlop jöhet." },
-  { t: "Termékoldal", d: "Két változat lesz. A go-live változatban nincs változatválasztó és Ehhez még jól jön, a jobb oszlopba a kiszállítás és átvétel kerül, a Kosárba gomb az első képernyőn látszik. A változatválasztó (kiszerelés, nyelv, szín képpel) és az ajánló a go-live után jön, külön branchen." },
-  { t: "Go-live", d: "Januárban. Addig csak a meglévő üzleti logika megy ki, új funkció a go-live után. Utána jöhet a képszerkesztő és az offline anyagok." },
+  { t: "Termékoldal", d: "Egy termékoldal lesz, nincs külön go-live változat. Középen a döntés és alatta a részletes leírás, a várható kiszállítás a Kosárba teszem alatt. Jobbra a Miért nálunk, fölötte később az Ehhez még jól jön (rendszerenként legfeljebb 4 szűrő-gomb), ami addig nem jelenik meg. A Kosárba gomb helyén még csiszolunk." },
+  { t: "Go-live", d: "A webshop januárban mehet. Laci becslése szerint kb. 80%-nál tartunk, 3-4 hét munka van hátra. A klub és az eseménynaptár go-live-járól december elején döntünk. Utána jöhet a képszerkesztő és az offline anyagok." },
 ];
 
 // Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
@@ -169,10 +169,9 @@ const SINCE = [
   { date: "11.18", text: "404-es oldal: három dobókocka, mindegyiken négyes." },
   { date: "11.18", text: "Pénztár: a kosár-foglalás visszaszámlálója kikerült, a telefonszám alatt egy mondat, hogy mire használjuk." },
   { date: "11.18", text: "Termékoldal, Kosárba feljebb: az ár és a Kosárba egy sávban, a készlet egy sorban (kattintásra boltonként), kisebb tény-címkék, mobilon ragadós Kosárba-sáv." },
-  { date: "11.18", text: "Termékoldal go-live E: mint a C, de jobbra felül az Ehhez még jól jön (legfeljebb 4 termék, nagy képes kártya nélkül), alatta a Miért nálunk." },
-  { date: "11.18", text: "Termékoldal go-live C és D, mindhárom példán: jobbra csak a Miért nálunk, a várható kiszállítás a Kosárba teszem alatt, a címkék kikerültek. C-ben a részletes leírás a középső hasábban, D-ben alul, két hasáb szélesen." },
+  { date: "11.18", text: "Termékoldal: a végleges elrendezés (leírás középen, kiszállítás a Kosárba alatt, jobbra Miért nálunk), a helyfoglaló Ehhez még jól jön-nel." },
   { date: "11.18", text: "Menü go-live változat: Típus és Téma oszlop a Legnépszerűbb helyén. Az eredeti menü elmentve a go-live utánra." },
-  { date: "11.18", text: "A 0 találat ikonja egy kocka, ami 1-et dobott: Kritikus kudarc!" },
+  { date: "11.18", text: "A 0 találatnál Kritikus kudarc! felirat, nagyítós ikonnal." },
   { date: "11.18", text: "Termékoldal: a jobb oszlop teteje egy vonalban a breadcrumb vonalával." },
   { date: "11.18", text: "Kosárba tétel visszajelzése a kosár ikonja alatt, a kosár száma felugrik. Minden Kosárba gombnál működik a demóban." },
   { date: "11.18", text: "Pénztár: hibaüzenet a mező alatt és ÁSZF-pipa a Fizetés gomb fölött." },
@@ -181,23 +180,23 @@ const SINCE = [
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-18i";
+const BOARD_VERSION = "2026-11-18j";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
-  { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
+  { id: "sprint", title: "Heti sprint", sub: "11.18–11.27." },
   { id: "feedback", title: "Visszajelzés alatt" },
   { id: "done", title: "Kész" },
 ];
 const TASKS = [
-  // heti sprint (a következő meeting 11.18-án)
-  { id: "pd-golive", col: "feedback", title: "Termékoldal: go-live változat, A és B", who: "Andris, Csaba", detail: "Változatválasztó és Ehhez még jól jön nélkül, a Kosárba közvetlenül az ár és a készlet alatt, a Specifikáció lenyíló kimaradt. A: jobbra ajánló-karusszel az admin Karusszel listájából, Kosárba helyett Megnézem gombbal. B: jobbra a kiszállítás és a termékelőnyök. Melyik legyen?" },
+  // heti sprint (a következő meeting 11.27-én, pénteken 10-kor)
+  { id: "pd-golive", col: "done", title: "Termékoldal: a végleges elrendezés", who: "Ádám", detail: "A 11.18-i meetingen eldőlt: egy oldal, a leírás középen, a kiszállítás a Kosárba alatt, jobbra Miért nálunk. Rövid leírás, címkék, Specifikáció és Szállítás/Garancia lenyíló nélkül." },
   { id: "pd-valtozat", col: "sprint", title: "Termékoldal: változatválasztó a go-live utánra", who: "Ádám", detail: "A régi termékoldal kisképes választójából indulunk (Laci szerint az volt a jobb, nem a mostani szöveges sáv): a kapcsolt termékek kis képe, alatta a neve (kiszerelés, nyelv, szín), kattintásra a másik termék oldala nyílik. Most csak a dizájn készül el, Laci a go-live után, külön branchen fejleszti." },
-  { id: "sablonok", col: "sprint", title: "A demó-sablonok feltöltése Lacinak", who: "Ádám", detail: "A termékoldal go-live változatával és a mai javításokkal együtt." },
+  { id: "sablonok", col: "sprint", title: "A demó-sablonok feltöltése Lacinak", who: "Ádám", detail: "A végleges termékoldallal (11.18), az Ehhez még jól jön nélkül." },
   { id: "validacio", col: "done", title: "Űrlapok: hibaüzenet a mező alatt", who: "Ádám", detail: "Pénztár: a kötelező mezők alatt a hibaüzenet (Bootstrap is-invalid + invalid-feedback), ÁSZF-pipa a Fizetés gomb fölött, hibánál a gomb fölött egy összesítő sor is. Ugyanez a minta jó a regisztrációhoz." },
-  { id: "nulla-talalat", col: "done", title: "Üres lista és 0 találat üzenete", who: "Ádám", detail: "Terméklista: üzenet és Szűrők törlése gomb, ha a szűrésnek nincs találata (demó: products-sotet.html?ures). Kereső: asztalon és mobilon ugyanaz a szöveg, a keresett szóval." },
+  { id: "nulla-talalat", col: "done", title: "Üres lista és 0 találat üzenete", who: "Ádám", detail: "Terméklista és kereső: Kritikus kudarc! felirat, nagyítós ikonnal (a kocka egyese nem jött át, 11.18). Demó: products-sotet.html?ures." },
   { id: "kosar-jelzes", col: "done", title: "Kosárba tétel visszajelzése", who: "Ádám", detail: "A kosár ikonja alatt jelenik meg (mobilon az alsó sáv kosara fölött): a termék képe és neve, Kosár és Pénztár gomb, 4 másodperc után eltűnik. Közben a kosár száma felugrik." },
-  { id: "menu-tipus-tema", col: "feedback", title: "Menü második szintje: típus és téma oszlop", who: "Ádám, Laci", detail: "A demó menüje mostantól a go-live változat: rendszer, Típus és Téma oszlop saját címmel, a témából az első 6 (az adminban súlyozott sorrend), alatta Összes téma. A Legnépszerűbb blokkos eredeti menü elmentve, a go-live utánra (bármelyik oldal ?menu=teljes paraméterrel). Jó így?" },
-  { id: "laci-profil", col: "sprint", title: "Profil a demó szerint", who: "Laci", detail: "Bal oldali almenü, kedvencek panel, a rendeléseim lista a demó elrendezésével. A paraméteres URL-nél a bal panel ne váltson át, a számlázási cím jelenjen meg." },
+  { id: "menu-tipus-tema", col: "done", title: "Menü második szintje: típus és téma oszlop", who: "Ádám, Laci", detail: "Rendszer, Típus és Téma oszlop, a témából az első 6, alatta Összes téma. 11.18: Andris jóváhagyta („Tökéletes”). Az eredeti, Legnépszerűbbes menü a go-live utánra elmentve (?menu=teljes)." },
+  { id: "laci-profil", col: "sprint", title: "Profil a demó szerint", who: "Laci", detail: "Még nem kezdődött el (11.18), ez a következő Laci-feladat. Bal oldali almenü, kedvencek panel, a rendeléseim lista a demó elrendezésével. Utána az eseménynaptár és a klubélet." },
   { id: "laci-slug", col: "sprint", title: "Linkek: slug az azonosító helyett", who: "Laci", detail: "Most azonosító kerül a linkbe, ettől rossz nevek és levágott terméknevek látszanak a UAT-on." },
   { id: "laci-kereso", col: "sprint", title: "Kereső apróságok", who: "Laci, Ádám", detail: "Mobilon a kiválasztott találat vigyen a termékre. Az ajánlott termékek száma igazodjon a sorhoz, a többi rejtve." },
   { id: "laci-hirsav", col: "sprint", title: "Hírsáv: folyamatos futás, kattintható címek", who: "Laci", detail: "Most a végén visszaugrik az elejére, és a címekre nem lehet kattintani." },
@@ -212,7 +211,7 @@ const TASKS = [
   { id: "hirsav-hover", col: "done", title: "A hírsáv álljon meg, ha fölé visszük az egeret", who: "Ádám", detail: "A demóban eddig nem állt meg." },
   { id: "mobil-keret", col: "feedback", title: "Mobil keret: rés a kereső mellett, ugrás görgetéskor", who: "Andris", detail: "A kereső melletti sötét rés megszűnt. Az oldalvonalak most a teljes képernyő-magasságra szólnak, így elvileg nem ugranak, amikor a böngésző címsora összecsukódik. Androidon kérlek nézd meg." },
   { id: "termekoldal", col: "done", title: "Termékoldal-javaslat", who: "Ádám", detail: "Három példán (társas, TCG, kiegészítő). A 11.11-i meetingen az irány elfogadva: kiemelt jellemzők felül, ár és készlet, kiszállítás, termékelőnyök, balra az Adatok, alul a részletes leírás." },
-  { id: "termekoldal-mobil", col: "backlog", title: "Termékoldal mobilon", who: "Ádám", detail: "A javaslat elfogadása után." },
+  { id: "termekoldal-mobil", col: "sprint", title: "Termékoldal mobilon", who: "Ádám", detail: "Mobilon a sorrend: Kosárba, várható kiszállítás, Ehhez még jól jön, Adatok, utána a részletes leírás. Az Adatok és a Miért nálunk ne a leírás alá kerüljön, mert leírás nem mindenhol van (11.18)." },
   { id: "rendszerlogok", col: "sprint", title: "Rendszerlogók a menübe", who: "Ádám", detail: "A fő rendszerek logóiból egy-egy változat, ami a menü méretében is jól működik.", blocked: "Andris feltölti a logókat" },
   { id: "osszefoglalo", col: "done", title: "Összefoglaló a 11.03-i meetingről", who: "Ádám", detail: "Térkép-frissítés." },
   { id: "laci-footer", col: "feedback", title: "Lábléc a UAT-on", who: "Laci", detail: "A 10.30-i frissítés óta a main.js nem töltődik be, ezért az Információ panel nem nyílt. A javítás a design-javitasok-2026-10-21 branchen van." },
@@ -228,7 +227,7 @@ const TASKS = [
   { id: "profil", col: "done", title: "Profil részletes oldal", who: "Ádám", detail: "A profil menüpontjai külön aloldalakra visznek: rendelések listája és egy rendelés részletei, kedvencek, profiladatok, kreditegyenleg és -történet, értesítési beállítások. A mostani éles profil tartalmát kell az új dizájnra hozni." },
   { id: "zoom", col: "done", title: "Landing: keret és fény nagyításnál", who: "Ádám", detail: "110–125%-os nagyításnál a keret vonalai nem találkoznak, néhol látszik alatta a logó, a fény körbefutva a rejtett panelre megy. Az illesztések javíthatók, mindent valószínűleg nem lehet." },
   { id: "esemeny-cim", col: "done", title: "Esemény leírásában a cím fehér legyen", who: "Ádám", detail: "Az eseménynaptár esemény-oldalán." },
-  { id: "kepszerk", col: "sprint", title: "Képszerkesztő script, képméretezéssel", who: "Ádám", detail: "A háttér-eltávolítás mellé a szükséges képméretek legyártása. A scriptet megosztom, a képeket Andrisék cserélik. Laci nem kell hozzá." },
+  { id: "kepszerk", col: "sprint", title: "Képszerkesztő script, képméretezéssel", who: "Ádám", detail: "A következő nagyobb feladatom (11.18). A háttér-eltávolítás mellé a szükséges képméretek legyártása. A scriptet megosztom, a képeket Andrisék cserélik." },
   { id: "laci-drawer", col: "done", title: "Egy drawer asztalon és mobilon", who: "Laci", detail: "A Bootstrap drawerével, a kosár komponense közös a pénztárral." },
   { id: "laci-penztar", col: "done", title: "Pénztár finisálása", who: "Laci", detail: "Laci szerint ma estére kint lesz. Utána még egyszer átnézem, mobilon is." },
   { id: "laci-24", col: "done", title: "„További 24 betöltése”: maradjon a görgetési pozíció", who: "Laci", detail: "A terméklista végtelen görgetést kapott (10.27)." },
@@ -244,14 +243,30 @@ const TASKS = [
   { id: "laci-garancia", col: "sprint", title: "Szöveges oldalak: horgony a garanciához", who: "Laci", detail: "Hogy a garanciára vonatkozó részre közvetlenül lehessen linkelni." },
   { id: "kereso-hosszu-nev", col: "sprint", title: "Kereső: hosszú terméknév", who: "Ádám", detail: "A slug javítása után is levágódhat egy hosszú név, kell rá egy megoldás (két sor, vagy rövidítés a végén)." },
   { id: "szoveges-hasab", col: "sprint", title: "Szöveges oldalak keskenyebb hasábban", who: "Ádám", detail: "ÁSZF, garancia és a többi hosszú szöveg könnyebben olvasható legyen." },
-  { id: "pd-apro", col: "sprint", title: "Termékoldal: zászló ikon, képnagyító bezárása", who: "Ádám", detail: "A nyelvet jelző zászló szebben, a képnagyító X-e látványosabban." },
-  { id: "pd-leiras-tipus", col: "backlog", title: "Termékleírás tagolása terméktípusonként", who: "Ádám, Laci, Andris", detail: "Melyik 3-4 jellemző kerüljön felülre egy társasnál, egy TCG-nél és egy kiegészítőnél, és honnan jön az adminban." },
+  { id: "pd-apro", col: "sprint", title: "Termékoldal: zászló ikon, képnagyító bezárása", who: "Ádám", detail: "A képnagyító X-e látványosabban. A zászló az admin attribútum-ikonjából jön (Laci), nálam csak a kör alakú megjelenés." },
+  { id: "pd-leiras-tipus", col: "backlog", title: "Kiemelt jellemzők a termékoldal tetején", who: "Laci, Andris", detail: "Eldőlt (11.18): mindenhol nyelv, téma, típus, és ha ki van töltve, játékosszám és játékidő. Csak rögzített attribútumokból, üres mezőnél nem jelenik meg semmi. A pontos listát Andris specifikálja." },
   { id: "angol", col: "backlog", title: "Az oldal angol fordítása", who: "Laci", detail: "", tag: "go-live után" },
-  { id: "telefon-orszagkod", col: "sprint", title: "Pénztár: telefonszám országkóddal", who: "Ádám", detail: "A mező alá került egy mondat, hogy mire kell a szám. Hátravan az országkód-választó (pl. +36 lenyíló a mező elején)." },
+  { id: "telefon-orszagkod", col: "sprint", title: "Pénztár: telefonszám országkóddal", who: "Ádám", detail: "A mező alatt mondat, hogy mire kell a szám (kint). Országkód: lenyíló vagy beírós mező + jellel, Andrisék döntik el; Andris inkább a beírósat." },
+  // 11.18-i meeting
+  { id: "kosarba-feljebb", col: "sprint", title: "Termékoldal: Kosárba feljebb", who: "Ádám", detail: "Andris kérése: a Kosárba az ár alá, a készlet leválasztva az árról, a sárga gomb a bordó háttér előtt, az ár középen. Nem go-live feltétel. Első változat kint." },
+  { id: "pd-cimkek", col: "done", title: "Termékoldal: címkék blokk ki", who: "Ádám", detail: "A termékeken nincsenek címkék (11.18)." },
+  { id: "hotjar", col: "sprint", title: "Hotjar: ránézni az adatokra", who: "Ádám", detail: "Be van kötve, lehet használni." },
+  { id: "level-1118", col: "sprint", title: "Levél: mit csinálnék a 11.18-i pontokból", who: "Ádám", detail: "" },
+  { id: "laci-attributumok", col: "sprint", title: "Kiemelt jellemzők és nyelvi zászló a termékoldalon", who: "Laci", detail: "Nyelv, téma, típus, játékosszám, játékidő, üresen rejtve. A nyelv képe az attribútum-ikonból: a termékkép sarkában és a név alatti címkéknél.", blocked: "Andris specifikációja" },
+  { id: "laci-attr-kep", col: "sprint", title: "Admin: attribútumkép feltöltése", who: "Laci, Andris", detail: "A kép nem látszik és nem cserélhető. Laci szerint talán már javítva, Andris megnézi." },
+  { id: "laci-build", col: "sprint", title: "Élesbe menő javítás egy buildben", who: "Laci", detail: "A héten." },
+  { id: "laci-szuro-url", col: "sprint", title: "Menü és szűrő: rendszer-slug, bejelölés újratöltés után", who: "Laci", detail: "Az URL-be „kat” kerül, és újratöltéskor a szűrő nem marad bejelölve." },
+  { id: "laci-reg-vasarlas", col: "sprint", title: "Regisztráció vásárlás közben", who: "Laci", detail: "Még nincs kész." },
+  { id: "laci-keszlet", col: "sprint", title: "Készletkijelzés: 1–5 és 5+", who: "Laci", detail: "A specifikáció szerint, a globális készlettel." },
+  { id: "laci-telefon", col: "sprint", title: "Telefonszám: maszk vagy ellenőrzés", who: "Laci", detail: "+ jellel és országhívóval kezdődjön, a 06 nem jó. Nem csak magyar szám.", blocked: "Andris specifikációja" },
+  { id: "andris-miert", col: "sprint", title: "A Miért nálunk 4 pontja", who: "Andris", detail: "A játszható példány és a kredit pont nem igaz így, helyettük pl. „15 éve a piacon”." },
+  { id: "andris-spec", col: "sprint", title: "Specifikáció: kiemelt jellemzők, zászlós nyelvek, telefonszám", who: "Andris", detail: "És a zászlóképek feltöltése az adminban, nyelvenként egyszer." },
+  { id: "andris-uat", col: "sprint", title: "UAT-teszt, hibajegyek", who: "Andris, Csaba", detail: "" },
+  { id: "irszam", col: "backlog", title: "Irányítószámból a település", who: "Laci", detail: "", tag: "go-live után" },
   // backlog
   { id: "legnepszerubb", col: "backlog", title: "Legnépszerűbb termékek a menüben", who: "Laci", detail: "Egy lekérdezés a leggyakrabban vásárolt termékekre. A dizájn megvan.", tag: "go-live után" },
-  { id: "ajanlo", col: "backlog", title: "Ehhez még jól jön: termékajánló logika", who: "Laci, Andris", detail: "Termékenként vagy rendszerenként kapcsolt ajánlatok. A modellezés még nyitott.", tag: "go-live után" },
-  { id: "kereso-osszes", col: "backlog", title: "Kereső: összes találat egy listában", who: "Laci", detail: "A keresett szóra az összes termék, balra kategóriaszűrővel. Most kategóriánként 5 találat jön.", blocked: "Andris és Csaba döntése" },
+  { id: "ajanlo", col: "backlog", title: "Ehhez még jól jön: termékajánló logika", who: "Laci, Andris", detail: "Eldőlt (11.18): rendszerenként beállítható, legfeljebb 4 szűrő-gomb (felirat, mögötte egy szűrő, opcionálisan kis kép), kattintásra betölti a szűrt listát. Nem kézi termékkapcsolás.", tag: "go-live után" },
+  { id: "kereso-osszes", col: "backlog", title: "Kereső: összes találat egy listában", who: "Laci", detail: "Eldőlt (11.18): mehet. A keresett szóra az összes termék, balra kategóriaszűrővel, a „további” találatoknak saját oldal." },
   { id: "nyitvatartas", col: "backlog", title: "Nyitvatartás a Google Maps API-ból", who: "Laci, Andris", detail: "Amíg nincs meg, a nyitvatartás nem kerül ki az oldalra. Andris előkészíti a Google-fiók oldalát." },
   { id: "ticker-tartalom", col: "backlog", title: "A hírsáv tartalma a Krónikákból", who: "Laci", detail: "Hírt vagy Krónikát ki lehet tűzni a sávba, a címe kattintható. Külön admin nem kell." },
   { id: "footer", col: "backlog", title: "Lábléc: rendeléskövetés és jogi linkek", who: "Laci", detail: "A Rendelés követése a Rendeléseimre visz. A süti, garancia és hasonló linkek az ÁSZF vagy az adatvédelem megfelelő bekezdésére ugranak." },
@@ -279,14 +294,12 @@ const TASKS = [
 ];
 
 const QUESTIONS = [
-  { topic: "Termékoldal", q: "Kerüljön-e feljebb a Kosárba gomb (ár és gomb egy sávban, készlet egy sorban, mobilon ragadós sáv)?", who: "Andris" },
-  { topic: "Termékoldal", q: "Melyik 3-4 kiemelt jellemző kerüljön a termékoldal tetejére, terméktípusonként (társas, TCG, kiegészítő)?", who: "Andris" },
+  { topic: "Pénztár", q: "Telefonszám: országkód-lenyíló, vagy beírós mező, ami + jellel indul? És milyen formátumot vár a GLS?", who: "Andris, Laci" },
+  { topic: "Go-live", q: "A klub és az eseménynaptár is januárban megy élesbe, vagy csak a webshop? December elején visszatérünk rá.", who: "Andris, Csaba" },
   { topic: "Pénztár", q: "A darabszám kézzel is beírható legyen, vagy csak a plusz-mínusz gombokkal? A jegyzetben mindkettő szerepel.", who: "Laci, Andris" },
   { topic: "Breadcrumb", q: "Mobilon csak az előző szint látszik vissza-linkként. Így jó, vagy kell a teljes út rövidítve?", who: "Andris, Csaba" },
   { topic: "Termékkártya", q: "Minden termékkártyán ott a kedvenc szív. Maradjon, és mérjük, mennyien használják?", who: "Andris" },
-  { topic: "Kereső", q: "Kilistázhassa-e a kereső az összes találatot egy szóra, kategóriaszűrővel? Korábban kérés volt, hogy ne lehessen, szerintünk viszont kellene.", who: "Andris, Csaba" },
   { topic: "Pénztár", q: "Az Elfogadom bepipálása után módosíthatók maradjanak-e a mezők (most letiltja őket)? Szerintem maradhatnak.", who: "Andris" },
-  { topic: "Termékoldal", q: "A go-live termékoldal jobb oszlopa: ajánló-karusszel (A) vagy kiszállítás és termékelőnyök (B)?", who: "Andris, Csaba" },
   { topic: "Termékoldal", q: "Kerüljön-e ajándékutalvány a jobb oszlopba, kis dobozban?", who: "Andris" },
   { topic: "Galéria", q: "Mi kerüljön a Galériába, ha nem tudjuk eseményenként frissen tartani? Javaslat: néhány állandó kép a klubról.", who: "Andris" },
   { topic: "Termékoldal", q: "Mi a rendelési határidő és az ingyenes szállítás határa? A demóban 14 óra szerepel, a határ még nincs kiírva.", who: "Andris" },
@@ -310,7 +323,7 @@ const LINKS = [
     ["Menü go-live után", "index-sotet.html?menu=teljes", null, "az eredeti, Legnépszerűbb blokkal; ?menu=golive visszavált"],
     ["Terméklista", "products-sotet.html", null, "szűrőpanellel"],
     ["Terméklista: nincs találat", "products-sotet.html?ures", null, "üres lista üzenete"],
-    ["Termékoldal: társas", "termek-tarsas-golive-e-sotet.html", null, "a végleges: leírás középen, jobbra Ehhez még jól jön (amíg nincs mögötte logika, üresen marad) és Miért nálunk"],
+    ["Termékoldal: társas", "termek-tarsas-golive-e-sotet.html", null, "a végleges: leírás középen, jobbra Miért nálunk; az Ehhez még jól jön csak helyfoglaló, a go-live-on nem jelenik meg"],
     ["Termékoldal: TCG", "termek-tcg-golive-e-sotet.html", null, "előrendelés"],
     ["Termékoldal: kiegészítő", "termek-kiegeszito-golive-e-sotet.html", null],
     ["Termékoldal, Kosárba feljebb: társas", "termek-tarsas-golive-f-sotet.html", null, "ár és Kosárba egy sávban, készlet egy sorban, mobilon ragadós Kosárba-sáv"],
@@ -360,9 +373,14 @@ const LINKS = [
 ];
 
 const DECISIONS = [
+  { date: "11.18", text: "A következő meeting 11.27-én, pénteken 10-kor lesz." },
+  { date: "11.18", text: "Egy termékoldal lesz, nincs külön go-live változat. A részletes leírás a középső hasábban, a várható kiszállítás és átvétel a Kosárba teszem alatt, jobbra a Miért nálunk. Nincs rövid leírás, címkék, Specifikáció és Szállítás/Garancia lenyíló." },
+  { date: "11.18", text: "Az Ehhez még jól jön rendszerenként beállítható, legfeljebb 4 szűrő-gomb (felirat, szűrő, kis kép). Go-live után jön, addig nem jelenik meg. Általános ajánló-karusszel nem lesz a termékoldalon." },
+  { date: "11.18", text: "A termékoldal adatai csak rögzített attribútumokból jönnek, üres mezőnél nem jelenik meg semmi. Kiemelve: nyelv, téma, típus, és ha ki van töltve, játékosszám és játékidő. A nyelvi zászló az attribútum-ikonból jön." },
+  { date: "11.18", text: "A telefonszámot nem korlátozzuk magyar számra: + jellel és országhívóval kell kezdődnie, a 06 nem jó." },
+  { date: "11.18", text: "A kereső kilistázhatja egy szóra az összes találatot. Az irányítószámból betöltődő település a go-live utánra kerül." },
+  { date: "11.18", text: "A menü go-live változata (Típus és Téma oszlop) jó így. A 0 találatnál elég a Kritikus kudarc! felirat." },
   { date: "11.18", text: "A kosár tartalmát most nem foglaljuk, a pénztárból kikerült a visszaszámláló." },
-  { date: "11.18", text: "Egy termékoldal marad, nem lesz külön go-live változat: a leírás a középső hasábban, jobbra Ehhez még jól jön és Miért nálunk. Az Ehhez még jól jön egy darabig üres, amíg nincs mögötte logika (Laci tudja)." },
-  { date: "11.18", text: "A go-live termékoldal a C változat: a részletes leírás a középső hasábban, jobbra a Miért nálunk, a várható kiszállítás a Kosárba teszem alatt. Nincs rövid leírás, címkék, és Szállítás, illetve Garancia lenyíló." },
   { date: "11.11", text: "A menüben a Legnépszerűbb blokk helyén egyelőre nincs semmi, a menü tartalma beljebb kerül. A kereső admin-karusszele nem kerül a menübe." },
   { date: "11.11", text: "Az értesítések most nem készülnek el, a go-live után térünk vissza rájuk." },
   { date: "11.11", text: "A go-live januárban lesz. Addig csak a meglévő üzleti logika megy ki, új funkció a go-live után, külön branchen." },
