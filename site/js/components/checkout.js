@@ -285,16 +285,5 @@ function mgInitCheckout() {
     loginModal.show();
   });
 
-  /* Időzítő (kosár foglalás) */
-  var timeLeft = 15 * 60;
-  var $timer = $('.mg-checkout__timer-val');
-
-  setInterval(function () {
-    if (timeLeft <= 0) return;
-    timeLeft--;
-    var m = Math.floor(timeLeft / 60);
-    var s = timeLeft % 60;
-    $timer.text(m + ':' + (s < 10 ? '0' : '') + s);
-  }, 1000);
 
 }

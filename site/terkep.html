@@ -166,6 +166,8 @@ const STATUS = [
 
 // Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
 const SINCE = [
+  { date: "11.18", text: "404-es oldal: három dobókocka, mindegyiken négyes." },
+  { date: "11.18", text: "Pénztár: a kosár-foglalás visszaszámlálója kikerült, a telefonszám alatt egy mondat, hogy mire használjuk." },
   { date: "11.18", text: "Termékoldal, Kosárba feljebb: az ár és a Kosárba egy sávban, a készlet egy sorban (kattintásra boltonként), kisebb tény-címkék, mobilon ragadós Kosárba-sáv." },
   { date: "11.18", text: "Termékoldal go-live E: mint a C, de jobbra felül az Ehhez még jól jön (legfeljebb 4 termék, nagy képes kártya nélkül), alatta a Miért nálunk." },
   { date: "11.18", text: "Termékoldal go-live C és D, mindhárom példán: jobbra csak a Miért nálunk, a várható kiszállítás a Kosárba teszem alatt, a címkék kikerültek. C-ben a részletes leírás a középső hasábban, D-ben alul, két hasáb szélesen." },
@@ -179,7 +181,7 @@ const SINCE = [
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-18h";
+const BOARD_VERSION = "2026-11-18i";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
@@ -245,6 +247,7 @@ const TASKS = [
   { id: "pd-apro", col: "sprint", title: "Termékoldal: zászló ikon, képnagyító bezárása", who: "Ádám", detail: "A nyelvet jelző zászló szebben, a képnagyító X-e látványosabban." },
   { id: "pd-leiras-tipus", col: "backlog", title: "Termékleírás tagolása terméktípusonként", who: "Ádám, Laci, Andris", detail: "Melyik 3-4 jellemző kerüljön felülre egy társasnál, egy TCG-nél és egy kiegészítőnél, és honnan jön az adminban." },
   { id: "angol", col: "backlog", title: "Az oldal angol fordítása", who: "Laci", detail: "", tag: "go-live után" },
+  { id: "telefon-orszagkod", col: "sprint", title: "Pénztár: telefonszám országkóddal", who: "Ádám", detail: "A mező alá került egy mondat, hogy mire kell a szám. Hátravan az országkód-választó (pl. +36 lenyíló a mező elején)." },
   // backlog
   { id: "legnepszerubb", col: "backlog", title: "Legnépszerűbb termékek a menüben", who: "Laci", detail: "Egy lekérdezés a leggyakrabban vásárolt termékekre. A dizájn megvan.", tag: "go-live után" },
   { id: "ajanlo", col: "backlog", title: "Ehhez még jól jön: termékajánló logika", who: "Laci, Andris", detail: "Termékenként vagy rendszerenként kapcsolt ajánlatok. A modellezés még nyitott.", tag: "go-live után" },
@@ -315,6 +318,7 @@ const LINKS = [
     ["Termékoldal, Kosárba feljebb: kiegészítő", "termek-kiegeszito-golive-f-sotet.html", null],
     ["Termékoldal – régi", "product-sotet.html", null, "kisképes változatválasztó, ebből indul a go-live utáni"],
     ["Pénztár", "checkout.html", null, "hibaüzenetek: Fizetés üres mezőkkel"],
+    ["404-es oldal", "404.html", null, "három kocka, 4-4-4; bármelyik nem létező címen ez jön"],
     ["Sikeres rendelés", "success.html"],
     ["Profil", "profil-sotet.html", null, "rendelések, kedvencek, kreditek, beállítások"],
     ["Magic singles", "magic-singles-sotet.html", null, "tételes laplista"],
@@ -356,6 +360,7 @@ const LINKS = [
 ];
 
 const DECISIONS = [
+  { date: "11.18", text: "A kosár tartalmát most nem foglaljuk, a pénztárból kikerült a visszaszámláló." },
   { date: "11.18", text: "Egy termékoldal marad, nem lesz külön go-live változat: a leírás a középső hasábban, jobbra Ehhez még jól jön és Miért nálunk. Az Ehhez még jól jön egy darabig üres, amíg nincs mögötte logika (Laci tudja)." },
   { date: "11.18", text: "A go-live termékoldal a C változat: a részletes leírás a középső hasábban, jobbra a Miért nálunk, a várható kiszállítás a Kosárba teszem alatt. Nincs rövid leírás, címkék, és Szállítás, illetve Garancia lenyíló." },
   { date: "11.11", text: "A menüben a Legnépszerűbb blokk helyén egyelőre nincs semmi, a menü tartalma beljebb kerül. A kereső admin-karusszele nem kerül a menübe." },

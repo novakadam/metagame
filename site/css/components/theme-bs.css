@@ -398,3 +398,12 @@ a:hover { color: var(--color-gold-ring); }
   text-transform: uppercase;
   color: var(--color-gold);
 }
+
+/* ── 404 (11.18): három dobókocka, 4-4-4 ── */
+.mg-404 { padding-top: 96px; }
+.mg-404__dice { display: flex; justify-content: center; gap: 20px; margin-bottom: 16px; color: var(--color-gold); }
+.mg-404__die { width: 72px; height: 72px; }
+.mg-404__die:nth-child(1) { transform: rotate(-8deg); }
+.mg-404__die:nth-child(2) { transform: rotate(4deg) translateY(-6px); }
+.mg-404__die:nth-child(3) { transform: rotate(-3deg); }
+@media (max-width: 575px) { .mg-404__die { width: 56px; height: 56px; } .mg-404 { padding-top: 48px; } }
