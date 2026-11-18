@@ -350,3 +350,10 @@
 @media (max-width: 1024px) {
   .mg-pd2--golive-c .mg-product__info .mg-pd2__details { order: 12; margin: 0 16px 16px; }
 }
+
+/* ── GO-LIVE E (11.18): Ehhez még jól jön a jobb oszlop tetején ── */
+.mg-pd2--golive-e .mg-product__info .mg-pd2__upsell { margin: 16px 24px 0; }
+.mg-pd2--golive-e .mg-pd2__side .mg-pd2__upsell + h3 { margin-top: 8px; }
+@media (max-width: 1024px) {
+  .mg-pd2--golive-e .mg-product__info .mg-pd2__upsell { order: 9; margin: 16px; }
+}

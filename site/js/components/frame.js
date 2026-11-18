@@ -136,10 +136,10 @@ $(function () {
   // Demó: a Kosárba gombok (termékoldal, kártyák) a toastot mutatják navigálás helyett
   $(document).on('click', '.mg-product__add-to-cart, [data-mg-cart-add]', function (e) {
     e.preventDefault();
-    var $card = $(this).closest('.mg-product-card, .card');
+    var $card = $(this).closest('.mg-product-card, .card, .upsell-item');
     var name, img, qty = 1;
     if ($card.length) {
-      name = $card.find('h3, h4, .mg-product-card__title').first().text().trim();
+      name = $card.find('h3, h4, .mg-product-card__title, .text-card').first().text().trim();
       img = $card.find('img').first().attr('src');
     } else {
       name = $('h1').first().text().trim();
