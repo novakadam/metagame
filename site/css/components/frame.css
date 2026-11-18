@@ -1229,3 +1229,54 @@
   .mg-content > * { margin-bottom: 40px; }
 
 }
+
+/* ── KOSÁRBA TOAST (11.18) ──────────────────────────────────────
+   BS .toast, a hely a kosár ikonjához igazodik (frame.js: mgCartAdded
+   állítja a --mg-toast-* változókat). Asztalon az ikon alatt, mobilon
+   az alsó sáv kosara fölött. */
+.mg-cart-toast-area {
+  position: fixed;
+  top: var(--mg-toast-top, 96px);
+  right: var(--mg-toast-right, 16px);
+  z-index: var(--z-toast);
+}
+.mg-cart-toast-area.is-above {
+  top: auto;
+  bottom: var(--mg-toast-bottom, 96px);
+  left: 16px;
+  right: 16px;
+  width: auto; /* a BS .toast-container max-content szélessége helyett, hogy középre kerüljön */
+  display: flex;
+  justify-content: center;
+}
+.mg-cart-toast {
+  --bs-toast-max-width: 340px;
+  --bs-toast-bg: var(--color-bg-sidebar);
+  --bs-toast-border-color: var(--color-gold);
+  --bs-toast-border-radius: 0;
+  --bs-toast-color: var(--color-text);
+  --bs-toast-box-shadow: 0 12px 32px rgba(0, 0, 0, .5);
+  position: relative;
+  width: 340px;
+  max-width: 100%;
+}
+/* kis nyíl a kosár ikon felé */
+.mg-cart-toast-area:not(.is-above) .mg-cart-toast::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 18px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-bg-sidebar);
+  border-left: 1px solid var(--color-gold);
+  border-top: 1px solid var(--color-gold);
+  transform: rotate(45deg);
+}
+.mg-cart-toast__img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: var(--color-bg-muted);
+}

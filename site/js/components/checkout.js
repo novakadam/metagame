@@ -233,6 +233,50 @@ function mgInitCheckout() {
     }
   });
 
+  /* Űrlap-ellenőrzés (11.11-i döntés): a hibaüzenet a mező alatt jelenik meg.
+     BS validációs osztályok: .is-invalid a mezőn, alatta .invalid-feedback.
+     Csak a látható kötelező mezőket nézzük (cég, fiók, cím csak ha nyitva van).
+     BACKEND: a szerveroldali hiba ugyanígy jelenjen meg: is-invalid + a szöveg az invalid-feedbackben. */
+  function mgFieldValid(el) {
+    if (el.hasAttribute('data-mg-match')) {
+      var pw = $('[data-mg-password]').val();
+      el.setCustomValidity(el.value && el.value !== pw ? 'nem egyezik' : '');
+    }
+    return el.checkValidity();
+  }
+
+  function mgValidateCheckout() {
+    var $fields = $('.mg-checkout [required]').filter(function () {
+      return $(this).is(':visible') || this.type === 'checkbox';
+    });
+    var $firstBad = null;
+    $fields.each(function () {
+      var ok = mgFieldValid(this);
+      $(this).toggleClass('is-invalid', !ok);
+      if (!ok && !$firstBad) $firstBad = $(this);
+    });
+    $('.mg-checkout__form-error').toggleClass('d-block', !!$firstBad);
+    if ($firstBad) {
+      var top = $firstBad.closest('.mb-3, .form-check').offset().top - 120;
+      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+      $firstBad.trigger('focus', { preventScroll: true });
+    }
+    return !$firstBad;
+  }
+
+  $('[data-action="checkout-submit"]').on('click', function (e) {
+    if (!mgValidateCheckout()) e.preventDefault();
+  });
+
+  /* Javítás közben: amint jó lesz a mező, eltűnik a hiba. Elhagyáskor (blur) ellenőrzünk, gépelés közben nem szólunk be. */
+  $(document).on('input change', '.mg-checkout [required].is-invalid', function () {
+    if (mgFieldValid(this)) $(this).removeClass('is-invalid');
+    if (!$('.mg-checkout .is-invalid').length) $('.mg-checkout__form-error').removeClass('d-block');
+  });
+  $(document).on('blur', '.mg-checkout input[required]:not([type="checkbox"])', function () {
+    if (this.value) $(this).toggleClass('is-invalid', !mgFieldValid(this));
+  });
+
   /* Login modal (Bootstrap Modal) */
   var loginModalEl = document.querySelector('.mg-login-modal');
   var loginModal = new bootstrap.Modal(loginModalEl);

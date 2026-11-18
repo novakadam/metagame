@@ -60,6 +60,22 @@ function mgInitProductList() {
     $(this).hide();
   });
 
+  // ── ÜRES LISTA / 0 TALÁLAT (11.18) ─────────────────────────
+  // BACKEND: ha a lekérdezés 0 terméket ad, a szerver eleve a .mg-empty-state blokkot rendereli
+  // (d-none nélkül), a grid és a Load more nélkül. A demóban a ?ures URL-paraméter mutatja.
+  function mgShowEmptyList(isEmpty) {
+    $('[data-mg-empty]').toggleClass('d-none', !isEmpty);
+    $('.mg-product-grid, .mg-product-loadmore').toggleClass('d-none', isEmpty);
+    $('.mg-product-toolbar__count').text(isEmpty ? '0 termék' : '51 termék');
+  }
+  if (/[?&]ures\b/.test(location.search)) {
+    mgShowEmptyList(true);
+  }
+  $('[data-action="clear-filters"]').on('click', function () {
+    $('.mg-product-toolbar__clear').trigger('click');
+    mgShowEmptyList(false);
+  });
+
   // ── LOAD MORE ─────────────────────────────────────────────
   var currentPage = 1;
   var totalPages = 10;
@@ -311,7 +327,7 @@ function mgCreateDemoCard() {
         '</div>' +
 
         '<div class="mg-product-card__cta">' +
-          '<a class="btn btn-primary" href="' + (p.url || 'product-sotet.html') + '">' + (p.cta || 'Kosárba') + '</a>' +
+          '<a class="btn btn-primary" href="' + (p.url || 'product-sotet.html') + '"' + (p.cta ? '' : ' data-mg-cart-add') + '>' + (p.cta || 'Kosárba') + '</a>' +
         '</div>' +
 
       '</div>' +

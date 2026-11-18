@@ -14,11 +14,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/tokens.css?v=20261118">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components/buttons.css">
-  <link rel="stylesheet" href="css/components/forms.css?v=20261029">
-  <link rel="stylesheet" href="css/components/theme-bs.css">
+  <link rel="stylesheet" href="css/components/forms.css?v=20261118">
+  <link rel="stylesheet" href="css/components/theme-bs.css?v=20261118">
   <link rel="stylesheet" href="css/components/checkout.css?v=20261029">
 </head>
 <body>
@@ -76,14 +76,16 @@
               <div class="mb-3">
                 <label class="form-label">Vezetéknév <span class="text-danger">*</span></label>
                 <!-- BACKEND: customer.lastName -->
-                <input class="form-control" type="text" placeholder="Kovács">
+                <input class="form-control" type="text" placeholder="Kovács" required>
+                <div class="invalid-feedback">Add meg a vezetékneved.</div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
                 <label class="form-label">Keresztnév <span class="text-danger">*</span></label>
                 <!-- BACKEND: customer.firstName -->
-                <input class="form-control" type="text" placeholder="János">
+                <input class="form-control" type="text" placeholder="János" required>
+                <div class="invalid-feedback">Add meg a keresztneved.</div>
               </div>
             </div>
           </div>
@@ -91,7 +93,8 @@
           <div class="mb-3">
             <label class="form-label">E-mail cím <span class="text-danger">*</span></label>
             <!-- BACKEND: customer.email -->
-            <input class="form-control" type="email" placeholder="kovacs.janos@example.com">
+            <input class="form-control" type="email" placeholder="kovacs.janos@example.com" required>
+            <div class="invalid-feedback">Adj meg egy érvényes e-mail címet, pl. nev@example.com.</div>
             <div class="mg-checkout__auth-row">
               <span class="form-text">A rendelés visszaigazolását erre a címre küldjük</span>
               <!-- BACKEND: bejelentkezés gomb ha nincs session -->
@@ -103,7 +106,8 @@
           <div class="mb-3">
             <label class="form-label">Telefonszám <span class="text-danger">*</span></label>
             <!-- BACKEND: customer.phone -->
-            <input class="form-control" type="tel" placeholder="+36 30 123 4567">
+            <input class="form-control" type="tel" placeholder="+36 30 123 4567" required>
+            <div class="invalid-feedback">Add meg a telefonszámod, hogy a futár el tudjon érni.</div>
           </div>
 
           <!-- Cégként vásárlás -->
@@ -122,26 +126,30 @@
                 <div class="mb-3">
                   <label class="form-label">Cégnév <span class="text-danger">*</span></label>
                   <!-- BACKEND: company.name -->
-                  <input class="form-control" type="text" placeholder="Példa Kft.">
+                  <input class="form-control" type="text" placeholder="Példa Kft." required>
+                  <div class="invalid-feedback">Add meg a cég nevét.</div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
                   <label class="form-label">Adószám <span class="text-danger">*</span></label>
                   <!-- BACKEND: company.taxId -->
-                  <input class="form-control" type="text" placeholder="12345678-1-23">
+                  <input class="form-control" type="text" placeholder="12345678-1-23" pattern="\d{8}-\d-\d{2}" required>
+                  <div class="invalid-feedback">Az adószám formátuma: 12345678-1-23.</div>
                 </div>
               </div>
             </div>
             <div class="mb-3">
               <label class="form-label">Számlázási cím <span class="text-danger">*</span></label>
               <!-- BACKEND: company.address -->
-              <input class="form-control" type="text" placeholder="1234 Budapest, Példa utca 1.">
+              <input class="form-control" type="text" placeholder="1234 Budapest, Példa utca 1." required>
+              <div class="invalid-feedback">Add meg a számlázási címet.</div>
             </div>
             <div class="mb-3">
               <label class="form-label">Számlázási e-mail <span class="text-danger">*</span></label>
               <!-- BACKEND: company.invoiceEmail -->
-              <input class="form-control" type="email" placeholder="szamla@ceg.hu">
+              <input class="form-control" type="email" placeholder="szamla@ceg.hu" required>
+              <div class="invalid-feedback">Adj meg egy érvényes e-mail címet a számlához.</div>
               <span class="form-text">Ide küldjük a számlát (ha eltér a fenti e-mail címtől)</span>
             </div>
           </div>
@@ -160,13 +168,15 @@
               <div class="col-md-6">
                 <div class="mb-3">
                   <label class="form-label">Jelszó <span class="text-danger">*</span></label>
-                  <input class="form-control" type="password" placeholder="Min. 8 karakter">
+                  <input class="form-control" type="password" placeholder="Min. 8 karakter" minlength="8" data-mg-password required>
+                  <div class="invalid-feedback">A jelszó legalább 8 karakter legyen.</div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
                   <label class="form-label">Jelszó megerősítése <span class="text-danger">*</span></label>
-                  <input class="form-control" type="password" placeholder="Jelszó újra">
+                  <input class="form-control" type="password" placeholder="Jelszó újra" data-mg-match required>
+                  <div class="invalid-feedback">A két jelszó nem egyezik.</div>
                 </div>
               </div>
             </div>
@@ -243,19 +253,22 @@
             <div class="col-md-4">
               <div class="mb-3">
                 <label class="form-label">Irányítószám <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" placeholder="1234">
+                <input class="form-control" type="text" placeholder="1234" pattern="\d{4}" inputmode="numeric" required>
+                <div class="invalid-feedback">Az irányítószám 4 számjegy.</div>
               </div>
             </div>
             <div class="col-md-8">
               <div class="mb-3">
                 <label class="form-label">Város <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" placeholder="Budapest">
+                <input class="form-control" type="text" placeholder="Budapest" required>
+                <div class="invalid-feedback">Add meg a várost.</div>
               </div>
             </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Utca, házszám <span class="text-danger">*</span></label>
-            <input class="form-control" type="text" placeholder="Példa utca 123.">
+            <input class="form-control" type="text" placeholder="Példa utca 123." required>
+            <div class="invalid-feedback">Add meg az utcát és a házszámot.</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Megjegyzés a futárnak</label>
@@ -423,8 +436,16 @@
         <div class="mg-checkout__totals p-4 mt-3" style="background:var(--color-bg-muted);"></div>
 
         <div class="mg-checkout__cta">
-          <!-- BACKEND: fizetési gateway redirect -->
-          <a href="success.html" class="btn btn-primary">Fizetés</a>
+          <!-- ÁSZF elfogadása: kötelező. Hibánál a szöveg a pipa alatt jelenik meg (BS .is-invalid ~ .invalid-feedback) -->
+          <label class="form-check mg-checkout__terms">
+            <input class="form-check-input" type="checkbox" id="acceptTerms" required>
+            <span class="form-check-label small">Elolvastam és elfogadom az <a href="#">ÁSZF</a>-et és az <a href="#">Adatvédelmi tájékoztatót</a>.</span>
+            <span class="invalid-feedback">A rendeléshez el kell fogadnod az ÁSZF-et.</span>
+          </label>
+          <!-- Összesítő hiba: ha a gombra kattintva van hibás mező, itt is szólunk (a mező alatti üzenet a fő) -->
+          <div class="invalid-feedback mg-checkout__form-error" role="alert">Néhány adat hiányzik vagy hibás, a pirossal jelölt mezőknél látod, mit kell javítani.</div>
+          <!-- BACKEND: fizetési gateway redirect. A demóban a JS előbb ellenőrzi a kötelező mezőket (mgValidateCheckout) -->
+          <a href="success.html" class="btn btn-primary" data-action="checkout-submit">Fizetés</a>
           <a href="index-sotet.html" class="mg-checkout__continue">Folytatom a vásárlást</a>
         </div>
 
@@ -498,7 +519,7 @@
 <!-- JS -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/components/checkout.js?v=20261029"></script>
+<script src="js/components/checkout.js?v=20261118"></script>
 <script>
   $(function () {
     mgInitCheckout();

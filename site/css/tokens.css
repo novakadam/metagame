@@ -53,6 +53,12 @@
   --bs-border-color: var(--color-border);
   --bs-border-color-translucent: var(--color-border);
 
+  /* ── BS VALIDÁCIÓ ──────────────────────── */
+  /* Hibás mező keret + hibaüzenet a theme narancspirosával (11.18).
+     A BS .is-invalid / .invalid-feedback ezeket a változókat olvassa. */
+  --bs-form-invalid-color: var(--color-destructive);
+  --bs-form-invalid-border-color: var(--color-destructive);
+
   /* ── BORDER RADIUS ────────────────────────── */
   --radius-xs:   2px;
   --radius-sm:   6px;
