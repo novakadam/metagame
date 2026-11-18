@@ -36,3 +36,16 @@ function mgInitProductDetail() {
     $(this).addClass('is-active');
   });
 }
+
+/* GO-LIVE F (11.18): mobilon ragadós Kosárba-sáv. Akkor jelenik meg, ha a fő
+   Kosárba gomb már kigördült felfelé; a sáv gombja a fő gombot nyomja meg. */
+$(function () {
+  var $bar = $('.mg-pd2__sticky-buy');
+  var btn = document.querySelector('.mg-product__add-to-cart');
+  if (!$bar.length || !btn) return;
+  $bar.appendTo('body'); // a fix pozíció a görgethető keret-konténeren kívül legyen
+  function check() { $bar.toggleClass('is-visible', btn.getBoundingClientRect().bottom < 0); }
+  $(window).on('scroll resize', check);
+  check();
+  $bar.on('click', '[data-action="sticky-add"]', function () { $(btn).trigger('click'); });
+});

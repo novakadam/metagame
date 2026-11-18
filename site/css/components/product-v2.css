@@ -357,3 +357,52 @@
 @media (max-width: 1024px) {
   .mg-pd2--golive-e .mg-product__info .mg-pd2__upsell { order: 9; margin: 16px; }
 }
+
+/* ── GO-LIVE F (11.18): a Kosárba feljebb ─────────────────────────
+   1) ár és Kosárba egy sávban, 2) készlet egy sorban, kattintásra
+   boltonként, 3) kisebb tény-címkék, 4) mobilon ragadós alsó sáv. */
+.mg-pd2--golive-f .mg-product__price-section { gap: 12px; padding: 20px 18px 14px; }
+/* rács: felül ár | darabszám | kedvenc, alatta a gomb teljes szélességben */
+.mg-pd2--golive-f .mg-pd2__buy {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-template-areas: "price qty fav" "btn btn btn";
+  align-items: center;
+  gap: 12px;
+}
+.mg-pd2--golive-f .mg-pd2__buy .mg-product__cart-row { display: contents; }
+.mg-pd2--golive-f .mg-pd2__buy .mg-product__price-row {
+  grid-area: price; flex-wrap: wrap; justify-content: flex-start; column-gap: 6px; row-gap: 0;
+}
+.mg-pd2--golive-f .mg-pd2__buy .mg-product__qty { grid-area: qty; }
+.mg-pd2--golive-f .mg-pd2__buy .mg-product__wishlist-btn { grid-area: fav; }
+.mg-pd2--golive-f .mg-pd2__buy .mg-product__add-to-cart { grid-area: btn; width: 100%; }
+.mg-pd2__stock-line {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  width: 100%; padding: 10px 12px; background: none;
+  border: 1px solid var(--color-border-muted); color: var(--color-text);
+  font-size: var(--font-size-sm); text-align: left;
+}
+.mg-pd2__stock-line:hover { border-color: var(--color-gold); }
+.mg-pd2__stock-sum { display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.mg-pd2__stock-sep { color: var(--color-text-muted); }
+.mg-pd2__stock-chev { flex-shrink: 0; color: var(--color-gold); transition: transform var(--transition-fast); }
+.mg-pd2__stock-line:not(.collapsed) .mg-pd2__stock-chev { transform: rotate(180deg); }
+.mg-pd2--golive-f #pd2-stock .mg-product__stock { margin-top: 4px; }
+/* tény-címkék kisebbek, hogy egy sorba férjenek */
+.mg-pd2--golive-f .mg-pd2__facts { gap: 6px; }
+.mg-pd2--golive-f .mg-pd2__fact { font-size: 13px; padding: 4px 9px; gap: 5px; }
+.mg-pd2--golive-f .mg-pd2__fact svg { width: 14px; height: 14px; }
+/* ragadós alsó sáv: csak mobilon, a keret alsó ikonsávja fölött */
+.mg-pd2__sticky-buy { display: none; }
+@media (max-width: 1024px) {
+  .mg-pd2__sticky-buy {
+    display: flex; align-items: center; gap: 12px;
+    position: fixed; left: 12px; right: 12px; bottom: 62px; z-index: 100;
+    padding: 10px 12px; background: var(--color-bg-sidebar); border: 1px solid var(--color-gold);
+    box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    transform: translateY(calc(100% + 80px)); transition: transform var(--transition-base);
+  }
+  .mg-pd2__sticky-buy.is-visible { transform: none; }
+}
+
