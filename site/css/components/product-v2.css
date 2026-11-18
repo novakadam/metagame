@@ -331,3 +331,8 @@
   .mg-pd2--golive .mg-product__qty { flex: 0 0 96px; }
   .mg-pd2--golive .mg-product__wishlist-btn { flex: 0 0 auto; }
 }
+
+/* ── JOBB OSZLOP: a teteje a breadcrumb vonalával egy vonalban (11.18) ──
+   A breadcrumb 4 + sor + 4 px + 1 px vonal magas; a jobb oszlop első dobozának
+   felső kerete erre a vonalra ül. */
+.mg-pd2 .mg-product__sidebar { margin-top: 28px; }

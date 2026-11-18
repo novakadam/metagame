@@ -166,6 +166,9 @@ const STATUS = [
 
 // Ami az előző meeting óta készült. Meeting után ürítjük és újrakezdjük.
 const SINCE = [
+  { date: "11.18", text: "Menü go-live változat: Típus és Téma oszlop a Legnépszerűbb helyén. Az eredeti menü elmentve a go-live utánra." },
+  { date: "11.18", text: "A 0 találat ikonja egy D20, ami 1-et dobott: Kritikus kudarc!" },
+  { date: "11.18", text: "Termékoldal: a jobb oszlop teteje egy vonalban a breadcrumb vonalával." },
   { date: "11.18", text: "Kosárba tétel visszajelzése a kosár ikonja alatt, a kosár száma felugrik. Minden Kosárba gombnál működik a demóban." },
   { date: "11.18", text: "Pénztár: hibaüzenet a mező alatt és ÁSZF-pipa a Fizetés gomb fölött." },
   { date: "11.18", text: "Üres lista és 0 találat üzenete a terméklistán és a keresőben." },
@@ -173,7 +176,7 @@ const SINCE = [
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-18b";
+const BOARD_VERSION = "2026-11-18c";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
@@ -188,7 +191,7 @@ const TASKS = [
   { id: "validacio", col: "done", title: "Űrlapok: hibaüzenet a mező alatt", who: "Ádám", detail: "Pénztár: a kötelező mezők alatt a hibaüzenet (Bootstrap is-invalid + invalid-feedback), ÁSZF-pipa a Fizetés gomb fölött, hibánál a gomb fölött egy összesítő sor is. Ugyanez a minta jó a regisztrációhoz." },
   { id: "nulla-talalat", col: "done", title: "Üres lista és 0 találat üzenete", who: "Ádám", detail: "Terméklista: üzenet és Szűrők törlése gomb, ha a szűrésnek nincs találata (demó: products-sotet.html?ures). Kereső: asztalon és mobilon ugyanaz a szöveg, a keresett szóval." },
   { id: "kosar-jelzes", col: "done", title: "Kosárba tétel visszajelzése", who: "Ádám", detail: "A kosár ikonja alatt jelenik meg (mobilon az alsó sáv kosara fölött): a termék képe és neve, Kosár és Pénztár gomb, 4 másodperc után eltűnik. Közben a kosár száma felugrik." },
-  { id: "menu-tipus-tema", col: "sprint", title: "Menü második szintje: típus és téma oszlop", who: "Ádám, Laci", detail: "A rendszer oszlopa marad, a Legnépszerűbb helyére két oszlop jön, saját címmel: Típus (pl. Booster, Display) és Téma. A témából sok van, ezért csak az első néhány látszik (a téma az adminban súlyozható, így a sorrend állítható), alatta Összes … sor. A dizájnt Andrisékkal még egyeztetjük." },
+  { id: "menu-tipus-tema", col: "feedback", title: "Menü második szintje: típus és téma oszlop", who: "Ádám, Laci", detail: "A demó menüje mostantól a go-live változat: rendszer, Típus és Téma oszlop saját címmel, a témából az első 6 (az adminban súlyozott sorrend), alatta Összes téma. A Legnépszerűbb blokkos eredeti menü elmentve, a go-live utánra (bármelyik oldal ?menu=teljes paraméterrel). Jó így?" },
   { id: "laci-profil", col: "sprint", title: "Profil a demó szerint", who: "Laci", detail: "Bal oldali almenü, kedvencek panel, a rendeléseim lista a demó elrendezésével. A paraméteres URL-nél a bal panel ne váltson át, a számlázási cím jelenjen meg." },
   { id: "laci-slug", col: "sprint", title: "Linkek: slug az azonosító helyett", who: "Laci", detail: "Most azonosító kerül a linkbe, ettől rossz nevek és levágott terméknevek látszanak a UAT-on." },
   { id: "laci-kereso", col: "sprint", title: "Kereső apróságok", who: "Laci, Ádám", detail: "Mobilon a kiválasztott találat vigyen a termékre. Az ajánlott termékek száma igazodjon a sorhoz, a többi rejtve." },
@@ -296,7 +299,8 @@ const BASE = "https://metagame-build.vercel.app/";
 // [cím, fájl, második változat (opcionális), megjegyzés]
 const LINKS = [
   { group: "Webshop", items: [
-    ["Kezdőlap", "index-sotet.html", null],
+    ["Kezdőlap", "index-sotet.html", null, "a menü a go-live változat: Típus és Téma"],
+    ["Menü go-live után", "index-sotet.html?menu=teljes", null, "az eredeti, Legnépszerűbb blokkal; ?menu=golive visszavált"],
     ["Terméklista", "products-sotet.html", null, "szűrőpanellel"],
     ["Terméklista: nincs találat", "products-sotet.html?ures", null, "üres lista üzenete"],
     ["Termékoldal go-live A: társas", "termek-tarsas-golive-a-sotet.html", null, "jobbra ajánló-karusszel, Megnézem gombbal"],

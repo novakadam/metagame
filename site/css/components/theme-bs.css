@@ -381,11 +381,20 @@ a:hover { color: var(--color-gold-ring); }
   text-align: center;
 }
 .mg-empty-state__icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: var(--space-md);
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--space-sm);
   color: var(--color-gold);
-  opacity: .6;
 }
 .mg-empty-state--compact { padding: var(--space-xl) var(--space-md); }
-.mg-empty-state--compact .mg-empty-state__icon { width: 40px; height: 40px; }
+.mg-empty-state--compact .mg-empty-state__icon { width: 48px; height: 48px; }
+/* kis felirat az ikon alatt (pl. „Kritikus kudarc!” a D20 mellé) */
+.mg-empty-state__kicker {
+  margin: -8px 0 8px;
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}

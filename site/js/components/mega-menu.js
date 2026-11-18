@@ -21,6 +21,14 @@ var mgMegaMenuData = {
         'Single kártyák', 'Kiegészítők'
       ]
     },
+    // GO-LIVE (11.11): a Legnépszerűbb helyén Típus és Téma oszlop.
+    // BACKEND: a típus a termék típus-mezője, a téma a téma-mezője (az adminban súlyozható,
+    // a súly szerinti első MG_THEME_LIMIT jelenik meg, alatta „Összes … téma”).
+    themes: {
+      'Pokémon': ['Mega Evolution', 'Destined Rivals', 'Journey Together', 'Prismatic Evolutions', 'Surging Sparks', 'Stellar Crown', 'Shrouded Fable', 'Twilight Masquerade', 'Temporal Forces', 'Paldean Fates'],
+      'Magic: The Gathering': ['Edge of Eternities', 'Final Fantasy', 'Tarkir: Dragonstorm', 'Aetherdrift', 'Foundations', 'Duskmourn', 'Bloomburrow'],
+      'Yu-Gi-Oh!': ['Justice Hunters', 'Alliance Insight', 'Doom of Dimensions', 'Supreme Darkness', 'Rage of the Abyss']
+    },
     popular: [
       { name: 'Magic Play Display', price: '2 500 Ft', img: '../assets/images/content - placeholder/product/magic-play-display-transparent.png' },
       { name: 'Riftbound Booster', price: '3 990 Ft', img: '../assets/images/content - placeholder/product/riftbound-leag-booster-transparent.png' }
@@ -39,12 +47,33 @@ var mgMegaMenuData = {
       'Kooperatív': ['Legacy', 'Kampány', 'Egyszer játszható'],
       'Party':      ['Szó-játékok', 'Blöff', 'Gyorsasági']
     },
+    themes: {
+      'Családi':    ['Állatos', 'Fantasy', 'Kalandos', 'Logikai', 'Klasszikus'],
+      'Stratégiai': ['Fantasy', 'Sci-fi', 'Történelmi', 'Gazdasági', 'Háborús', 'Horror'],
+      'Kooperatív': ['Fantasy', 'Horror', 'Krimi', 'Sci-fi'],
+      'Party':      ['Rajzolós', 'Kvíz', 'Szerepjátékos', 'Felnőtt']
+    },
     popular: [
       { name: 'Riftbound Deck', price: '8 990 Ft', img: '../assets/images/content - placeholder/product/riftbound-deck-transparent.png' },
       { name: 'Magic Play Display', price: '12 490 Ft', img: '../assets/images/content - placeholder/product/magic-play-display-transparent.png' }
     ]
   }
 };
+
+/* ── MENÜ-VÁLTOZAT (11.18) ─────────────────────────────────────
+   'golive' (alap): rendszer | Típus | Téma. A Legnépszerűbb blokk nincs,
+     mert a go-live-ra nincs mögötte lekérdezés (11.11-i döntés).
+   'teljes': az eredeti menü a Legnépszerűbb blokkal, a go-live utánra
+     elmentve. Demóban: bármelyik oldal ?menu=teljes paraméterrel, ami a
+     böngészőfülön (sessionStorage) megmarad; ?menu=golive visszaállít. */
+var MG_THEME_LIMIT = 6;
+function mgMenuVariant() {
+  var m = /[?&]menu=(teljes|golive)/.exec(location.search);
+  try {
+    if (m) sessionStorage.setItem('mgMenu', m[1]);
+    return sessionStorage.getItem('mgMenu') || 'golive';
+  } catch (e) { return m ? m[1] : 'golive'; }
+}
 
 function mgInitMegaMenu() {
   var $nav      = $('#mg-nav-left');
@@ -93,8 +122,12 @@ function mgInitMegaMenu() {
     html += '</div>';
 
     html += '<div class="mg-megamenu__right">';
-    html += buildSubcats(data, activeBrand);
-    html += buildPopular(data);
+    if (mgMenuVariant() === 'teljes') {
+      html += buildSubcats(data, activeBrand);
+      html += buildPopular(data);
+    } else {
+      html += buildTypeTheme(data, activeBrand);
+    }
     html += '</div>';
 
     $menu.html(html);
@@ -103,7 +136,11 @@ function mgInitMegaMenu() {
       var brand = $(this).data('brand');
       $menu.find('.mg-megamenu__brand').removeClass('is-active');
       $(this).addClass('is-active');
-      $menu.find('.mg-megamenu__subcats').replaceWith(buildSubcats(data, brand));
+      if (mgMenuVariant() === 'teljes') {
+        $menu.find('.mg-megamenu__subcats').replaceWith(buildSubcats(data, brand));
+      } else {
+        $menu.find('.mg-megamenu__right').html(buildTypeTheme(data, brand));
+      }
     });
   }
 
@@ -121,6 +158,27 @@ function mgInitMegaMenu() {
     // BACKEND: link a rendszer teljes terméklistájára
     html += '<a class="nav-link p-0 text-gold" href="#">Összes ' + brandName + ' termék →</a>';
     html += '</nav></div>';
+    return html;
+  }
+
+  // GO-LIVE: két oszlop, saját címmel. A téma hosszú lista, ezért csak az első
+  // MG_THEME_LIMIT (adminban súlyozott sorrend), alatta link az összesre.
+  function buildTypeTheme(data, brandName) {
+    var types  = (data.subcategories && data.subcategories[brandName]) || [];
+    var themes = (data.themes && data.themes[brandName]) || [];
+    var col = function (title, items, allLabel) {
+      var h = '<div class="mg-megamenu__subcats">';
+      h += '<h6 class="fw-bold text-uppercase">' + title + '</h6>';
+      h += '<nav class="nav flex-column gap-3">';
+      items.forEach(function (t) { h += '<a class="nav-link p-0" href="products-sotet.html">' + t + '</a>'; });
+      if (allLabel) h += '<a class="nav-link p-0 text-gold" href="products-sotet.html">' + allLabel + ' →</a>';
+      h += '</nav></div>';
+      return h;
+    };
+    var html = col('Típus', types, 'Összes ' + brandName + ' termék');
+    if (themes.length) {
+      html += col('Téma', themes.slice(0, MG_THEME_LIMIT), themes.length > MG_THEME_LIMIT ? 'Összes téma (' + themes.length + ')' : null);
+    }
     return html;
   }
 

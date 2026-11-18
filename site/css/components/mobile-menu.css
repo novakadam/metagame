@@ -783,3 +783,14 @@ body.mg-mobile-drawer-open {
 .mg-mobile-menu__all::after {
   content: " →";
 }
+
+/* GO-LIVE menü (11.18): Típus és Téma csoportcím a 3. szinten */
+.mg-mobile-menu__group-title {
+  padding: 20px 20px 8px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}

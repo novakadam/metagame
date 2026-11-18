@@ -192,7 +192,10 @@ function mgInitMobileMenu() {
       });
     }
 
-    html += buildPopularHtml(data.popular);
+    // a go-live menüben nincs Legnépszerűbb (11.11)
+    if (typeof mgMenuVariant === 'function' && mgMenuVariant() === 'teljes') {
+      html += buildPopularHtml(data.popular);
+    }
 
     return html;
   }
@@ -206,11 +209,29 @@ function mgInitMobileMenu() {
     html += chevronLeft(20) + '<span>' + brandName + '</span></button>';
     html += allRow(brandName);
 
-    subs.forEach(function(sub) {
-      html += '<a class="mg-mobile-menu__subcat" href="products-sotet.html">' + sub + '</a>';
-    });
-
-    html += buildPopularHtml(data.popular);
+    var golive = typeof mgMenuVariant === 'function' && mgMenuVariant() !== 'teljes';
+    if (golive) {
+      // GO-LIVE (11.18): Típus és Téma címmel, a témából az első MG_THEME_LIMIT
+      var themes = (data.themes && data.themes[brandName]) || [];
+      html += '<div class="mg-mobile-menu__group-title">Típus</div>';
+      subs.forEach(function(sub) {
+        html += '<a class="mg-mobile-menu__subcat" href="products-sotet.html">' + sub + '</a>';
+      });
+      if (themes.length) {
+        html += '<div class="mg-mobile-menu__group-title">Téma</div>';
+        themes.slice(0, MG_THEME_LIMIT).forEach(function(t) {
+          html += '<a class="mg-mobile-menu__subcat" href="products-sotet.html">' + t + '</a>';
+        });
+        if (themes.length > MG_THEME_LIMIT) {
+          html += '<a class="mg-mobile-menu__subcat text-gold" href="products-sotet.html">Összes téma (' + themes.length + ') →</a>';
+        }
+      }
+    } else {
+      subs.forEach(function(sub) {
+        html += '<a class="mg-mobile-menu__subcat" href="products-sotet.html">' + sub + '</a>';
+      });
+      html += buildPopularHtml(data.popular);
+    }
 
     return html;
   }

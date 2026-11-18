@@ -91,7 +91,8 @@ function mgRenderResults(items, query) {
 function mgEscape(t) { return $('<div>').text(t).html(); }
 function mgNoResultsHtml(query) {
   return '<div class="mg-empty-state mg-empty-state--compact">' +
-    '<svg class="mg-empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/><path d="M8.5 11h5"/></svg>' +
+    '<svg class="mg-empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L20.7 7V17L12 22L3.3 17V7Z"/><path d="M12 7.4L16.8 15.6H7.2Z"/><path d="M12 2V7.4M3.3 7L12 7.4L20.7 7M3.3 7L7.2 15.6M20.7 7L16.8 15.6M3.3 17L7.2 15.6M20.7 17L16.8 15.6M7.2 15.6L12 22L16.8 15.6"/><path d="M10.9 11.5L12.3 10.2V14.7M11 14.7H13.5" stroke-width="1.25"/></svg>' +
+    '<p class="mg-empty-state__kicker">Kritikus kudarc!</p>' +
     '<h3 class="h5">Nincs találat erre: „' + mgEscape(query) + '”</h3>' +
     '<p class="small text-muted mb-0">Nézd meg, jól írtad-e, vagy próbáld rövidebben, pl. csak a játék nevével. A kategóriák között böngészve is megtalálod.</p>' +
     '</div>';
