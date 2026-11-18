@@ -176,7 +176,7 @@ const SINCE = [
 ];
 
 // Kanban. Ha a kártyákon változtatsz, emeld a BOARD_VERSION-t, így a böngészőkben tárolt sorrend is frissül.
-const BOARD_VERSION = "2026-11-18c";
+const BOARD_VERSION = "2026-11-18d";
 const COLUMNS = [
   { id: "backlog", title: "Backlog" },
   { id: "sprint", title: "Heti sprint", sub: "11.11–11.18." },
@@ -186,7 +186,7 @@ const COLUMNS = [
 const TASKS = [
   // heti sprint (a következő meeting 11.18-án)
   { id: "pd-golive", col: "feedback", title: "Termékoldal: go-live változat, A és B", who: "Andris, Csaba", detail: "Változatválasztó és Ehhez még jól jön nélkül, a Kosárba közvetlenül az ár és a készlet alatt, a Specifikáció lenyíló kimaradt. A: jobbra ajánló-karusszel az admin Karusszel listájából, Kosárba helyett Megnézem gombbal. B: jobbra a kiszállítás és a termékelőnyök. Melyik legyen?" },
-  { id: "pd-valtozat", col: "sprint", title: "Termékoldal: változatválasztó a go-live utánra", who: "Ádám", detail: "Kiszerelés, nyelv és szín: a kapcsolt termék kis képe és neve, kattintásra a másik termék oldala nyílik. Most csak a dizájn készül el, Laci külön branchen fejleszti." },
+  { id: "pd-valtozat", col: "sprint", title: "Termékoldal: változatválasztó a go-live utánra", who: "Ádám", detail: "A régi termékoldal kisképes választójából indulunk (Laci szerint az volt a jobb, nem a mostani szöveges sáv): a kapcsolt termékek kis képe, alatta a neve (kiszerelés, nyelv, szín), kattintásra a másik termék oldala nyílik. Most csak a dizájn készül el, Laci a go-live után, külön branchen fejleszti." },
   { id: "sablonok", col: "sprint", title: "A demó-sablonok feltöltése Lacinak", who: "Ádám", detail: "A termékoldal go-live változatával és a mai javításokkal együtt." },
   { id: "validacio", col: "done", title: "Űrlapok: hibaüzenet a mező alatt", who: "Ádám", detail: "Pénztár: a kötelező mezők alatt a hibaüzenet (Bootstrap is-invalid + invalid-feedback), ÁSZF-pipa a Fizetés gomb fölött, hibánál a gomb fölött egy összesítő sor is. Ugyanez a minta jó a regisztrációhoz." },
   { id: "nulla-talalat", col: "done", title: "Üres lista és 0 találat üzenete", who: "Ádám", detail: "Terméklista: üzenet és Szűrők törlése gomb, ha a szűrésnek nincs találata (demó: products-sotet.html?ures). Kereső: asztalon és mobilon ugyanaz a szöveg, a keresett szóval." },
@@ -312,7 +312,7 @@ const LINKS = [
     ["Termékoldal go-live után: társas", "termek-tarsas-sotet.html", null, "Ehhez még jól jön"],
     ["Termékoldal go-live után: TCG", "termek-tcg-sotet.html", null, "kiszerelés- és nyelvválasztó"],
     ["Termékoldal go-live után: kiegészítő", "termek-kiegeszito-sotet.html", null, "színválasztó"],
-    ["Termékoldal – régi", "product-sotet.html", null],
+    ["Termékoldal – régi", "product-sotet.html", null, "kisképes változatválasztó, ebből indul a go-live utáni"],
     ["Pénztár", "checkout.html", null, "hibaüzenetek: Fizetés üres mezőkkel"],
     ["Sikeres rendelés", "success.html"],
     ["Profil", "profil-sotet.html", null, "rendelések, kedvencek, kreditek, beállítások"],
